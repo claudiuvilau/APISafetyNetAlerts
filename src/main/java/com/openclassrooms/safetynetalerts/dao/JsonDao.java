@@ -1,6 +1,6 @@
 package com.openclassrooms.safetynetalerts.dao;
 
-import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 public interface JsonDao {
 
@@ -15,6 +15,6 @@ public interface JsonDao {
 	 * GET /persons/{firstName, lastName, address, phone}
 	 * ?address=/firestation/{address} ?stationNumber=3
 	 */
-	public JSONArray createPersonsCaserne(String collection, String caserne);
+	public JSONObject createPersonsCaserne(String collection, String caserne);
 
 }

@@ -12,7 +12,7 @@ public class JsonDaoImplements implements JsonDao {
 	JSONArray jsonA = new JSONArray();
 
 	@Override
-	public JSONArray createPersonsCaserne(String collection, String caserne) {
+	public JSONObject createPersonsCaserne(String collection, String caserne) {
 
 		Firestations firestations = new Firestations();
 		jsonA = firestations.firestationsJson();
@@ -28,10 +28,14 @@ public class JsonDaoImplements implements JsonDao {
 			}
 		}
 
+		JSONObject jsonO = new JSONObject();
+
 		if (personsCaserne) {
-			return jsonACaserne; // if the address with the number of caserne
+			jsonO.put("firestations", jsonACaserne);
+			return jsonO; // if the address with the number of caserne
 		} else
-			return jsonA;
+			jsonO.put("firestations", jsonA);
+		return jsonO;
 	}
 
 }
