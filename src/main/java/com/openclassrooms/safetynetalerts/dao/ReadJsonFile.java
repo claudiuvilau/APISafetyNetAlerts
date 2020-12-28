@@ -34,7 +34,18 @@ public class ReadJsonFile {
 		Medicalrecords medicalrecords = new Medicalrecords();
 
 		JsonIterator iterator;
+/*
+ *   	
+    	
+    	String filePath = "src/main/resources/data.json";
+    	byte[] bytesFile = Files.readAllBytes(new File(filePath).toPath());
+        
+    	JsonIterator iter = JsonIterator.parse(bytesFile);
+    	Any any = iter.readAny();
+    	Any personAny = any.get("persons");
 
+
+ */
 		if (filepath_json != null) {
 			BufferedReader reader = new BufferedReader(new FileReader(filepath_json));
 			line = reader.readLine();
