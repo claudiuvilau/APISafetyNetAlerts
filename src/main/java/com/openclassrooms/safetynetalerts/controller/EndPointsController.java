@@ -22,7 +22,7 @@ public class EndPointsController {
 	@GetMapping(value = "Persons")
 	public JSONArray afficherPersonnes() {
 		Persons persons = new Persons();
-		return persons.personsJson();
+		return null;
 	}
 
 	// Fire stations
