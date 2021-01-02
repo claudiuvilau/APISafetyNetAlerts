@@ -1,48 +1,22 @@
 package com.openclassrooms.safetynetalerts.model;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.HashMap;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
 public class Medicalrecords {
 
 	private String firstName;
 	private String lastName;
 	private String birthdate;
-	private HashMap medication;
+	private String medications;
+	private String allergies;
 
 	public Medicalrecords() {
 	}
 
-	public Medicalrecords(String firstName, String lastName, String birthdate, HashMap medication) {
-		super();
+	public Medicalrecords(String firstName, String lastName, String birthdate, String medications, String allergies) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthdate = birthdate;
-		this.medication = medication;
-	}
-
-	public JSONArray medicalrecordsJson() {
-		JSONObject jsonO = new JSONObject();
-		JSONParser jsonP = new JSONParser();
-		JSONArray jsonA = new JSONArray();
-		try {
-			jsonO = (JSONObject) jsonP.parse(new FileReader("data/dbJSON.json"));
-			jsonA = (JSONArray) jsonO.get("medicalrecords");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return jsonA;
+		this.medications = medications;
+		this.allergies = allergies;
 	}
 
 	public String getFirstName() {
@@ -69,18 +43,26 @@ public class Medicalrecords {
 		this.birthdate = birthdate;
 	}
 
-	public HashMap getMedication() {
-		return medication;
+	public String getMedication() {
+		return medications;
 	}
 
-	public void setMedication(HashMap medication) {
-		this.medication = medication;
+	public void setMedication(String medications) {
+		this.medications = medications;
+	}
+
+	public String getAllergies() {
+		return allergies;
+	}
+
+	public void setAllergies(String allergies) {
+		this.allergies = allergies;
 	}
 
 	@Override
 	public String toString() {
 		return "Medicalrecords [firstName=" + firstName + ", lastName=" + lastName + ", birthdate=" + birthdate
-				+ ", medication=" + medication + "]";
+				+ ", medications=" + medications + ", allergies=" + allergies + "]";
 	}
 
 }

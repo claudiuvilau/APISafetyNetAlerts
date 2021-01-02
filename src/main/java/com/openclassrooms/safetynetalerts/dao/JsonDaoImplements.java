@@ -15,7 +15,7 @@ public class JsonDaoImplements implements JsonDao {
 	public JSONObject createPersonsCaserne(String collection, String caserne) {
 
 		Firestations firestations = new Firestations();
-		jsonA = firestations.firestationsJson();
+		// jsonA = firestations.firestationsJson();
 
 		JSONArray jsonACaserne = new JSONArray(); // the new array with only the number of the caserne
 		boolean personsCaserne = false;
