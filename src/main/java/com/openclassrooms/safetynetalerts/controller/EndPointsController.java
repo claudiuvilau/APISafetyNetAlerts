@@ -4,13 +4,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jsoniter.output.JsonStream;
 import com.openclassrooms.safetynetalerts.dao.JsonDao;
 import com.openclassrooms.safetynetalerts.dao.ReadJsonFile;
 import com.openclassrooms.safetynetalerts.model.Firestations;
@@ -22,43 +20,75 @@ public class EndPointsController {
 
 	@Autowired
 	private JsonDao jsonDao;
-	private ReadJsonFile readJesonFile;
+	private ReadJsonFile readJsonFile;
 
 	// Persons
 	@GetMapping(value = "Persons")
-	public String afficherPersonnes() {
-		String js = "";
+	public List<Persons> afficherPersonnes() {
+		// String js = "";
 		List<Persons> listP = new ArrayList<>();
 		try {
-			readJesonFile = new ReadJsonFile();
-			listP = readJesonFile.readfilejsonPersons();
-			js = JsonStream.serialize(listP);
+			readJsonFile = new ReadJsonFile();
+			listP = readJsonFile.readfilejsonPersons();
+			// js = JsonStream.serialize(listP);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return js;
+
+		// String jsonStringFromObject = JsonStream.serialize(listP);
+		// System.out.println("JSON String from Object: " + jsonStringFromObject);
+		// System.out.println("String from list: " + listP);
+
+		// List<Map<String, String>> data = new ArrayList<>();
+		// Map<String, String> item1 = new HashMap<>();
+		// item1.put("name", "Sample JSON Serialization");
+		// item1.put("url", "https://simplesolution.dev");
+		// data.add(item1);
+
+		// Map<String, String> item2 = new HashMap<>();
+		// item2.put("name", "Java Tutorials");
+		// item2.put("url", "https://simplesolution.dev/java");
+		// data.add(item2);
+
+		// String jsonStringFromObject = JsonStream.serialize(data);
+		// System.out.println("JSON String from Object: " + jsonStringFromObject);
+
+		// return jsonStringFromObject;
+		return listP;
 	}
 
 	// Fire stations
 	@GetMapping(value = "Firestations")
-	public String afficherFirestations() {
-		Firestations firestations = new Firestations();
-		// return firestations.firestationsJson();
-		return firestations.getAddress();
+	public List<Firestations> afficherFirestations() {
+		List<Firestations> listF = new ArrayList<>();
+		readJsonFile = new ReadJsonFile();
+		try {
+			listF = readJsonFile.readfilejsonFirestations();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return listF;
 	}
 
 	// Medical records
 	@GetMapping(value = "Medicalrecords")
-	public String afficherMedicalrecords() {
-		Medicalrecords medicalrecords = new Medicalrecords();
-		// return medicalrecords.medicalrecordsJson();
-		return medicalrecords.getFirstName();
+	public List<Medicalrecords> afficherMedicalrecords() {
+		List<Medicalrecords> listM = new ArrayList<>();
+		readJsonFile = new ReadJsonFile();
+		try {
+			listM = readJsonFile.readfilejsonMedicalrecords();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return listM;
 	}
 
 	// Fire stations N°
 	@GetMapping(value = "firestations/{station}")
-	public JSONObject afficherFirestationsNumber(@PathVariable String station) {
-		return jsonDao.createPersonsCaserne("firestations", station);
+	public List<?> afficherFirestationsNumber(@PathVariable String station) {
+		List<?> listF = new ArrayList<>();
+		listF = jsonDao.createPersonsCaserne(station);
+		return listF;
 	}
 
 	// Persons2 pour tester l'affichage
