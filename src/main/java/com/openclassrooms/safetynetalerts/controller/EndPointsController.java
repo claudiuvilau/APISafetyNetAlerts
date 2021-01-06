@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.openclassrooms.safetynetalerts.dao.JsonDao;
@@ -21,6 +22,8 @@ public class EndPointsController {
 	@Autowired
 	private JsonDao jsonDao;
 	private ReadJsonFile readJsonFile;
+	private List<Firestations> listFirestations = new ArrayList<>();
+	private List<Persons> listPersons = new ArrayList<>();
 
 	// Persons
 	@GetMapping(value = "Persons")
@@ -84,11 +87,23 @@ public class EndPointsController {
 	}
 
 	// Fire stations N°
-	@GetMapping(value = "firestations/{station}")
-	public List<?> afficherFirestationsNumber(@PathVariable String station) {
-		List<?> listF = new ArrayList<>();
-		listF = jsonDao.createPersonsCaserne(station);
-		return listF;
+	@GetMapping(value = "Firestations/{station}")
+	public List<Firestations> listFirestationsNumber(@PathVariable String station) {
+		listFirestations = jsonDao.filterStation(station);
+		return listFirestations;
+	}
+
+	// Address
+	@GetMapping(value = "Persons/{address}")
+	public List<?> listPersonsOfAddress(@PathVariable String address) {
+		listPersons = jsonDao.filterAddressInPersons(address);
+		return listPersons;
+	}
+
+	@GetMapping("firestation")
+	public List<Persons> firestationStationNumber(@RequestParam String stationNumber) throws IOException {
+		listPersons = jsonDao.personsOfStationAdultsAndChild(stationNumber);
+		return listPersons;
 	}
 
 	// Persons2 pour tester l'affichage
