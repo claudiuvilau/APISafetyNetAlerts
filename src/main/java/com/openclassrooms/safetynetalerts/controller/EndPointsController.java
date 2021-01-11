@@ -1,6 +1,7 @@
 package com.openclassrooms.safetynetalerts.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.openclassrooms.safetynetalerts.dao.JsonDao;
 import com.openclassrooms.safetynetalerts.dao.ReadJsonFile;
+import com.openclassrooms.safetynetalerts.model.Children;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Medicalrecords;
 import com.openclassrooms.safetynetalerts.model.Persons;
@@ -86,6 +88,14 @@ public class EndPointsController {
 		return listM;
 	}
 
+	// Find all children
+	@GetMapping(value = "Children")
+	public List<Children> afficherChildren(@RequestParam int old) throws IOException, ParseException {
+		List<Children> listM = new ArrayList<>();
+		listM = jsonDao.findChild(old);
+		return listM;
+	}
+
 	// Fire stations N°
 	@GetMapping(value = "Firestations/{station}")
 	public List<Firestations> listFirestationsNumber(@PathVariable String station) {
@@ -104,6 +114,13 @@ public class EndPointsController {
 	public List<Persons> firestationStationNumber(@RequestParam String stationNumber) throws IOException {
 		listPersons = jsonDao.personsOfStationAdultsAndChild(stationNumber);
 		return listPersons;
+	}
+
+	@GetMapping("childAlert")
+	public List<Children> childAlert(@RequestParam String address) throws IOException, ParseException {
+		List<Children> listM = new ArrayList<>();
+		listM = jsonDao.childPersonsAlertAddress(address);
+		return listM;
 	}
 
 	// Persons2 pour tester l'affichage

@@ -1,14 +1,18 @@
 package com.openclassrooms.safetynetalerts.dao;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 
+import com.openclassrooms.safetynetalerts.model.Children;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Persons;
 
 public interface JsonDao {
 
 	public List<Persons> findAddressInPersons(String jsonStream, String address) throws IOException;
+
+	public List<Children> findChild(int old) throws IOException, ParseException;
 
 	public List<Firestations> findAddressInFirestations(String jsonStream, String address) throws IOException;;
 
@@ -28,5 +32,16 @@ public interface JsonDao {
 	 * ?address=/firestation/{address} ?stationNumber=3
 	 */
 	public List<Persons> personsOfStationAdultsAndChild(String stationNumber) throws IOException;
+
+	/*
+	 * L'utilisateur accède à l’URL :
+	 * http://localhost:8080/childAlert?adress=<adress>
+	 * 
+	 * Le système retourne une liste des enfants (<=18 ans) habitant à cette
+	 * adresse. La liste doit comprendre : prénom, nom, âge et une liste des autres
+	 * membres du foyer. S’il n’y a pas d’enfant, cette url peut renvoyer une chaîne
+	 * vide.
+	 */
+	public List<Children> childPersonsAlertAddress(String address) throws IOException, ParseException;
 
 }

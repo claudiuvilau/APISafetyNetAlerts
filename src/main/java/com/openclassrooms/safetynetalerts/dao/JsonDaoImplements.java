@@ -1,7 +1,14 @@
 package com.openclassrooms.safetynetalerts.dao;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -10,7 +17,9 @@ import com.jsoniter.JsonIterator;
 import com.jsoniter.ValueType;
 import com.jsoniter.any.Any;
 import com.jsoniter.output.JsonStream;
+import com.openclassrooms.safetynetalerts.model.Children;
 import com.openclassrooms.safetynetalerts.model.Firestations;
+import com.openclassrooms.safetynetalerts.model.Medicalrecords;
 import com.openclassrooms.safetynetalerts.model.Persons;
 
 @Repository
@@ -132,6 +141,7 @@ public class JsonDaoImplements implements JsonDao {
 		List<Persons> listPersons = new ArrayList<>();
 
 		JsonIterator iter = JsonIterator.parse(jsonStream);
+
 		Any any = null;
 		try {
 			any = iter.readAny();
@@ -194,4 +204,148 @@ public class JsonDaoImplements implements JsonDao {
 		return listFirestations;
 	}
 
+	@Override
+	public List<Children> childPersonsAlertAddress(String address) throws IOException, ParseException {
+
+		int child_old = 18;
+		List<Persons> listPersons = new ArrayList<>();
+		List<Children> listPersons_ChildAlert = new ArrayList<>();
+		Children persons_child = new Children();
+		List<Children> listChild = new ArrayList<>();
+		List<Children> listPersonsWithChild = new ArrayList<>();
+
+		listPersons = filterAddressInPersons(address);
+		String jsonstream = JsonStream.serialize(listPersons); // here we transform the list in json object
+
+		JsonIterator iter = JsonIterator.parse(jsonstream);
+		Any any = null;
+		try {
+			any = iter.readAny();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		JsonIterator iterator;
+		String first_name = "";
+		String last_name = "";
+		for (Any element : any) {
+			iterator = JsonIterator.parse(element.toString());
+			for (String field = iterator.readObject(); field != null; field = iterator.readObject()) {
+				switch (field) {
+				case "firstName":
+					if (iterator.whatIsNext() == ValueType.STRING) {
+						first_name = iterator.readString();
+					}
+					continue;
+				case "lastName":
+					if (iterator.whatIsNext() == ValueType.STRING) {
+						last_name = iterator.readString();
+					}
+					continue;
+				default:
+					iterator.skip();
+				}
+			}
+
+			// here we will check if the first name and last name is in the list of children
+			int find_child = 0;
+			int no_child = 0;
+			listChild = findChild(child_old);
+			String jsonstream_child = JsonStream.serialize(listChild); // here we transform the list in json object
+			JsonIterator iter_child = JsonIterator.parse(jsonstream_child);
+			Any any_child = null;
+			try {
+				any_child = iter_child.readAny();
+			} catch (IOException e_child) {
+				e_child.printStackTrace();
+			}
+			JsonIterator iterator_child;
+			for (Any element_child : any_child) {
+				iterator_child = JsonIterator.parse(element_child.toString());
+				for (String field_child = iterator_child.readObject(); field_child != null; field_child = iterator_child
+						.readObject()) {
+					switch (field_child) {
+					case "firstName":
+						if (iterator_child.whatIsNext() == ValueType.STRING) {
+							if (first_name.equals(iterator_child.readString())) { // if the fist name of persons with
+																					// address is in the list child
+								find_child += 1;
+							}
+						}
+						continue;
+					case "lastName":
+						if (iterator_child.whatIsNext() == ValueType.STRING) {
+							if (last_name.equals(iterator_child.readString())) { // if the last name of persons with
+																					// address is in the list child
+								find_child += 1;
+							}
+						}
+						continue;
+					default:
+						iterator_child.skip();
+					}
+				}
+				if (find_child == 2) { // if we have the first name and the last name in the list child
+					no_child += 1;
+					persons_child = JsonIterator.deserialize(element.toString(), Children.class); // add the element
+																									// (not
+																									// element of child)
+					listPersons_ChildAlert.add(persons_child);
+				}
+				find_child = 0;
+				if (no_child == 1) {
+					listPersonsWithChild.add(persons_child);
+				}
+			}
+		}
+		return listPersons_ChildAlert;
+	}
+
+	@Override
+	public List<Children> findChild(int old) throws IOException, ParseException {
+
+		List<Children> listChild = new ArrayList<>();
+		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
+		Children children = new Children();
+		readJsonFile = new ReadJsonFile();
+
+		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
+
+		String jsonstream = JsonStream.serialize(listMedicalrecords); // here we transform the list in json object
+
+		JsonIterator iter = JsonIterator.parse(jsonstream);
+		Any any = null;
+		try {
+			any = iter.readAny();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		JsonIterator iterator;
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		for (Any element : any) {
+			iterator = JsonIterator.parse(element.toString());
+			for (String field = iterator.readObject(); field != null; field = iterator.readObject()) {
+				switch (field) {
+				case "birthdate":
+					if (iterator.whatIsNext() == ValueType.STRING) {
+						Date date_birthday = sdf.parse(iterator.readString());
+						Calendar calendar = new GregorianCalendar();
+						calendar.setTime(date_birthday);
+						LocalDate now = LocalDate.now();
+						LocalDate birthdate = LocalDate.of(calendar.get(Calendar.YEAR),
+								calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH));
+						Period periode = Period.between(birthdate, now);
+						if (periode.getYears() <= old) {
+							children = JsonIterator.deserialize(element.toString(), Children.class);
+							listChild.add(children);
+							// listChild.set(old, children);
+						}
+					}
+					continue;
+				default:
+					iterator.skip();
+				}
+			}
+		}
+		return listChild;
+	}
 }
