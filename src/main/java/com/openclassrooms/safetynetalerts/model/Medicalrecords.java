@@ -1,48 +1,27 @@
 package com.openclassrooms.safetynetalerts.model;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.HashMap;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Medicalrecords {
 
 	private String firstName;
 	private String lastName;
 	private String birthdate;
-	private HashMap medication;
+	private List<Medications> listMedications = new ArrayList<>();
+	private List<Allergies> listAllergies = new ArrayList<>();
 
 	public Medicalrecords() {
 	}
 
-	public Medicalrecords(String firstName, String lastName, String birthdate, HashMap medication) {
+	public Medicalrecords(String firstName, String lastName, String birthdate, List<Medications> listMedications,
+			List<Allergies> listAllergies) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthdate = birthdate;
-		this.medication = medication;
-	}
-
-	public JSONArray medicalrecordsJson() {
-		JSONObject jsonO = new JSONObject();
-		JSONParser jsonP = new JSONParser();
-		JSONArray jsonA = new JSONArray();
-		try {
-			jsonO = (JSONObject) jsonP.parse(new FileReader("data/dbJSON.json"));
-			jsonA = (JSONArray) jsonO.get("medicalrecords");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return jsonA;
+		this.listMedications = listMedications;
+		this.listAllergies = listAllergies;
 	}
 
 	public String getFirstName() {
@@ -69,18 +48,26 @@ public class Medicalrecords {
 		this.birthdate = birthdate;
 	}
 
-	public HashMap getMedication() {
-		return medication;
+	public List<Medications> getListMedications() {
+		return listMedications;
 	}
 
-	public void setMedication(HashMap medication) {
-		this.medication = medication;
+	public void setListMedications(List<Medications> listMedications) {
+		this.listMedications = listMedications;
+	}
+
+	public List<Allergies> getListAllergies() {
+		return listAllergies;
+	}
+
+	public void setListAllergies(List<Allergies> listAllergies) {
+		this.listAllergies = listAllergies;
 	}
 
 	@Override
 	public String toString() {
 		return "Medicalrecords [firstName=" + firstName + ", lastName=" + lastName + ", birthdate=" + birthdate
-				+ ", medication=" + medication + "]";
+				+ ", listMedications=" + listMedications + ", listAllergies=" + listAllergies + "]";
 	}
 
 }
