@@ -2,6 +2,7 @@ package com.openclassrooms.safetynetalerts.model;
 
 public class Children {
 
+	private String decompte;
 	private String firstName;
 	private String lastName;
 	private String old;
@@ -10,10 +11,20 @@ public class Children {
 
 	}
 
-	public Children(String firstName, String lastName, String old) {
+	public Children(String decompte, String firstName, String lastName, String old) {
+		super();
+		this.decompte = decompte;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.old = old;
+	}
+
+	public String getDecompte() {
+		return decompte;
+	}
+
+	public void setDecompte(String decompte) {
+		this.decompte = decompte;
 	}
 
 	public String getFirstName() {
@@ -42,7 +53,8 @@ public class Children {
 
 	@Override
 	public String toString() {
-		return "Children [firstName=" + firstName + ", lastName=" + lastName + ", old=" + old + "]";
+		return "Children [decompte=" + decompte + ", firstName=" + firstName + ", lastName=" + lastName + ", old=" + old
+				+ "]";
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.openclassrooms.safetynetalerts.model.Children;
 import com.openclassrooms.safetynetalerts.model.Firestations;
+import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.Persons;
 
 public interface JsonDao {
@@ -42,6 +43,6 @@ public interface JsonDao {
 	 * membres du foyer. S’il n’y a pas d’enfant, cette url peut renvoyer une chaîne
 	 * vide.
 	 */
-	public List<Children> childPersonsAlertAddress(String address) throws IOException, ParseException;
+	public List<Foyer> childPersonsAlertAddress(String address) throws IOException, ParseException;
 
 }

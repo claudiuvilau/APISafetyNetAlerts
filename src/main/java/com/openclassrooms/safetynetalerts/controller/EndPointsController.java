@@ -15,6 +15,7 @@ import com.openclassrooms.safetynetalerts.dao.JsonDao;
 import com.openclassrooms.safetynetalerts.dao.ReadJsonFile;
 import com.openclassrooms.safetynetalerts.model.Children;
 import com.openclassrooms.safetynetalerts.model.Firestations;
+import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.Medicalrecords;
 import com.openclassrooms.safetynetalerts.model.Persons;
 
@@ -117,8 +118,8 @@ public class EndPointsController {
 	}
 
 	@GetMapping("childAlert")
-	public List<Children> childAlert(@RequestParam String address) throws IOException, ParseException {
-		List<Children> listM = new ArrayList<>();
+	public List<Foyer> childAlert(@RequestParam String address) throws IOException, ParseException {
+		List<Foyer> listM = new ArrayList<>();
 		listM = jsonDao.childPersonsAlertAddress(address);
 		return listM;
 	}

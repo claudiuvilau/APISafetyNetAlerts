@@ -19,6 +19,7 @@ import com.jsoniter.any.Any;
 import com.jsoniter.output.JsonStream;
 import com.openclassrooms.safetynetalerts.model.Children;
 import com.openclassrooms.safetynetalerts.model.Firestations;
+import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.Medicalrecords;
 import com.openclassrooms.safetynetalerts.model.Persons;
 
@@ -108,11 +109,7 @@ public class JsonDaoImplements implements JsonDao {
 
 		JsonIterator iter = JsonIterator.parse(jsonstream);
 		Any any = null;
-		try {
-			any = iter.readAny();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		any = iter.readAny();
 
 		JsonIterator iterator;
 		for (Any element : any) {
@@ -177,12 +174,7 @@ public class JsonDaoImplements implements JsonDao {
 		Firestations firestations = new Firestations();
 		JsonIterator iter = JsonIterator.parse(jsonStream);
 		Any any = null;
-		try {
-			any = iter.readAny();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+		any = iter.readAny();
 		JsonIterator iterator;
 		for (Any element : any) {
 			iterator = JsonIterator.parse(element.toString());
@@ -205,14 +197,14 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public List<Children> childPersonsAlertAddress(String address) throws IOException, ParseException {
+	public List<Foyer> childPersonsAlertAddress(String address) throws IOException, ParseException {
 
 		int child_old = 18;
 		List<Persons> listPersons = new ArrayList<>();
 		List<Children> listChildrenAlert = new ArrayList<>();
 		Children persons_child = new Children(); // he is a object with field : old
 		List<Children> listChildren = new ArrayList<>();
-		List<Children> listChildren_Alert = new ArrayList<>();
+		List<Children> listPersonsAdult = new ArrayList<>();
 
 		listChildren = findChild(child_old); // the list of children ...old
 		String jsonStreamChild = JsonStream.serialize(listChildren); // here we transform the list in json object
@@ -232,7 +224,7 @@ public class JsonDaoImplements implements JsonDao {
 		JsonIterator iteratorPersons;
 
 		int findChild = 0;
-
+		int decompte = 0;
 		for (Any elementChild : anyChild) {
 			iteratorChild = JsonIterator.parse(elementChild.toString());
 			for (String fieldChild = iteratorChild.readObject(); fieldChild != null; fieldChild = iteratorChild
@@ -280,6 +272,8 @@ public class JsonDaoImplements implements JsonDao {
 					persons_child = JsonIterator.deserialize(elementChild.toString(), Children.class); // add
 																										// element
 																										// child
+					decompte += 1;
+					persons_child.setDecompte(decompte + ""); // => to string
 					listChildrenAlert.add(persons_child);
 				}
 				findChild = 0;
@@ -287,8 +281,8 @@ public class JsonDaoImplements implements JsonDao {
 		}
 
 		findChild = 0;
+		decompte = 0;
 		if (!listChildrenAlert.isEmpty()) {
-			listChildren_Alert.addAll(listChildrenAlert);
 			for (Persons element_persons_list : listPersons) {
 				for (Children element_child_list : listChildrenAlert) {
 					if ((element_persons_list.getFirstName() + element_persons_list.getLastName())
@@ -298,14 +292,23 @@ public class JsonDaoImplements implements JsonDao {
 					}
 				}
 				if (findChild == 0) { // 0 = no person child
-					listChildren_Alert.add(new Children(element_persons_list.getFirstName(),
-							element_persons_list.getLastName(), "adult"));
+					decompte += 1;
+					listPersonsAdult.add(new Children(decompte + "", element_persons_list.getFirstName(),
+							element_persons_list.getLastName(), "adult")); // here we create the list of persons adults;
+																			// + "" => to string
 				}
 				findChild = 0;
 			}
 		}
 
-		return listChildren_Alert;
+		Foyer foyer = new Foyer();
+		List<Foyer> listFoyer = new ArrayList<>();
+		foyer.setListAdults(listPersonsAdult);
+		foyer.setListChildren(listChildrenAlert);
+		listFoyer.add(foyer);
+
+		// return listChildren_Alert;
+		return listFoyer;
 	}
 
 	@Override
@@ -347,7 +350,7 @@ public class JsonDaoImplements implements JsonDao {
 						periode = Period.between(birthdate, now);
 						if (periode.getYears() <= old) {
 							children = JsonIterator.deserialize(element.toString(), Children.class);
-							children.setOld("" + periode.getYears() + "");
+							children.setOld(periode.getYears() + ""); // => to string
 							listChild.add(children);
 						}
 					}
