@@ -9,6 +9,7 @@ public class Medications {
 	}
 
 	public Medications(String medications) {
+		super();
 		this.medications = medications;
 	}
 

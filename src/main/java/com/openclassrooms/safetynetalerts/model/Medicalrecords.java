@@ -1,22 +1,27 @@
 package com.openclassrooms.safetynetalerts.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Medicalrecords {
 
 	private String firstName;
 	private String lastName;
 	private String birthdate;
-	private String medications;
-	private String allergies;
+	private List<Medications> listMedications = new ArrayList<>();
+	private List<Allergies> listAllergies = new ArrayList<>();
 
 	public Medicalrecords() {
 	}
 
-	public Medicalrecords(String firstName, String lastName, String birthdate, String medications, String allergies) {
+	public Medicalrecords(String firstName, String lastName, String birthdate, List<Medications> listMedications,
+			List<Allergies> listAllergies) {
+		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthdate = birthdate;
-		this.medications = medications;
-		this.allergies = allergies;
+		this.listMedications = listMedications;
+		this.listAllergies = listAllergies;
 	}
 
 	public String getFirstName() {
@@ -43,26 +48,26 @@ public class Medicalrecords {
 		this.birthdate = birthdate;
 	}
 
-	public String getMedication() {
-		return medications;
+	public List<Medications> getListMedications() {
+		return listMedications;
 	}
 
-	public void setMedication(String medications) {
-		this.medications = medications;
+	public void setListMedications(List<Medications> listMedications) {
+		this.listMedications = listMedications;
 	}
 
-	public String getAllergies() {
-		return allergies;
+	public List<Allergies> getListAllergies() {
+		return listAllergies;
 	}
 
-	public void setAllergies(String allergies) {
-		this.allergies = allergies;
+	public void setListAllergies(List<Allergies> listAllergies) {
+		this.listAllergies = listAllergies;
 	}
 
 	@Override
 	public String toString() {
 		return "Medicalrecords [firstName=" + firstName + ", lastName=" + lastName + ", birthdate=" + birthdate
-				+ ", medications=" + medications + ", allergies=" + allergies + "]";
+				+ ", listMedications=" + listMedications + ", listAllergies=" + listAllergies + "]";
 	}
 
 }

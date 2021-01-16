@@ -4,13 +4,13 @@ public class Children {
 
 	private String firstName;
 	private String lastName;
-	private int old;
+	private String old;
 
 	public Children() {
 
 	}
 
-	public Children(String firstName, String lastName, int old) {
+	public Children(String firstName, String lastName, String old) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.old = old;
@@ -32,11 +32,11 @@ public class Children {
 		this.lastName = lastName;
 	}
 
-	public int getOld() {
+	public String getOld() {
 		return old;
 	}
 
-	public void setOld(int old) {
+	public void setOld(String old) {
 		this.old = old;
 	}
 

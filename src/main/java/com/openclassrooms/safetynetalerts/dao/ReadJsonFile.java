@@ -8,8 +8,10 @@ import java.util.List;
 
 import com.jsoniter.JsonIterator;
 import com.jsoniter.any.Any;
+import com.openclassrooms.safetynetalerts.model.Allergies;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Medicalrecords;
+import com.openclassrooms.safetynetalerts.model.Medications;
 import com.openclassrooms.safetynetalerts.model.Persons;
 
 public class ReadJsonFile {
@@ -65,21 +67,39 @@ public class ReadJsonFile {
 			Any medicalrecordsAny = any.get("medicalrecords");
 
 			JsonIterator iter2;
+			JsonIterator iterMedications;
 			for (Any element : medicalrecordsAny) {
 				iter2 = JsonIterator.parse(element.toString());
 				Any any2 = iter2.readAny();
 				Any first_name = any2.get("firstName");
 				Any last_name = any2.get("lastName");
 				Any birthdate = any2.get("birthdate");
+
+				// the lists of medications and allergies :
 				Any medicationsAny = any2.get("medications");
+				List<Medications> listMedications = new ArrayList<>(); // here we create a new list Medications for any
+																		// element
+				for (Any elementMedications : medicationsAny) {
+					Medications medications = new Medications();
+					medications.setMedications(elementMedications.toString());
+					listMedications.add(medications);
+				}
+
 				Any allergiesAny = any2.get("allergies");
+				List<Allergies> listAllergies = new ArrayList<>(); // here we create a new list Allergies for any
+																	// element
+				for (Any elementAllergies : allergiesAny) {
+					Allergies allergies = new Allergies();
+					allergies.setAllergies(elementAllergies.toString());
+					listAllergies.add(allergies);
+				}
 
 				Medicalrecords medicalrecords2 = new Medicalrecords();
 				medicalrecords2.setFirstName(first_name.toString());
 				medicalrecords2.setLastName(last_name.toString());
 				medicalrecords2.setBirthdate(birthdate.toString());
-				medicalrecords2.setMedication(medicationsAny.toString());
-				medicalrecords2.setAllergies(allergiesAny.toString());
+				medicalrecords2.setListMedications(listMedications);
+				medicalrecords2.setListAllergies(listAllergies);
 				listMedicalrecords.add(medicalrecords2);
 			}
 		}

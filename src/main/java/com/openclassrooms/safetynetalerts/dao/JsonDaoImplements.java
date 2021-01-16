@@ -209,95 +209,103 @@ public class JsonDaoImplements implements JsonDao {
 
 		int child_old = 18;
 		List<Persons> listPersons = new ArrayList<>();
-		List<Children> listPersons_ChildAlert = new ArrayList<>();
-		Children persons_child = new Children();
-		List<Children> listChild = new ArrayList<>();
-		List<Children> listPersonsWithChild = new ArrayList<>();
+		List<Children> listChildrenAlert = new ArrayList<>();
+		Children persons_child = new Children(); // he is a object with field : old
+		List<Children> listChildren = new ArrayList<>();
+		List<Children> listChildren_Alert = new ArrayList<>();
 
-		listPersons = filterAddressInPersons(address);
-		String jsonstream = JsonStream.serialize(listPersons); // here we transform the list in json object
+		listChildren = findChild(child_old); // the list of children ...old
+		String jsonStreamChild = JsonStream.serialize(listChildren); // here we transform the list in json object
 
-		JsonIterator iter = JsonIterator.parse(jsonstream);
-		Any any = null;
-		try {
-			any = iter.readAny();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		JsonIterator iterator;
+		listPersons = filterAddressInPersons(address); // the list of the persons at the same address
+		String jsonStreamPersons = JsonStream.serialize(listPersons); // here we transform the list in json object
+
+		JsonIterator iterChild = JsonIterator.parse(jsonStreamChild);
+		Any anyChild = iterChild.readAny();
+		JsonIterator iteratorChild;
 		String first_name = "";
 		String last_name = "";
-		for (Any element : any) {
-			iterator = JsonIterator.parse(element.toString());
-			for (String field = iterator.readObject(); field != null; field = iterator.readObject()) {
-				switch (field) {
+
+		JsonIterator iterPersons = JsonIterator.parse(jsonStreamPersons);
+		Any anyPersons = null;
+		anyPersons = iterPersons.readAny();
+		JsonIterator iteratorPersons;
+
+		int findChild = 0;
+
+		for (Any elementChild : anyChild) {
+			iteratorChild = JsonIterator.parse(elementChild.toString());
+			for (String fieldChild = iteratorChild.readObject(); fieldChild != null; fieldChild = iteratorChild
+					.readObject()) {
+				switch (fieldChild) {
 				case "firstName":
-					if (iterator.whatIsNext() == ValueType.STRING) {
-						first_name = iterator.readString();
+					if (iteratorChild.whatIsNext() == ValueType.STRING) {
+						first_name = iteratorChild.readString();
 					}
 					continue;
 				case "lastName":
-					if (iterator.whatIsNext() == ValueType.STRING) {
-						last_name = iterator.readString();
+					if (iteratorChild.whatIsNext() == ValueType.STRING) {
+						last_name = iteratorChild.readString();
 					}
 					continue;
 				default:
-					iterator.skip();
+					iteratorChild.skip();
 				}
 			}
-
-			// here we will check if the first name and last name is in the list of children
-			int find_child = 0;
-			int no_child = 0;
-			listChild = findChild(child_old);
-			String jsonstream_child = JsonStream.serialize(listChild); // here we transform the list in json object
-			JsonIterator iter_child = JsonIterator.parse(jsonstream_child);
-			Any any_child = null;
-			try {
-				any_child = iter_child.readAny();
-			} catch (IOException e_child) {
-				e_child.printStackTrace();
-			}
-			JsonIterator iterator_child;
-			for (Any element_child : any_child) {
-				iterator_child = JsonIterator.parse(element_child.toString());
-				for (String field_child = iterator_child.readObject(); field_child != null; field_child = iterator_child
-						.readObject()) {
-					switch (field_child) {
+			// verify if the child is in the list persons
+			for (Any elementPersons : anyPersons) {
+				iteratorPersons = JsonIterator.parse(elementPersons.toString());
+				for (String fieldPersons = iteratorPersons
+						.readObject(); fieldPersons != null; fieldPersons = iteratorPersons.readObject()) {
+					switch (fieldPersons) {
 					case "firstName":
-						if (iterator_child.whatIsNext() == ValueType.STRING) {
-							if (first_name.equals(iterator_child.readString())) { // if the fist name of persons with
-																					// address is in the list child
-								find_child += 1;
+						if (iteratorPersons.whatIsNext() == ValueType.STRING) {
+							if (iteratorPersons.readString().equals(first_name)) {
+								findChild += 1;
 							}
 						}
 						continue;
 					case "lastName":
-						if (iterator_child.whatIsNext() == ValueType.STRING) {
-							if (last_name.equals(iterator_child.readString())) { // if the last name of persons with
-																					// address is in the list child
-								find_child += 1;
+						if (iteratorPersons.whatIsNext() == ValueType.STRING) {
+							if (iteratorPersons.readString().equals(last_name)) {
+								findChild += 1;
 							}
 						}
 						continue;
 					default:
-						iterator_child.skip();
+						iteratorPersons.skip();
 					}
 				}
-				if (find_child == 2) { // if we have the first name and the last name in the list child
-					no_child += 1;
-					persons_child = JsonIterator.deserialize(element.toString(), Children.class); // add the element
-																									// (not
-																									// element of child)
-					listPersons_ChildAlert.add(persons_child);
+				if (findChild == 2) { // if the first name and last name, so 2 => we have a child in the home
+					persons_child = JsonIterator.deserialize(elementChild.toString(), Children.class); // add
+																										// element
+																										// child
+					listChildrenAlert.add(persons_child);
 				}
-				find_child = 0;
-				if (no_child == 1) {
-					listPersonsWithChild.add(persons_child);
-				}
+				findChild = 0;
 			}
 		}
-		return listPersons_ChildAlert;
+
+		findChild = 0;
+		if (!listChildrenAlert.isEmpty()) {
+			listChildren_Alert.addAll(listChildrenAlert);
+			for (Persons element_persons_list : listPersons) {
+				for (Children element_child_list : listChildrenAlert) {
+					if ((element_persons_list.getFirstName() + element_persons_list.getLastName())
+							.equals(element_child_list.getFirstName() + element_child_list.getLastName())) {
+						findChild = 1; // if child in the list so we dont't add the persons because the person is a
+										// child
+					}
+				}
+				if (findChild == 0) { // 0 = no person child
+					listChildren_Alert.add(new Children(element_persons_list.getFirstName(),
+							element_persons_list.getLastName(), "adult"));
+				}
+				findChild = 0;
+			}
+		}
+
+		return listChildren_Alert;
 	}
 
 	@Override
@@ -321,23 +329,26 @@ public class JsonDaoImplements implements JsonDao {
 		}
 		JsonIterator iterator;
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		Calendar calendar = new GregorianCalendar();
+		LocalDate now = LocalDate.now();
+		Date date_birthday;
+		LocalDate birthdate;
+		Period periode;
 		for (Any element : any) {
 			iterator = JsonIterator.parse(element.toString());
 			for (String field = iterator.readObject(); field != null; field = iterator.readObject()) {
 				switch (field) {
 				case "birthdate":
 					if (iterator.whatIsNext() == ValueType.STRING) {
-						Date date_birthday = sdf.parse(iterator.readString());
-						Calendar calendar = new GregorianCalendar();
+						date_birthday = sdf.parse(iterator.readString());
 						calendar.setTime(date_birthday);
-						LocalDate now = LocalDate.now();
-						LocalDate birthdate = LocalDate.of(calendar.get(Calendar.YEAR),
-								calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH));
-						Period periode = Period.between(birthdate, now);
+						birthdate = LocalDate.of(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1,
+								calendar.get(Calendar.DAY_OF_MONTH));
+						periode = Period.between(birthdate, now);
 						if (periode.getYears() <= old) {
 							children = JsonIterator.deserialize(element.toString(), Children.class);
+							children.setOld("" + periode.getYears() + "");
 							listChild.add(children);
-							// listChild.set(old, children);
 						}
 					}
 					continue;
