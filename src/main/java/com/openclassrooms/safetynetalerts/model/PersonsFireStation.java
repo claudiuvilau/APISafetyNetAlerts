@@ -1,56 +1,50 @@
 package com.openclassrooms.safetynetalerts.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PersonsFireStation {
 
-	private String firstName;
-	private String lastName;
-	private String address;
-	private String phone;
+	private int decompte;
+	private List<Persons> listPersonsAdults = new ArrayList<>();
+	private List<Persons> listPersonsChildren = new ArrayList<>();
 	private int old;
 
 	public PersonsFireStation() {
 
 	}
 
-	public PersonsFireStation(String firstName, String lastName, String address, String phone, int old) {
+	public PersonsFireStation(int decompte, List<Persons> listPersonsAdults, List<Persons> listPersonsChildren,
+			int old) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.address = address;
-		this.phone = phone;
+		this.decompte = decompte;
+		this.listPersonsAdults = listPersonsAdults;
+		this.listPersonsChildren = listPersonsChildren;
 		this.old = old;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public int getDecompte() {
+		return decompte;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setDecompte(int decompte) {
+		this.decompte = decompte;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public List<Persons> getListPersonsAdults() {
+		return listPersonsAdults;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setListPersonsAdults(List<Persons> listPersonsAdults) {
+		this.listPersonsAdults = listPersonsAdults;
 	}
 
-	public String getAddress() {
-		return address;
+	public List<Persons> getListPersonsChildren() {
+		return listPersonsChildren;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setListPersonsChildren(List<Persons> listPersonsChildren) {
+		this.listPersonsChildren = listPersonsChildren;
 	}
 
 	public int getOld() {
@@ -63,8 +57,8 @@ public class PersonsFireStation {
 
 	@Override
 	public String toString() {
-		return "PersonsFireStation [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
-				+ ", phone=" + phone + ", old=" + old + "]";
+		return "PersonsFireStation [decompte=" + decompte + ", listPersonsAdults=" + listPersonsAdults
+				+ ", listPersonsChildren=" + listPersonsChildren + ", old=" + old + "]";
 	}
 
 }

@@ -97,11 +97,15 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public List<Persons> personsOfStationAdultsAndChild(String stationNumber) throws IOException {
+	public List<Foyer> personsOfStationAdultsAndChild(String stationNumber) throws IOException, ParseException {
+
 		List<Firestations> listFirestations = new ArrayList<>();
 		List<Persons> listPersons = new ArrayList<>();
 		List<Persons> listP = new ArrayList<>();
 		listFirestations = filterStation(stationNumber);
+
+		List<Foyer> listF = new ArrayList<>();
+		List<Foyer> listFoyer = new ArrayList<>();
 
 		String jsonstream = JsonStream.serialize(listFirestations); // here we transform the list in json object
 
@@ -119,8 +123,11 @@ public class JsonDaoImplements implements JsonDao {
 				case "address":
 					if (iterator.whatIsNext() == ValueType.STRING) {
 						address = iterator.readString();
-						listPersons = filterAddressInPersons(address); // it will check the address in the Persons
-						listP.addAll(listPersons); // it will make the list of the persons = address
+						// listPersons = filterAddressInPersons(address); // it will check the address
+						// in the Persons
+						listF = childPersonsAlertAddress(address);
+						// listP.addAll(listPersons); // it will make the list of the persons = address
+						listFoyer.addAll(listF); // it will make the list of the persons = address
 					}
 					continue;
 				default:
@@ -128,7 +135,9 @@ public class JsonDaoImplements implements JsonDao {
 				}
 			}
 		}
-		return listP;
+
+		// return listP;
+		return listFoyer;
 	}
 
 	@Override
@@ -140,12 +149,7 @@ public class JsonDaoImplements implements JsonDao {
 		JsonIterator iter = JsonIterator.parse(jsonStream);
 
 		Any any = null;
-		try {
-			any = iter.readAny();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+		any = iter.readAny();
 		JsonIterator iterator;
 		for (Any element : any) {
 			iterator = JsonIterator.parse(element.toString());
@@ -285,17 +289,21 @@ public class JsonDaoImplements implements JsonDao {
 		if (!listChildrenAlert.isEmpty()) {
 			for (Persons element_persons_list : listPersons) {
 				for (Children element_child_list : listChildrenAlert) {
-					if ((element_persons_list.getFirstName() + element_persons_list.getLastName())
-							.equals(element_child_list.getFirstName() + element_child_list.getLastName())) {
-						findChild = 1; // if child in the list so we dont't add the persons because the person is a
-										// child
-					}
+					// z if ((element_persons_list.getFirstName() +
+					// element_persons_list.getLastName())
+					// z .equals(element_child_list.getFirstName() +
+					// element_child_list.getLastName())) {
+					findChild = 1; // if child in the list so we dont't add the persons because the person is a
+									// child
+					// z }
 				}
 				if (findChild == 0) { // 0 = no person child
 					decompte += 1;
-					listPersonsAdult.add(new Children(decompte + "", element_persons_list.getFirstName(),
-							element_persons_list.getLastName(), "adult")); // here we create the list of persons adults;
-																			// + "" => to string
+					// z listPersonsAdult.add(new Children(decompte + "",
+					// element_persons_list.getFirstName(),
+					// z element_persons_list.getLastName(), "adult")); // here we create the list
+					// of persons adults;
+					// + "" => to string
 				}
 				findChild = 0;
 			}
@@ -303,9 +311,9 @@ public class JsonDaoImplements implements JsonDao {
 
 		Foyer foyer = new Foyer();
 		List<Foyer> listFoyer = new ArrayList<>();
-		foyer.setListAdults(listPersonsAdult);
-		foyer.setListChildren(listChildrenAlert);
-		listFoyer.add(foyer);
+		// z foyer.setListAdults(listPersonsAdult);
+		// z foyer.setListChildren(listChildrenAlert);
+		// z listFoyer.add(foyer);
 
 		// return listChildren_Alert;
 		return listFoyer;
@@ -319,17 +327,16 @@ public class JsonDaoImplements implements JsonDao {
 		Children children = new Children();
 		readJsonFile = new ReadJsonFile();
 
+		Persons persons = new Persons();
+		List<Persons> listPersons = new ArrayList<>();
+
 		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
 
 		String jsonstream = JsonStream.serialize(listMedicalrecords); // here we transform the list in json object
 
 		JsonIterator iter = JsonIterator.parse(jsonstream);
 		Any any = null;
-		try {
-			any = iter.readAny();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		any = iter.readAny();
 		JsonIterator iterator;
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 		Calendar calendar = new GregorianCalendar();
@@ -349,7 +356,11 @@ public class JsonDaoImplements implements JsonDao {
 								calendar.get(Calendar.DAY_OF_MONTH));
 						periode = Period.between(birthdate, now);
 						if (periode.getYears() <= old) {
-							children = JsonIterator.deserialize(element.toString(), Children.class);
+							persons = JsonIterator.deserialize(element.toString(), Persons.class);
+							listPersons = new ArrayList<>();
+							listPersons.add(persons);
+							children = new Children();
+							children.setChild(listPersons);
 							children.setOld(periode.getYears() + ""); // => to string
 							listChild.add(children);
 						}
@@ -360,6 +371,14 @@ public class JsonDaoImplements implements JsonDao {
 				}
 			}
 		}
+
+		// create decompte
+		int decompte = listChild.size() + 1;
+		for (Children element_decompte : listChild) {
+			decompte -= 1;
+			element_decompte.setDecompte(decompte + "");
+		}
+
 		return listChild;
 	}
 }

@@ -32,7 +32,7 @@ public interface JsonDao {
 	 * GET /persons/{firstName, lastName, address, phone}
 	 * ?address=/firestation/{address} ?stationNumber=3
 	 */
-	public List<Persons> personsOfStationAdultsAndChild(String stationNumber) throws IOException;
+	public List<Foyer> personsOfStationAdultsAndChild(String stationNumber) throws IOException, ParseException;
 
 	/*
 	 * L'utilisateur accède à l’URL :

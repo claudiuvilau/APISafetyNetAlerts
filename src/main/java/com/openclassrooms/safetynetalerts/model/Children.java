@@ -1,22 +1,23 @@
 package com.openclassrooms.safetynetalerts.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Children {
 
 	private String decompte;
-	private String firstName;
-	private String lastName;
+	private List<Persons> child = new ArrayList<>();
 	private String old;
 
 	public Children() {
 
 	}
 
-	public Children(String decompte, String firstName, String lastName, String old) {
+	public Children(String decompte, String old, List<Persons> child) {
 		super();
 		this.decompte = decompte;
-		this.firstName = firstName;
-		this.lastName = lastName;
 		this.old = old;
+		this.child = child;
 	}
 
 	public String getDecompte() {
@@ -27,22 +28,6 @@ public class Children {
 		this.decompte = decompte;
 	}
 
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
 	public String getOld() {
 		return old;
 	}
@@ -51,10 +36,17 @@ public class Children {
 		this.old = old;
 	}
 
+	public List<Persons> getChild() {
+		return child;
+	}
+
+	public void setChild(List<Persons> child) {
+		this.child = child;
+	}
+
 	@Override
 	public String toString() {
-		return "Children [decompte=" + decompte + ", firstName=" + firstName + ", lastName=" + lastName + ", old=" + old
-				+ "]";
+		return "Children [decompte=" + decompte + ", old=" + old + ", child=" + child + "]";
 	}
 
 }
