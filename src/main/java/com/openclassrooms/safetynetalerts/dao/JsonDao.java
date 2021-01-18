@@ -32,7 +32,7 @@ public interface JsonDao {
 	 * GET /persons/{firstName, lastName, address, phone}
 	 * ?address=/firestation/{address} ?stationNumber=3
 	 */
-	public List<Persons> personsOfStationAdultsAndChild(String stationNumber) throws IOException;
+	public List<Foyer> personsOfStationAdultsAndChild(String stationNumber) throws IOException, ParseException;
 
 	/*
 	 * L'utilisateur accède à l’URL :
@@ -43,6 +43,8 @@ public interface JsonDao {
 	 * membres du foyer. S’il n’y a pas d’enfant, cette url peut renvoyer une chaîne
 	 * vide.
 	 */
-	public List<Foyer> childPersonsAlertAddress(String address) throws IOException, ParseException;
+	public List<Children> childPersonsAlertAddress(String address) throws IOException, ParseException;
+
+	public List<Children> listFindChildOld(List<?> list, int old) throws IOException, ParseException;
 
 }

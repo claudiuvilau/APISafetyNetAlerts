@@ -27,6 +27,7 @@ public class EndPointsController {
 	private ReadJsonFile readJsonFile;
 	private List<Firestations> listFirestations = new ArrayList<>();
 	private List<Persons> listPersons = new ArrayList<>();
+	private List<Foyer> listFoyer = new ArrayList<>();
 
 	// Persons
 	@GetMapping(value = "Persons")
@@ -112,14 +113,14 @@ public class EndPointsController {
 	}
 
 	@GetMapping("firestation")
-	public List<Persons> firestationStationNumber(@RequestParam String stationNumber) throws IOException {
-		listPersons = jsonDao.personsOfStationAdultsAndChild(stationNumber);
-		return listPersons;
+	public List<Foyer> firestationStationNumber(@RequestParam String stationNumber) throws IOException, ParseException {
+		listFoyer = jsonDao.personsOfStationAdultsAndChild(stationNumber);
+		return listFoyer;
 	}
 
 	@GetMapping("childAlert")
-	public List<Foyer> childAlert(@RequestParam String address) throws IOException, ParseException {
-		List<Foyer> listM = new ArrayList<>();
+	public List<Children> childAlert(@RequestParam String address) throws IOException, ParseException {
+		List<Children> listM = new ArrayList<>();
 		listM = jsonDao.childPersonsAlertAddress(address);
 		return listM;
 	}

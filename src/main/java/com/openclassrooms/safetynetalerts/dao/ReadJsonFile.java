@@ -67,7 +67,6 @@ public class ReadJsonFile {
 			Any medicalrecordsAny = any.get("medicalrecords");
 
 			JsonIterator iter2;
-			JsonIterator iterMedications;
 			for (Any element : medicalrecordsAny) {
 				iter2 = JsonIterator.parse(element.toString());
 				Any any2 = iter2.readAny();
