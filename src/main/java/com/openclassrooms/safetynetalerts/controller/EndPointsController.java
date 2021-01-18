@@ -15,7 +15,6 @@ import com.openclassrooms.safetynetalerts.dao.JsonDao;
 import com.openclassrooms.safetynetalerts.dao.ReadJsonFile;
 import com.openclassrooms.safetynetalerts.model.Children;
 import com.openclassrooms.safetynetalerts.model.Firestations;
-import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.Medicalrecords;
 import com.openclassrooms.safetynetalerts.model.Persons;
 
@@ -27,7 +26,6 @@ public class EndPointsController {
 	private ReadJsonFile readJsonFile;
 	private List<Firestations> listFirestations = new ArrayList<>();
 	private List<Persons> listPersons = new ArrayList<>();
-	private List<Foyer> listFoyer = new ArrayList<>();
 
 	// Persons
 	@GetMapping(value = "Persons")
@@ -113,14 +111,15 @@ public class EndPointsController {
 	}
 
 	@GetMapping("firestation")
-	public List<Foyer> firestationStationNumber(@RequestParam String stationNumber) throws IOException, ParseException {
-		listFoyer = jsonDao.personsOfStationAdultsAndChild(stationNumber);
-		return listFoyer;
+	public List<Persons> firestationStationNumber(@RequestParam String stationNumber)
+			throws IOException, ParseException {
+		listPersons = jsonDao.personsOfStationAdultsAndChild(stationNumber);
+		return listPersons;
 	}
 
 	@GetMapping("childAlert")
-	public List<Foyer> childAlert(@RequestParam String address) throws IOException, ParseException {
-		List<Foyer> listM = new ArrayList<>();
+	public List<Children> childAlert(@RequestParam String address) throws IOException, ParseException {
+		List<Children> listM = new ArrayList<>();
 		listM = jsonDao.childPersonsAlertAddress(address);
 		return listM;
 	}
