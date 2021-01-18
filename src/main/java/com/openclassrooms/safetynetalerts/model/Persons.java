@@ -1,5 +1,8 @@
 package com.openclassrooms.safetynetalerts.model;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
+@JsonFilter("monFiltrePersons")
 public class Persons {
 	private String firstName;
 	private String lastName;

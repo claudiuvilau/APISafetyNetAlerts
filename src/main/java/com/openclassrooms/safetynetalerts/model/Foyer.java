@@ -3,6 +3,9 @@ package com.openclassrooms.safetynetalerts.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
+@JsonFilter("monFiltrePersons")
 public class Foyer {
 
 	private String decompteAdult;

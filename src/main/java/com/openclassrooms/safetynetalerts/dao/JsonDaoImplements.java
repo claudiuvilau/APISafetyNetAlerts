@@ -11,8 +11,12 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.stereotype.Repository;
 
+import com.fasterxml.jackson.databind.ser.FilterProvider;
+import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.ValueType;
 import com.jsoniter.any.Any;
@@ -431,5 +435,43 @@ public class JsonDaoImplements implements JsonDao {
 		}
 
 		return listChild;
+	}
+
+	@Override
+	public List<Persons> phoneAlertFirestation(String stationNumber) throws IOException {
+
+		List<Firestations> listFirestations = new ArrayList<>();
+		List<Persons> listPersons = new ArrayList<>();
+		List<Persons> listP = new ArrayList<>();
+		listFirestations = filterStation(stationNumber);
+
+		String jsonstream = JsonStream.serialize(listFirestations); // here we transform the list in json object
+
+		String address = "";
+
+		JsonIterator iter = JsonIterator.parse(jsonstream);
+		Any any = null;
+		any = iter.readAny();
+
+		JsonIterator iterator;
+		for (Any element : any) {
+			iterator = JsonIterator.parse(element.toString());
+			for (String field = iterator.readObject(); field != null; field = iterator.readObject()) {
+				switch (field) {
+				case "address":
+					if (iterator.whatIsNext() == ValueType.STRING) {
+						address = iterator.readString();
+						listPersons = filterAddressInPersons(address); // it will check the address in the Persons
+						listP.addAll(listPersons); // it will make the list of the persons = address
+					}
+					continue;
+				default:
+					iterator.skip();
+				}
+			}
+		}		
+		
+	       
+	   return listP;
 	}
 }

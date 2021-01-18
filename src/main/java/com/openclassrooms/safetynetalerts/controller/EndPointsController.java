@@ -6,11 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ser.FilterProvider;
+import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import com.openclassrooms.safetynetalerts.dao.JsonDao;
 import com.openclassrooms.safetynetalerts.dao.ReadJsonFile;
 import com.openclassrooms.safetynetalerts.model.Children;
@@ -41,26 +45,6 @@ public class EndPointsController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		// String jsonStringFromObject = JsonStream.serialize(listP);
-		// System.out.println("JSON String from Object: " + jsonStringFromObject);
-		// System.out.println("String from list: " + listP);
-
-		// List<Map<String, String>> data = new ArrayList<>();
-		// Map<String, String> item1 = new HashMap<>();
-		// item1.put("name", "Sample JSON Serialization");
-		// item1.put("url", "https://simplesolution.dev");
-		// data.add(item1);
-
-		// Map<String, String> item2 = new HashMap<>();
-		// item2.put("name", "Java Tutorials");
-		// item2.put("url", "https://simplesolution.dev/java");
-		// data.add(item2);
-
-		// String jsonStringFromObject = JsonStream.serialize(data);
-		// System.out.println("JSON String from Object: " + jsonStringFromObject);
-
-		// return jsonStringFromObject;
 		return listP;
 	}
 
@@ -125,6 +109,22 @@ public class EndPointsController {
 		return listM;
 	}
 
+	@GetMapping("phoneAlert")
+	public MappingJacksonValue phoneAlertStationNumber(@RequestParam String firestation) throws IOException {
+		listPersons = jsonDao.phoneAlertFirestation(firestation);
+		
+		SimpleBeanPropertyFilter monFiltre = SimpleBeanPropertyFilter.serializeAllExcept("firstName");
+
+	       FilterProvider listDeNosFiltres = new SimpleFilterProvider().addFilter("monFiltrePersons", monFiltre);
+
+	       MappingJacksonValue produitsFiltres = new MappingJacksonValue(listPersons);
+
+	       produitsFiltres.setFilters(listDeNosFiltres);
+
+	       return produitsFiltres;
+		//return listPersons;
+	}
+	
 	// Persons2 pour tester l'affichage
 	@GetMapping(value = "Persons2")
 	public Persons afficherPersonnes2() {
