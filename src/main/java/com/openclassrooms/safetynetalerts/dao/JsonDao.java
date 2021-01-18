@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.openclassrooms.safetynetalerts.model.Children;
 import com.openclassrooms.safetynetalerts.model.Firestations;
+import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.Persons;
 
 public interface JsonDao {
@@ -31,7 +32,7 @@ public interface JsonDao {
 	 * GET /persons/{firstName, lastName, address, phone}
 	 * ?address=/firestation/{address} ?stationNumber=3
 	 */
-	public List<Persons> personsOfStationAdultsAndChild(String stationNumber) throws IOException, ParseException;
+	public List<Foyer> personsOfStationAdultsAndChild(String stationNumber) throws IOException, ParseException;
 
 	/*
 	 * L'utilisateur accède à l’URL :

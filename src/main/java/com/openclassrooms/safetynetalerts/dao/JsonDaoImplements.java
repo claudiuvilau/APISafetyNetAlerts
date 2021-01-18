@@ -97,7 +97,7 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public List<Persons> personsOfStationAdultsAndChild(String stationNumber) throws IOException, ParseException {
+	public List<Foyer> personsOfStationAdultsAndChild(String stationNumber) throws IOException, ParseException {
 
 		int child_old = 18;
 		List<Firestations> listFirestations = new ArrayList<>();
@@ -159,8 +159,33 @@ public class JsonDaoImplements implements JsonDao {
 
 		Foyer foyer = new Foyer();
 		List<Foyer> listFoyer = new ArrayList<>();
-
-		return listP;
+		List<Persons> listPersonsAdults = new ArrayList<>();
+		List<Persons> listPersonsChildren = new ArrayList<>();
+		String nameChildren;
+		int find_child = 0;
+		for (Persons element_list_persons : listP) {
+			namePersons = element_list_persons.getFirstName() + element_list_persons.getLastName();
+			for (Children element_list_children : listChildren) {
+				nameChildren = element_list_children.getFirstName() + element_list_children.getLastName();
+				if (namePersons.equals(nameChildren)) {
+					find_child = 1;
+				}
+			}
+			if (find_child == 0) {
+				listPersonsAdults.add(element_list_persons);
+				foyer.setListPersonsAdults(listPersonsAdults);
+			} else {
+				listPersonsChildren.add(element_list_persons);
+				foyer.setListPersonsChildren(listPersonsChildren);
+				find_child = 0;
+			}
+		}
+		foyer.setListPersonsAdults(listPersonsAdults);
+		foyer.setListPersonsChildren(listPersonsChildren);
+		foyer.setDecompteAdult(Integer.toString(listPersonsAdults.size()));
+		foyer.setDecompteChildren(Integer.toString(listPersonsChildren.size()));
+		listFoyer.add(foyer);
+		return listFoyer;
 	}
 
 	@Override
