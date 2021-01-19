@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import com.openclassrooms.safetynetalerts.dao.JsonDao;
 import com.openclassrooms.safetynetalerts.dao.ReadJsonFile;
+import com.openclassrooms.safetynetalerts.model.ChildAlert;
 import com.openclassrooms.safetynetalerts.model.Children;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
@@ -78,7 +79,7 @@ public class EndPointsController {
 	@GetMapping(value = "Children")
 	public List<Children> afficherChildren(@RequestParam int old) throws IOException, ParseException {
 		List<Children> listM = new ArrayList<>();
-		listM = jsonDao.findChild(old);
+		listM = jsonDao.findOld(old);
 		return listM;
 	}
 
@@ -103,8 +104,8 @@ public class EndPointsController {
 	}
 
 	@GetMapping("childAlert")
-	public List<Children> childAlert(@RequestParam String address) throws IOException, ParseException {
-		List<Children> listM = new ArrayList<>();
+	public List<ChildAlert> childAlert(@RequestParam String address) throws IOException, ParseException {
+		List<ChildAlert> listM = new ArrayList<>();
 		listM = jsonDao.childPersonsAlertAddress(address);
 		return listM;
 	}
@@ -112,19 +113,19 @@ public class EndPointsController {
 	@GetMapping("phoneAlert")
 	public MappingJacksonValue phoneAlertStationNumber(@RequestParam String firestation) throws IOException {
 		listPersons = jsonDao.phoneAlertFirestation(firestation);
-		
+
 		SimpleBeanPropertyFilter monFiltre = SimpleBeanPropertyFilter.serializeAllExcept("firstName");
 
-	       FilterProvider listDeNosFiltres = new SimpleFilterProvider().addFilter("monFiltrePersons", monFiltre);
+		FilterProvider listDeNosFiltres = new SimpleFilterProvider().addFilter("monFiltrePersons", monFiltre);
 
-	       MappingJacksonValue produitsFiltres = new MappingJacksonValue(listPersons);
+		MappingJacksonValue produitsFiltres = new MappingJacksonValue(listPersons);
 
-	       produitsFiltres.setFilters(listDeNosFiltres);
+		produitsFiltres.setFilters(listDeNosFiltres);
 
-	       return produitsFiltres;
-		//return listPersons;
+		return produitsFiltres;
+		// return listPersons;
 	}
-	
+
 	// Persons2 pour tester l'affichage
 	@GetMapping(value = "Persons2")
 	public Persons afficherPersonnes2() {
