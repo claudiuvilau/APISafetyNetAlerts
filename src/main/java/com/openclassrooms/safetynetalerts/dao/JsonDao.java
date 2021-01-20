@@ -59,4 +59,16 @@ public interface JsonDao {
 	 */
 	public List<PhoneAlert> phoneAlertFirestation(String stationNumber) throws IOException;
 
+	/*
+	 * L'utilisateur accède à l’URL :
+	 * 
+	 * http://localhost:8080/fire?adress=<adress>
+	 * 
+	 * Le système retourne une liste des habitants vivants à l’adresse donnée ainsi
+	 * que le numéro de la caserne de pompiers la desservant. La liste doit inclure
+	 * : le nom, le numéro de téléphone, l’âge et les antécédents médicaux
+	 * (médicaments, posologie et allergies) de chaque personne.
+	 * 
+	 */
+
 }
