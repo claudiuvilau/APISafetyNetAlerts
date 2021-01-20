@@ -1,6 +1,6 @@
 package com.openclassrooms.safetynetalerts.model;
 
-//@JsonFilter("monFiltrePersons")
+//@JsonFilter("monFiltrePhoneAlert")
 public class Persons {
 	private String firstName;
 	private String lastName;

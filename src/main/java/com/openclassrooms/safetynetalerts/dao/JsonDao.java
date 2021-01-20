@@ -9,6 +9,7 @@ import com.openclassrooms.safetynetalerts.model.Children;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.Persons;
+import com.openclassrooms.safetynetalerts.model.PhoneAlert;
 
 public interface JsonDao {
 
@@ -19,6 +20,10 @@ public interface JsonDao {
 	public List<Firestations> filterStation(String stationNumber);
 
 	public List<Persons> filterAddressInPersons(String address);
+
+	public List<Children> findOld(int old) throws IOException, ParseException;
+
+	public List<Children> listFindOld(List<?> list, int old) throws IOException, ParseException;
 
 	/*
 	 * L'utilisateur accède à l’URL :
@@ -52,10 +57,6 @@ public interface JsonDao {
 	 * Le système retourne une liste des numéros de téléphone des résidents
 	 * desservis par la caserne de pompiers.
 	 */
-	public List<Persons> phoneAlertFirestation(String stationNumber) throws IOException;
-
-	public List<Children> findOld(int old) throws IOException, ParseException;
-
-	public List<Children> listFindOld(List<?> list, int old) throws IOException, ParseException;
+	public List<PhoneAlert> phoneAlertFirestation(String stationNumber) throws IOException;
 
 }

@@ -23,6 +23,7 @@ import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.Medicalrecords;
 import com.openclassrooms.safetynetalerts.model.Persons;
+import com.openclassrooms.safetynetalerts.model.PhoneAlert;
 
 @Repository
 public class JsonDaoImplements implements JsonDao {
@@ -492,7 +493,7 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public List<Persons> phoneAlertFirestation(String stationNumber) throws IOException {
+	public List<PhoneAlert> phoneAlertFirestation(String stationNumber) throws IOException {
 
 		List<Firestations> listFirestations = new ArrayList<>();
 		List<Persons> listPersons = new ArrayList<>();
@@ -524,6 +525,16 @@ public class JsonDaoImplements implements JsonDao {
 				}
 			}
 		}
-		return listP;
+
+		PhoneAlert phoneAlert = new PhoneAlert();
+		List<PhoneAlert> listPhoneAlert = new ArrayList<>();
+		List<String> listPhones = new ArrayList<>();
+		for (Persons element_listP : listP) {
+			listPhones.add(element_listP.getPhone());
+		}
+		phoneAlert.setListPhones(listPhones);
+		listPhoneAlert.add(phoneAlert);
+
+		return listPhoneAlert;
 	}
 }

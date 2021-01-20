@@ -23,6 +23,7 @@ import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.Medicalrecords;
 import com.openclassrooms.safetynetalerts.model.Persons;
+import com.openclassrooms.safetynetalerts.model.PhoneAlert;
 
 @RestController
 public class EndPointsController {
@@ -112,17 +113,19 @@ public class EndPointsController {
 
 	@GetMapping("phoneAlert")
 	public MappingJacksonValue phoneAlertStationNumber(@RequestParam String firestation) throws IOException {
-		listPersons = jsonDao.phoneAlertFirestation(firestation);
+
+		List<PhoneAlert> listPhoneAlert = new ArrayList<>();
+		listPhoneAlert = jsonDao.phoneAlertFirestation(firestation);
 
 		SimpleBeanPropertyFilter monFiltre = SimpleBeanPropertyFilter.serializeAllExcept("firstName");
 
-		FilterProvider listDeNosFiltres = new SimpleFilterProvider().addFilter("monFiltrePersons", monFiltre);
+		FilterProvider listDeMesFiltres = new SimpleFilterProvider().addFilter("monFiltrePhoneAlert", monFiltre);
 
-		MappingJacksonValue produitsFiltres = new MappingJacksonValue(listPersons);
+		MappingJacksonValue phoneAlertStationNumberFiltres = new MappingJacksonValue(listPhoneAlert);
 
-		produitsFiltres.setFilters(listDeNosFiltres);
+		phoneAlertStationNumberFiltres.setFilters(listDeMesFiltres);
 
-		return produitsFiltres;
+		return phoneAlertStationNumberFiltres;
 		// return listPersons;
 	}
 
