@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.openclassrooms.safetynetalerts.model.ChildAlert;
 import com.openclassrooms.safetynetalerts.model.Children;
+import com.openclassrooms.safetynetalerts.model.FireAddress;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.Persons;
@@ -15,11 +16,11 @@ public interface JsonDao {
 
 	public List<Persons> findAddressInPersons(String jsonStream, String address) throws IOException;
 
-	public List<Firestations> findAddressInFirestations(String jsonStream, String address) throws IOException;;
+	public List<Firestations> findAddressInFirestations(List<?> listFireStations, String address) throws IOException;;
 
 	public List<Firestations> filterStation(String stationNumber);
 
-	public List<Persons> filterAddressInPersons(String address);
+	public List<Persons> filterAddressInPersons(String address) throws IOException;
 
 	public List<Children> findOld(int old) throws IOException, ParseException;
 
@@ -59,4 +60,16 @@ public interface JsonDao {
 	 */
 	public List<PhoneAlert> phoneAlertFirestation(String stationNumber) throws IOException;
 
+	/*
+	 * L'utilisateur accède à l’URL :
+	 * 
+	 * http://localhost:8080/fire?adress=<adress>
+	 * 
+	 * Le système retourne une liste des habitants vivants à l’adresse donnée ainsi
+	 * que le numéro de la caserne de pompiers la desservant. La liste doit inclure
+	 * : le nom, le numéro de téléphone, l’âge et les antécédents médicaux
+	 * (médicaments, posologie et allergies) de chaque personne.
+	 * 
+	 */
+	public List<FireAddress> fireAddress(String address) throws IOException, ParseException;
 }

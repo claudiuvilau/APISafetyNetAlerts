@@ -19,6 +19,7 @@ import com.openclassrooms.safetynetalerts.dao.JsonDao;
 import com.openclassrooms.safetynetalerts.dao.ReadJsonFile;
 import com.openclassrooms.safetynetalerts.model.ChildAlert;
 import com.openclassrooms.safetynetalerts.model.Children;
+import com.openclassrooms.safetynetalerts.model.FireAddress;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.Medicalrecords;
@@ -93,7 +94,7 @@ public class EndPointsController {
 
 	// Address
 	@GetMapping(value = "Persons/{address}")
-	public List<?> listPersonsOfAddress(@PathVariable String address) {
+	public List<?> listPersonsOfAddress(@PathVariable String address) throws IOException {
 		listPersons = jsonDao.filterAddressInPersons(address);
 		return listPersons;
 	}
@@ -127,6 +128,13 @@ public class EndPointsController {
 
 		return phoneAlertStationNumberFiltres;
 		// return listPersons;
+	}
+
+	@GetMapping("fire")
+	public List<FireAddress> fireAddress(@RequestParam String address) throws IOException, ParseException {
+		List<FireAddress> listM = new ArrayList<>();
+		listM = jsonDao.fireAddress(address);
+		return listM;
 	}
 
 	// Persons2 pour tester l'affichage
