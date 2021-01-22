@@ -17,6 +17,7 @@ import com.jsoniter.JsonIterator;
 import com.jsoniter.ValueType;
 import com.jsoniter.any.Any;
 import com.jsoniter.output.JsonStream;
+import com.openclassrooms.safetynetalerts.model.AddressListFirestation;
 import com.openclassrooms.safetynetalerts.model.ChildAlert;
 import com.openclassrooms.safetynetalerts.model.Children;
 import com.openclassrooms.safetynetalerts.model.FireAddress;
@@ -24,6 +25,7 @@ import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.Medicalrecords;
 import com.openclassrooms.safetynetalerts.model.Persons;
+import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
 import com.openclassrooms.safetynetalerts.model.PhoneAlert;
 
 @Repository
@@ -607,5 +609,91 @@ public class JsonDaoImplements implements JsonDao {
 		}
 
 		return listFireAddress;
+	}
+
+	@Override
+	public List<PersonsFireStation> stationListFirestation(List<String> station) throws IOException, ParseException {
+
+		List<PersonsFireStation> listPersonsFireStation = new ArrayList<>();
+		PersonsFireStation personsFireStation;
+
+		// the lists of fire stations with the number of station
+		List<Firestations> listFirestations = new ArrayList<>();
+		for (int i = 0; i < station.size(); i++) {
+			listFirestations.addAll(filterStation(station.get(i)));
+		}
+
+		// create a list age old children and adult because he use the methods to crate
+		// theses lists
+		int old_children = 18;
+		int old_adult = 19;
+		List<Children> listChildren = new ArrayList<>();
+		listChildren = findOld(old_children);
+		List<Children> listAdult = new ArrayList<>();
+		listAdult = findOld(old_adult);
+		// create only one list age
+		List<Children> listAge = new ArrayList<>();
+		listAge.addAll(listChildren);
+		listAge.addAll(listAdult);
+		String name_person_age;
+
+		// create a list medical records
+		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
+		readJsonFile = new ReadJsonFile();
+		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
+
+		// check the persons with the same address in persons = the same address in fire
+		// station
+		List<Persons> listP = new ArrayList<>();
+		readJsonFile = new ReadJsonFile();
+		listP = readJsonFile.readfilejsonPersons();
+		String jsonstream = JsonStream.serialize(listP); // here we transform the list in json object
+		List<Persons> listPersons;
+		AddressListFirestation addressListFirestation;
+		List<AddressListFirestation> listAddressListFirestation;
+		String name_person;
+		String name_person_medicalrecords;
+		for (Firestations element_firestation : listFirestations) {
+			listPersons = new ArrayList<>();
+			listPersons.addAll(findAddressInPersons(jsonstream, element_firestation.getAddress()));
+			// create the list address list fire station with first name, last name, phone
+			// and medical
+			// records
+			listAddressListFirestation = new ArrayList<>();
+			for (Persons element_persons : listPersons) {
+				name_person = element_persons.getFirstName() + element_persons.getLastName();
+				for (Medicalrecords element_medicalrecords : listMedicalrecords) {
+					name_person_medicalrecords = element_medicalrecords.getFirstName()
+							+ element_medicalrecords.getLastName();
+					if (name_person.equals(name_person_medicalrecords)) {
+						addressListFirestation = new AddressListFirestation();
+						addressListFirestation.setFirstName(element_persons.getFirstName());
+						addressListFirestation.setLastName(element_persons.getLastName());
+						addressListFirestation.setPhone(element_persons.getPhone());
+						addressListFirestation.setListMedications(element_medicalrecords.getListMedications());
+						addressListFirestation.setListAllergies(element_medicalrecords.getListAllergies());
+						listAddressListFirestation.add(addressListFirestation);
+						break;
+					}
+				}
+			}
+			// set the age of persons
+			for (AddressListFirestation element_fireaddress : listAddressListFirestation) {
+				name_person = element_fireaddress.getFirstName() + element_fireaddress.getLastName();
+				for (Children element_listAge : listAge) {
+					name_person_age = element_listAge.getFirstName() + element_listAge.getLastName();
+					if (name_person_age.equals(name_person)) {
+						element_fireaddress.setOld(element_listAge.getOld());
+						break;
+					}
+				}
+			}
+			personsFireStation = new PersonsFireStation();
+			personsFireStation.setAddress(element_firestation.getAddress());
+			personsFireStation.setListAddressFirestations(listAddressListFirestation);
+			listPersonsFireStation.add(personsFireStation);
+		}
+
+		return listPersonsFireStation;
 	}
 }

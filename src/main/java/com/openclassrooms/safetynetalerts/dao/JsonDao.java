@@ -10,6 +10,7 @@ import com.openclassrooms.safetynetalerts.model.FireAddress;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.Persons;
+import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
 import com.openclassrooms.safetynetalerts.model.PhoneAlert;
 
 public interface JsonDao {
@@ -72,4 +73,18 @@ public interface JsonDao {
 	 * 
 	 */
 	public List<FireAddress> fireAddress(String address) throws IOException, ParseException;
+
+	/*
+	 * L'utilisateur accède à l’URL :
+	 * 
+	 * http://localhost:8080/flood/station?station=<a list of station_numbers>
+	 * 
+	 * Le système retourne une liste de tous les foyers desservis par la caserne.
+	 * Cette liste doit regrouper les personnes par adresse. La liste doit inclure :
+	 * le nom, le numéro de téléphone et l’âge des habitants et faire figurer les
+	 * antécédents médicaux (médicaments, posologie et allergies) à côté de chaque
+	 * nom.
+	 * 
+	 */
+	public List<PersonsFireStation> stationListFirestation(List<String> station) throws IOException, ParseException;
 }
