@@ -24,6 +24,7 @@ import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.Medicalrecords;
 import com.openclassrooms.safetynetalerts.model.Persons;
+import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
 import com.openclassrooms.safetynetalerts.model.PhoneAlert;
 
 @RestController
@@ -134,6 +135,14 @@ public class EndPointsController {
 	public List<FireAddress> fireAddress(@RequestParam String address) throws IOException, ParseException {
 		List<FireAddress> listM = new ArrayList<>();
 		listM = jsonDao.fireAddress(address);
+		return listM;
+	}
+
+	@GetMapping("station")
+	public List<PersonsFireStation> fireAddressListFireStation(@RequestParam List<String> station)
+			throws IOException, ParseException {
+		List<PersonsFireStation> listM = new ArrayList<>();
+		listM = jsonDao.stationListFirestation(station);
 		return listM;
 	}
 
