@@ -138,7 +138,7 @@ public class EndPointsController {
 		return listM;
 	}
 
-	@GetMapping("station")
+	@GetMapping("flood/station")
 	public List<PersonsFireStation> fireAddressListFireStation(@RequestParam List<String> station)
 			throws IOException, ParseException {
 		List<PersonsFireStation> listM = new ArrayList<>();
