@@ -9,6 +9,7 @@ import com.openclassrooms.safetynetalerts.model.Children;
 import com.openclassrooms.safetynetalerts.model.FireAddress;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
+import com.openclassrooms.safetynetalerts.model.PersonInfo;
 import com.openclassrooms.safetynetalerts.model.Persons;
 import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
 import com.openclassrooms.safetynetalerts.model.PhoneAlert;
@@ -30,7 +31,7 @@ public interface JsonDao {
 	/*
 	 * L'utilisateur accède à l’URL :
 	 * 
-	 * http://localhost:8080/firestation?stationNumber=<station_number>
+	 * http://localhost:9090/firestation?stationNumber=<station_number>
 	 * 
 	 * Le système retourne une liste des personnes (prénom, nom, adresse, numéro de
 	 * téléphone) couvertes par la caserne de pompiers correspondante ainsi qu’un
@@ -42,7 +43,7 @@ public interface JsonDao {
 	/*
 	 * L'utilisateur accède à l’URL :
 	 *
-	 * http://localhost:8080/childAlert?adress=<adress>
+	 * http://localhost:9090/childAlert?adress=<adress>
 	 * 
 	 * Le système retourne une liste des enfants (<=18 ans) habitant à cette
 	 * adresse. La liste doit comprendre : prénom, nom, âge et une liste des autres
@@ -54,7 +55,7 @@ public interface JsonDao {
 	/*
 	 * L'utilisateur accède à l’URL :
 	 *
-	 * http://localhost:8080/phoneAlert?firestation=< firestation _number>
+	 * http://localhost:9090/phoneAlert?firestation=< firestation _number>
 	 *
 	 * Le système retourne une liste des numéros de téléphone des résidents
 	 * desservis par la caserne de pompiers.
@@ -64,7 +65,7 @@ public interface JsonDao {
 	/*
 	 * L'utilisateur accède à l’URL :
 	 * 
-	 * http://localhost:8080/fire?adress=<adress>
+	 * http://localhost:9090/fire?adress=<adress>
 	 * 
 	 * Le système retourne une liste des habitants vivants à l’adresse donnée ainsi
 	 * que le numéro de la caserne de pompiers la desservant. La liste doit inclure
@@ -77,7 +78,7 @@ public interface JsonDao {
 	/*
 	 * L'utilisateur accède à l’URL :
 	 * 
-	 * http://localhost:8080/flood/station?station=<a list of station_numbers>
+	 * http://localhost:9090/flood/station?station=<a list of station_numbers>
 	 * 
 	 * Le système retourne une liste de tous les foyers desservis par la caserne.
 	 * Cette liste doit regrouper les personnes par adresse. La liste doit inclure :
@@ -87,4 +88,17 @@ public interface JsonDao {
 	 * 
 	 */
 	public List<PersonsFireStation> stationListFirestation(List<String> station) throws IOException, ParseException;
+
+	/*
+	 * L'utilisateur accède à l’URL :
+	 * 
+	 * http://localhost:9090/personInfo?firstName=<firstName>&lastName=<lastName>
+	 * 
+	 * Le système retourne le nom, l’adresse, l’âge, l’adresse mail et les
+	 * antécédents médicaux (médicaments, posologie et allergies) de chaque
+	 * habitant. Si plusieurs personnes portent le même nom, elles doivent toutes
+	 * apparaître.
+	 * 
+	 */
+	public List<PersonInfo> personInfo(String firstName, String lastName) throws IOException, ParseException;
 }

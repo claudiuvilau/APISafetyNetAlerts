@@ -24,6 +24,7 @@ import com.openclassrooms.safetynetalerts.model.FireAddress;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.Medicalrecords;
+import com.openclassrooms.safetynetalerts.model.PersonInfo;
 import com.openclassrooms.safetynetalerts.model.Persons;
 import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
 import com.openclassrooms.safetynetalerts.model.PhoneAlert;
@@ -695,5 +696,69 @@ public class JsonDaoImplements implements JsonDao {
 		}
 
 		return listPersonsFireStation;
+	}
+
+	@Override
+	public List<PersonInfo> personInfo(String firstName, String lastName) throws IOException, ParseException {
+
+		// create a list of persons
+		List<Persons> listPersons = new ArrayList<>();
+		readJsonFile = new ReadJsonFile();
+		listPersons = readJsonFile.readfilejsonPersons();
+
+		// create a list of medical records
+		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
+		readJsonFile = new ReadJsonFile();
+		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
+
+		// the list person with only the get of the firsName and lastName
+		List<PersonInfo> listPersonInfo = new ArrayList<>();
+		PersonInfo personInfo;
+		for (Persons element_persons : listPersons) {
+			if ((element_persons.getFirstName().equals(firstName) && element_persons.getLastName().equals(lastName))
+					|| element_persons.getLastName().equals(lastName)) {
+				personInfo = new PersonInfo();
+				personInfo.setFirstName(element_persons.getFirstName());
+				personInfo.setLastName(element_persons.getLastName());
+				personInfo.setAddress(element_persons.getAddress());
+				personInfo.setEmail(element_persons.getEmail());
+				for (Medicalrecords element_medicalrecords : listMedicalrecords) {
+					if (element_medicalrecords.getFirstName().equals(element_persons.getFirstName())
+							&& element_medicalrecords.getLastName().equals(element_persons.getLastName())) {
+						personInfo.setListMedications(element_medicalrecords.getListMedications());
+						personInfo.setListAllergies(element_medicalrecords.getListAllergies());
+					}
+				}
+				listPersonInfo.add(personInfo);
+			}
+		}
+
+		// create a list age old children and adult because he use the methods to crate
+		// theses lists
+		int old_children = 18;
+		int old_adult = 19;
+		List<Children> listChildren = new ArrayList<>();
+		listChildren = findOld(old_children);
+		List<Children> listAdult = new ArrayList<>();
+		listAdult = findOld(old_adult);
+		// create only one list age
+		List<Children> listAge = new ArrayList<>();
+		listAge.addAll(listChildren);
+		listAge.addAll(listAdult);
+		String name_person_age;
+		// set the age of persons
+		String name_person;
+		for (PersonInfo element_personInfo : listPersonInfo) {
+			name_person = element_personInfo.getFirstName() + element_personInfo.getLastName();
+			for (Children element_listAge : listAge) {
+				name_person_age = element_listAge.getFirstName() + element_listAge.getLastName();
+				if (name_person_age.equals(name_person)) {
+					element_personInfo.setOld(element_listAge.getOld());
+					break;
+				}
+			}
+		}
+
+		return listPersonInfo;
 	}
 }
