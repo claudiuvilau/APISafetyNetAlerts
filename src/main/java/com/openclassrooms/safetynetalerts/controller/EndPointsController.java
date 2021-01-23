@@ -23,6 +23,7 @@ import com.openclassrooms.safetynetalerts.model.FireAddress;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.Medicalrecords;
+import com.openclassrooms.safetynetalerts.model.PersonInfo;
 import com.openclassrooms.safetynetalerts.model.Persons;
 import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
 import com.openclassrooms.safetynetalerts.model.PhoneAlert;
@@ -143,6 +144,14 @@ public class EndPointsController {
 			throws IOException, ParseException {
 		List<PersonsFireStation> listM = new ArrayList<>();
 		listM = jsonDao.stationListFirestation(station);
+		return listM;
+	}
+
+	@GetMapping("personInfo")
+	public List<PersonInfo> personInfo(@RequestParam String firstName, String lastName)
+			throws IOException, ParseException {
+		List<PersonInfo> listM = new ArrayList<>();
+		listM = jsonDao.personInfo(firstName, lastName);
 		return listM;
 	}
 
