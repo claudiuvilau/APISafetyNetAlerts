@@ -19,6 +19,7 @@ import com.openclassrooms.safetynetalerts.dao.JsonDao;
 import com.openclassrooms.safetynetalerts.dao.ReadJsonFile;
 import com.openclassrooms.safetynetalerts.model.ChildAlert;
 import com.openclassrooms.safetynetalerts.model.Children;
+import com.openclassrooms.safetynetalerts.model.CommunityEmail;
 import com.openclassrooms.safetynetalerts.model.FireAddress;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
@@ -155,11 +156,11 @@ public class EndPointsController {
 		return listM;
 	}
 
-	// Persons2 pour tester l'affichage
-	@GetMapping(value = "Persons2")
-	public Persons afficherPersonnes2() {
-		Persons persons = new Persons("Vilau", "Claudiu", null, null, null, null, null);
-		return persons;
+	@GetMapping("communityEmail")
+	public List<CommunityEmail> communityEmail(@RequestParam String city) throws IOException {
+		List<CommunityEmail> listM = new ArrayList<>();
+		listM = jsonDao.communityEmail(city);
+		return listM;
 	}
 
 }

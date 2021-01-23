@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.openclassrooms.safetynetalerts.model.ChildAlert;
 import com.openclassrooms.safetynetalerts.model.Children;
+import com.openclassrooms.safetynetalerts.model.CommunityEmail;
 import com.openclassrooms.safetynetalerts.model.FireAddress;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
@@ -101,4 +102,14 @@ public interface JsonDao {
 	 * 
 	 */
 	public List<PersonInfo> personInfo(String firstName, String lastName) throws IOException, ParseException;
+
+	/*
+	 * L'utilisateur accède à l’URL :
+	 * 
+	 * http://localhost:9090/communityEmail?city=<city>
+	 * 
+	 * Le système retourne les adresses mail de tous les habitants de la ville.
+	 * 
+	 */
+	public List<CommunityEmail> communityEmail(String city) throws IOException;
 }

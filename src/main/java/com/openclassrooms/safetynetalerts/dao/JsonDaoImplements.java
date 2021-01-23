@@ -20,6 +20,7 @@ import com.jsoniter.output.JsonStream;
 import com.openclassrooms.safetynetalerts.model.AddressListFirestation;
 import com.openclassrooms.safetynetalerts.model.ChildAlert;
 import com.openclassrooms.safetynetalerts.model.Children;
+import com.openclassrooms.safetynetalerts.model.CommunityEmail;
 import com.openclassrooms.safetynetalerts.model.FireAddress;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
@@ -760,5 +761,28 @@ public class JsonDaoImplements implements JsonDao {
 		}
 
 		return listPersonInfo;
+	}
+
+	@Override
+	public List<CommunityEmail> communityEmail(String city) throws IOException {
+
+		List<CommunityEmail> listCommunityEmail = new ArrayList<>();
+
+		List<Persons> listPersons = new ArrayList<>();
+		readJsonFile = new ReadJsonFile();
+		listPersons = readJsonFile.readfilejsonPersons();
+
+		CommunityEmail communityEmail;
+		List<String> listEmail = new ArrayList<>();
+		for (Persons element_persons : listPersons) {
+			if (element_persons.getCity().equals(city)) {
+				listEmail.add(element_persons.getEmail());
+			}
+		}
+		communityEmail = new CommunityEmail();
+		communityEmail.setListEmails(listEmail);
+		listCommunityEmail.add(communityEmail);
+
+		return listCommunityEmail;
 	}
 }
