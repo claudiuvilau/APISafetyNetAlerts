@@ -1,6 +1,7 @@
 package com.openclassrooms.safetynetalerts.dao;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -797,13 +798,34 @@ public class JsonDaoImplements implements JsonDao {
 
 		String filepath_json = "data/dbJSON2.json";
 
+		
+		Persons new_persons1 = new Persons();
+		List<Persons> listPersons = new ArrayList<>();
+		byte[] bytesFile = Files.readAllBytes(new File(filepath_json).toPath());
+		JsonIterator iter = JsonIterator.parse(bytesFile);
+		Any any = iter.readAny();
+		Any personsAny = any.get("persons");
+		for (Any element : personsAny) {
+			new_persons1 = JsonIterator.deserialize(element.toString(), Persons.class);
+			listPersons.add(new_persons1);
+		}
+		listPersons.add(persons);
+		
+		String jsonstream = JsonStream.serialize(listPersons); // here we transform the list in json object
+		FileWriter writer = new FileWriter("data/dbJSON4.json");
+		writer.write(jsonstream);
+		writer.flush();
+		writer.close();
+		
+		
+		/*
 		byte[] jsonData = Files.readAllBytes(Paths.get(filepath_json));
 
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		// create JsonNode
-		JsonNode rootNode = objectMapper.readTree(jsonData);
-		// JsonNode rootNode = objectMapper.readTree(jsonData).get("persons");
+		//JsonNode rootNode = objectMapper.readTree(jsonData);
+		JsonNode rootNode = objectMapper.readTree(jsonData).get("persons");
 
 		// update JSON data
 		// ((ObjectNode) rootNode).put("id", 500);
@@ -815,11 +837,15 @@ public class JsonDaoImplements implements JsonDao {
 		List<Persons> listP = new ArrayList<>();
 
 		listP.add(persons);
+		
+		//String jsonstream = JsonStream.serialize(listCollectionPersons); // here we transform the list in json object
 		String jsonstream = JsonStream.serialize(listP); // here we transform the list in json object
-
+		
+		
 		JsonIterator iter = JsonIterator.parse(jsonstream);
 		Any any = iter.readAny();
 
+		
 		for (Any element : any) {
 			new_persons = JsonIterator.deserialize(element.toString(), Persons.class);
 			((ObjectNode) rootNode).put("firstName", new_persons.getFirstName());
@@ -834,8 +860,9 @@ public class JsonDaoImplements implements JsonDao {
 		// remove existing key
 		// ((ObjectNode) rootNode).remove("role");
 		// ((ObjectNode) rootNode).remove("properties");
+		
 		objectMapper.writeValue(new File("data/dbJSON3.json"), rootNode);
-
+*/
 	}
 
 }
