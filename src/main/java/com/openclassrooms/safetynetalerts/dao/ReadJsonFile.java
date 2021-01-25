@@ -45,6 +45,7 @@ public class ReadJsonFile {
 		if (filepath_json != null) {
 			byte[] bytesFile = Files.readAllBytes(new File(filepath_json).toPath());
 			JsonIterator iter = JsonIterator.parse(bytesFile);
+
 			Any any = iter.readAny();
 			Any firestationsAny = any.get("firestations");
 
@@ -52,7 +53,9 @@ public class ReadJsonFile {
 				firestations = JsonIterator.deserialize(element.toString(), Firestations.class);
 				listFirestations.add(firestations);
 			}
+
 		}
+
 		return listFirestations;
 	}
 

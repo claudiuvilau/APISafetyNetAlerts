@@ -1,6 +1,9 @@
 package com.openclassrooms.safetynetalerts.dao;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -13,6 +16,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.ValueType;
 import com.jsoniter.any.Any;
@@ -785,4 +791,51 @@ public class JsonDaoImplements implements JsonDao {
 
 		return listCommunityEmail;
 	}
+
+	@Override
+	public void ajouterPerson(Persons persons) throws IOException {
+
+		String filepath_json = "data/dbJSON2.json";
+
+		byte[] jsonData = Files.readAllBytes(Paths.get(filepath_json));
+
+		ObjectMapper objectMapper = new ObjectMapper();
+
+		// create JsonNode
+		JsonNode rootNode = objectMapper.readTree(jsonData);
+		// JsonNode rootNode = objectMapper.readTree(jsonData).get("persons");
+
+		// update JSON data
+		// ((ObjectNode) rootNode).put("id", 500);
+
+		// add new key value
+		// ((ObjectNode) rootNode).put("test", "test value");
+
+		Persons new_persons = new Persons();
+		List<Persons> listP = new ArrayList<>();
+
+		listP.add(persons);
+		String jsonstream = JsonStream.serialize(listP); // here we transform the list in json object
+
+		JsonIterator iter = JsonIterator.parse(jsonstream);
+		Any any = iter.readAny();
+
+		for (Any element : any) {
+			new_persons = JsonIterator.deserialize(element.toString(), Persons.class);
+			((ObjectNode) rootNode).put("firstName", new_persons.getFirstName());
+			((ObjectNode) rootNode).put("lastName", new_persons.getLastName());
+			((ObjectNode) rootNode).put("address", new_persons.getAddress());
+			((ObjectNode) rootNode).put("city", new_persons.getCity());
+			((ObjectNode) rootNode).put("zip", new_persons.getZip());
+			((ObjectNode) rootNode).put("phone", new_persons.getPhone());
+			((ObjectNode) rootNode).put("email", new_persons.getEmail());
+		}
+
+		// remove existing key
+		// ((ObjectNode) rootNode).remove("role");
+		// ((ObjectNode) rootNode).remove("properties");
+		objectMapper.writeValue(new File("data/dbJSON3.json"), rootNode);
+
+	}
+
 }
