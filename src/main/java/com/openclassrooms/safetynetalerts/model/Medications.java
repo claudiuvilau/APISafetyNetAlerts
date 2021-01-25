@@ -1,23 +1,26 @@
 package com.openclassrooms.safetynetalerts.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Medications {
 
-	private String medications;
+	private List<String> medications = new ArrayList<>();
 
 	public Medications() {
 
 	}
 
-	public Medications(String medications) {
+	public Medications(List<String> medications) {
 		super();
 		this.medications = medications;
 	}
 
-	public String getMedications() {
+	public List<String> getMedications() {
 		return medications;
 	}
 
-	public void setMedications(String medications) {
+	public void setMedications(List<String> medications) {
 		this.medications = medications;
 	}
 

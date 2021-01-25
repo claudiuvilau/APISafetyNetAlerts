@@ -81,27 +81,33 @@ public class ReadJsonFile {
 				Any medicationsAny = any2.get("medications");
 				List<Medications> listMedications = new ArrayList<>(); // here we create a new list Medications for any
 																		// element
+				Medications medications;
+				List<String> listStringMedications = new ArrayList<>();
 				for (Any elementMedications : medicationsAny) {
-					Medications medications = new Medications();
-					medications.setMedications(elementMedications.toString());
-					listMedications.add(medications);
+					listStringMedications.add(elementMedications.toString());
 				}
+				medications = new Medications();
+				medications.setMedications(listStringMedications);
+				listMedications.add(medications);
 
 				Any allergiesAny = any2.get("allergies");
 				List<Allergies> listAllergies = new ArrayList<>(); // here we create a new list Allergies for any
 																	// element
+				Allergies allergies;
+				List<String> listStringAllergies = new ArrayList<>();
 				for (Any elementAllergies : allergiesAny) {
-					Allergies allergies = new Allergies();
-					allergies.setAllergies(elementAllergies.toString());
-					listAllergies.add(allergies);
+					listStringAllergies.add(elementAllergies.toString());
 				}
+				allergies = new Allergies();
+				allergies.setAllergies(listStringAllergies);
+				listAllergies.add(allergies);
 
 				Medicalrecords medicalrecords2 = new Medicalrecords();
 				medicalrecords2.setFirstName(first_name.toString());
 				medicalrecords2.setLastName(last_name.toString());
 				medicalrecords2.setBirthdate(birthdate.toString());
-				medicalrecords2.setListMedications(listMedications);
-				medicalrecords2.setListAllergies(listAllergies);
+				medicalrecords2.setMedications(listStringMedications);
+				medicalrecords2.setAllergies(listStringAllergies);
 				listMedicalrecords.add(medicalrecords2);
 			}
 		}

@@ -1,10 +1,7 @@
 package com.openclassrooms.safetynetalerts.dao;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -17,9 +14,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.ValueType;
 import com.jsoniter.any.Any;
@@ -27,6 +21,7 @@ import com.jsoniter.output.JsonStream;
 import com.openclassrooms.safetynetalerts.model.AddressListFirestation;
 import com.openclassrooms.safetynetalerts.model.ChildAlert;
 import com.openclassrooms.safetynetalerts.model.Children;
+import com.openclassrooms.safetynetalerts.model.CollectionPersons;
 import com.openclassrooms.safetynetalerts.model.CommunityEmail;
 import com.openclassrooms.safetynetalerts.model.FireAddress;
 import com.openclassrooms.safetynetalerts.model.Firestations;
@@ -596,8 +591,8 @@ public class JsonDaoImplements implements JsonDao {
 					fireAddress.setFirstName(element_persons.getFirstName());
 					fireAddress.setLastName(element_persons.getLastName());
 					fireAddress.setPhone(element_persons.getPhone());
-					fireAddress.setListMedications(element_medicalrecords.getListMedications());
-					fireAddress.setListAllergies(element_medicalrecords.getListAllergies());
+					fireAddress.setListMedications(element_medicalrecords.getMedications());
+					fireAddress.setListAllergies(element_medicalrecords.getAllergies());
 					listFireAddress.add(fireAddress);
 					break;
 				}
@@ -679,8 +674,8 @@ public class JsonDaoImplements implements JsonDao {
 						addressListFirestation.setFirstName(element_persons.getFirstName());
 						addressListFirestation.setLastName(element_persons.getLastName());
 						addressListFirestation.setPhone(element_persons.getPhone());
-						addressListFirestation.setListMedications(element_medicalrecords.getListMedications());
-						addressListFirestation.setListAllergies(element_medicalrecords.getListAllergies());
+						addressListFirestation.setListMedications(element_medicalrecords.getMedications());
+						addressListFirestation.setListAllergies(element_medicalrecords.getAllergies());
 						listAddressListFirestation.add(addressListFirestation);
 						break;
 					}
@@ -733,8 +728,8 @@ public class JsonDaoImplements implements JsonDao {
 				for (Medicalrecords element_medicalrecords : listMedicalrecords) {
 					if (element_medicalrecords.getFirstName().equals(element_persons.getFirstName())
 							&& element_medicalrecords.getLastName().equals(element_persons.getLastName())) {
-						personInfo.setListMedications(element_medicalrecords.getListMedications());
-						personInfo.setListAllergies(element_medicalrecords.getListAllergies());
+						personInfo.setListMedications(element_medicalrecords.getMedications());
+						personInfo.setListAllergies(element_medicalrecords.getAllergies());
 					}
 				}
 				listPersonInfo.add(personInfo);
@@ -796,73 +791,31 @@ public class JsonDaoImplements implements JsonDao {
 	@Override
 	public void ajouterPerson(Persons persons) throws IOException {
 
-		String filepath_json = "data/dbJSON2.json";
+		readJsonFile = new ReadJsonFile();
 
-		
-		Persons new_persons1 = new Persons();
 		List<Persons> listPersons = new ArrayList<>();
-		byte[] bytesFile = Files.readAllBytes(new File(filepath_json).toPath());
-		JsonIterator iter = JsonIterator.parse(bytesFile);
-		Any any = iter.readAny();
-		Any personsAny = any.get("persons");
-		for (Any element : personsAny) {
-			new_persons1 = JsonIterator.deserialize(element.toString(), Persons.class);
-			listPersons.add(new_persons1);
-		}
-		listPersons.add(persons);
-		
-		String jsonstream = JsonStream.serialize(listPersons); // here we transform the list in json object
-		FileWriter writer = new FileWriter("data/dbJSON4.json");
+		listPersons = readJsonFile.readfilejsonPersons();
+		listPersons.add(persons); // add the body
+
+		// create firestations
+		List<Firestations> listFirestations = new ArrayList<>();
+		listFirestations = readJsonFile.readfilejsonFirestations();
+		// create medicalrecords
+		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
+		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
+
+		CollectionPersons collectionPersons = new CollectionPersons();
+		collectionPersons.setPersons(listPersons);
+		collectionPersons.setFirestations(listFirestations);
+		collectionPersons.setMedicalrecords(listMedicalrecords);
+
+		String jsonstream = JsonStream.serialize(collectionPersons); // here we transform the list in json object
+
+		FileWriter writer = new FileWriter(readJsonFile.filepath_json);
 		writer.write(jsonstream);
 		writer.flush();
 		writer.close();
-		
-		
-		/*
-		byte[] jsonData = Files.readAllBytes(Paths.get(filepath_json));
 
-		ObjectMapper objectMapper = new ObjectMapper();
-
-		// create JsonNode
-		//JsonNode rootNode = objectMapper.readTree(jsonData);
-		JsonNode rootNode = objectMapper.readTree(jsonData).get("persons");
-
-		// update JSON data
-		// ((ObjectNode) rootNode).put("id", 500);
-
-		// add new key value
-		// ((ObjectNode) rootNode).put("test", "test value");
-
-		Persons new_persons = new Persons();
-		List<Persons> listP = new ArrayList<>();
-
-		listP.add(persons);
-		
-		//String jsonstream = JsonStream.serialize(listCollectionPersons); // here we transform the list in json object
-		String jsonstream = JsonStream.serialize(listP); // here we transform the list in json object
-		
-		
-		JsonIterator iter = JsonIterator.parse(jsonstream);
-		Any any = iter.readAny();
-
-		
-		for (Any element : any) {
-			new_persons = JsonIterator.deserialize(element.toString(), Persons.class);
-			((ObjectNode) rootNode).put("firstName", new_persons.getFirstName());
-			((ObjectNode) rootNode).put("lastName", new_persons.getLastName());
-			((ObjectNode) rootNode).put("address", new_persons.getAddress());
-			((ObjectNode) rootNode).put("city", new_persons.getCity());
-			((ObjectNode) rootNode).put("zip", new_persons.getZip());
-			((ObjectNode) rootNode).put("phone", new_persons.getPhone());
-			((ObjectNode) rootNode).put("email", new_persons.getEmail());
-		}
-
-		// remove existing key
-		// ((ObjectNode) rootNode).remove("role");
-		// ((ObjectNode) rootNode).remove("properties");
-		
-		objectMapper.writeValue(new File("data/dbJSON3.json"), rootNode);
-*/
 	}
 
 }
