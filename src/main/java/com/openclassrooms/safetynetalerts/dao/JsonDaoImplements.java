@@ -21,7 +21,7 @@ import com.jsoniter.output.JsonStream;
 import com.openclassrooms.safetynetalerts.model.AddressListFirestation;
 import com.openclassrooms.safetynetalerts.model.ChildAlert;
 import com.openclassrooms.safetynetalerts.model.Children;
-import com.openclassrooms.safetynetalerts.model.CollectionPersons;
+import com.openclassrooms.safetynetalerts.model.CollectionsRessources;
 import com.openclassrooms.safetynetalerts.model.CommunityEmail;
 import com.openclassrooms.safetynetalerts.model.FireAddress;
 import com.openclassrooms.safetynetalerts.model.Firestations;
@@ -264,7 +264,7 @@ public class JsonDaoImplements implements JsonDao {
 		List<Children> listAdultAlert = new ArrayList<>();
 		List<ChildAlert> listChildAlert = new ArrayList<>();
 
-		listChildren = findOld(child_old); // the list of children ...old
+		listChildren = findOld(child_old); // the list of children ...old => all the child in Medicalrecords
 		String jsonStreamChild = JsonStream.serialize(listChildren); // here we transform the list in json object
 
 		listPersons = filterAddressInPersons(address); // the list of the persons at the same address
@@ -364,6 +364,7 @@ public class JsonDaoImplements implements JsonDao {
 			Medicalrecords medicalrecords;
 			String name;
 			String name_medicalrecords;
+			int findChildMedicalRecords = 0;
 			for (Children element_listPersonsAdult : listPersonsAdult) {
 				name = element_listPersonsAdult.getFirstName() + element_listPersonsAdult.getLastName();
 				for (Medicalrecords element_listMedicalrecords : listMedicalrecords) {
@@ -377,8 +378,20 @@ public class JsonDaoImplements implements JsonDao {
 						medicalrecords.setBirthdate(element_listMedicalrecords.getBirthdate());
 						listM.add(medicalrecords);
 						listAdultAlert.addAll(listFindOld(listM, adult_old));
+						findChildMedicalRecords = 1;
+						break;
 					}
 				}
+				if (findChildMedicalRecords == 0) { // if not medical records for this persons add without age - if add
+													// only a person
+					Children noPerson = new Children();
+					noPerson.setFirstName(element_listPersonsAdult.getFirstName());
+					noPerson.setLastName(element_listPersonsAdult.getLastName());
+					noPerson.setOld(null); // no medical records for this person so old is null
+					listAdultAlert.add(noPerson);
+				} else
+					findChildMedicalRecords = 0;
+
 			}
 
 			// create the decompte of the list
@@ -532,7 +545,20 @@ public class JsonDaoImplements implements JsonDao {
 		for (Persons element_listP : listP) {
 			listPhones.add(element_listP.getPhone());
 		}
-		phoneAlert.setListPhones(listPhones);
+
+		// remove the the duplicate phones
+		List<String> listPhonesNoDuplicate = new ArrayList<>();
+		for (int i = 0; i < listPhones.size(); i++) {
+			if (!listPhones.get(i).isEmpty()) { // if empty it was duplicate
+				for (int j = i + 1; j < listPhones.size(); j++) {
+					if (listPhones.get(i).equals(listPhones.get(j))) {
+						listPhones.set(j, ""); // if duplicate set to empty
+					}
+				}
+				listPhonesNoDuplicate.add(listPhones.get(i)); // we create the new list without duplicate
+			}
+		}
+		phoneAlert.setListPhones(listPhonesNoDuplicate);
 		listPhoneAlert.add(phoneAlert);
 
 		return listPhoneAlert;
@@ -781,8 +807,23 @@ public class JsonDaoImplements implements JsonDao {
 				listEmail.add(element_persons.getEmail());
 			}
 		}
+
+		// remove the the duplicate email
+		List<String> listEmailNoDuplicate = new ArrayList<>();
+
+		for (int i = 0; i < listEmail.size(); i++) {
+			if (!listEmail.get(i).isEmpty()) { // if empty it was duplicate
+				for (int j = i + 1; j < listEmail.size(); j++) {
+					if (listEmail.get(i).equals(listEmail.get(j))) {
+						listEmail.set(j, ""); // if duplicate set to empty
+					}
+				}
+				listEmailNoDuplicate.add(listEmail.get(i)); // we create the new list without duplicate
+			}
+		}
+
 		communityEmail = new CommunityEmail();
-		communityEmail.setListEmails(listEmail);
+		communityEmail.setListEmails(listEmailNoDuplicate);
 		listCommunityEmail.add(communityEmail);
 
 		return listCommunityEmail;
@@ -804,12 +845,12 @@ public class JsonDaoImplements implements JsonDao {
 		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
 		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
 
-		CollectionPersons collectionPersons = new CollectionPersons();
-		collectionPersons.setPersons(listPersons);
-		collectionPersons.setFirestations(listFirestations);
-		collectionPersons.setMedicalrecords(listMedicalrecords);
+		CollectionsRessources collectionsRessources = new CollectionsRessources();
+		collectionsRessources.setPersons(listPersons);
+		collectionsRessources.setFirestations(listFirestations);
+		collectionsRessources.setMedicalrecords(listMedicalrecords);
 
-		String jsonstream = JsonStream.serialize(collectionPersons); // here we transform the list in json object
+		String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json object
 
 		FileWriter writer = new FileWriter(readJsonFile.filepath_json);
 		writer.write(jsonstream);

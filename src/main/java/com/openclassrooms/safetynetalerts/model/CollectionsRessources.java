@@ -3,17 +3,17 @@ package com.openclassrooms.safetynetalerts.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CollectionPersons {
+public class CollectionsRessources {
 
 	private List<Persons> persons = new ArrayList<>();
 	private List<Firestations> firestations = new ArrayList<>();
 	private List<Medicalrecords> medicalrecords = new ArrayList<>();
 
-	public CollectionPersons() {
+	public CollectionsRessources() {
 		super();
 	}
 
-	public CollectionPersons(List<Persons> persons, List<Firestations> firestations,
+	public CollectionsRessources(List<Persons> persons, List<Firestations> firestations,
 			List<Medicalrecords> medicalrecords) {
 		super();
 		this.persons = persons;
@@ -47,7 +47,7 @@ public class CollectionPersons {
 
 	@Override
 	public String toString() {
-		return "CollectionPersons [persons=" + persons + ", firestations=" + firestations + ", medicalrecords="
+		return "CollectionsRessources [persons=" + persons + ", firestations=" + firestations + ", medicalrecords="
 				+ medicalrecords + "]";
 	}
 

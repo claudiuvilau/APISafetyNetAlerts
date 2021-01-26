@@ -44,7 +44,7 @@ public interface JsonDao {
 	/*
 	 * L'utilisateur accède à l’URL :
 	 *
-	 * http://localhost:9090/childAlert?adress=<adress>
+	 * http://localhost:9090/childAlert?address=<address>
 	 * 
 	 * Le système retourne une liste des enfants (<=18 ans) habitant à cette
 	 * adresse. La liste doit comprendre : prénom, nom, âge et une liste des autres
@@ -66,7 +66,7 @@ public interface JsonDao {
 	/*
 	 * L'utilisateur accède à l’URL :
 	 * 
-	 * http://localhost:9090/fire?adress=<adress>
+	 * http://localhost:9090/fire?address=<address>
 	 * 
 	 * Le système retourne une liste des habitants vivants à l’adresse donnée ainsi
 	 * que le numéro de la caserne de pompiers la desservant. La liste doit inclure
