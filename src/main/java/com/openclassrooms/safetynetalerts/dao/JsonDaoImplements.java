@@ -606,6 +606,7 @@ public class JsonDaoImplements implements JsonDao {
 		List<FireAddress> listFireAddress = new ArrayList<>();
 		String name_person;
 		String name_person_medicalrecords;
+		boolean find_medicalrecords = false;
 		for (Persons element_persons : listPersons) {
 			name_person = element_persons.getFirstName() + element_persons.getLastName();
 			for (Medicalrecords element_medicalrecords : listMedicalrecords) {
@@ -620,9 +621,21 @@ public class JsonDaoImplements implements JsonDao {
 					fireAddress.setListMedications(element_medicalrecords.getMedications());
 					fireAddress.setListAllergies(element_medicalrecords.getAllergies());
 					listFireAddress.add(fireAddress);
+					find_medicalrecords = true;
 					break;
 				}
 			}
+			if (find_medicalrecords == false) {
+				fireAddress = new FireAddress();
+				fireAddress.setFirestation(no_firestation);
+				fireAddress.setFirstName(element_persons.getFirstName());
+				fireAddress.setLastName(element_persons.getLastName());
+				fireAddress.setPhone(element_persons.getPhone());
+				fireAddress.setListMedications(null); // if not the medical records add the person with null records
+				fireAddress.setListAllergies(null); // if not medical records add the person with null records
+				listFireAddress.add(fireAddress);
+			} else
+				find_medicalrecords = false;
 		}
 
 		// set the age of persons
@@ -690,6 +703,7 @@ public class JsonDaoImplements implements JsonDao {
 			// and medical
 			// records
 			listAddressListFirestation = new ArrayList<>();
+			boolean find_medicalrecords = false;
 			for (Persons element_persons : listPersons) {
 				name_person = element_persons.getFirstName() + element_persons.getLastName();
 				for (Medicalrecords element_medicalrecords : listMedicalrecords) {
@@ -703,9 +717,22 @@ public class JsonDaoImplements implements JsonDao {
 						addressListFirestation.setListMedications(element_medicalrecords.getMedications());
 						addressListFirestation.setListAllergies(element_medicalrecords.getAllergies());
 						listAddressListFirestation.add(addressListFirestation);
+						find_medicalrecords = true;
 						break;
 					}
 				}
+				if (find_medicalrecords == false) {
+					addressListFirestation = new AddressListFirestation();
+					addressListFirestation.setFirstName(element_persons.getFirstName());
+					addressListFirestation.setLastName(element_persons.getLastName());
+					addressListFirestation.setPhone(element_persons.getPhone());
+					addressListFirestation.setListMedications(null); // if no medical records add the person without
+																		// medication with null records
+					addressListFirestation.setListAllergies(null); // // if no medical records add the person without
+																	// allergies with null records
+					listAddressListFirestation.add(addressListFirestation);
+				} else
+					find_medicalrecords = false;
 			}
 			// set the age of persons
 			for (AddressListFirestation element_fireaddress : listAddressListFirestation) {
@@ -743,6 +770,7 @@ public class JsonDaoImplements implements JsonDao {
 		// the list person with only the get of the firsName and lastName
 		List<PersonInfo> listPersonInfo = new ArrayList<>();
 		PersonInfo personInfo;
+		boolean find_medicalrecords = false;
 		for (Persons element_persons : listPersons) {
 			if ((element_persons.getFirstName().equals(firstName) && element_persons.getLastName().equals(lastName))
 					|| element_persons.getLastName().equals(lastName)) {
@@ -756,8 +784,15 @@ public class JsonDaoImplements implements JsonDao {
 							&& element_medicalrecords.getLastName().equals(element_persons.getLastName())) {
 						personInfo.setListMedications(element_medicalrecords.getMedications());
 						personInfo.setListAllergies(element_medicalrecords.getAllergies());
+						find_medicalrecords = true;
+						break;
 					}
 				}
+				if (find_medicalrecords == false) {
+					personInfo.setListMedications(null); // add the person with the null data in not medical records
+					personInfo.setListAllergies(null); // add the person with the null data in not medical records
+				} else
+					find_medicalrecords = false;
 				listPersonInfo.add(personInfo);
 			}
 		}
@@ -836,26 +871,41 @@ public class JsonDaoImplements implements JsonDao {
 
 		List<Persons> listPersons = new ArrayList<>();
 		listPersons = readJsonFile.readfilejsonPersons();
-		listPersons.add(persons); // add the body
 
-		// create firestations
-		List<Firestations> listFirestations = new ArrayList<>();
-		listFirestations = readJsonFile.readfilejsonFirestations();
-		// create medicalrecords
-		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
-		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
+		// verify if the persons is exist in the persons if not = add
+		boolean find_persons = false;
+		for (Persons element : listPersons) {
+			if ((element.getFirstName() + element.getLastName())
+					.equals(persons.getFirstName() + persons.getLastName())) {
+				find_persons = true;
+				break;
+			}
+		}
 
-		CollectionsRessources collectionsRessources = new CollectionsRessources();
-		collectionsRessources.setPersons(listPersons);
-		collectionsRessources.setFirestations(listFirestations);
-		collectionsRessources.setMedicalrecords(listMedicalrecords);
+		// add the persons if find_persons is false
+		if (find_persons == false) {
+			listPersons.add(persons); // add the body
 
-		String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json object
+			// create firestations
+			List<Firestations> listFirestations = new ArrayList<>();
+			listFirestations = readJsonFile.readfilejsonFirestations();
+			// create medicalrecords
+			List<Medicalrecords> listMedicalrecords = new ArrayList<>();
+			listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
 
-		FileWriter writer = new FileWriter(readJsonFile.filepath_json);
-		writer.write(jsonstream);
-		writer.flush();
-		writer.close();
+			CollectionsRessources collectionsRessources = new CollectionsRessources();
+			collectionsRessources.setPersons(listPersons);
+			collectionsRessources.setFirestations(listFirestations);
+			collectionsRessources.setMedicalrecords(listMedicalrecords);
+
+			String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
+																				// object
+
+			FileWriter writer = new FileWriter(readJsonFile.filepath_json);
+			writer.write(jsonstream);
+			writer.flush();
+			writer.close();
+		}
 
 	}
 
