@@ -997,4 +997,22 @@ public class JsonDaoImplements implements JsonDao {
 
 	}
 
+	@Override
+	public void addFirestation(Firestations firestation) throws IOException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void updateFirestation(Firestations firestation, String address) throws IOException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void deleteFirestation(String firestationOUaddress) throws IOException {
+		// TODO Auto-generated method stub
+
+	}
+
 }

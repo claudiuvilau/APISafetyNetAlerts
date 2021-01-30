@@ -172,7 +172,7 @@ public class EndPointsController {
 	}
 
 	@GetMapping("personInfo")
-	public List<PersonInfo> personInfo(@RequestParam String firstName, String lastName)
+	public List<PersonInfo> personInfo(@RequestParam String firstName, @RequestParam String lastName)
 			throws IOException, ParseException {
 		List<PersonInfo> listM = new ArrayList<>();
 		listM = jsonDao.personInfo(firstName, lastName);
