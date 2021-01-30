@@ -960,4 +960,41 @@ public class JsonDaoImplements implements JsonDao {
 		writer.close();
 	}
 
+	@Override
+	public void deletePerson(String firstNamelastName) throws IOException {
+		readJsonFile = new ReadJsonFile();
+
+		List<Persons> listPersons = new ArrayList<>();
+		listPersons = readJsonFile.readfilejsonPersons();
+
+		// find the person and delete
+		for (Persons element : listPersons) {
+			if ((element.getFirstName() + element.getLastName()).equals(firstNamelastName)) {
+				listPersons.remove(element);
+				break;
+			}
+		}
+
+		// create fire stations
+		List<Firestations> listFirestations = new ArrayList<>();
+		listFirestations = readJsonFile.readfilejsonFirestations();
+		// create medical records
+		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
+		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
+
+		CollectionsRessources collectionsRessources = new CollectionsRessources();
+		collectionsRessources.setPersons(listPersons);
+		collectionsRessources.setFirestations(listFirestations);
+		collectionsRessources.setMedicalrecords(listMedicalrecords);
+
+		String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
+																			// object
+
+		FileWriter writer = new FileWriter(readJsonFile.filepath_json);
+		writer.write(jsonstream);
+		writer.flush();
+		writer.close();
+
+	}
+
 }

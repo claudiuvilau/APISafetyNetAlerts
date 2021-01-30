@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.json.MappingJacksonValue;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,6 +69,12 @@ public class EndPointsController {
 	public void updatePerson(@RequestBody Persons persons, @PathVariable("firstNamelastName") String firstNamelastName)
 			throws IOException {
 		jsonDao.updatePerson(persons, firstNamelastName);
+	}
+
+	// delete person
+	@DeleteMapping(value = "/person/{firstNamelastName}")
+	public void deletePerson(@PathVariable("firstNamelastName") String firstNamelastName) throws IOException {
+		jsonDao.deletePerson(firstNamelastName);
 	}
 
 	// Fire stations

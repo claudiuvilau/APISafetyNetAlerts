@@ -126,4 +126,6 @@ public interface JsonDao {
 
 	public void updatePerson(Persons persons, String firstNamelastName) throws IOException;
 
+	public void deletePerson(String firstNamelastName) throws IOException;
+
 }
