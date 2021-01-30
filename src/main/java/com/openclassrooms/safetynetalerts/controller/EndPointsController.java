@@ -90,6 +90,26 @@ public class EndPointsController {
 		return listF;
 	}
 
+	// add fire station
+	@PostMapping(value = "/firestation")
+	public void addFirestations(@RequestBody Firestations firestation) throws IOException {
+		jsonDao.addFirestation(firestation);
+	}
+
+	// update fire station
+	@PutMapping(value = "/firestation")
+	public void updateFirestations(@RequestBody Firestations firestation, @RequestParam String address)
+			throws IOException {
+		jsonDao.updateFirestation(firestation, address);
+	}
+
+	// delete fire station
+	@DeleteMapping(value = "/firestation")
+	public void deleteFirestation(@RequestParam(value = "address", required = false) String address,
+			@RequestParam(value = "stationNumber", required = false) String stationNumber) throws IOException {
+		jsonDao.deleteFirestation(address, stationNumber);
+	}
+
 	// Medical records
 	@GetMapping(value = "Medicalrecords")
 	public List<Medicalrecords> afficherMedicalrecords() {
@@ -101,6 +121,25 @@ public class EndPointsController {
 			e.printStackTrace();
 		}
 		return listM;
+	}
+
+	// add a medical records
+	@PostMapping(value = "/medicalRecord")
+	public void addMedicalRecord(@RequestBody Medicalrecords medicalRecord) throws IOException {
+		jsonDao.addMedicalRecord(medicalRecord);
+	}
+
+	// update medical records
+	@PutMapping(value = "/medicalRecord")
+	public void updateMedicalRecord(@RequestBody Medicalrecords medicalRecord, @RequestParam String firstName,
+			@RequestParam String lastName) throws IOException {
+		jsonDao.updateMedicalRecord(medicalRecord, firstName, lastName);
+	}
+
+	// delete medical records
+	@DeleteMapping(value = "/medicalRecord")
+	public void deleteMedicalRecord(@RequestParam String firstName, @RequestParam String lastName) throws IOException {
+		jsonDao.deleteMedicalRecord(firstName, lastName);
 	}
 
 	// Find all children

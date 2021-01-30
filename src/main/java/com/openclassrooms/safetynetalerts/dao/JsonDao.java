@@ -10,6 +10,7 @@ import com.openclassrooms.safetynetalerts.model.CommunityEmail;
 import com.openclassrooms.safetynetalerts.model.FireAddress;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
+import com.openclassrooms.safetynetalerts.model.Medicalrecords;
 import com.openclassrooms.safetynetalerts.model.PersonInfo;
 import com.openclassrooms.safetynetalerts.model.Persons;
 import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
@@ -143,7 +144,7 @@ public interface JsonDao {
 
 	public void updateFirestation(Firestations firestation, String address) throws IOException;
 
-	public void deleteFirestation(String firestationOUaddress) throws IOException;
+	public void deleteFirestation(String address, String stationNumber) throws IOException;
 
 	/*
 	 * http://localhost:9090/medicalRecord
@@ -155,5 +156,9 @@ public interface JsonDao {
 	 * combinaison de prénom et de nom comme identificateur unique).
 	 * 
 	 */
+	public void addMedicalRecord(Medicalrecords medicalRecord) throws IOException;
 
+	public void updateMedicalRecord(Medicalrecords medicalRecord, String firstName, String lastName) throws IOException;
+
+	public void deleteMedicalRecord(String firstName, String lastName) throws IOException;
 }
