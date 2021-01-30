@@ -910,7 +910,7 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public void updatePerson(Persons persons, String firstNamelastName) throws IOException {
+	public void updatePerson(Persons persons, String firstName, String lastName) throws IOException {
 
 		readJsonFile = new ReadJsonFile();
 
@@ -918,6 +918,7 @@ public class JsonDaoImplements implements JsonDao {
 		listPersons = readJsonFile.readfilejsonPersons();
 
 		// find the person and update
+		String firstNamelastName = firstName + lastName;
 		for (Persons element : listPersons) {
 			if ((element.getFirstName() + element.getLastName()).equals(firstNamelastName)) {
 				if (persons.getAddress() != null) {
@@ -961,13 +962,14 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public void deletePerson(String firstNamelastName) throws IOException {
+	public void deletePerson(String firstName, String lastName) throws IOException {
 		readJsonFile = new ReadJsonFile();
 
 		List<Persons> listPersons = new ArrayList<>();
 		listPersons = readJsonFile.readfilejsonPersons();
 
 		// find the person and delete
+		String firstNamelastName = firstName + lastName;
 		for (Persons element : listPersons) {
 			if ((element.getFirstName() + element.getLastName()).equals(firstNamelastName)) {
 				listPersons.remove(element);

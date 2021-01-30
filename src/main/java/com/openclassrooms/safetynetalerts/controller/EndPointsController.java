@@ -65,16 +65,16 @@ public class EndPointsController {
 	}
 
 	// update person
-	@PutMapping(value = "/person/{firstNamelastName}")
-	public void updatePerson(@RequestBody Persons persons, @PathVariable("firstNamelastName") String firstNamelastName)
-			throws IOException {
-		jsonDao.updatePerson(persons, firstNamelastName);
+	@PutMapping(value = "/person")
+	public void updatePerson(@RequestBody Persons persons, @RequestParam String firstName,
+			@RequestParam String lastName) throws IOException {
+		jsonDao.updatePerson(persons, firstName, lastName);
 	}
 
 	// delete person
-	@DeleteMapping(value = "/person/{firstNamelastName}")
-	public void deletePerson(@PathVariable("firstNamelastName") String firstNamelastName) throws IOException {
-		jsonDao.deletePerson(firstNamelastName);
+	@DeleteMapping(value = "/person")
+	public void deletePerson(@RequestParam String firstName, @RequestParam String lastName) throws IOException {
+		jsonDao.deletePerson(firstName, lastName);
 	}
 
 	// Fire stations

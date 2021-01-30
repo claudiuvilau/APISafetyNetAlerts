@@ -126,9 +126,9 @@ public interface JsonDao {
 	 */
 	public void addPerson(Persons persons) throws IOException;
 
-	public void updatePerson(Persons persons, String firstNamelastName) throws IOException;
+	public void updatePerson(Persons persons, String firstName, String lastName) throws IOException;
 
-	public void deletePerson(String firstNamelastName) throws IOException;
+	public void deletePerson(String firstName, String lastName) throws IOException;
 
 	/*
 	 * http://localhost:9090/firestation
