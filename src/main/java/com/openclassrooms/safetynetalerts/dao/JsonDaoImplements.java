@@ -865,7 +865,7 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public void ajouterPerson(Persons persons) throws IOException {
+	public void addPerson(Persons persons) throws IOException {
 
 		readJsonFile = new ReadJsonFile();
 
@@ -886,10 +886,10 @@ public class JsonDaoImplements implements JsonDao {
 		if (find_persons == false) {
 			listPersons.add(persons); // add the body
 
-			// create firestations
+			// create fire stations
 			List<Firestations> listFirestations = new ArrayList<>();
 			listFirestations = readJsonFile.readfilejsonFirestations();
-			// create medicalrecords
+			// create medical records
 			List<Medicalrecords> listMedicalrecords = new ArrayList<>();
 			listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
 
@@ -907,6 +907,57 @@ public class JsonDaoImplements implements JsonDao {
 			writer.close();
 		}
 
+	}
+
+	@Override
+	public void updatePerson(Persons persons, String firstNamelastName) throws IOException {
+
+		readJsonFile = new ReadJsonFile();
+
+		List<Persons> listPersons = new ArrayList<>();
+		listPersons = readJsonFile.readfilejsonPersons();
+
+		// find the person and update
+		for (Persons element : listPersons) {
+			if ((element.getFirstName() + element.getLastName()).equals(firstNamelastName)) {
+				if (persons.getAddress() != null) {
+					element.setAddress(persons.getAddress());
+				}
+				if (persons.getCity() != null) {
+					element.setCity(persons.getCity());
+				}
+				if (persons.getEmail() != null) {
+					element.setEmail(persons.getEmail());
+				}
+				if (persons.getPhone() != null) {
+					element.setPhone(persons.getPhone());
+				}
+				if (persons.getZip() != null) {
+					element.setZip(persons.getZip());
+				}
+				break;
+			}
+		}
+
+		// create fire stations
+		List<Firestations> listFirestations = new ArrayList<>();
+		listFirestations = readJsonFile.readfilejsonFirestations();
+		// create medical records
+		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
+		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
+
+		CollectionsRessources collectionsRessources = new CollectionsRessources();
+		collectionsRessources.setPersons(listPersons);
+		collectionsRessources.setFirestations(listFirestations);
+		collectionsRessources.setMedicalrecords(listMedicalrecords);
+
+		String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
+																			// object
+
+		FileWriter writer = new FileWriter(readJsonFile.filepath_json);
+		writer.write(jsonstream);
+		writer.flush();
+		writer.close();
 	}
 
 }

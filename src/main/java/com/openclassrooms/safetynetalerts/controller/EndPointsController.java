@@ -10,6 +10,7 @@ import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -56,10 +57,17 @@ public class EndPointsController {
 		return listP;
 	}
 
-	// ajouter une nouvelle personne
+	// add a person
 	@PostMapping(value = "/person")
-	public void ajouterPerson(@RequestBody Persons persons) throws IOException {
-		jsonDao.ajouterPerson(persons);
+	public void addPerson(@RequestBody Persons persons) throws IOException {
+		jsonDao.addPerson(persons);
+	}
+
+	// update person
+	@PutMapping(value = "/person/{firstNamelastName}")
+	public void updatePerson(@RequestBody Persons persons, @PathVariable("firstNamelastName") String firstNamelastName)
+			throws IOException {
+		jsonDao.updatePerson(persons, firstNamelastName);
 	}
 
 	// Fire stations

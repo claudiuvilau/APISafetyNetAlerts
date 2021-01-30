@@ -122,5 +122,8 @@ public interface JsonDao {
 	 * de nom comme identificateur unique).
 	 * 
 	 */
-	public void ajouterPerson(Persons persons) throws IOException;
+	public void addPerson(Persons persons) throws IOException;
+
+	public void updatePerson(Persons persons, String firstNamelastName) throws IOException;
+
 }
