@@ -125,11 +125,13 @@ public interface JsonDao {
 	 * identificateur unique).
 	 * 
 	 */
-	public void addPerson(Persons persons) throws IOException;
+	public Persons addPerson(Persons persons) throws IOException;
 
 	public void updatePerson(Persons persons, String firstName, String lastName) throws IOException;
 
 	public void deletePerson(String firstName, String lastName) throws IOException;
+
+	public List<Persons> getAPerson(String firstNamelastName) throws IOException;
 
 	/*
 	 * http://localhost:9090/firestation

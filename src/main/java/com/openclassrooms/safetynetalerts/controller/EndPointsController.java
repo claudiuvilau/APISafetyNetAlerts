@@ -1,6 +1,7 @@
 package com.openclassrooms.safetynetalerts.controller;
 
 import java.io.IOException;
+import java.net.URI;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
@@ -51,23 +54,48 @@ public class EndPointsController {
 	// Persons
 	@GetMapping(value = "Persons")
 	public List<Persons> afficherPersonnes() {
-		// String js = "";
 		List<Persons> listP = new ArrayList<>();
 		try {
 			readJsonFile = new ReadJsonFile();
 			listP = readJsonFile.readfilejsonPersons();
-			LOGGER.info("persons ok !");
-			// js = JsonStream.serialize(listP);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return listP;
 	}
 
+	// get a person
+	@GetMapping(value = "person/{firstNamelastName}")
+	public List<Persons> getAPerson(@PathVariable String firstNamelastName) throws IOException {
+		List<Persons> listP = new ArrayList<>();
+		listP = jsonDao.getAPerson(firstNamelastName);
+		return listP;
+	}
+
 	// add a person
 	@PostMapping(value = "/person")
-	public void addPerson(@RequestBody Persons persons) throws IOException {
-		jsonDao.addPerson(persons);
+	public ResponseEntity<Void> addPerson(@RequestBody Persons persons) throws IOException {
+
+		LOGGER.info("Current Request : " + ServletUriComponentsBuilder.fromCurrentRequest().build());
+
+		// if persons == null the end point is bad request because @RequestBody
+		if (persons == null) {
+			LOGGER.error("Person in body is null.");
+			return ResponseEntity.noContent().build();
+		}
+
+		Persons newPerson = jsonDao.addPerson(persons);
+
+		if (newPerson == null) {
+			LOGGER.error("The person is not added.");
+			return ResponseEntity.unprocessableEntity().build();
+		}
+
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{firstName+lastName}")
+				.buildAndExpand(newPerson.getFirstName() + newPerson.getLastName()).toUri();
+		LOGGER.info("A new person is added successful. The URL is : " + location);
+		return ResponseEntity.created(location).build();
+
 	}
 
 	// update person

@@ -865,7 +865,7 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public void addPerson(Persons persons) throws IOException {
+	public Persons addPerson(Persons persons) throws IOException {
 
 		readJsonFile = new ReadJsonFile();
 
@@ -905,8 +905,10 @@ public class JsonDaoImplements implements JsonDao {
 			writer.write(jsonstream);
 			writer.flush();
 			writer.close();
-		}
 
+			return persons;
+		}
+		return null;
 	}
 
 	@Override
@@ -1270,4 +1272,17 @@ public class JsonDaoImplements implements JsonDao {
 
 	}
 
+	@Override
+	public List<Persons> getAPerson(String firstNamelastName) throws IOException {
+		List<Persons> listP = new ArrayList<>();
+		List<Persons> listPersons = new ArrayList<>();
+		readJsonFile = new ReadJsonFile();
+		listP = readJsonFile.readfilejsonPersons(); // here we have a list of objects Persons from json
+		for (Persons element : listP) {
+			if ((element.getFirstName() + element.getLastName()).equals(firstNamelastName)) {
+				listPersons.add(element);
+			}
+		}
+		return listPersons;
+	}
 }
