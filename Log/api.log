@@ -1,0 +1,80 @@
+2021-01-31T09:11:46.167+0100 INFO Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 10340 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-01-31T09:11:46.227+0100 INFO No active profile set, falling back to default profiles: default
+2021-01-31T09:11:50.632+0100 INFO Tomcat initialized with port(s): 9090 (http)
+2021-01-31T09:11:50.680+0100 INFO Initializing ProtocolHandler ["http-nio-9090"]
+2021-01-31T09:11:50.684+0100 INFO Starting service [Tomcat]
+2021-01-31T09:11:50.686+0100 INFO Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-31T09:11:51.049+0100 INFO Initializing Spring embedded WebApplicationContext
+2021-01-31T09:11:51.050+0100 INFO Root WebApplicationContext: initialization completed in 4525 ms
+2021-01-31T09:11:51.741+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-31T09:11:52.435+0100 INFO Starting ProtocolHandler ["http-nio-9090"]
+2021-01-31T09:11:52.519+0100 INFO Tomcat started on port(s): 9090 (http) with context path ''
+2021-01-31T09:11:52.561+0100 INFO Started ApiSafetyNetAlertsApplication in 8.74 seconds (JVM running for 14.391)
+2021-01-31T09:12:59.585+0100 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-31T09:12:59.587+0100 INFO Initializing Servlet 'dispatcherServlet'
+2021-01-31T09:12:59.591+0100 INFO Completed initialization in 3 ms
+2021-01-31T09:16:00.720+0100 INFO Application shutdown requested.
+2021-01-31T09:16:01.691+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-31T09:16:23.661+0100 INFO Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 5980 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-01-31T09:16:23.704+0100 INFO No active profile set, falling back to default profiles: default
+2021-01-31T09:16:27.308+0100 INFO Tomcat initialized with port(s): 9090 (http)
+2021-01-31T09:16:27.349+0100 INFO Initializing ProtocolHandler ["http-nio-9090"]
+2021-01-31T09:16:27.353+0100 INFO Starting service [Tomcat]
+2021-01-31T09:16:27.355+0100 INFO Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-31T09:16:27.775+0100 INFO Initializing Spring embedded WebApplicationContext
+2021-01-31T09:16:27.776+0100 INFO Root WebApplicationContext: initialization completed in 3833 ms
+2021-01-31T09:16:28.849+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-31T09:16:30.086+0100 INFO Starting ProtocolHandler ["http-nio-9090"]
+2021-01-31T09:16:30.206+0100 INFO Tomcat started on port(s): 9090 (http) with context path ''
+2021-01-31T09:16:30.251+0100 INFO Started ApiSafetyNetAlertsApplication in 9.53 seconds (JVM running for 15.31)
+2021-01-31T09:17:33.118+0100 INFO Application shutdown requested.
+2021-01-31T09:17:33.758+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-31T09:17:50.789+0100 INFO Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 4860 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-01-31T09:17:50.847+0100 INFO No active profile set, falling back to default profiles: default
+2021-01-31T09:17:54.584+0100 INFO Tomcat initialized with port(s): 9090 (http)
+2021-01-31T09:17:54.628+0100 INFO Initializing ProtocolHandler ["http-nio-9090"]
+2021-01-31T09:17:54.631+0100 INFO Starting service [Tomcat]
+2021-01-31T09:17:54.634+0100 INFO Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-31T09:17:55.072+0100 INFO Initializing Spring embedded WebApplicationContext
+2021-01-31T09:17:55.073+0100 INFO Root WebApplicationContext: initialization completed in 3949 ms
+2021-01-31T09:17:56.405+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-31T09:17:57.419+0100 INFO Starting ProtocolHandler ["http-nio-9090"]
+2021-01-31T09:17:57.520+0100 INFO Tomcat started on port(s): 9090 (http) with context path ''
+2021-01-31T09:17:57.565+0100 INFO Started ApiSafetyNetAlertsApplication in 9.943 seconds (JVM running for 16.957)
+2021-01-31T09:19:43.773+0100 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-31T09:19:43.776+0100 INFO Initializing Servlet 'dispatcherServlet'
+2021-01-31T09:19:43.779+0100 INFO Completed initialization in 2 ms
+2021-01-31T09:21:26.961+0100 INFO Application shutdown requested.
+2021-01-31T09:21:32.198+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-31T09:23:35.963+0100 INFO Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 9232 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-01-31T09:23:36.067+0100 INFO No active profile set, falling back to default profiles: default
+2021-01-31T09:23:40.371+0100 INFO Tomcat initialized with port(s): 9090 (http)
+2021-01-31T09:23:40.416+0100 INFO Initializing ProtocolHandler ["http-nio-9090"]
+2021-01-31T09:23:40.419+0100 INFO Starting service [Tomcat]
+2021-01-31T09:23:40.421+0100 INFO Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-31T09:23:40.813+0100 INFO Initializing Spring embedded WebApplicationContext
+2021-01-31T09:23:40.815+0100 INFO Root WebApplicationContext: initialization completed in 4431 ms
+2021-01-31T09:23:41.529+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-31T09:23:42.251+0100 INFO Starting ProtocolHandler ["http-nio-9090"]
+2021-01-31T09:23:42.334+0100 INFO Tomcat started on port(s): 9090 (http) with context path ''
+2021-01-31T09:23:42.375+0100 INFO Started ApiSafetyNetAlertsApplication in 8.897 seconds (JVM running for 14.914)
+2021-01-31T09:26:19.992+0100 INFO Application shutdown requested.
+2021-01-31T09:26:20.842+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-31T09:26:57.119+0100 INFO Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 7784 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-01-31T09:26:57.194+0100 INFO No active profile set, falling back to default profiles: default
+2021-01-31T09:27:02.352+0100 INFO Tomcat initialized with port(s): 9090 (http)
+2021-01-31T09:27:02.449+0100 INFO Initializing ProtocolHandler ["http-nio-9090"]
+2021-01-31T09:27:02.452+0100 INFO Starting service [Tomcat]
+2021-01-31T09:27:02.455+0100 INFO Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-31T09:27:03.003+0100 INFO Initializing Spring embedded WebApplicationContext
+2021-01-31T09:27:03.006+0100 INFO Root WebApplicationContext: initialization completed in 5397 ms
+2021-01-31T09:27:03.933+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-31T09:27:06.475+0100 INFO Starting ProtocolHandler ["http-nio-9090"]
+2021-01-31T09:27:06.714+0100 INFO Tomcat started on port(s): 9090 (http) with context path ''
+2021-01-31T09:27:06.868+0100 INFO Started ApiSafetyNetAlertsApplication in 13.66 seconds (JVM running for 22.897)
+2021-01-31T09:27:25.453+0100 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-31T09:27:25.457+0100 INFO Initializing Servlet 'dispatcherServlet'
+2021-01-31T09:27:25.460+0100 INFO Completed initialization in 2 ms
+2021-01-31T09:27:26.132+0100 INFO persons ok !
+2021-01-31T09:29:22.742+0100 INFO Application shutdown requested.
+2021-01-31T09:29:23.423+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'

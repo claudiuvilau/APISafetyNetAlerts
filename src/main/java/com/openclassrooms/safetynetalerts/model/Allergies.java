@@ -1,23 +1,26 @@
 package com.openclassrooms.safetynetalerts.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Allergies {
 
-	private String allergies;
+	private List<String> allergies = new ArrayList<>();
 
 	public Allergies() {
 
 	}
 
-	public Allergies(String allergies) {
+	public Allergies(List<String> allergies) {
 		super();
 		this.allergies = allergies;
 	}
 
-	public String getAllergies() {
+	public List<String> getAllergies() {
 		return allergies;
 	}
 
-	public void setAllergies(String allergies) {
+	public void setAllergies(List<String> allergies) {
 		this.allergies = allergies;
 	}
 

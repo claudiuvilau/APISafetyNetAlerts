@@ -10,6 +10,7 @@ import com.openclassrooms.safetynetalerts.model.CommunityEmail;
 import com.openclassrooms.safetynetalerts.model.FireAddress;
 import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
+import com.openclassrooms.safetynetalerts.model.Medicalrecords;
 import com.openclassrooms.safetynetalerts.model.PersonInfo;
 import com.openclassrooms.safetynetalerts.model.Persons;
 import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
@@ -44,7 +45,7 @@ public interface JsonDao {
 	/*
 	 * L'utilisateur accède à l’URL :
 	 *
-	 * http://localhost:9090/childAlert?adress=<adress>
+	 * http://localhost:9090/childAlert?address=<address>
 	 * 
 	 * Le système retourne une liste des enfants (<=18 ans) habitant à cette
 	 * adresse. La liste doit comprendre : prénom, nom, âge et une liste des autres
@@ -66,7 +67,7 @@ public interface JsonDao {
 	/*
 	 * L'utilisateur accède à l’URL :
 	 * 
-	 * http://localhost:9090/fire?adress=<adress>
+	 * http://localhost:9090/fire?address=<address>
 	 * 
 	 * Le système retourne une liste des habitants vivants à l’adresse donnée ainsi
 	 * que le numéro de la caserne de pompiers la desservant. La liste doit inclure
@@ -112,4 +113,52 @@ public interface JsonDao {
 	 * 
 	 */
 	public List<CommunityEmail> communityEmail(String city) throws IOException;
+
+	/*
+	 * http://localhost:9090/person
+	 * 
+	 * Cet endpoint permettra d’effectuer les actions suivantes via Post/Put/Delete
+	 * avec HTTP : ● ajouter une nouvelle personne ; ● mettre à jour une personne
+	 * existante (pour le moment, supposons que le prénom et le nom de famille ne
+	 * changent pas, mais que les autres champs peuvent être modifiés) ; ● supprimer
+	 * une personne (utilisez une combinaison de prénom et de nom comme
+	 * identificateur unique).
+	 * 
+	 */
+	public void addPerson(Persons persons) throws IOException;
+
+	public void updatePerson(Persons persons, String firstName, String lastName) throws IOException;
+
+	public void deletePerson(String firstName, String lastName) throws IOException;
+
+	/*
+	 * http://localhost:9090/firestation
+	 * 
+	 * Cet endpoint permettra d’effectuer les actions suivantes via Post/Put/Delete
+	 * avec HTTP : ● ajout d'un mapping caserne/adresse ; ● mettre à jour le numéro
+	 * de la caserne de pompiers d'une adresse ; ● supprimer le mapping d'une
+	 * caserne ou d'une adresse.
+	 * 
+	 */
+	public void addFirestation(Firestations firestation) throws IOException;
+
+	public void updateFirestation(Firestations firestation, String address) throws IOException;
+
+	public void deleteFirestation(String address, String stationNumber) throws IOException;
+
+	/*
+	 * http://localhost:9090/medicalRecord
+	 * 
+	 * Cet endpoint permettra d’effectuer les actions suivantes via Post/Put/Delete
+	 * HTTP : ● ajouter un dossier médical ; ● mettre à jour un dossier médical
+	 * existant (comme évoqué précédemment, supposer que le prénom et le nom de
+	 * famille ne changent pas) ; ● supprimer un dossier médical (utilisez une
+	 * combinaison de prénom et de nom comme identificateur unique).
+	 * 
+	 */
+	public void addMedicalRecord(Medicalrecords medicalRecord) throws IOException;
+
+	public void updateMedicalRecord(Medicalrecords medicalRecord, String firstName, String lastName) throws IOException;
+
+	public void deleteMedicalRecord(String firstName, String lastName) throws IOException;
 }

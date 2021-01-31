@@ -5,16 +5,23 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.json.MappingJacksonValue;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+import com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication;
 import com.openclassrooms.safetynetalerts.dao.JsonDao;
 import com.openclassrooms.safetynetalerts.dao.ReadJsonFile;
 import com.openclassrooms.safetynetalerts.model.ChildAlert;
@@ -39,6 +46,8 @@ public class EndPointsController {
 	private List<Persons> listPersons = new ArrayList<>();
 	private List<Foyer> listFoyer = new ArrayList<>();
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(ApiSafetyNetAlertsApplication.class);
+
 	// Persons
 	@GetMapping(value = "Persons")
 	public List<Persons> afficherPersonnes() {
@@ -47,11 +56,31 @@ public class EndPointsController {
 		try {
 			readJsonFile = new ReadJsonFile();
 			listP = readJsonFile.readfilejsonPersons();
+			LOGGER.info("persons ok !");
 			// js = JsonStream.serialize(listP);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return listP;
+	}
+
+	// add a person
+	@PostMapping(value = "/person")
+	public void addPerson(@RequestBody Persons persons) throws IOException {
+		jsonDao.addPerson(persons);
+	}
+
+	// update person
+	@PutMapping(value = "/person")
+	public void updatePerson(@RequestBody Persons persons, @RequestParam String firstName,
+			@RequestParam String lastName) throws IOException {
+		jsonDao.updatePerson(persons, firstName, lastName);
+	}
+
+	// delete person
+	@DeleteMapping(value = "/person")
+	public void deletePerson(@RequestParam String firstName, @RequestParam String lastName) throws IOException {
+		jsonDao.deletePerson(firstName, lastName);
 	}
 
 	// Fire stations
@@ -67,6 +96,26 @@ public class EndPointsController {
 		return listF;
 	}
 
+	// add fire station
+	@PostMapping(value = "/firestation")
+	public void addFirestations(@RequestBody Firestations firestation) throws IOException {
+		jsonDao.addFirestation(firestation);
+	}
+
+	// update fire station
+	@PutMapping(value = "/firestation")
+	public void updateFirestations(@RequestBody Firestations firestation, @RequestParam String address)
+			throws IOException {
+		jsonDao.updateFirestation(firestation, address);
+	}
+
+	// delete fire station
+	@DeleteMapping(value = "/firestation")
+	public void deleteFirestation(@RequestParam(value = "address", required = false) String address,
+			@RequestParam(value = "stationNumber", required = false) String stationNumber) throws IOException {
+		jsonDao.deleteFirestation(address, stationNumber);
+	}
+
 	// Medical records
 	@GetMapping(value = "Medicalrecords")
 	public List<Medicalrecords> afficherMedicalrecords() {
@@ -78,6 +127,25 @@ public class EndPointsController {
 			e.printStackTrace();
 		}
 		return listM;
+	}
+
+	// add a medical records
+	@PostMapping(value = "/medicalRecord")
+	public void addMedicalRecord(@RequestBody Medicalrecords medicalRecord) throws IOException {
+		jsonDao.addMedicalRecord(medicalRecord);
+	}
+
+	// update medical records
+	@PutMapping(value = "/medicalRecord")
+	public void updateMedicalRecord(@RequestBody Medicalrecords medicalRecord, @RequestParam String firstName,
+			@RequestParam String lastName) throws IOException {
+		jsonDao.updateMedicalRecord(medicalRecord, firstName, lastName);
+	}
+
+	// delete medical records
+	@DeleteMapping(value = "/medicalRecord")
+	public void deleteMedicalRecord(@RequestParam String firstName, @RequestParam String lastName) throws IOException {
+		jsonDao.deleteMedicalRecord(firstName, lastName);
 	}
 
 	// Find all children
@@ -149,7 +217,7 @@ public class EndPointsController {
 	}
 
 	@GetMapping("personInfo")
-	public List<PersonInfo> personInfo(@RequestParam String firstName, String lastName)
+	public List<PersonInfo> personInfo(@RequestParam String firstName, @RequestParam String lastName)
 			throws IOException, ParseException {
 		List<PersonInfo> listM = new ArrayList<>();
 		listM = jsonDao.personInfo(firstName, lastName);

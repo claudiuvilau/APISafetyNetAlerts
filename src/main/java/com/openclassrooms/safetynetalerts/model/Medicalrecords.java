@@ -8,20 +8,20 @@ public class Medicalrecords {
 	private String firstName;
 	private String lastName;
 	private String birthdate;
-	private List<Medications> listMedications = new ArrayList<>();
-	private List<Allergies> listAllergies = new ArrayList<>();
+	private List<String> medications = new ArrayList<>();
+	private List<String> allergies = new ArrayList<>();
 
 	public Medicalrecords() {
 	}
 
-	public Medicalrecords(String firstName, String lastName, String birthdate, List<Medications> listMedications,
-			List<Allergies> listAllergies) {
+	public Medicalrecords(String firstName, String lastName, String birthdate, List<String> medications,
+			List<String> allergies) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthdate = birthdate;
-		this.listMedications = listMedications;
-		this.listAllergies = listAllergies;
+		this.medications = medications;
+		this.allergies = allergies;
 	}
 
 	public String getFirstName() {
@@ -48,26 +48,26 @@ public class Medicalrecords {
 		this.birthdate = birthdate;
 	}
 
-	public List<Medications> getListMedications() {
-		return listMedications;
+	public List<String> getMedications() {
+		return medications;
 	}
 
-	public void setListMedications(List<Medications> listMedications) {
-		this.listMedications = listMedications;
+	public void setMedications(List<String> medications) {
+		this.medications = medications;
 	}
 
-	public List<Allergies> getListAllergies() {
-		return listAllergies;
+	public List<String> getAllergies() {
+		return allergies;
 	}
 
-	public void setListAllergies(List<Allergies> listAllergies) {
-		this.listAllergies = listAllergies;
+	public void setAllergies(List<String> allergies) {
+		this.allergies = allergies;
 	}
 
 	@Override
 	public String toString() {
 		return "Medicalrecords [firstName=" + firstName + ", lastName=" + lastName + ", birthdate=" + birthdate
-				+ ", listMedications=" + listMedications + ", listAllergies=" + listAllergies + "]";
+				+ ", medications=" + medications + ", allergies=" + allergies + "]";
 	}
 
 }

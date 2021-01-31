@@ -10,15 +10,15 @@ public class FireAddress {
 	private String lastName;
 	private String phone;
 	private String old;
-	private List<Medications> listMedications = new ArrayList<>();
-	private List<Allergies> listAllergies = new ArrayList<>();
+	private List<String> listMedications = new ArrayList<>();
+	private List<String> listAllergies = new ArrayList<>();
 
 	public FireAddress() {
 		super();
 	}
 
 	public FireAddress(String firestation, String firstName, String lastName, String phone, String old,
-			List<Medications> listMedications, List<Allergies> listAllergies) {
+			List<String> listMedications, List<String> listAllergies) {
 		super();
 		this.firestation = firestation;
 		this.firstName = firstName;
@@ -69,19 +69,19 @@ public class FireAddress {
 		this.old = old;
 	}
 
-	public List<Medications> getListMedications() {
+	public List<String> getListMedications() {
 		return listMedications;
 	}
 
-	public void setListMedications(List<Medications> listMedications) {
+	public void setListMedications(List<String> listMedications) {
 		this.listMedications = listMedications;
 	}
 
-	public List<Allergies> getListAllergies() {
+	public List<String> getListAllergies() {
 		return listAllergies;
 	}
 
-	public void setListAllergies(List<Allergies> listAllergies) {
+	public void setListAllergies(List<String> listAllergies) {
 		this.listAllergies = listAllergies;
 	}
 

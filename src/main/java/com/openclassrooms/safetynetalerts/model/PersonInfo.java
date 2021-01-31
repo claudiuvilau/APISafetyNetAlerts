@@ -9,15 +9,15 @@ public class PersonInfo {
 	private String address;
 	private String old;
 	private String email;
-	private List<Medications> listMedications = new ArrayList<>();
-	private List<Allergies> listAllergies = new ArrayList<>();
+	private List<String> listMedications = new ArrayList<>();
+	private List<String> listAllergies = new ArrayList<>();
 
 	public PersonInfo() {
 		super();
 	}
 
 	public PersonInfo(String firstName, String lastName, String address, String old, String email,
-			List<Medications> listMedications, List<Allergies> listAllergies) {
+			List<String> listMedications, List<String> listAllergies) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -68,19 +68,19 @@ public class PersonInfo {
 		this.email = email;
 	}
 
-	public List<Medications> getListMedications() {
+	public List<String> getListMedications() {
 		return listMedications;
 	}
 
-	public void setListMedications(List<Medications> listMedications) {
+	public void setListMedications(List<String> listMedications) {
 		this.listMedications = listMedications;
 	}
 
-	public List<Allergies> getListAllergies() {
+	public List<String> getListAllergies() {
 		return listAllergies;
 	}
 
-	public void setListAllergies(List<Allergies> listAllergies) {
+	public void setListAllergies(List<String> listAllergies) {
 		this.listAllergies = listAllergies;
 	}
 
