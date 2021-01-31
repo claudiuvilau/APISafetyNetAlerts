@@ -5,6 +5,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+import com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication;
 import com.openclassrooms.safetynetalerts.dao.JsonDao;
 import com.openclassrooms.safetynetalerts.dao.ReadJsonFile;
 import com.openclassrooms.safetynetalerts.model.ChildAlert;
@@ -43,6 +46,8 @@ public class EndPointsController {
 	private List<Persons> listPersons = new ArrayList<>();
 	private List<Foyer> listFoyer = new ArrayList<>();
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(ApiSafetyNetAlertsApplication.class);
+
 	// Persons
 	@GetMapping(value = "Persons")
 	public List<Persons> afficherPersonnes() {
@@ -51,6 +56,7 @@ public class EndPointsController {
 		try {
 			readJsonFile = new ReadJsonFile();
 			listP = readJsonFile.readfilejsonPersons();
+			LOGGER.info("persons ok !");
 			// js = JsonStream.serialize(listP);
 		} catch (IOException e) {
 			e.printStackTrace();
