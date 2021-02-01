@@ -426,3 +426,1356 @@ You may wish to exclude one of them to ensure predictable runtime behavior
 2021-01-31T22:29:57.533+0100 ERROR The person is not added.
 2021-01-31T22:30:09.788+0100 INFO Application shutdown requested.
 2021-01-31T22:30:10.700+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:10:01.070+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T16:10:01.118+0100 INFO Starting ApiSafetyNetAlertsApplicationTests using Java 11.0.9 on DELL-Romain with PID 18284 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T16:10:01.127+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T16:10:02.766+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:10:03.149+0100 INFO Started ApiSafetyNetAlertsApplicationTests in 2.872 seconds (JVM running for 5.103)
+2021-02-01T16:10:03.818+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:48:43.560+0100 INFO Starting ApiSafetyNetAlertsApplication using Java 11.0.9 on DELL-Romain with PID 16792 (C:\Users\kls_k\git\APISafetyNetAlerts\target\classes started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T16:48:43.567+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T16:48:44.531+0100 INFO Tomcat initialized with port(s): 9090 (http)
+2021-02-01T16:48:44.547+0100 INFO Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-01T16:48:44.547+0100 INFO Starting service [Tomcat]
+2021-02-01T16:48:44.548+0100 INFO Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-01T16:48:44.673+0100 INFO Initializing Spring embedded WebApplicationContext
+2021-02-01T16:48:44.673+0100 INFO Root WebApplicationContext: initialization completed in 1070 ms
+2021-02-01T16:48:44.828+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:48:44.952+0100 INFO Starting ProtocolHandler ["http-nio-9090"]
+2021-02-01T16:48:44.979+0100 INFO Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-01T16:48:44.990+0100 INFO Started ApiSafetyNetAlertsApplication in 1.872 seconds (JVM running for 2.834)
+2021-02-01T16:49:15.518+0100 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-01T16:49:15.519+0100 INFO Initializing Servlet 'dispatcherServlet'
+2021-02-01T16:49:15.521+0100 INFO Completed initialization in 1 ms
+2021-02-01T16:49:50.419+0100 INFO Application shutdown requested.
+2021-02-01T16:49:50.544+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:51:17.228+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T16:51:17.272+0100 INFO Starting ApiSafetyNetAlertsApplicationTests using Java 11.0.9 on DELL-Romain with PID 10172 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T16:51:17.283+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T16:51:18.683+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:51:19.029+0100 INFO Started ApiSafetyNetAlertsApplicationTests in 2.571 seconds (JVM running for 4.806)
+2021-02-01T16:51:19.498+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:53:34.367+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T16:53:34.384+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 11576 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T16:53:34.391+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T16:53:35.762+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:53:36.084+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T16:53:36.085+0100 INFO Initializing Servlet ''
+2021-02-01T16:53:36.086+0100 INFO Completed initialization in 1 ms
+2021-02-01T16:53:36.107+0100 INFO Started EndPointsControllerTest in 2.185 seconds (JVM running for 3.49)
+2021-02-01T16:53:36.176+0100 WARN Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'stationNumber' is not present]
+2021-02-01T16:53:36.218+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:54:47.719+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T16:54:47.737+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 20036 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T16:54:47.742+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T16:54:49.151+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:54:49.444+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T16:54:49.445+0100 INFO Initializing Servlet ''
+2021-02-01T16:54:49.445+0100 INFO Completed initialization in 0 ms
+2021-02-01T16:54:49.463+0100 INFO Started EndPointsControllerTest in 2.2 seconds (JVM running for 3.5)
+2021-02-01T16:54:49.591+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:55:03.193+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T16:55:03.210+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 14620 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T16:55:03.218+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T16:55:04.642+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:55:04.957+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T16:55:04.957+0100 INFO Initializing Servlet ''
+2021-02-01T16:55:04.959+0100 INFO Completed initialization in 0 ms
+2021-02-01T16:55:04.976+0100 INFO Started EndPointsControllerTest in 2.236 seconds (JVM running for 3.575)
+2021-02-01T16:55:05.098+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:55:18.336+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T16:55:18.387+0100 INFO Starting ApiSafetyNetAlertsApplicationTests using Java 11.0.9 on DELL-Romain with PID 16456 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T16:55:18.397+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T16:55:19.906+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:55:20.254+0100 INFO Started ApiSafetyNetAlertsApplicationTests in 2.671 seconds (JVM running for 4.9)
+2021-02-01T16:55:20.758+0100 INFO Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest], using SpringBootContextLoader
+2021-02-01T16:55:20.760+0100 INFO Could not detect default resource locations for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-02-01T16:55:20.760+0100 INFO Could not detect default configuration classes for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: EndPointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-02-01T16:55:20.778+0100 INFO Found @SpringBootConfiguration com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication for test class com.openclassrooms.safetynetalerts.EndPointsControllerTest
+2021-02-01T16:55:20.782+0100 INFO Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-02-01T16:55:20.786+0100 INFO Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@18904f72, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5ffb7dce, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@cbb7a27, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@6135b03c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7bc488b7, org.springframework.test.context.event.EventPublishingTestExecutionListener@7f559f0c, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2868a883, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@641059e2, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3bcee4e7, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6830b16d, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5f12058, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@63c8a64d]
+2021-02-01T16:55:20.834+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T16:55:20.836+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 16456 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T16:55:20.838+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T16:55:21.527+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:55:21.727+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T16:55:21.728+0100 INFO Initializing Servlet ''
+2021-02-01T16:55:21.730+0100 INFO Completed initialization in 2 ms
+2021-02-01T16:55:21.744+0100 INFO Started EndPointsControllerTest in 0.953 seconds (JVM running for 6.39)
+2021-02-01T16:55:21.905+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:55:21.905+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:58:54.752+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T16:58:54.789+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 16612 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T16:58:54.798+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T16:58:56.926+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:58:57.343+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T16:58:57.343+0100 INFO Initializing Servlet ''
+2021-02-01T16:58:57.345+0100 INFO Completed initialization in 2 ms
+2021-02-01T16:58:57.375+0100 INFO Started EndPointsControllerTest in 3.375 seconds (JVM running for 5.704)
+2021-02-01T16:58:57.584+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:59:56.392+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T16:59:56.406+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 7744 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T16:59:56.412+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T16:59:57.775+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T16:59:58.102+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T16:59:58.103+0100 INFO Initializing Servlet ''
+2021-02-01T16:59:58.104+0100 INFO Completed initialization in 1 ms
+2021-02-01T16:59:58.124+0100 INFO Started EndPointsControllerTest in 2.187 seconds (JVM running for 3.516)
+2021-02-01T16:59:58.278+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:00:14.016+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:00:14.052+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 2664 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:00:14.063+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:00:16.214+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:00:16.629+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:00:16.629+0100 INFO Initializing Servlet ''
+2021-02-01T17:00:16.630+0100 INFO Completed initialization in 1 ms
+2021-02-01T17:00:16.659+0100 INFO Started EndPointsControllerTest in 3.352 seconds (JVM running for 5.59)
+2021-02-01T17:00:16.881+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:06:05.875+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:06:05.893+0100 INFO Starting JsonDaoImplementsTest using Java 11.0.9 on DELL-Romain with PID 5444 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:06:05.898+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:06:07.248+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:06:07.565+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:06:07.565+0100 INFO Initializing Servlet ''
+2021-02-01T17:06:07.566+0100 INFO Completed initialization in 1 ms
+2021-02-01T17:06:07.585+0100 INFO Started JsonDaoImplementsTest in 2.148 seconds (JVM running for 3.566)
+2021-02-01T17:06:07.712+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:06:27.020+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:06:27.038+0100 INFO Starting JsonDaoImplementsTest using Java 11.0.9 on DELL-Romain with PID 8376 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:06:27.046+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:06:28.389+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:06:28.713+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:06:28.714+0100 INFO Initializing Servlet ''
+2021-02-01T17:06:28.715+0100 INFO Completed initialization in 1 ms
+2021-02-01T17:06:28.736+0100 INFO Started JsonDaoImplementsTest in 2.144 seconds (JVM running for 3.476)
+2021-02-01T17:06:28.891+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:06:52.522+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:06:52.561+0100 INFO Starting JsonDaoImplementsTest using Java 11.0.9 on DELL-Romain with PID 12508 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:06:52.570+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:06:54.669+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:06:55.038+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:06:55.038+0100 INFO Initializing Servlet ''
+2021-02-01T17:06:55.039+0100 INFO Completed initialization in 1 ms
+2021-02-01T17:06:55.063+0100 INFO Started JsonDaoImplementsTest in 3.346 seconds (JVM running for 5.609)
+2021-02-01T17:06:55.275+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:12:48.832+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:12:48.846+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 6972 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:12:48.852+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:12:49.979+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:12:50.259+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:12:50.260+0100 INFO Initializing Servlet ''
+2021-02-01T17:12:50.262+0100 INFO Completed initialization in 2 ms
+2021-02-01T17:12:50.294+0100 INFO Started EndPointsControllerTest in 1.972 seconds (JVM running for 3.205)
+2021-02-01T17:12:50.436+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:13:21.475+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:13:21.534+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 6904 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:13:21.549+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:13:25.369+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:13:25.740+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:13:25.740+0100 INFO Initializing Servlet ''
+2021-02-01T17:13:25.741+0100 INFO Completed initialization in 1 ms
+2021-02-01T17:13:25.775+0100 INFO Started EndPointsControllerTest in 5.538 seconds (JVM running for 7.891)
+2021-02-01T17:13:25.970+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:15:39.643+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:15:39.664+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 15796 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:15:39.671+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:15:41.375+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:15:41.806+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:15:41.806+0100 INFO Initializing Servlet ''
+2021-02-01T17:15:41.807+0100 INFO Completed initialization in 1 ms
+2021-02-01T17:15:41.840+0100 INFO Started EndPointsControllerTest in 2.929 seconds (JVM running for 4.886)
+2021-02-01T17:16:51.570+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:24:13.325+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:24:13.346+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 18688 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:24:13.355+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:24:14.992+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:24:15.425+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:24:15.426+0100 INFO Initializing Servlet ''
+2021-02-01T17:24:15.429+0100 INFO Completed initialization in 3 ms
+2021-02-01T17:24:15.465+0100 INFO Started EndPointsControllerTest in 2.843 seconds (JVM running for 4.534)
+2021-02-01T17:24:15.651+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:24:28.954+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:24:28.990+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 3852 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:24:28.999+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:24:31.370+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:24:31.909+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:24:31.910+0100 INFO Initializing Servlet ''
+2021-02-01T17:24:31.913+0100 INFO Completed initialization in 3 ms
+2021-02-01T17:24:31.964+0100 INFO Started EndPointsControllerTest in 3.997 seconds (JVM running for 6.564)
+2021-02-01T17:25:24.354+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:25:24.376+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 5872 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:25:24.384+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:25:25.157+0100 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'endPointsController': Unsatisfied dependency expressed through field 'jsonDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-02-01T17:25:25.164+0100 INFO 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-02-01T17:25:25.182+0100 ERROR 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field jsonDao in com.openclassrooms.safetynetalerts.controller.EndPointsController required a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' in your configuration.
+
+2021-02-01T17:25:25.249+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:25:25.251+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 5872 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:25:25.253+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:25:25.457+0100 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'endPointsController': Unsatisfied dependency expressed through field 'jsonDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-02-01T17:25:25.460+0100 INFO 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-02-01T17:25:25.464+0100 ERROR 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field jsonDao in com.openclassrooms.safetynetalerts.controller.EndPointsController required a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' in your configuration.
+
+2021-02-01T17:25:25.465+0100 ERROR Caught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@35c4697c] to prepare test instance [com.openclassrooms.safetynetalerts.EndPointsControllerTest@104dc1a2]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener.prepareTestInstance(SpringBootDependencyInjectionTestExecutionListener.java:43) ~[spring-boot-test-autoconfigure-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:137) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$6(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:355) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$7(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[?:?]
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:349) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$4(ClassBasedTestDescriptor.java:270) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:269) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$2(ClassBasedTestDescriptor.java:259) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.Optional.orElseGet(Optional.java:369) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$3(ClassBasedTestDescriptor.java:258) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:101) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:100) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:65) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$1(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:79) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:84) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'endPointsController': Unsatisfied dependency expressed through field 'jsonDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:122) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.3.2.jar:5.3.2]
+	... 70 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1777) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1333) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1287) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:122) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.3.2.jar:5.3.2]
+	... 70 more
+2021-02-01T17:29:04.857+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:29:04.872+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 19520 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:29:04.877+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:29:05.391+0100 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'endPointsController': Unsatisfied dependency expressed through field 'jsonDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-02-01T17:29:05.396+0100 INFO 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-02-01T17:29:05.411+0100 ERROR 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field jsonDao in com.openclassrooms.safetynetalerts.controller.EndPointsController required a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' in your configuration.
+
+2021-02-01T17:29:05.457+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:29:05.458+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 19520 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:29:05.460+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:29:05.569+0100 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'endPointsController': Unsatisfied dependency expressed through field 'jsonDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-02-01T17:29:05.571+0100 INFO 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-02-01T17:29:05.573+0100 ERROR 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field jsonDao in com.openclassrooms.safetynetalerts.controller.EndPointsController required a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' in your configuration.
+
+2021-02-01T17:29:05.573+0100 ERROR Caught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7fad214a] to prepare test instance [com.openclassrooms.safetynetalerts.EndPointsControllerTest@164642a4]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener.prepareTestInstance(SpringBootDependencyInjectionTestExecutionListener.java:43) ~[spring-boot-test-autoconfigure-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:137) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$6(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:355) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$7(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[?:?]
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:349) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$4(ClassBasedTestDescriptor.java:270) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:269) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$2(ClassBasedTestDescriptor.java:259) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.Optional.orElseGet(Optional.java:369) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$3(ClassBasedTestDescriptor.java:258) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:101) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:100) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:65) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$1(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:79) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:84) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'endPointsController': Unsatisfied dependency expressed through field 'jsonDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:122) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.3.2.jar:5.3.2]
+	... 70 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1777) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1333) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1287) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:122) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.3.2.jar:5.3.2]
+	... 70 more
+2021-02-01T17:29:16.562+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:29:16.575+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 9688 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:29:16.579+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:29:17.678+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:29:17.948+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:29:17.949+0100 INFO Initializing Servlet ''
+2021-02-01T17:29:17.950+0100 INFO Completed initialization in 1 ms
+2021-02-01T17:29:17.979+0100 INFO Started EndPointsControllerTest in 1.879 seconds (JVM running for 2.906)
+2021-02-01T17:29:18.095+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:29:33.644+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:29:33.673+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 12948 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:29:33.682+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:29:35.339+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:29:35.645+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:29:35.645+0100 INFO Initializing Servlet ''
+2021-02-01T17:29:35.647+0100 INFO Completed initialization in 2 ms
+2021-02-01T17:29:35.677+0100 INFO Started EndPointsControllerTest in 2.921 seconds (JVM running for 4.96)
+2021-02-01T17:29:35.870+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:34:54.680+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:34:54.694+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 8540 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:34:54.699+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:34:55.826+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:34:56.127+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:34:56.128+0100 INFO Initializing Servlet ''
+2021-02-01T17:34:56.129+0100 INFO Completed initialization in 1 ms
+2021-02-01T17:34:56.157+0100 INFO Started EndPointsControllerTest in 1.986 seconds (JVM running for 3.088)
+2021-02-01T17:34:56.275+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:35:07.492+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:35:07.527+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 15168 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:35:07.535+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:35:09.467+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:35:09.846+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:35:09.846+0100 INFO Initializing Servlet ''
+2021-02-01T17:35:09.847+0100 INFO Completed initialization in 1 ms
+2021-02-01T17:35:09.882+0100 INFO Started EndPointsControllerTest in 3.51 seconds (JVM running for 5.812)
+2021-02-01T17:35:10.077+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:42:50.679+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:42:50.691+0100 INFO Starting JsonDaoImplementsTest using Java 11.0.9 on DELL-Romain with PID 10000 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:42:50.696+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:42:51.228+0100 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'endPointsController': Unsatisfied dependency expressed through field 'jsonDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-02-01T17:42:51.232+0100 INFO 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-02-01T17:42:51.246+0100 ERROR 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field jsonDao in com.openclassrooms.safetynetalerts.controller.EndPointsController required a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' in your configuration.
+
+2021-02-01T17:42:51.291+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:42:51.293+0100 INFO Starting JsonDaoImplementsTest using Java 11.0.9 on DELL-Romain with PID 10000 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:42:51.294+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:42:51.404+0100 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'endPointsController': Unsatisfied dependency expressed through field 'jsonDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-02-01T17:42:51.405+0100 INFO 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-02-01T17:42:51.407+0100 ERROR 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field jsonDao in com.openclassrooms.safetynetalerts.controller.EndPointsController required a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' in your configuration.
+
+2021-02-01T17:42:51.407+0100 ERROR Caught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@649f25f3] to prepare test instance [com.openclassrooms.safetynetalerts.JsonDaoImplementsTest@2e62ead7]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener.prepareTestInstance(SpringBootDependencyInjectionTestExecutionListener.java:43) ~[spring-boot-test-autoconfigure-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:137) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$6(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:355) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$7(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[?:?]
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:349) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$4(ClassBasedTestDescriptor.java:270) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:269) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$2(ClassBasedTestDescriptor.java:259) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.Optional.orElseGet(Optional.java:369) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$3(ClassBasedTestDescriptor.java:258) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:101) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:100) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:65) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$1(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:79) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:84) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'endPointsController': Unsatisfied dependency expressed through field 'jsonDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:122) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.3.2.jar:5.3.2]
+	... 70 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1777) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1333) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1287) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:122) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.3.2.jar:5.3.2]
+	... 70 more
+2021-02-01T17:43:16.333+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:43:16.348+0100 INFO Starting JsonDaoImplementsTest using Java 11.0.9 on DELL-Romain with PID 468 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:43:16.355+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:43:17.410+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:43:17.672+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:43:17.672+0100 INFO Initializing Servlet ''
+2021-02-01T17:43:17.673+0100 INFO Completed initialization in 1 ms
+2021-02-01T17:43:17.700+0100 INFO Started JsonDaoImplementsTest in 1.82 seconds (JVM running for 2.853)
+2021-02-01T17:43:17.828+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:43:29.742+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:43:29.774+0100 INFO Starting JsonDaoImplementsTest using Java 11.0.9 on DELL-Romain with PID 9556 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:43:29.782+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:43:31.447+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:43:31.767+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:43:31.767+0100 INFO Initializing Servlet ''
+2021-02-01T17:43:31.769+0100 INFO Completed initialization in 2 ms
+2021-02-01T17:43:31.815+0100 INFO Started JsonDaoImplementsTest in 2.99 seconds (JVM running for 5.065)
+2021-02-01T17:43:31.997+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:44:52.306+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:44:52.322+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 2152 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:44:52.328+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:44:53.494+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:44:53.779+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:44:53.779+0100 INFO Initializing Servlet ''
+2021-02-01T17:44:53.781+0100 INFO Completed initialization in 2 ms
+2021-02-01T17:44:53.809+0100 INFO Started EndPointsControllerTest in 2.013 seconds (JVM running for 3.102)
+2021-02-01T17:44:53.944+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:45:08.582+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:45:08.619+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 8936 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:45:08.629+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:45:10.327+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:45:10.637+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:45:10.637+0100 INFO Initializing Servlet ''
+2021-02-01T17:45:10.639+0100 INFO Completed initialization in 2 ms
+2021-02-01T17:45:10.674+0100 INFO Started EndPointsControllerTest in 2.93 seconds (JVM running for 4.851)
+2021-02-01T17:45:10.835+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:47:15.815+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:47:15.833+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 12188 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:47:15.838+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:47:16.353+0100 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'endPointsController': Unsatisfied dependency expressed through field 'jsonDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-02-01T17:47:16.357+0100 INFO 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-02-01T17:47:16.371+0100 ERROR 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field jsonDao in com.openclassrooms.safetynetalerts.controller.EndPointsController required a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' in your configuration.
+
+2021-02-01T17:47:16.416+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:47:16.417+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 12188 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:47:16.418+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:47:16.527+0100 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'endPointsController': Unsatisfied dependency expressed through field 'jsonDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-02-01T17:47:16.529+0100 INFO 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-02-01T17:47:16.532+0100 ERROR 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field jsonDao in com.openclassrooms.safetynetalerts.controller.EndPointsController required a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' in your configuration.
+
+2021-02-01T17:47:16.532+0100 ERROR Caught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@11b32a14] to prepare test instance [com.openclassrooms.safetynetalerts.EndPointsControllerTest@1c33e528]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener.prepareTestInstance(SpringBootDependencyInjectionTestExecutionListener.java:43) ~[spring-boot-test-autoconfigure-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:137) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$6(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:355) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$7(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[?:?]
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:349) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$4(ClassBasedTestDescriptor.java:270) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:269) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$2(ClassBasedTestDescriptor.java:259) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.Optional.orElseGet(Optional.java:369) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$3(ClassBasedTestDescriptor.java:258) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:101) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:100) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:65) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$1(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:79) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:84) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'endPointsController': Unsatisfied dependency expressed through field 'jsonDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:122) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.3.2.jar:5.3.2]
+	... 70 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.openclassrooms.safetynetalerts.dao.JsonDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1777) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1333) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1287) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1415) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:608) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:122) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.3.2.jar:5.3.2]
+	... 70 more
+2021-02-01T17:47:29.751+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:47:29.766+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 6072 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:47:29.771+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:47:30.862+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:47:31.151+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:47:31.152+0100 INFO Initializing Servlet ''
+2021-02-01T17:47:31.153+0100 INFO Completed initialization in 1 ms
+2021-02-01T17:47:31.185+0100 INFO Started EndPointsControllerTest in 1.88 seconds (JVM running for 2.92)
+2021-02-01T17:47:31.316+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:47:47.643+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:47:47.673+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 18984 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:47:47.681+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:47:49.342+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:47:49.676+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:47:49.676+0100 INFO Initializing Servlet ''
+2021-02-01T17:47:49.678+0100 INFO Completed initialization in 2 ms
+2021-02-01T17:47:49.713+0100 INFO Started EndPointsControllerTest in 2.855 seconds (JVM running for 4.735)
+2021-02-01T17:47:49.904+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:51:47.388+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:51:47.400+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 8692 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:51:47.406+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:51:48.493+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:51:48.783+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:51:48.784+0100 INFO Initializing Servlet ''
+2021-02-01T17:51:48.785+0100 INFO Completed initialization in 1 ms
+2021-02-01T17:51:48.815+0100 INFO Started EndPointsControllerTest in 1.904 seconds (JVM running for 2.949)
+2021-02-01T17:51:48.927+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:52:07.249+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:52:07.285+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 8688 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:52:07.294+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:52:08.962+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:52:09.322+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:52:09.322+0100 INFO Initializing Servlet ''
+2021-02-01T17:52:09.323+0100 INFO Completed initialization in 1 ms
+2021-02-01T17:52:09.362+0100 INFO Started EndPointsControllerTest in 2.967 seconds (JVM running for 4.889)
+2021-02-01T17:52:09.549+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:54:27.331+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:54:27.345+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 12916 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:54:27.350+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:54:28.423+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:54:28.691+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:54:28.691+0100 INFO Initializing Servlet ''
+2021-02-01T17:54:28.692+0100 INFO Completed initialization in 1 ms
+2021-02-01T17:54:28.721+0100 INFO Started EndPointsControllerTest in 1.855 seconds (JVM running for 2.944)
+2021-02-01T17:54:28.856+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:55:10.906+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T17:55:10.925+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 15692 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T17:55:10.932+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T17:55:12.355+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T17:55:12.720+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T17:55:12.720+0100 INFO Initializing Servlet ''
+2021-02-01T17:55:12.721+0100 INFO Completed initialization in 1 ms
+2021-02-01T17:55:12.753+0100 INFO Started EndPointsControllerTest in 2.441 seconds (JVM running for 3.953)
+2021-02-01T17:55:34.408+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T18:03:02.104+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T18:03:02.144+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 12132 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T18:03:02.160+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T18:03:03.892+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T18:03:04.244+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T18:03:04.245+0100 INFO Initializing Servlet ''
+2021-02-01T18:03:04.246+0100 INFO Completed initialization in 1 ms
+2021-02-01T18:03:04.282+0100 INFO Started EndPointsControllerTest in 3.04 seconds (JVM running for 4.962)
+2021-02-01T18:03:04.477+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T18:19:05.337+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T18:19:05.357+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 11496 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T18:19:05.363+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T18:19:06.773+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T18:19:07.152+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T18:19:07.152+0100 INFO Initializing Servlet ''
+2021-02-01T18:19:07.153+0100 INFO Completed initialization in 0 ms
+2021-02-01T18:19:07.189+0100 INFO Started EndPointsControllerTest in 2.466 seconds (JVM running for 3.848)
+2021-02-01T18:19:07.355+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01T18:20:21.106+0100 WARN 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/kls_k/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/kls_k/.m2/repository/org/json/json/20201115/json-20201115.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2021-02-01T18:20:21.147+0100 INFO Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 9604 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-02-01T18:20:21.154+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-01T18:20:23.199+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01T18:20:23.788+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-01T18:20:23.789+0100 INFO Initializing Servlet ''
+2021-02-01T18:20:23.790+0100 INFO Completed initialization in 1 ms
+2021-02-01T18:20:23.843+0100 INFO Started EndPointsControllerTest in 3.652 seconds (JVM running for 5.662)
+2021-02-01T18:21:47.892+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
