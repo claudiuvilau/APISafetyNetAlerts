@@ -1,15 +1,23 @@
 package com.openclassrooms.safetynetalerts.integration;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.CoreMatchers.is;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.io.FileWriter;
+
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
+
+import com.openclassrooms.safetynetalerts.dao.JsonDaoImplements;
+import com.openclassrooms.safetynetalerts.model.Persons;
+import com.openclassrooms.safetynetalerts.service.JsonPathFileToWriter;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -18,6 +26,8 @@ public class EndPointsControllerITest {
 	@Autowired
 	private MockMvc mockMvc;
 
+	@Mock
+	private JsonPathFileToWriter jsonPathFileToWriter;
 	/*
 	 * @Test public void testGetpersonsOfStationAdultsAndChild() throws Exception {
 	 * 
@@ -39,60 +49,18 @@ public class EndPointsControllerITest {
 	@Test
 	public void testAddPerson() throws Exception {
 
-		String une_adresse = "1509 Culver St";
-		MvcResult mvcResult = mockMvc.perform(get("/childAlert?address=" + une_adresse)).andExpect(status().isOk())
-				.andReturn();
-
-		// S’il n’y a pas d’enfant, cette url peut renvoyer une chaîne vide.
-		boolean liste_vide = false;
-		if (!mvcResult.getResponse().getContentAsString().isBlank()) {
-			liste_vide = true;
-		}
-		assertThat(liste_vide == true);
-	}
-
-	@Test
-	public void testGetphoneAlertFirestation() throws Exception {
-
-		/*
-		 * Le système retourne une liste des numéros de téléphone des résidents
-		 * desservis par la caserne de pompiers.
-		 */
-		String fire_station = "1";
-		MvcResult mvcResult = mockMvc.perform(get("/phoneAlert?firestation==" + fire_station))
-				.andExpect(status().isOk()).andReturn();
-		boolean liste_vide = false;
-		if (!mvcResult.getResponse().getContentAsString().isEmpty()) {
-			liste_vide = true;
-		}
-		assertThat(liste_vide == true);
-	}
-
-	@Test
-	public void testGetfireAddress() throws Exception {
-
-		mockMvc.perform(get("/fire?address=UneAdresse")).andExpect(status().isOk());
+		// JsonPathFileToWriter jsonPathFileToWriter = mock(JsonPathFileToWriter.class);
+		// jsonPathFileToWriter = new JsonPathFileToWriter();
+		FileWriter fileWriter = new FileWriter("data/TestdbJSON.json");
+		when(jsonPathFileToWriter.jsonPathFileToWriter()).thenReturn(fileWriter);
+		Persons persons = new Persons();
+		persons.setFirstName("TestFirstName5");
+		persons.setLastName("TestLastName5");
+		JsonDaoImplements jsonDaoImplements = new JsonDaoImplements();
+		jsonDaoImplements.addPerson(persons);
+		mockMvc.perform(get("/person/" + persons.getFirstName() + persons.getLastName())).andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].firstName", is("TestFirstName4")));
 
 	}
 
-	@Test
-	public void testGetstationListFirestation() throws Exception {
-
-		mockMvc.perform(get("/flood/station?station=1,3")).andExpect(status().isOk());
-
-	}
-
-	@Test
-	public void testGetpersonInfo() throws Exception {
-
-		mockMvc.perform(get("/personInfo?firstName=OnefirstName>&lastName=OnelastName")).andExpect(status().isOk());
-
-	}
-
-	@Test
-	public void testGetcommunityEmail() throws Exception {
-
-		mockMvc.perform(get("/communityEmail?city=Culver")).andExpect(status().isOk());
-
-	}
 }

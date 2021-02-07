@@ -16,7 +16,7 @@ import com.openclassrooms.safetynetalerts.model.Persons;
 
 public class ReadJsonFile {
 
-	String filepath_json = "data/dbJSON.json";
+	public String filepath_json = "data/dbJSON.json";
 
 	public List<Persons> readfilejsonPersons() throws IOException {
 

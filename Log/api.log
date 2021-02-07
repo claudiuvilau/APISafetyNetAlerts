@@ -3866,3 +3866,600 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 2021-02-05T21:10:52.051+0100 INFO Completed initialization in 5 ms
 2021-02-05T21:10:52.239+0100 INFO Started EndPointsControllerTest in 23.398 seconds (JVM running for 39.669)
 2021-02-05T21:10:56.538+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T10:22:29.024+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 3584 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T10:22:29.403+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T10:22:40.765+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T10:22:42.777+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T10:22:42.779+0100 INFO Initializing Servlet ''
+2021-02-06T10:22:42.783+0100 INFO Completed initialization in 3 ms
+2021-02-06T10:22:42.921+0100 INFO Started EndPointsControllerITest in 17.215 seconds (JVM running for 27.932)
+2021-02-06T10:22:44.238+0100 ERROR Caught exception while allowing TestExecutionListener [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@38e00b47] to prepare test instance [com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest@2a631049]
+org.springframework.beans.factory.BeanCreationException: Could not inject field: private static com.openclassrooms.safetynetalerts.service.JsonFileWriter com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest.jsonFileWriter; nested exception is java.lang.IllegalStateException: The field private static com.openclassrooms.safetynetalerts.service.JsonFileWriter com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest.jsonFileWriter cannot have an existing value
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.inject(MockitoPostProcessor.java:364) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.inject(MockitoPostProcessor.java:352) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.lambda$injectFields$0(MockitoTestExecutionListener.java:89) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.postProcessFields(MockitoTestExecutionListener.java:110) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.injectFields(MockitoTestExecutionListener.java:89) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.prepareTestInstance(MockitoTestExecutionListener.java:56) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:137) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$6(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:355) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$7(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[?:?]
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:349) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$4(ClassBasedTestDescriptor.java:270) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:269) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$2(ClassBasedTestDescriptor.java:259) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.Optional.orElseGet(Optional.java:369) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$3(ClassBasedTestDescriptor.java:258) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:101) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:100) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:65) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$1(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:79) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:84) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+Caused by: java.lang.IllegalStateException: The field private static com.openclassrooms.safetynetalerts.service.JsonFileWriter com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest.jsonFileWriter cannot have an existing value
+	at org.springframework.util.Assert.state(Assert.java:97) ~[spring-core-5.3.2.jar:5.3.2]
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.inject(MockitoPostProcessor.java:358) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	... 71 more
+2021-02-06T10:22:44.496+0100 ERROR Caught exception while allowing TestExecutionListener [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@38e00b47] to prepare test instance [com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest@56f9de3b]
+org.springframework.beans.factory.BeanCreationException: Could not inject field: private static com.openclassrooms.safetynetalerts.service.JsonFileWriter com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest.jsonFileWriter; nested exception is java.lang.IllegalStateException: The field private static com.openclassrooms.safetynetalerts.service.JsonFileWriter com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest.jsonFileWriter cannot have an existing value
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.inject(MockitoPostProcessor.java:364) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.inject(MockitoPostProcessor.java:352) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.lambda$injectFields$0(MockitoTestExecutionListener.java:89) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.postProcessFields(MockitoTestExecutionListener.java:110) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.injectFields(MockitoTestExecutionListener.java:89) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.prepareTestInstance(MockitoTestExecutionListener.java:56) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:137) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$6(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:355) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$7(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[?:?]
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:349) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$4(ClassBasedTestDescriptor.java:270) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:269) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$2(ClassBasedTestDescriptor.java:259) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.Optional.orElseGet(Optional.java:369) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$3(ClassBasedTestDescriptor.java:258) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:101) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:100) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:65) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$1(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:79) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:84) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+Caused by: java.lang.IllegalStateException: The field private static com.openclassrooms.safetynetalerts.service.JsonFileWriter com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest.jsonFileWriter cannot have an existing value
+	at org.springframework.util.Assert.state(Assert.java:97) ~[spring-core-5.3.2.jar:5.3.2]
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.inject(MockitoPostProcessor.java:358) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	... 71 more
+2021-02-06T10:22:44.765+0100 ERROR Caught exception while allowing TestExecutionListener [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@38e00b47] to prepare test instance [com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest@6ba0ee4a]
+org.springframework.beans.factory.BeanCreationException: Could not inject field: private static com.openclassrooms.safetynetalerts.service.JsonFileWriter com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest.jsonFileWriter; nested exception is java.lang.IllegalStateException: The field private static com.openclassrooms.safetynetalerts.service.JsonFileWriter com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest.jsonFileWriter cannot have an existing value
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.inject(MockitoPostProcessor.java:364) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.inject(MockitoPostProcessor.java:352) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.lambda$injectFields$0(MockitoTestExecutionListener.java:89) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.postProcessFields(MockitoTestExecutionListener.java:110) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.injectFields(MockitoTestExecutionListener.java:89) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.prepareTestInstance(MockitoTestExecutionListener.java:56) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:137) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$6(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:355) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$7(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[?:?]
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:349) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$4(ClassBasedTestDescriptor.java:270) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:269) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$2(ClassBasedTestDescriptor.java:259) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.Optional.orElseGet(Optional.java:369) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$3(ClassBasedTestDescriptor.java:258) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:101) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:100) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:65) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$1(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:79) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:84) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+Caused by: java.lang.IllegalStateException: The field private static com.openclassrooms.safetynetalerts.service.JsonFileWriter com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest.jsonFileWriter cannot have an existing value
+	at org.springframework.util.Assert.state(Assert.java:97) ~[spring-core-5.3.2.jar:5.3.2]
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.inject(MockitoPostProcessor.java:358) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	... 71 more
+2021-02-06T10:22:44.838+0100 ERROR Caught exception while allowing TestExecutionListener [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@38e00b47] to prepare test instance [com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest@27db45f]
+org.springframework.beans.factory.BeanCreationException: Could not inject field: private static com.openclassrooms.safetynetalerts.service.JsonFileWriter com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest.jsonFileWriter; nested exception is java.lang.IllegalStateException: The field private static com.openclassrooms.safetynetalerts.service.JsonFileWriter com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest.jsonFileWriter cannot have an existing value
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.inject(MockitoPostProcessor.java:364) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.inject(MockitoPostProcessor.java:352) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.lambda$injectFields$0(MockitoTestExecutionListener.java:89) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.postProcessFields(MockitoTestExecutionListener.java:110) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.injectFields(MockitoTestExecutionListener.java:89) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.prepareTestInstance(MockitoTestExecutionListener.java:56) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:137) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$6(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:355) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$7(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[?:?]
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:349) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$4(ClassBasedTestDescriptor.java:270) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:269) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$2(ClassBasedTestDescriptor.java:259) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.Optional.orElseGet(Optional.java:369) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$3(ClassBasedTestDescriptor.java:258) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:101) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:100) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:65) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$1(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:79) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:84) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+Caused by: java.lang.IllegalStateException: The field private static com.openclassrooms.safetynetalerts.service.JsonFileWriter com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest.jsonFileWriter cannot have an existing value
+	at org.springframework.util.Assert.state(Assert.java:97) ~[spring-core-5.3.2.jar:5.3.2]
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.inject(MockitoPostProcessor.java:358) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	... 71 more
+2021-02-06T10:22:45.049+0100 ERROR Caught exception while allowing TestExecutionListener [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@38e00b47] to prepare test instance [com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest@6068ebb2]
+org.springframework.beans.factory.BeanCreationException: Could not inject field: private static com.openclassrooms.safetynetalerts.service.JsonFileWriter com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest.jsonFileWriter; nested exception is java.lang.IllegalStateException: The field private static com.openclassrooms.safetynetalerts.service.JsonFileWriter com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest.jsonFileWriter cannot have an existing value
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.inject(MockitoPostProcessor.java:364) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.inject(MockitoPostProcessor.java:352) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.lambda$injectFields$0(MockitoTestExecutionListener.java:89) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.postProcessFields(MockitoTestExecutionListener.java:110) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.injectFields(MockitoTestExecutionListener.java:89) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.prepareTestInstance(MockitoTestExecutionListener.java:56) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:137) ~[spring-test-5.3.2.jar:5.3.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$6(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:355) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$7(ClassBasedTestDescriptor.java:350) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[?:?]
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:312) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[?:?]
+	at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:349) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$4(ClassBasedTestDescriptor.java:270) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:269) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$2(ClassBasedTestDescriptor.java:259) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at java.util.Optional.orElseGet(Optional.java:369) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$3(ClassBasedTestDescriptor.java:258) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:101) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:100) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:65) ~[junit-jupiter-engine-5.7.0.jar:5.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$1(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:111) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:79) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at java.util.ArrayList.forEach(ArrayList.java:1541) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51) ~[junit-platform-engine-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54) ~[junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:84) [junit-platform-launcher-1.7.0.jar:1.7.0]
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+Caused by: java.lang.IllegalStateException: The field private static com.openclassrooms.safetynetalerts.service.JsonFileWriter com.openclassrooms.safetynetalerts.integration.EndPointsControllerITest.jsonFileWriter cannot have an existing value
+	at org.springframework.util.Assert.state(Assert.java:97) ~[spring-core-5.3.2.jar:5.3.2]
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.inject(MockitoPostProcessor.java:358) ~[spring-boot-test-2.4.1.jar:2.4.1]
+	... 71 more
+2021-02-06T10:22:45.249+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T10:55:46.311+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 5500 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T10:55:46.380+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T10:55:54.239+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T10:55:56.745+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T10:55:56.747+0100 INFO Initializing Servlet ''
+2021-02-06T10:55:56.752+0100 INFO Completed initialization in 4 ms
+2021-02-06T10:55:56.995+0100 INFO Started EndPointsControllerITest in 13.324 seconds (JVM running for 23.077)
+2021-02-06T10:56:02.831+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T11:01:52.390+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 9204 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T11:01:52.552+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T11:02:04.597+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T11:02:07.220+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T11:02:07.222+0100 INFO Initializing Servlet ''
+2021-02-06T11:02:07.227+0100 INFO Completed initialization in 4 ms
+2021-02-06T11:02:07.358+0100 INFO Started EndPointsControllerITest in 18.57 seconds (JVM running for 30.916)
+2021-02-06T11:02:53.591+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T11:21:02.168+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 9704 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T11:21:02.257+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T11:21:12.855+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T11:21:16.826+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T11:21:16.828+0100 INFO Initializing Servlet ''
+2021-02-06T11:21:16.832+0100 INFO Completed initialization in 3 ms
+2021-02-06T11:21:16.954+0100 INFO Started EndPointsControllerITest in 18.288 seconds (JVM running for 29.983)
+2021-02-06T11:22:27.316+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T11:23:29.731+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 11116 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T11:23:29.913+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T11:23:40.860+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T11:23:43.773+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T11:23:43.776+0100 INFO Initializing Servlet ''
+2021-02-06T11:23:43.781+0100 INFO Completed initialization in 4 ms
+2021-02-06T11:23:43.903+0100 INFO Started EndPointsControllerITest in 17.798 seconds (JVM running for 29.448)
+2021-02-06T11:24:36.634+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T11:52:37.905+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 10112 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T11:52:37.978+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T11:52:45.930+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T11:52:48.456+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T11:52:48.459+0100 INFO Initializing Servlet ''
+2021-02-06T11:52:48.470+0100 INFO Completed initialization in 9 ms
+2021-02-06T11:52:48.727+0100 INFO Started EndPointsControllerITest in 13.329 seconds (JVM running for 22.969)
+2021-02-06T11:52:54.504+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T11:56:17.559+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 8612 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T11:56:17.643+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T11:56:28.246+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T11:56:32.206+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T11:56:32.208+0100 INFO Initializing Servlet ''
+2021-02-06T11:56:32.213+0100 INFO Completed initialization in 4 ms
+2021-02-06T11:56:32.338+0100 INFO Started EndPointsControllerITest in 17.771 seconds (JVM running for 31.351)
+2021-02-06T11:57:03.430+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T11:59:24.509+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 4360 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T11:59:24.582+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T11:59:32.609+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T11:59:35.091+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T11:59:35.094+0100 INFO Initializing Servlet ''
+2021-02-06T11:59:35.106+0100 INFO Completed initialization in 11 ms
+2021-02-06T11:59:35.347+0100 INFO Started EndPointsControllerITest in 13.349 seconds (JVM running for 22.234)
+2021-02-06T11:59:41.295+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:02:49.422+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 9508 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:02:49.482+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:02:57.394+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:02:59.780+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:02:59.783+0100 INFO Initializing Servlet ''
+2021-02-06T12:02:59.793+0100 INFO Completed initialization in 9 ms
+2021-02-06T12:03:00.053+0100 INFO Started EndPointsControllerITest in 13.197 seconds (JVM running for 21.724)
+2021-02-06T12:03:04.804+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:06:11.809+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 4512 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:06:11.922+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:06:21.829+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:06:25.579+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:06:25.581+0100 INFO Initializing Servlet ''
+2021-02-06T12:06:25.585+0100 INFO Completed initialization in 3 ms
+2021-02-06T12:06:25.703+0100 INFO Started EndPointsControllerITest in 17.366 seconds (JVM running for 31.738)
+2021-02-06T12:07:15.583+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:07:31.834+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 8616 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:07:31.896+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:07:42.646+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:07:46.414+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:07:46.416+0100 INFO Initializing Servlet ''
+2021-02-06T12:07:46.421+0100 INFO Completed initialization in 4 ms
+2021-02-06T12:07:46.535+0100 INFO Started EndPointsControllerITest in 18.917 seconds (JVM running for 31.914)
+2021-02-06T12:08:32.658+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:14:05.234+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 8584 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:14:05.296+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:14:13.228+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:14:15.158+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:14:15.160+0100 INFO Initializing Servlet ''
+2021-02-06T12:14:15.165+0100 INFO Completed initialization in 4 ms
+2021-02-06T12:14:15.303+0100 INFO Started EndPointsControllerITest in 13.538 seconds (JVM running for 22.037)
+2021-02-06T12:14:20.111+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:18:43.442+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 7840 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:18:43.629+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:18:54.047+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:18:58.331+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:18:58.334+0100 INFO Initializing Servlet ''
+2021-02-06T12:18:58.338+0100 INFO Completed initialization in 4 ms
+2021-02-06T12:18:58.456+0100 INFO Started EndPointsControllerITest in 17.94 seconds (JVM running for 32.702)
+2021-02-06T12:20:00.598+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:22:47.005+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 4308 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:22:47.078+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:22:56.443+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:22:58.885+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:22:58.888+0100 INFO Initializing Servlet ''
+2021-02-06T12:22:58.937+0100 INFO Completed initialization in 25 ms
+2021-02-06T12:22:59.169+0100 INFO Started EndPointsControllerITest in 15.666 seconds (JVM running for 24.387)
+2021-02-06T12:23:01.831+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:26:50.306+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 5532 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:26:50.368+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:26:59.875+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:27:03.571+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:27:03.582+0100 INFO Initializing Servlet ''
+2021-02-06T12:27:03.596+0100 INFO Completed initialization in 13 ms
+2021-02-06T12:27:03.944+0100 INFO Started EndPointsControllerITest in 16.646 seconds (JVM running for 25.996)
+2021-02-06T12:27:04.568+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:29:05.714+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 8488 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:29:05.824+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:29:19.463+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:29:22.817+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:29:22.820+0100 INFO Initializing Servlet ''
+2021-02-06T12:29:22.825+0100 INFO Completed initialization in 4 ms
+2021-02-06T12:29:23.063+0100 INFO Started EndPointsControllerITest in 20.91 seconds (JVM running for 33.645)
+2021-02-06T12:29:40.307+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:32:52.623+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 4876 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:32:52.790+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:33:07.208+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:33:09.853+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:33:09.856+0100 INFO Initializing Servlet ''
+2021-02-06T12:33:09.861+0100 INFO Completed initialization in 4 ms
+2021-02-06T12:33:10.091+0100 INFO Started EndPointsControllerITest in 20.523 seconds (JVM running for 33.388)
+2021-02-06T12:36:13.661+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:39:32.195+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 780 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:39:32.298+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:39:39.707+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:39:41.709+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:39:41.711+0100 INFO Initializing Servlet ''
+2021-02-06T12:39:41.716+0100 INFO Completed initialization in 4 ms
+2021-02-06T12:39:41.849+0100 INFO Started EndPointsControllerITest in 12.77 seconds (JVM running for 21.464)
+2021-02-06T12:39:46.944+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:42:04.982+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 3368 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:42:05.104+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:42:12.915+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:42:16.195+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:42:16.197+0100 INFO Initializing Servlet ''
+2021-02-06T12:42:16.202+0100 INFO Completed initialization in 4 ms
+2021-02-06T12:42:16.329+0100 INFO Started EndPointsControllerITest in 14.259 seconds (JVM running for 22.644)
+2021-02-06T12:42:20.245+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:44:44.873+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 8792 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:44:44.945+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:44:53.819+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:44:56.117+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:44:56.118+0100 INFO Initializing Servlet ''
+2021-02-06T12:44:56.123+0100 INFO Completed initialization in 4 ms
+2021-02-06T12:44:56.268+0100 INFO Started EndPointsControllerITest in 15.618 seconds (JVM running for 25.591)
+2021-02-06T12:45:00.200+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:49:07.058+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 8472 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:49:07.126+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:49:14.428+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:49:16.362+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:49:16.364+0100 INFO Initializing Servlet ''
+2021-02-06T12:49:16.369+0100 INFO Completed initialization in 3 ms
+2021-02-06T12:49:16.492+0100 INFO Started EndPointsControllerITest in 12.799 seconds (JVM running for 21.389)
+2021-02-06T12:49:19.558+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:51:19.563+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 7800 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:51:19.632+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:51:27.693+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:51:30.104+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:51:30.106+0100 INFO Initializing Servlet ''
+2021-02-06T12:51:30.124+0100 INFO Completed initialization in 17 ms
+2021-02-06T12:51:30.398+0100 INFO Started EndPointsControllerITest in 13.413 seconds (JVM running for 21.966)
+2021-02-06T12:51:33.198+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:53:00.450+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 1940 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:53:00.521+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:53:10.462+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:53:12.986+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:53:12.988+0100 INFO Initializing Servlet ''
+2021-02-06T12:53:12.993+0100 INFO Completed initialization in 3 ms
+2021-02-06T12:53:13.110+0100 INFO Started EndPointsControllerITest in 17.339 seconds (JVM running for 28.394)
+2021-02-06T12:57:44.242+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 4528 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T12:57:44.323+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T12:57:54.023+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T12:57:56.887+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T12:57:56.888+0100 INFO Initializing Servlet ''
+2021-02-06T12:57:56.893+0100 INFO Completed initialization in 3 ms
+2021-02-06T12:57:57.003+0100 INFO Started EndPointsControllerITest in 15.713 seconds (JVM running for 24.705)
+2021-02-06T12:57:58.921+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T13:02:15.847+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 8680 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T13:02:15.939+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T13:02:23.924+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T13:02:25.930+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T13:02:25.932+0100 INFO Initializing Servlet ''
+2021-02-06T13:02:25.937+0100 INFO Completed initialization in 4 ms
+2021-02-06T13:02:26.202+0100 INFO Started EndPointsControllerITest in 12.818 seconds (JVM running for 22.831)
+2021-02-06T13:02:31.540+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-06T21:49:52.763+0100 INFO Starting EndPointsControllerITest using Java 11.0.8 on C-ULTRAPORT with PID 2668 (started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-06T21:49:53.031+0100 INFO No active profile set, falling back to default profiles: default
+2021-02-06T21:50:05.650+0100 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06T21:50:08.620+0100 INFO Initializing Spring TestDispatcherServlet ''
+2021-02-06T21:50:08.622+0100 INFO Initializing Servlet ''
+2021-02-06T21:50:08.627+0100 INFO Completed initialization in 4 ms
+2021-02-06T21:50:08.762+0100 INFO Started EndPointsControllerITest in 19.403 seconds (JVM running for 33.621)
+2021-02-06T21:51:21.127+0100 INFO Shutting down ExecutorService 'applicationTaskExecutor'
