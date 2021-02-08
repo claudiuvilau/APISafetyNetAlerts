@@ -1,9 +1,7 @@
 package com.openclassrooms.safetynetalerts.integration;
 
-import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.io.FileWriter;
@@ -58,9 +56,9 @@ public class EndPointsControllerITest {
 		persons.setLastName("TestLastName5");
 		JsonDaoImplements jsonDaoImplements = new JsonDaoImplements();
 		jsonDaoImplements.addPerson(persons);
-		mockMvc.perform(get("/person/" + persons.getFirstName() + persons.getLastName())).andExpect(status().isOk())
-				.andExpect(jsonPath("$[0].firstName", is("TestFirstName4")));
-
+		//mockMvc.perform(post("/person")).param("name", "claudiu").andExpect(status().isOk());
+		mockMvc.perform(post("/person").param("name", "vilau"));
+		
 	}
 
 }

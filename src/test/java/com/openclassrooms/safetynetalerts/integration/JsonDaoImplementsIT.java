@@ -21,6 +21,7 @@ public class JsonDaoImplementsIT {
 
 	@Mock
 	private JsonPathFileToWriter jsonPathFileToWriter;
+	@Mock
 	private ReadJsonFile readJsonFile;
 
 	// @MockBean

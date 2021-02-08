@@ -7,8 +7,12 @@
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout pattern="${LOG_PATTERN}" />
-        </Console>
-  
+        </Console>  
+    
+    <Servlet name="Servlet">
+            <PatternLayout pattern="%m%n%ex{none}"/>
+        </Servlet>
+        
         <RollingFile name="file" fileName="Log/api.log"
             filePattern="Log/api-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout pattern="${LOG_PATTERN}" />
@@ -21,8 +25,28 @@
     </Appenders>
     <Loggers>
         <Root level="info">
-            <AppenderRef ref="console" />
-            <AppenderRef ref="file" />
+            <!--  <AppenderRef ref="console" />
+            <AppenderRef ref="file" /> -->
+            <AppenderRef ref="Servlet"/>
         </Root>
     </Loggers>
+    
+     <listener>
+        <listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>
+    </listener>
+ 
+    <filter>
+        <filter-name>log4jServletFilter</filter-name>
+        <filter-class>org.apache.logging.log4j.web.Log4jServletFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>log4jServletFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+        <dispatcher>ASYNC</dispatcher><!-- Servlet 3.0 w/ disabled auto-initialization only; not supported in 2.5 -->
+    </filter-mapping>
+    
 </Configuration>
