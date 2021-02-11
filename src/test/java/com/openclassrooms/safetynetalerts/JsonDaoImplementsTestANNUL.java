@@ -19,7 +19,7 @@ import com.openclassrooms.safetynetalerts.model.PersonInfo;
 import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
 import com.openclassrooms.safetynetalerts.model.PhoneAlert;
 
-public class JsonDaoImplementsTest {
+public class JsonDaoImplementsTestANNUL {
 
 	@Autowired
 	private JsonDaoImplements jsonDaoImplements;

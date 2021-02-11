@@ -1091,7 +1091,7 @@ public class JsonDaoImplements implements JsonDao {
 
 		// if only one request parameter is used
 		if ((address != null && stationNumber == null) || (stationNumber != null && address == null)) {
-			System.out.println("test");
+			
 			readJsonFile = new ReadJsonFile();
 
 			List<Firestations> listF = new ArrayList<>();
