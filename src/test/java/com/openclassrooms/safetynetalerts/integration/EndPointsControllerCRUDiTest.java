@@ -8,7 +8,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.hamcrest.text.IsBlankString;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,7 +19,7 @@ import com.openclassrooms.safetynetalerts.dao.JsonDaoImplements;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class EndPointsControllerITest {
+public class EndPointsControllerCRUDiTest {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -167,6 +166,90 @@ public class EndPointsControllerITest {
 		
 		//delete the test made
 		jsonDaoImplements.deleteFirestation(null, "TestStation");
+	}
+
+	@Test
+	public void testAddMedicalrecords() throws Exception {
+		String body = "{\r\n"
+				+ "        \"firstName\": \"TestFirstName\",\r\n"
+				+ "        \"lastName\": \"TestLastName\",\r\n"
+				+ "        \"birthdate\": \"03/06/1984\",\r\n"
+				+ "        \"medications\": [\r\n"
+				+ "            \"aznol:350mg\",\r\n"
+				+ "            \"hydrapermazol:100mg\"\r\n"
+				+ "        ],\r\n"
+				+ "        \"allergies\": [\r\n"
+				+ "            \"nillacilan\"\r\n"
+				+ "        ]\r\n"
+				+ "    }";
+		
+		
+		mockMvc.perform(post("/medicalRecord").content(body).contentType(MediaType.APPLICATION_JSON)).andExpect(status().is(200));
+		mockMvc.perform(get("/medicalRecord/TestFirstNameTestLastName")).andExpect(status().isOk()).andExpect(jsonPath("$[0].firstName", is("TestFirstName")));
+		
+		//delete the test made
+		jsonDaoImplements.deleteMedicalRecord("TestFirstName", "TestLastName");
+		
+	}
+	
+	@Test
+	public void testDeleteMedicalrecords() throws Exception {
+		//add person
+		String body = "{\r\n"
+				+ "        \"firstName\": \"TestFirstName\",\r\n"
+				+ "        \"lastName\": \"TestLastName\",\r\n"
+				+ "        \"birthdate\": \"03/06/1984\",\r\n"
+				+ "        \"medications\": [\r\n"
+				+ "            \"aznol:350mg\",\r\n"
+				+ "            \"hydrapermazol:100mg\"\r\n"
+				+ "        ],\r\n"
+				+ "        \"allergies\": [\r\n"
+				+ "            \"nillacilan\"\r\n"
+				+ "        ]\r\n"
+				+ "    }";
+		mockMvc.perform(post("/medicalRecord").content(body).contentType(MediaType.APPLICATION_JSON));
+		
+		mockMvc.perform(delete("/medicalRecord").param("firstName", "TestFirstName").param("lastName", "TestLastName")).andExpect(status().isOk());
+		
+		mockMvc.perform(get("/medicalRecord/TestFirstNameTestLastName")).andExpect(status().isOk()).equals(null);
+	}
+	
+	@Test
+	public void testUpdateMedicalrecords() throws Exception {
+		String body = "{\r\n"
+				+ "        \"firstName\": \"TestFirstName\",\r\n"
+				+ "        \"lastName\": \"TestLastName\",\r\n"
+				+ "        \"birthdate\": \"03/06/1984\",\r\n"
+				+ "        \"medications\": [\r\n"
+				+ "            \"aznol:350mg\",\r\n"
+				+ "            \"hydrapermazol:100mg\"\r\n"
+				+ "        ],\r\n"
+				+ "        \"allergies\": [\r\n"
+				+ "            \"nillacilan\"\r\n"
+				+ "        ]\r\n"
+				+ "    }";
+
+		String body_put = "{\r\n"
+				+ "        \"firstName\": \"TestPutFirstName\",\r\n"
+				+ "        \"lastName\": \"TestPutLastName\",\r\n"
+				+ "        \"birthdate\": \"03/06/1984\",\r\n"
+				+ "        \"medications\": [\r\n"
+				+ "            \"Testaznol:350mg\",\r\n"
+				+ "            \"hydrapermazol:100mg\"\r\n"
+				+ "        ],\r\n"
+				+ "        \"allergies\": [\r\n"
+				+ "            \"nillacilan\"\r\n"
+				+ "        ]\r\n"
+				+ "    }";
+
+		mockMvc.perform(post("/medicalRecord").content(body).contentType(MediaType.APPLICATION_JSON));
+
+		mockMvc.perform(put("/medicalRecord").content(body_put).contentType(MediaType.APPLICATION_JSON).param("firstName", "TestFirstName").param("lastName", "TestLastName")).andExpect(status().isOk());
+
+		mockMvc.perform(get("/medicalRecord/TestFirstNameTestLastName")).andExpect(status().isOk()).andExpect(jsonPath("$[0].medications.[0]", is("Testaznol:350mg")));
+		
+		//delete the test made
+		jsonDaoImplements.deleteMedicalRecord("TestFirsName", "TestLastName");
 	}
 
 }

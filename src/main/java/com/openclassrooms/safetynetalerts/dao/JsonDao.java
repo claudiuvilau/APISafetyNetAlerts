@@ -163,4 +163,7 @@ public interface JsonDao {
 	public void updateMedicalRecord(Medicalrecords medicalRecord, String firstName, String lastName) throws IOException;
 
 	public void deleteMedicalRecord(String firstName, String lastName) throws IOException;
+	
+	public List<Medicalrecords> getAMedicalrecord(String firstNamelastName) throws IOException;
+	
 }

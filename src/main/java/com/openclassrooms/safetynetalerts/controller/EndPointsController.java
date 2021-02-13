@@ -157,6 +157,15 @@ public class EndPointsController {
 		return listM;
 	}
 
+	// get a medical record
+	@GetMapping(value = "medicalRecord/{firstNamelastName}")
+	public List<Medicalrecords> getAMedicalRecord(@PathVariable String firstNamelastName) throws IOException {
+		List<Medicalrecords> listM = new ArrayList<>();
+		listM = jsonDao.getAMedicalrecord(firstNamelastName);
+		return listM;
+	}
+
+	
 	// add a medical records
 	@PostMapping(value = "/medicalRecord")
 	public void addMedicalRecord(@RequestBody Medicalrecords medicalRecord) throws IOException {

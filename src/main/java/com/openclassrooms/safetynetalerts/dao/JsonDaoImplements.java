@@ -1286,4 +1286,18 @@ public class JsonDaoImplements implements JsonDao {
 		}
 		return listPersons;
 	}
+
+	@Override
+	public List<Medicalrecords> getAMedicalrecord(String firstNamelastName) throws IOException {
+		List<Medicalrecords> listM = new ArrayList<>();
+		List<Medicalrecords> listMedicalreords = new ArrayList<>();
+		readJsonFile = new ReadJsonFile();
+		listM = readJsonFile.readfilejsonMedicalrecords(); // here we have a list of objects Medicalrecords from json
+		for (Medicalrecords element : listM) {
+			if ((element.getFirstName() + element.getLastName()).equals(firstNamelastName)) {
+				listMedicalreords.add(element);
+			}
+		}
+		return listMedicalreords;
+	}
 }
