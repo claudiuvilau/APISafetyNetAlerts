@@ -1,7 +1,11 @@
 package com.openclassrooms.safetynetalerts;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +15,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.openclassrooms.safetynetalerts.controller.EndPointsController;
 import com.openclassrooms.safetynetalerts.dao.JsonDaoImplements;
+import com.openclassrooms.safetynetalerts.model.FireAddress;
+import com.openclassrooms.safetynetalerts.model.Foyer;
 
 @WebMvcTest(controllers = EndPointsController.class)
 public class EndPointsControllerTest {
@@ -23,9 +29,21 @@ public class EndPointsControllerTest {
 
 	@Test
 	public void testGetpersonsOfStationAdultsAndChild() throws Exception {
+		List<Foyer> listFoyer = new ArrayList<>();
+		String station_number = "3";
+		listFoyer.add(new Foyer("1", null, null, null, null));
+		when(jsonDaoImplements.personsOfStationAdultsAndChild(station_number)).thenReturn(listFoyer);
+		mockMvc.perform(get("/firestation").param("stationNumber", station_number)).andExpect(status().isOk());
+	}
 
-		mockMvc.perform(get("/firestation?stationNumber=1")).andExpect(status().isOk());
-
+	@Test
+	public void testGetNoPersonsOfStationAdultsAndChild() throws Exception {
+		List<Foyer> listFoyer = new ArrayList<>();
+		String station_number = "3";
+		// no adults non children = "0"
+		listFoyer.add(new Foyer("0", null, "0", null, null));
+		when(jsonDaoImplements.personsOfStationAdultsAndChild(station_number)).thenReturn(listFoyer);
+		mockMvc.perform(get("/firestation").param("stationNumber", station_number)).andExpect(status().is(422));
 	}
 
 	@Test
@@ -43,10 +61,24 @@ public class EndPointsControllerTest {
 	}
 
 	@Test
+	public void testGetfireNoAddress() throws Exception {
+
+		List<FireAddress> listFireAddress = new ArrayList<>();
+		String une_adresse = "TestUneAdresse";
+		// if listFireAddress is Empty
+		when(jsonDaoImplements.fireAddress(une_adresse)).thenReturn(listFireAddress);
+		mockMvc.perform(get("/fire").param("address", une_adresse)).andExpect(status().is(422));
+	}
+
+	@Test
 	public void testGetfireAddress() throws Exception {
 
-		mockMvc.perform(get("/fire?address=UneAdresse")).andExpect(status().isOk());
-
+		List<FireAddress> listFireAddress = new ArrayList<>();
+		String une_adresse = "TestUneAdresse";
+		listFireAddress.add(new FireAddress("1", null, null, null, null, null, null));
+		// if listFireAddress is not Empty
+		when(jsonDaoImplements.fireAddress(une_adresse)).thenReturn(listFireAddress);
+		mockMvc.perform(get("/fire").param("address", une_adresse)).andExpect(status().isOk());
 	}
 
 	@Test

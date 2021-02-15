@@ -56,7 +56,7 @@ public class EndPointsControlleriTest {
 		 * 
 		 */
 		String param_station = "";
-		mockMvc.perform(get("/firestation").param("stationNumber", param_station)).andExpect(status().isOk()).equals(null);
+		mockMvc.perform(get("/firestation").param("stationNumber", param_station)).andExpect(status().is(204)).equals(null);
 		
 	}
 	
