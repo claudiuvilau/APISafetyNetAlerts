@@ -14,6 +14,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Empty;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.ValueType;
 import com.jsoniter.any.Any;
@@ -259,7 +260,7 @@ public class JsonDaoImplements implements JsonDao {
 		int adult_old = 19; // >= 19
 		List<Persons> listPersons = new ArrayList<>();
 		List<Children> listChildrenAlert = new ArrayList<>();
-		Children persons_child = new Children(); // he is a object with field : old
+		Children persons_child = new Children(); // this is a object with field : old
 		List<Children> listChildren = new ArrayList<>();
 		List<Children> listPersonsAdult = new ArrayList<>();
 		List<Children> listAdultAlert = new ArrayList<>();
@@ -269,7 +270,11 @@ public class JsonDaoImplements implements JsonDao {
 		String jsonStreamChild = JsonStream.serialize(listChildren); // here we transform the list in json object
 
 		listPersons = filterAddressInPersons(address); // the list of the persons at the same address
-		// listPersonsAdult = listFindChildOld(listPersons, child_old);
+		
+		if (listPersons.isEmpty()) { // if the address does not exist
+			return null;
+		}
+		
 		String jsonStreamPersons = JsonStream.serialize(listPersons); // here we transform the list in json object
 
 		JsonIterator iterChild = JsonIterator.parse(jsonStreamChild);
@@ -412,8 +417,7 @@ public class JsonDaoImplements implements JsonDao {
 			childAlert.setListChildren(listChildrenAlert);
 			childAlert.setListAdult(listAdultAlert);
 			listChildAlert.add(childAlert);
-		}
-		// return listChildrenAlert;
+		}	
 		return listChildAlert;
 	}
 

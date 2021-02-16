@@ -234,10 +234,15 @@ public class EndPointsController {
 		List<ChildAlert> listChildren = new ArrayList<>();
 		listChildren = jsonDao.childPersonsAlertAddress(address);
 		
+		if (listChildren == null) {
+			return ResponseEntity.notFound().build();
+		}
+		
 		return new ResponseEntity<List<ChildAlert>>(listChildren, HttpStatus.OK);
 
 	}
 
+	/*
 	@GetMapping("phoneAlert")
 	public MappingJacksonValue phoneAlertStationNumber(@RequestParam String firestation) throws IOException {
 
@@ -255,7 +260,20 @@ public class EndPointsController {
 		return phoneAlertStationNumberFiltres;
 		// return listPersons;
 	}
+*/
+	@GetMapping("phoneAlert")
+	public ResponseEntity<List<PhoneAlert>> phoneAlertStationNumber(@RequestParam String firestation) throws IOException {
 
+		List<PhoneAlert> listPhoneAlert = new ArrayList<>();
+		listPhoneAlert = jsonDao.phoneAlertFirestation(firestation);
+
+		if (listPhoneAlert.get(0).getListPhones().isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		return new ResponseEntity<List<PhoneAlert>>(listPhoneAlert, HttpStatus.OK);
+	}
+	
 	@GetMapping("fire")
 	public ResponseEntity<List<FireAddress>> fireAddress(@RequestParam String address) throws IOException, ParseException {
 
