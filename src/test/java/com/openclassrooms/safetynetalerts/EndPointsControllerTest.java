@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.openclassrooms.safetynetalerts.controller.EndPointsController;
 import com.openclassrooms.safetynetalerts.dao.JsonDaoImplements;
+import com.openclassrooms.safetynetalerts.model.ChildAlert;
 import com.openclassrooms.safetynetalerts.model.FireAddress;
 import com.openclassrooms.safetynetalerts.model.Foyer;
 
@@ -49,7 +50,11 @@ public class EndPointsControllerTest {
 	@Test
 	public void testGetchildPersonsAlertAddress() throws Exception {
 
-		mockMvc.perform(get("/childAlert?address=UneAdresse")).andExpect(status().isOk());
+		List<ChildAlert> listChildren = new ArrayList<>();
+		listChildren.add(new ChildAlert(null, null));
+		String une_adresse = "TestUneAdresse";
+		when(jsonDaoImplements.childPersonsAlertAddress(une_adresse)).thenReturn(listChildren);
+		mockMvc.perform(get("/childAlert").param("address", une_adresse)).andExpect(status().isOk());
 
 	}
 
