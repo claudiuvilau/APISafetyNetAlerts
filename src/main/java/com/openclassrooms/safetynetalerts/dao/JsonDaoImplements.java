@@ -31,6 +31,7 @@ import com.openclassrooms.safetynetalerts.model.PersonInfo;
 import com.openclassrooms.safetynetalerts.model.Persons;
 import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
 import com.openclassrooms.safetynetalerts.model.PhoneAlert;
+import com.openclassrooms.safetynetalerts.service.JsonPathFileToWriter;
 
 @Repository
 public class JsonDaoImplements implements JsonDao {
@@ -258,7 +259,7 @@ public class JsonDaoImplements implements JsonDao {
 		int adult_old = 19; // >= 19
 		List<Persons> listPersons = new ArrayList<>();
 		List<Children> listChildrenAlert = new ArrayList<>();
-		Children persons_child = new Children(); // he is a object with field : old
+		Children persons_child = new Children(); // this is a object with field : old
 		List<Children> listChildren = new ArrayList<>();
 		List<Children> listPersonsAdult = new ArrayList<>();
 		List<Children> listAdultAlert = new ArrayList<>();
@@ -268,7 +269,11 @@ public class JsonDaoImplements implements JsonDao {
 		String jsonStreamChild = JsonStream.serialize(listChildren); // here we transform the list in json object
 
 		listPersons = filterAddressInPersons(address); // the list of the persons at the same address
-		// listPersonsAdult = listFindChildOld(listPersons, child_old);
+		
+		if (listPersons.isEmpty()) { // if the address does not exist
+			return null;
+		}
+		
 		String jsonStreamPersons = JsonStream.serialize(listPersons); // here we transform the list in json object
 
 		JsonIterator iterChild = JsonIterator.parse(jsonStreamChild);
@@ -411,8 +416,7 @@ public class JsonDaoImplements implements JsonDao {
 			childAlert.setListChildren(listChildrenAlert);
 			childAlert.setListAdult(listAdultAlert);
 			listChildAlert.add(childAlert);
-		}
-		// return listChildrenAlert;
+		}	
 		return listChildAlert;
 	}
 
@@ -900,11 +904,11 @@ public class JsonDaoImplements implements JsonDao {
 
 			String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
 																				// object
-
-			FileWriter writer = new FileWriter(readJsonFile.filepath_json);
-			writer.write(jsonstream);
-			writer.flush();
-			writer.close();
+			JsonPathFileToWriter jsonPathFileToWriter = new JsonPathFileToWriter();
+			FileWriter fileWriter = jsonPathFileToWriter.jsonPathFileToWriter();
+			fileWriter.write(jsonstream);
+			fileWriter.flush();
+			fileWriter.close();
 
 			return persons;
 		}
@@ -1090,7 +1094,7 @@ public class JsonDaoImplements implements JsonDao {
 
 		// if only one request parameter is used
 		if ((address != null && stationNumber == null) || (stationNumber != null && address == null)) {
-			System.out.println("test");
+			
 			readJsonFile = new ReadJsonFile();
 
 			List<Firestations> listF = new ArrayList<>();
@@ -1284,5 +1288,19 @@ public class JsonDaoImplements implements JsonDao {
 			}
 		}
 		return listPersons;
+	}
+
+	@Override
+	public List<Medicalrecords> getAMedicalrecord(String firstNamelastName) throws IOException {
+		List<Medicalrecords> listM = new ArrayList<>();
+		List<Medicalrecords> listMedicalreords = new ArrayList<>();
+		readJsonFile = new ReadJsonFile();
+		listM = readJsonFile.readfilejsonMedicalrecords(); // here we have a list of objects Medicalrecords from json
+		for (Medicalrecords element : listM) {
+			if ((element.getFirstName() + element.getLastName()).equals(firstNamelastName)) {
+				listMedicalreords.add(element);
+			}
+		}
+		return listMedicalreords;
 	}
 }

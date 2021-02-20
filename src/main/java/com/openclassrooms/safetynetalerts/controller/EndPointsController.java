@@ -9,8 +9,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,9 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.fasterxml.jackson.databind.ser.FilterProvider;
-import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
-import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication;
 import com.openclassrooms.safetynetalerts.dao.JsonDao;
 import com.openclassrooms.safetynetalerts.dao.ReadJsonFile;
@@ -47,13 +44,15 @@ public class EndPointsController {
 	private ReadJsonFile readJsonFile;
 	private List<Firestations> listFirestations = new ArrayList<>();
 	private List<Persons> listPersons = new ArrayList<>();
-	private List<Foyer> listFoyer = new ArrayList<>();
+	
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ApiSafetyNetAlertsApplication.class);
-
+	
+	
 	// Persons
 	@GetMapping(value = "Persons")
 	public List<Persons> afficherPersonnes() {
+		
 		List<Persons> listP = new ArrayList<>();
 		try {
 			readJsonFile = new ReadJsonFile();
@@ -61,6 +60,12 @@ public class EndPointsController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		LOGGER.trace("A TRACE Message");
+		LOGGER.debug("A DEBUG Message");
+		LOGGER.info("An INFO Message");
+		LOGGER.warn("A  Message");
+		LOGGER.error("An ERROR Message");
 		return listP;
 	}
 
@@ -95,7 +100,6 @@ public class EndPointsController {
 				.buildAndExpand(newPerson.getFirstName() + newPerson.getLastName()).toUri();
 		LOGGER.info("A new person is added successful. The URL is : " + location);
 		return ResponseEntity.created(location).build();
-
 	}
 
 	// update person
@@ -157,6 +161,15 @@ public class EndPointsController {
 		return listM;
 	}
 
+	// get a medical record
+	@GetMapping(value = "medicalRecord/{firstNamelastName}")
+	public List<Medicalrecords> getAMedicalRecord(@PathVariable String firstNamelastName) throws IOException {
+		List<Medicalrecords> listM = new ArrayList<>();
+		listM = jsonDao.getAMedicalrecord(firstNamelastName);
+		return listM;
+	}
+
+	
 	// add a medical records
 	@PostMapping(value = "/medicalRecord")
 	public void addMedicalRecord(@RequestBody Medicalrecords medicalRecord) throws IOException {
@@ -199,18 +212,41 @@ public class EndPointsController {
 	}
 
 	@GetMapping("firestation")
-	public List<Foyer> firestationStationNumber(@RequestParam String stationNumber) throws IOException, ParseException {
+	public ResponseEntity<List<Foyer>> firestationStationNumber(@RequestParam String stationNumber) throws IOException, ParseException {
+
+		if (stationNumber == null || stationNumber.length() == 0) {
+			return ResponseEntity.noContent().build();
+		}
+
+		List<Foyer> listFoyer = new ArrayList<>();
 		listFoyer = jsonDao.personsOfStationAdultsAndChild(stationNumber);
-		return listFoyer;
+		
+		// if we have 0 adult 0 children
+		if (listFoyer.get(0).getDecompteAdult().equals("0") && listFoyer.get(0).getDecompteChildren().equals("0")) {
+			return ResponseEntity.unprocessableEntity().build();
+		}
+		return new ResponseEntity<List<Foyer>>(listFoyer, HttpStatus.OK);
 	}
 
 	@GetMapping("childAlert")
-	public List<ChildAlert> childAlert(@RequestParam String address) throws IOException, ParseException {
-		List<ChildAlert> listM = new ArrayList<>();
-		listM = jsonDao.childPersonsAlertAddress(address);
-		return listM;
+	public ResponseEntity<List<ChildAlert>> childAlert(@RequestParam String address) throws IOException, ParseException {
+		
+		if (address == null || address.length() == 0) {
+			return ResponseEntity.noContent().build();
+		}
+		
+		List<ChildAlert> listChildren = new ArrayList<>();
+		listChildren = jsonDao.childPersonsAlertAddress(address);
+		
+		if (listChildren == null) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		return new ResponseEntity<List<ChildAlert>>(listChildren, HttpStatus.OK);
+
 	}
 
+	/*
 	@GetMapping("phoneAlert")
 	public MappingJacksonValue phoneAlertStationNumber(@RequestParam String firestation) throws IOException {
 
@@ -228,35 +264,91 @@ public class EndPointsController {
 		return phoneAlertStationNumberFiltres;
 		// return listPersons;
 	}
+*/
+	@GetMapping("phoneAlert")
+	public ResponseEntity<List<PhoneAlert>> phoneAlertStationNumber(@RequestParam String firestation) throws IOException {
 
+		if (firestation.isBlank()) {
+			return ResponseEntity.noContent().build();
+		}
+		
+		List<PhoneAlert> listPhoneAlert = new ArrayList<>();
+		listPhoneAlert = jsonDao.phoneAlertFirestation(firestation);
+
+		if (listPhoneAlert.get(0).getListPhones().isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		return new ResponseEntity<List<PhoneAlert>>(listPhoneAlert, HttpStatus.OK);
+	}
+	
 	@GetMapping("fire")
-	public List<FireAddress> fireAddress(@RequestParam String address) throws IOException, ParseException {
-		List<FireAddress> listM = new ArrayList<>();
-		listM = jsonDao.fireAddress(address);
-		return listM;
+	public ResponseEntity<List<FireAddress>> fireAddress(@RequestParam String address) throws IOException, ParseException {
+
+		if (address == null || address.length() == 0) {
+			return ResponseEntity.noContent().build();
+		}
+
+		List<FireAddress> listFireAddress = new ArrayList<>();
+		listFireAddress = jsonDao.fireAddress(address);
+		
+		if (listFireAddress.isEmpty()) {
+			return ResponseEntity.unprocessableEntity().build();
+		}
+		return new ResponseEntity<List<FireAddress>>(listFireAddress, HttpStatus.OK);
+
 	}
 
 	@GetMapping("flood/station")
-	public List<PersonsFireStation> fireAddressListFireStation(@RequestParam List<String> station)
+	public ResponseEntity<List<PersonsFireStation>> fireAddressListFireStation(@RequestParam List<String> station)
 			throws IOException, ParseException {
-		List<PersonsFireStation> listM = new ArrayList<>();
-		listM = jsonDao.stationListFirestation(station);
-		return listM;
+		
+		if (station.isEmpty()) {
+			return ResponseEntity.noContent().build();
+		}
+		
+		List<PersonsFireStation> listPersonsFireStation = new ArrayList<>();
+		listPersonsFireStation = jsonDao.stationListFirestation(station);
+		
+		if (listPersonsFireStation.isEmpty()) {
+			return ResponseEntity.unprocessableEntity().build();
+		}
+		return new ResponseEntity<List<PersonsFireStation>>(listPersonsFireStation, HttpStatus.OK);
 	}
 
 	@GetMapping("personInfo")
-	public List<PersonInfo> personInfo(@RequestParam String firstName, @RequestParam String lastName)
+	public ResponseEntity<List<PersonInfo>> personInfo(@RequestParam String firstName, @RequestParam String lastName)
 			throws IOException, ParseException {
-		List<PersonInfo> listM = new ArrayList<>();
-		listM = jsonDao.personInfo(firstName, lastName);
-		return listM;
+		
+		if (firstName.isBlank() || lastName.isBlank()) {
+			return ResponseEntity.noContent().build();
+		}
+		
+		List<PersonInfo> listPeronInfo = new ArrayList<>();
+		listPeronInfo = jsonDao.personInfo(firstName, lastName);
+		
+		if (listPeronInfo.isEmpty()) {
+			return ResponseEntity.unprocessableEntity().build();
+		}
+		
+		return new ResponseEntity<List<PersonInfo>>(listPeronInfo, HttpStatus.OK);
 	}
 
 	@GetMapping("communityEmail")
-	public List<CommunityEmail> communityEmail(@RequestParam String city) throws IOException {
-		List<CommunityEmail> listM = new ArrayList<>();
-		listM = jsonDao.communityEmail(city);
-		return listM;
+	public ResponseEntity<List<CommunityEmail>> communityEmail(@RequestParam String city) throws IOException {
+		
+		if (city.isBlank()) {
+			return ResponseEntity.noContent().build();
+		}
+		
+		List<CommunityEmail> listCommunityEmail = new ArrayList<>();
+		listCommunityEmail = jsonDao.communityEmail(city);
+		
+		if (listCommunityEmail.get(0).getListEmails().isEmpty()) {
+			return ResponseEntity.unprocessableEntity().build();
+		}
+		
+		return new ResponseEntity<List<CommunityEmail>>(listCommunityEmail, HttpStatus.OK);
 	}
 
 }
