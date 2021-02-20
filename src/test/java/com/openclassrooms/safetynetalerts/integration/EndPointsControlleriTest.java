@@ -16,8 +16,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.google.inject.matcher.Matchers;
-
 @SpringBootTest
 @AutoConfigureMockMvc
 public class EndPointsControlleriTest {
@@ -79,24 +77,6 @@ public class EndPointsControlleriTest {
 	}
 
 	@Test
-	public void testChildPersonsAlertAddressNoChild() throws Exception {
-
-		/*
-		 *  * L'utilisateur accède à l’URL :
-		 *
-		 * http://localhost:9090/childAlert?address=<address>
-		 * 
-		 * Le système retourne une liste des enfants (<=18 ans) habitant à cette
-		 * adresse. La liste doit comprendre : prénom, nom, âge et une liste des autres
-		 * membres du foyer. S’il n’y a pas d’enfant, cette url peut renvoyer une chaîne
-		 * vide.
-		 */
-
-		String param_address = "";
-		mockMvc.perform(get("/childAlert").param("address", param_address)).andExpect(status().isOk()).equals(null);
-	}
-
-	@Test
 	public void testPhoneAlertFirestation() throws Exception {
 
 		/*
@@ -110,22 +90,6 @@ public class EndPointsControlleriTest {
 
 		String param_station = "1";
 		mockMvc.perform(get("/phoneAlert").param("firestation", param_station)).andExpect(status().isOk()).andExpect(jsonPath("$[0].listPhones", is(notNullValue())));
-	}
-
-	@Test
-	public void testPhoneAlertNoFirestation() throws Exception {
-
-		/*
-		 * L'utilisateur accède à l’URL :
-		 *
-		 * http://localhost:9090/phoneAlert?firestation=< firestation _number>
-		 *
-		 * Le système retourne une liste des numéros de téléphone des résidents
-		 * desservis par la caserne de pompiers.
-		 */
-
-		String param_station = "";
-		mockMvc.perform(get("/phoneAlert").param("firestation", param_station)).andExpect(status().isOk()).equals(null);
 	}
 
 	@Test
@@ -145,24 +109,6 @@ public class EndPointsControlleriTest {
 		String param_address = "1509 Culver St";
 		mockMvc.perform(get("/fire").param("address", param_address)).andExpect(status().isOk()).andExpect(jsonPath("$[0].lastName", is("Boyd")));
 
-	}
-
-	@Test
-	public void testFireAddressNoAddress() throws Exception {
-
-		/*
-		 * L'utilisateur accède à l’URL :
-		 * 
-		 * http://localhost:9090/fire?address=<address>
-		 *
-		 * Le système retourne une liste des habitants vivants à l’adresse donnée ainsi
-		 * que le numéro de la caserne de pompiers la desservant. La liste doit inclure
-		 * : le nom, le numéro de téléphone, l’âge et les antécédents médicaux
-		 * (médicaments, posologie et allergies) de chaque personne.
-		 */
-
-		String param_address = "";
-		mockMvc.perform(get("/fire").param("address", param_address)).andExpect(status().isOk()).equals(null);
 	}
 
 	@Test
