@@ -1,7 +1,7 @@
 package com.openclassrooms.safetynetalerts;
 
-
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -83,7 +83,7 @@ public class EndPointsControllerTest {
 		mockMvc.perform(get("/childAlert").param("address", une_adresse)).andExpect(status().isOk());
 
 	}
-	
+
 	@Test
 	public void testGetchildPersonsAlertNoAddressValid() throws Exception {
 
@@ -103,7 +103,7 @@ public class EndPointsControllerTest {
 	 * Le système retourne une liste des numéros de téléphone des résidents
 	 * desservis par la caserne de pompiers.
 	 */
-	
+
 	@Test
 	public void testGetphoneAlertFirestation() throws Exception {
 		List<PhoneAlert> listPhoneAlert = new ArrayList<>();
@@ -119,19 +119,19 @@ public class EndPointsControllerTest {
 	public void testGetNoPhoneAlertFirestation() throws Exception {
 		List<PhoneAlert> listPhoneAlert = new ArrayList<>();
 		List<String> listPhones = new ArrayList<>();
-		//listPhones.add("123456-789");
+		// listPhones.add("123456-789");
 		listPhoneAlert.add(new PhoneAlert(listPhones));
 		String no_firestation = "1";
 		when(jsonDaoImplements.phoneAlertFirestation(no_firestation)).thenReturn(listPhoneAlert);
 		mockMvc.perform(get("/phoneAlert").param("firestation", no_firestation)).andExpect(status().is(404));
 	}
-	
+
 	@Test
 	public void testGetPhoneAlertNoFirestation() throws Exception {
 		String no_firestation = "";
 		mockMvc.perform(get("/phoneAlert").param("firestation", no_firestation)).andExpect(status().is(204));
 	}
-	
+
 	/*
 	 * L'utilisateur accède à l’URL :
 	 * 
@@ -171,8 +171,7 @@ public class EndPointsControllerTest {
 		String une_adresse = "";
 		mockMvc.perform(get("/fire").param("address", une_adresse)).andExpect(status().is(204));
 	}
-	
-	
+
 	/*
 	 * L'utilisateur accède à l’URL :
 	 * 
@@ -198,7 +197,8 @@ public class EndPointsControllerTest {
 		param_station.add("1");
 		param_station.add("3");
 		when(jsonDaoImplements.stationListFirestation(param_station)).thenReturn(listPersonsFireStation);
-		mockMvc.perform(get("/flood/station").param("station", param_station.get(0).toString()).param("station", param_station.get(1).toString())).andExpect(status().isOk());	
+		mockMvc.perform(get("/flood/station").param("station", param_station.get(0).toString()).param("station",
+				param_station.get(1).toString())).andExpect(status().isOk());
 	}
 
 	@Test
@@ -210,18 +210,19 @@ public class EndPointsControllerTest {
 		param_station.add("1");
 		param_station.add("3");
 		when(jsonDaoImplements.stationListFirestation(param_station)).thenReturn(listPersonsFireStation);
-		mockMvc.perform(get("/flood/station").param("station", param_station.get(0).toString()).param("station", param_station.get(1).toString())).andExpect(status().is(422));	
+		mockMvc.perform(get("/flood/station").param("station", param_station.get(0).toString()).param("station",
+				param_station.get(1).toString())).andExpect(status().is(422));
 	}
-	
+
 	@Test
 	public void testGetstationNoFirestation() throws Exception {
 
 		List<String> param_station = new ArrayList<>();
 		param_station.add("");
-		mockMvc.perform(get("/flood/station").param("station", param_station.get(0).toString())).andExpect(status().is(204));	
+		mockMvc.perform(get("/flood/station").param("station", param_station.get(0).toString()))
+				.andExpect(status().is(204));
 	}
-	
-	
+
 	/*
 	 * L'utilisateur accède à l’URL :
 	 * 
@@ -233,34 +234,37 @@ public class EndPointsControllerTest {
 	 * apparaître.
 	 * 
 	 */
-	
+
 	@Test
 	public void testGetpersonInfo() throws Exception {
-		
+
 		String first_name = "TestFirstName";
 		String last_name = "TestLastName";
 		List<PersonInfo> listPeronInfo = new ArrayList<>();
 		listPeronInfo.add(new PersonInfo(first_name, last_name, null, null, null, null, null));
 		when(jsonDaoImplements.personInfo(first_name, last_name)).thenReturn(listPeronInfo);
-		mockMvc.perform(get("/personInfo").param("firstName", first_name).param("lastName", last_name)).andExpect(status().isOk());
+		mockMvc.perform(get("/personInfo").param("firstName", first_name).param("lastName", last_name))
+				.andExpect(status().isOk());
 	}
 
 	@Test
 	public void testGetNoPersonsInfo() throws Exception {
-		
+
 		String first_name = "TestFirstName";
 		String last_name = "TestLastName";
 		List<PersonInfo> listPeronInfo = new ArrayList<>();
 		when(jsonDaoImplements.personInfo(first_name, last_name)).thenReturn(listPeronInfo);
-		mockMvc.perform(get("/personInfo").param("firstName", first_name).param("lastName", last_name)).andExpect(status().is(422));
+		mockMvc.perform(get("/personInfo").param("firstName", first_name).param("lastName", last_name))
+				.andExpect(status().is(422));
 	}
-	
+
 	@Test
 	public void testGetNoNamePerson() throws Exception {
-		
+
 		String first_name = "";
 		String last_name = "";
-		mockMvc.perform(get("/personInfo").param("firstName", first_name).param("lastName", last_name)).andExpect(status().is(204));
+		mockMvc.perform(get("/personInfo").param("firstName", first_name).param("lastName", last_name))
+				.andExpect(status().is(204));
 	}
 
 	/*
@@ -288,17 +292,32 @@ public class EndPointsControllerTest {
 
 		List<CommunityEmail> listCommunityEmail = new ArrayList<>();
 		List<String> listEmail = new ArrayList<>();
-		//listEmail.add("");
+		// listEmail.add("");
 		listCommunityEmail.add(new CommunityEmail(listEmail));
 		String test_city = "TestCity";
 		when(jsonDaoImplements.communityEmail(test_city)).thenReturn(listCommunityEmail);
 		mockMvc.perform(get("/communityEmail").param("city", test_city)).andExpect(status().is(422));
 	}
-	
+
 	@Test
 	public void testGetcommunityEmailCityBlank() throws Exception {
 
 		String test_city = "";
 		mockMvc.perform(get("/communityEmail").param("city", test_city)).andExpect(status().is(204));
 	}
+
+	@Test
+	public void testDeletePersonNoFirstNameAndNoLastName() throws Exception {
+
+		mockMvc.perform(delete("/person").param("firstName", "").param("lastName", "")).andExpect(status().is(204));
+	}
+
+	@Test
+	public void testDeletePersonNoPerson() throws Exception {
+
+		when(jsonDaoImplements.deletePerson("testFirstName", "testLastName")).thenReturn(false);
+		mockMvc.perform(delete("/person").param("firstName", "testFirstName").param("lastName", "testLastName"))
+				.andExpect(status().is(404));
+	}
+
 }

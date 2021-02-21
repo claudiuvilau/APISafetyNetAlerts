@@ -104,8 +104,22 @@ public class EndPointsController {
 
 	// delete person
 	@DeleteMapping(value = "/person")
-	public void deletePerson(@RequestParam String firstName, @RequestParam String lastName) throws IOException {
-		jsonDao.deletePerson(firstName, lastName);
+	public ResponseEntity<Void> deletePerson(@RequestParam String firstName, @RequestParam String lastName)
+			throws IOException {
+
+		if (firstName.isBlank() || lastName.isBlank()) {
+			return ResponseEntity.noContent().build();
+		}
+
+		boolean del = false;
+
+		del = jsonDao.deletePerson(firstName, lastName);
+
+		if (del == false) {
+			return ResponseEntity.notFound().build();
+		}
+
+		return ResponseEntity.ok().build();
 	}
 
 	// Fire stations
