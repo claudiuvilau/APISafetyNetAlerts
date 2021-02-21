@@ -14458,3 +14458,537 @@ Unconditional classes:
 2021-02-21 10:06:26 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Completed 204 NO_CONTENT
 2021-02-21 10:08:12 [RMI TCP Connection(11)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
 2021-02-21 10:08:13 [RMI TCP Connection(11)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 11:12:04 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 1416 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-21 11:12:04 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - No active profile set, falling back to default profiles: default
+2021-02-21 11:12:12 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 9090 (http)
+2021-02-21 11:12:12 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-21 11:12:12 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2021-02-21 11:12:12 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 11:12:12 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2021-02-21 11:12:12 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 7980 ms
+2021-02-21 11:12:13 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 11:12:15 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver                  - Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-02-21 11:12:15 [main] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-9090"]
+2021-02-21 11:12:15 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-21 11:12:15 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Started ApiSafetyNetAlertsApplication in 14.839 seconds (JVM running for 22.451)
+2021-02-21 11:12:18 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 11:12:18 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet'
+2021-02-21 11:12:18 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected StandardServletMultipartResolver
+2021-02-21 11:12:18 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected AcceptHeaderLocaleResolver
+2021-02-21 11:12:18 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected FixedThemeResolver
+2021-02-21 11:12:18 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2cd050f
+2021-02-21 11:12:18 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.support.SessionFlashMapManager@7a9e4e50
+2021-02-21 11:12:18 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-02-21 11:12:18 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 11 ms
+2021-02-21 11:12:26 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - DELETE "/person?firstName=Claudiu5&lastName=", parameters={masked}
+2021-02-21 11:12:26 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Completed 204 NO_CONTENT
+2021-02-21 11:16:29 [RMI TCP Connection(14)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 11:16:30 [RMI TCP Connection(14)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 11:16:47 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 10716 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-21 11:16:47 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - No active profile set, falling back to default profiles: default
+2021-02-21 11:16:53 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 9090 (http)
+2021-02-21 11:16:53 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-21 11:16:53 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2021-02-21 11:16:53 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 11:16:54 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2021-02-21 11:16:54 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 6457 ms
+2021-02-21 11:16:57 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 11:16:59 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver                  - Exposing 13 endpoint(s) beneath base path '/actuator'
+2021-02-21 11:16:59 [main] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-9090"]
+2021-02-21 11:16:59 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-21 11:16:59 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Started ApiSafetyNetAlertsApplication in 14.828 seconds (JVM running for 21.378)
+2021-02-21 11:17:02 [RMI TCP Connection(1)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 11:17:02 [RMI TCP Connection(1)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet'
+2021-02-21 11:17:02 [RMI TCP Connection(1)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected StandardServletMultipartResolver
+2021-02-21 11:17:02 [RMI TCP Connection(1)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected AcceptHeaderLocaleResolver
+2021-02-21 11:17:02 [RMI TCP Connection(1)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected FixedThemeResolver
+2021-02-21 11:17:02 [RMI TCP Connection(1)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2f16a27e
+2021-02-21 11:17:02 [RMI TCP Connection(1)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.support.SessionFlashMapManager@521f7f1d
+2021-02-21 11:17:02 [RMI TCP Connection(1)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-02-21 11:17:02 [RMI TCP Connection(1)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 14 ms
+2021-02-21 11:17:47 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - GET "/", parameters={}
+2021-02-21 11:17:47 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 11:17:47 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 11:17:48 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 11:17:48 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - GET "/favicon.ico", parameters={}
+2021-02-21 11:17:48 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 11:17:48 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 11:17:49 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 11:17:54 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator", parameters={}
+2021-02-21 11:17:55 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 11:18:10 [http-nio-9090-exec-9] DEBUG o.s.w.s.DispatcherServlet                          - DELETE "/actuator", parameters={}
+2021-02-21 11:18:10 [http-nio-9090-exec-9] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver        - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' not supported]
+2021-02-21 11:18:10 [http-nio-9090-exec-9] DEBUG o.s.w.s.DispatcherServlet                          - Completed 405 METHOD_NOT_ALLOWED
+2021-02-21 11:18:10 [http-nio-9090-exec-9] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for DELETE "/error", parameters={}
+2021-02-21 11:18:10 [http-nio-9090-exec-9] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 405
+2021-02-21 11:19:08 [RMI TCP Connection(12)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 11:19:09 [RMI TCP Connection(12)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 11:19:25 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 9164 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-21 11:19:25 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - No active profile set, falling back to default profiles: default
+2021-02-21 11:19:31 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 9090 (http)
+2021-02-21 11:19:31 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-21 11:19:31 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2021-02-21 11:19:31 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 11:19:32 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2021-02-21 11:19:32 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 6643 ms
+2021-02-21 11:19:33 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 11:19:35 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver                  - Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-02-21 11:19:35 [main] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-9090"]
+2021-02-21 11:19:35 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-21 11:19:35 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Started ApiSafetyNetAlertsApplication in 13.005 seconds (JVM running for 19.007)
+2021-02-21 11:19:36 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 11:19:36 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet'
+2021-02-21 11:19:36 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected StandardServletMultipartResolver
+2021-02-21 11:19:36 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected AcceptHeaderLocaleResolver
+2021-02-21 11:19:36 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected FixedThemeResolver
+2021-02-21 11:19:36 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@474dc745
+2021-02-21 11:19:36 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.support.SessionFlashMapManager@bb17647
+2021-02-21 11:19:36 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-02-21 11:19:36 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 11 ms
+2021-02-21 11:19:47 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator", parameters={}
+2021-02-21 11:19:47 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 11:19:51 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator", parameters={}
+2021-02-21 11:19:51 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 11:20:00 [http-nio-9090-exec-7] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/health", parameters={}
+2021-02-21 11:20:00 [http-nio-9090-exec-7] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 11:20:14 [http-nio-9090-exec-10] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/trace", parameters={}
+2021-02-21 11:20:14 [http-nio-9090-exec-10] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 11:20:14 [http-nio-9090-exec-10] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 11:20:14 [http-nio-9090-exec-10] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 11:23:51 [RMI TCP Connection(13)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 11:23:51 [RMI TCP Connection(13)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 11:24:06 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 10336 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-21 11:24:06 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - No active profile set, falling back to default profiles: default
+2021-02-21 11:24:12 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 9090 (http)
+2021-02-21 11:24:12 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-21 11:24:12 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2021-02-21 11:24:12 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 11:24:12 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2021-02-21 11:24:12 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 5796 ms
+2021-02-21 11:24:13 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 11:24:15 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver                  - Exposing 3 endpoint(s) beneath base path '/actuator'
+2021-02-21 11:24:16 [main] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-9090"]
+2021-02-21 11:24:16 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-21 11:24:16 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Started ApiSafetyNetAlertsApplication in 11.947 seconds (JVM running for 17.549)
+2021-02-21 11:24:16 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 11:24:16 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet'
+2021-02-21 11:24:16 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected StandardServletMultipartResolver
+2021-02-21 11:24:16 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected AcceptHeaderLocaleResolver
+2021-02-21 11:24:16 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected FixedThemeResolver
+2021-02-21 11:24:16 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@50c73ce9
+2021-02-21 11:24:16 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.support.SessionFlashMapManager@6de48d4c
+2021-02-21 11:24:16 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-02-21 11:24:16 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 15 ms
+2021-02-21 11:24:40 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/trace", parameters={}
+2021-02-21 11:24:40 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 11:24:40 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 11:24:40 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 11:24:48 [http-nio-9090-exec-4] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/health", parameters={}
+2021-02-21 11:24:48 [http-nio-9090-exec-4] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 11:25:04 [http-nio-9090-exec-7] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/info", parameters={}
+2021-02-21 11:25:04 [http-nio-9090-exec-7] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 11:25:10 [http-nio-9090-exec-8] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/trace", parameters={}
+2021-02-21 11:25:10 [http-nio-9090-exec-8] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 11:25:10 [http-nio-9090-exec-8] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 11:25:10 [http-nio-9090-exec-8] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 11:25:19 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/metric", parameters={}
+2021-02-21 11:25:19 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 11:25:19 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 11:25:19 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 11:25:50 [http-nio-9090-exec-6] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator", parameters={}
+2021-02-21 11:25:50 [http-nio-9090-exec-6] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 11:29:50 [RMI TCP Connection(16)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 11:29:53 [RMI TCP Connection(17)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 11:29:55 [RMI TCP Connection(16)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 11:32:13 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 8892 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-21 11:32:13 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - No active profile set, falling back to default profiles: default
+2021-02-21 11:32:24 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 9090 (http)
+2021-02-21 11:32:24 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-21 11:32:24 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2021-02-21 11:32:24 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 11:32:26 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2021-02-21 11:32:26 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 12414 ms
+2021-02-21 11:32:31 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 11:32:36 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver                  - Exposing 3 endpoint(s) beneath base path '/actuator'
+2021-02-21 11:32:37 [main] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-9090"]
+2021-02-21 11:32:37 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-21 11:32:37 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Started ApiSafetyNetAlertsApplication in 27.859 seconds (JVM running for 42.091)
+2021-02-21 11:32:37 [http-nio-9090-exec-1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 11:32:37 [http-nio-9090-exec-1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet'
+2021-02-21 11:32:37 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Detected StandardServletMultipartResolver
+2021-02-21 11:32:37 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Detected AcceptHeaderLocaleResolver
+2021-02-21 11:32:37 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Detected FixedThemeResolver
+2021-02-21 11:32:37 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@62c8ec42
+2021-02-21 11:32:37 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.support.SessionFlashMapManager@63f6a605
+2021-02-21 11:32:37 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-02-21 11:32:37 [http-nio-9090-exec-1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 18 ms
+2021-02-21 11:32:37 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/metric", parameters={}
+2021-02-21 11:32:38 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 11:32:38 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 11:32:38 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 11:32:44 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/info", parameters={}
+2021-02-21 11:32:44 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 11:36:31 [RMI TCP Connection(15)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 11:36:32 [RMI TCP Connection(15)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 12:55:37 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 9460 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-21 12:55:37 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - No active profile set, falling back to default profiles: default
+2021-02-21 12:55:44 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 9090 (http)
+2021-02-21 12:55:44 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-21 12:55:44 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2021-02-21 12:55:44 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 12:55:45 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2021-02-21 12:55:45 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 7885 ms
+2021-02-21 12:55:46 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 12:55:48 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver                  - Exposing 3 endpoint(s) beneath base path '/actuator'
+2021-02-21 12:55:49 [main] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-9090"]
+2021-02-21 12:55:49 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-21 12:55:49 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Started ApiSafetyNetAlertsApplication in 15.916 seconds (JVM running for 26.261)
+2021-02-21 12:55:51 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 12:55:51 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet'
+2021-02-21 12:55:51 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected StandardServletMultipartResolver
+2021-02-21 12:55:51 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected AcceptHeaderLocaleResolver
+2021-02-21 12:55:51 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected FixedThemeResolver
+2021-02-21 12:55:51 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7e53fa34
+2021-02-21 12:55:51 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.support.SessionFlashMapManager@540b568d
+2021-02-21 12:55:51 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-02-21 12:55:51 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 8 ms
+2021-02-21 13:03:17 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - GET "/metrics", parameters={}
+2021-02-21 13:03:18 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:03:18 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:03:18 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:03:18 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - GET "/favicon.ico", parameters={}
+2021-02-21 13:03:18 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:03:18 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:03:18 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:03:35 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/metyrics", parameters={}
+2021-02-21 13:03:35 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:03:35 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:03:35 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:03:44 [http-nio-9090-exec-8] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/metrics", parameters={}
+2021-02-21 13:03:44 [http-nio-9090-exec-8] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:04:00 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/metrics", parameters={}
+2021-02-21 13:04:00 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:11:55 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/metrics", parameters={}
+2021-02-21 13:11:55 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:12:07 [http-nio-9090-exec-7] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/metrics/http.server.requests", parameters={}
+2021-02-21 13:12:07 [http-nio-9090-exec-7] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:13:19 [http-nio-9090-exec-10] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/trace", parameters={}
+2021-02-21 13:13:19 [http-nio-9090-exec-10] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:13:19 [http-nio-9090-exec-10] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:13:19 [http-nio-9090-exec-10] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:13:35 [http-nio-9090-exec-9] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/trace", parameters={}
+2021-02-21 13:13:35 [http-nio-9090-exec-9] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:13:35 [http-nio-9090-exec-9] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:13:35 [http-nio-9090-exec-9] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:14:12 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:14:12 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:14:12 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:14:12 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:14:22 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator", parameters={}
+2021-02-21 13:14:22 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:16:08 [http-nio-9090-exec-4] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:16:08 [http-nio-9090-exec-4] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:16:08 [http-nio-9090-exec-4] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:16:08 [http-nio-9090-exec-4] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:19:14 [RMI TCP Connection(39)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 13:19:15 [RMI TCP Connection(39)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:19:35 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 5904 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-21 13:19:36 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - No active profile set, falling back to default profiles: default
+2021-02-21 13:19:42 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 9090 (http)
+2021-02-21 13:19:42 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:19:42 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2021-02-21 13:19:42 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 13:19:42 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2021-02-21 13:19:42 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 6474 ms
+2021-02-21 13:19:44 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:19:45 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver                  - Exposing 3 endpoint(s) beneath base path '/actuator'
+2021-02-21 13:19:45 [main] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:19:45 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-21 13:19:45 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Started ApiSafetyNetAlertsApplication in 13.136 seconds (JVM running for 21.427)
+2021-02-21 13:19:48 [RMI TCP Connection(9)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 13:19:48 [RMI TCP Connection(9)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet'
+2021-02-21 13:19:48 [RMI TCP Connection(9)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected StandardServletMultipartResolver
+2021-02-21 13:19:48 [RMI TCP Connection(9)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected AcceptHeaderLocaleResolver
+2021-02-21 13:19:48 [RMI TCP Connection(9)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected FixedThemeResolver
+2021-02-21 13:19:48 [RMI TCP Connection(9)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6812c168
+2021-02-21 13:19:48 [RMI TCP Connection(9)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.support.SessionFlashMapManager@26a15886
+2021-02-21 13:19:48 [RMI TCP Connection(9)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-02-21 13:19:48 [RMI TCP Connection(9)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 15 ms
+2021-02-21 13:20:31 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:20:31 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:20:31 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:20:31 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:20:39 [http-nio-9090-exec-4] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator", parameters={}
+2021-02-21 13:20:39 [http-nio-9090-exec-4] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:21:14 [http-nio-9090-exec-6] DEBUG o.s.w.s.DispatcherServlet                          - GET "/firestation?stationNumber=1", parameters={masked}
+2021-02-21 13:21:17 [http-nio-9090-exec-6] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:21:33 [http-nio-9090-exec-7] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:21:33 [http-nio-9090-exec-7] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:21:33 [http-nio-9090-exec-7] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:21:33 [http-nio-9090-exec-7] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:21:54 [RMI TCP Connection(13)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 13:21:56 [RMI TCP Connection(13)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:22:48 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 10292 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-21 13:22:48 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - No active profile set, falling back to default profiles: default
+2021-02-21 13:22:55 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 9090 (http)
+2021-02-21 13:22:55 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:22:55 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2021-02-21 13:22:55 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 13:22:55 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2021-02-21 13:22:55 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 6986 ms
+2021-02-21 13:22:57 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:22:59 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver                  - Exposing 3 endpoint(s) beneath base path '/actuator'
+2021-02-21 13:22:59 [main] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:22:59 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-21 13:22:59 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Started ApiSafetyNetAlertsApplication in 13.636 seconds (JVM running for 20.702)
+2021-02-21 13:23:00 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 13:23:00 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet'
+2021-02-21 13:23:00 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected StandardServletMultipartResolver
+2021-02-21 13:23:00 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected AcceptHeaderLocaleResolver
+2021-02-21 13:23:00 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected FixedThemeResolver
+2021-02-21 13:23:00 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@57329f76
+2021-02-21 13:23:00 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.support.SessionFlashMapManager@6bfa94f5
+2021-02-21 13:23:00 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-02-21 13:23:00 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 9 ms
+2021-02-21 13:23:21 [http-nio-9090-exec-2] DEBUG o.s.w.s.DispatcherServlet                          - GET "/firestation?stationNumber=1", parameters={masked}
+2021-02-21 13:23:22 [http-nio-9090-exec-2] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:23:39 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:23:39 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:23:39 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:23:39 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:25:44 [RMI TCP Connection(12)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 13:25:45 [RMI TCP Connection(12)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:26:08 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 4228 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-21 13:26:08 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - No active profile set, falling back to default profiles: default
+2021-02-21 13:26:16 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 9090 (http)
+2021-02-21 13:26:16 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:26:16 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2021-02-21 13:26:16 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 13:26:17 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2021-02-21 13:26:17 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 7958 ms
+2021-02-21 13:26:18 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:26:19 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver                  - Exposing 3 endpoint(s) beneath base path '/actuator'
+2021-02-21 13:26:20 [main] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:26:20 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-21 13:26:20 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Started ApiSafetyNetAlertsApplication in 15.306 seconds (JVM running for 27.141)
+2021-02-21 13:26:22 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 13:26:22 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet'
+2021-02-21 13:26:22 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected StandardServletMultipartResolver
+2021-02-21 13:26:22 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected AcceptHeaderLocaleResolver
+2021-02-21 13:26:22 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected FixedThemeResolver
+2021-02-21 13:26:22 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@44700b4f
+2021-02-21 13:26:22 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.support.SessionFlashMapManager@47d3508b
+2021-02-21 13:26:22 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-02-21 13:26:22 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 17 ms
+2021-02-21 13:27:01 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:27:01 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:27:01 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:27:02 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:27:19 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - GET "/firestation?stationNumber=1", parameters={masked}
+2021-02-21 13:27:19 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:27:31 [http-nio-9090-exec-4] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:27:31 [http-nio-9090-exec-4] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:27:31 [http-nio-9090-exec-4] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:27:31 [http-nio-9090-exec-4] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:27:36 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:27:36 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:27:36 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:27:37 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:27:41 [http-nio-9090-exec-8] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:27:41 [http-nio-9090-exec-8] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:27:41 [http-nio-9090-exec-8] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:27:41 [http-nio-9090-exec-8] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:28:24 [http-nio-9090-exec-2] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator", parameters={}
+2021-02-21 13:28:24 [http-nio-9090-exec-2] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:30:00 [RMI TCP Connection(13)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 13:30:01 [RMI TCP Connection(13)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:35:21 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 5968 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-21 13:35:21 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - No active profile set, falling back to default profiles: default
+2021-02-21 13:35:28 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 9090 (http)
+2021-02-21 13:35:28 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:35:28 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2021-02-21 13:35:28 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 13:35:29 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2021-02-21 13:35:29 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 6804 ms
+2021-02-21 13:35:31 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:35:32 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver                  - Exposing 3 endpoint(s) beneath base path '/actuator'
+2021-02-21 13:35:32 [main] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:35:33 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-21 13:35:33 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Started ApiSafetyNetAlertsApplication in 14.705 seconds (JVM running for 21.851)
+2021-02-21 13:35:35 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 13:35:35 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet'
+2021-02-21 13:35:35 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected StandardServletMultipartResolver
+2021-02-21 13:35:35 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected AcceptHeaderLocaleResolver
+2021-02-21 13:35:35 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected FixedThemeResolver
+2021-02-21 13:35:35 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@63dc7ba9
+2021-02-21 13:35:35 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.support.SessionFlashMapManager@137ca3a0
+2021-02-21 13:35:35 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-02-21 13:35:35 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 12 ms
+2021-02-21 13:35:51 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator", parameters={}
+2021-02-21 13:35:51 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:36:15 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:36:15 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:36:15 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:36:15 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:36:49 [RMI TCP Connection(11)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 13:36:50 [RMI TCP Connection(11)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:37:07 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 10140 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-21 13:37:07 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - No active profile set, falling back to default profiles: default
+2021-02-21 13:37:14 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 9090 (http)
+2021-02-21 13:37:14 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:37:14 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2021-02-21 13:37:14 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 13:37:14 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2021-02-21 13:37:14 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 7125 ms
+2021-02-21 13:37:16 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:37:18 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver                  - Exposing 13 endpoint(s) beneath base path '/actuator'
+2021-02-21 13:37:18 [main] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:37:18 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-21 13:37:18 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Started ApiSafetyNetAlertsApplication in 13.932 seconds (JVM running for 21.007)
+2021-02-21 13:37:19 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 13:37:19 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet'
+2021-02-21 13:37:19 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected StandardServletMultipartResolver
+2021-02-21 13:37:19 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected AcceptHeaderLocaleResolver
+2021-02-21 13:37:19 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected FixedThemeResolver
+2021-02-21 13:37:19 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2c6f910
+2021-02-21 13:37:19 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.support.SessionFlashMapManager@2d076c2d
+2021-02-21 13:37:19 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-02-21 13:37:19 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 10 ms
+2021-02-21 13:37:25 [http-nio-9090-exec-2] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:37:25 [http-nio-9090-exec-2] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:37:25 [http-nio-9090-exec-2] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:37:25 [http-nio-9090-exec-2] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:37:34 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator", parameters={}
+2021-02-21 13:37:34 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:38:14 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:38:14 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:38:14 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:38:14 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:42:47 [RMI TCP Connection(18)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 13:42:48 [RMI TCP Connection(18)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:43:43 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 4396 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-21 13:43:43 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - No active profile set, falling back to default profiles: default
+2021-02-21 13:43:50 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 9090 (http)
+2021-02-21 13:43:50 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:43:50 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2021-02-21 13:43:50 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 13:43:51 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2021-02-21 13:43:51 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 7037 ms
+2021-02-21 13:43:52 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:43:54 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver                  - Exposing 13 endpoint(s) beneath base path '/actuator'
+2021-02-21 13:43:54 [main] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:43:54 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-21 13:43:54 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Started ApiSafetyNetAlertsApplication in 14.737 seconds (JVM running for 21.394)
+2021-02-21 13:43:57 [RMI TCP Connection(1)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 13:43:57 [RMI TCP Connection(1)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet'
+2021-02-21 13:43:57 [RMI TCP Connection(1)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected StandardServletMultipartResolver
+2021-02-21 13:43:57 [RMI TCP Connection(1)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected AcceptHeaderLocaleResolver
+2021-02-21 13:43:57 [RMI TCP Connection(1)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected FixedThemeResolver
+2021-02-21 13:43:57 [RMI TCP Connection(1)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5798b6fe
+2021-02-21 13:43:57 [RMI TCP Connection(1)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.support.SessionFlashMapManager@668980a1
+2021-02-21 13:43:57 [RMI TCP Connection(1)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-02-21 13:43:57 [RMI TCP Connection(1)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 18 ms
+2021-02-21 13:44:03 [http-nio-9090-exec-2] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:44:04 [http-nio-9090-exec-2] DEBUG o.s.w.s.DispatcherServlet                          - Completed 404 NOT_FOUND
+2021-02-21 13:44:04 [http-nio-9090-exec-2] DEBUG o.s.w.s.DispatcherServlet                          - "ERROR" dispatch for GET "/error", parameters={}
+2021-02-21 13:44:04 [http-nio-9090-exec-2] DEBUG o.s.w.s.DispatcherServlet                          - Exiting from "ERROR" dispatch, status 404
+2021-02-21 13:44:24 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator", parameters={}
+2021-02-21 13:44:24 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:45:52 [RMI TCP Connection(11)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 13:45:53 [RMI TCP Connection(11)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:46:10 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 9596 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-21 13:46:10 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - No active profile set, falling back to default profiles: default
+2021-02-21 13:46:20 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 9090 (http)
+2021-02-21 13:46:20 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:46:20 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2021-02-21 13:46:20 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 13:46:21 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2021-02-21 13:46:21 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 9918 ms
+2021-02-21 13:46:23 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:46:25 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver                  - Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-02-21 13:46:26 [main] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:46:26 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-21 13:46:26 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Started ApiSafetyNetAlertsApplication in 18.274 seconds (JVM running for 24.728)
+2021-02-21 13:46:28 [RMI TCP Connection(9)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 13:46:28 [RMI TCP Connection(9)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet'
+2021-02-21 13:46:28 [RMI TCP Connection(9)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected StandardServletMultipartResolver
+2021-02-21 13:46:28 [RMI TCP Connection(9)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected AcceptHeaderLocaleResolver
+2021-02-21 13:46:28 [RMI TCP Connection(9)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected FixedThemeResolver
+2021-02-21 13:46:28 [RMI TCP Connection(9)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3902e399
+2021-02-21 13:46:28 [RMI TCP Connection(9)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.support.SessionFlashMapManager@55cc60f2
+2021-02-21 13:46:28 [RMI TCP Connection(9)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-02-21 13:46:28 [RMI TCP Connection(9)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 20 ms
+2021-02-21 13:51:11 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:51:12 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:52:13 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - GET "/firestation?stationNumber=1", parameters={masked}
+2021-02-21 13:52:14 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:52:49 [http-nio-9090-exec-6] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:52:49 [http-nio-9090-exec-6] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:53:32 [http-nio-9090-exec-7] DEBUG o.s.w.s.DispatcherServlet                          - GET "/firestation?stationNumber=1", parameters={masked}
+2021-02-21 13:53:32 [http-nio-9090-exec-7] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:53:41 [RMI TCP Connection(20)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 13:53:43 [RMI TCP Connection(20)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:54:21 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 5984 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-21 13:54:21 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - No active profile set, falling back to default profiles: default
+2021-02-21 13:54:37 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 9090 (http)
+2021-02-21 13:54:38 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:54:38 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2021-02-21 13:54:38 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 13:54:40 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2021-02-21 13:54:40 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 18871 ms
+2021-02-21 13:54:44 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:54:50 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver                  - Exposing 4 endpoint(s) beneath base path '/actuator'
+2021-02-21 13:54:50 [main] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:54:50 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-21 13:54:50 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Started ApiSafetyNetAlertsApplication in 36.793 seconds (JVM running for 44.099)
+2021-02-21 13:55:15 [http-nio-9090-exec-1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 13:55:15 [http-nio-9090-exec-1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet'
+2021-02-21 13:55:15 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Detected StandardServletMultipartResolver
+2021-02-21 13:55:15 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Detected AcceptHeaderLocaleResolver
+2021-02-21 13:55:15 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Detected FixedThemeResolver
+2021-02-21 13:55:15 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3269b085
+2021-02-21 13:55:15 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.support.SessionFlashMapManager@1b52a472
+2021-02-21 13:55:15 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-02-21 13:55:15 [http-nio-9090-exec-1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 15 ms
+2021-02-21 13:55:15 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - GET "/firestation?stationNumber=1", parameters={masked}
+2021-02-21 13:55:16 [http-nio-9090-exec-1] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:55:30 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:55:30 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:57:04 [RMI TCP Connection(14)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 13:57:05 [RMI TCP Connection(14)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:57:48 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Starting ApiSafetyNetAlertsApplication using Java 11.0.8 on C-ULTRAPORT with PID 9356 (D:\cours java\P5\APISafetyNetAlerts\target\classes started by HP in D:\cours java\P5\APISafetyNetAlerts)
+2021-02-21 13:57:48 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - No active profile set, falling back to default profiles: default
+2021-02-21 13:57:55 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 9090 (http)
+2021-02-21 13:57:56 [main] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:57:56 [main] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat]
+2021-02-21 13:57:56 [main] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-21 13:57:56 [main] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext
+2021-02-21 13:57:56 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 7510 ms
+2021-02-21 13:57:58 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-21 13:58:00 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver                  - Exposing 4 endpoint(s) beneath base path '/actuator'
+2021-02-21 13:58:00 [main] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-9090"]
+2021-02-21 13:58:01 [main] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 9090 (http) with context path ''
+2021-02-21 13:58:01 [main] INFO  c.o.s.ApiSafetyNetAlertsApplication                - Started ApiSafetyNetAlertsApplication in 14.721 seconds (JVM running for 21.843)
+2021-02-21 13:58:03 [RMI TCP Connection(3)-127.0.0.1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-21 13:58:03 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet'
+2021-02-21 13:58:03 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected StandardServletMultipartResolver
+2021-02-21 13:58:03 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected AcceptHeaderLocaleResolver
+2021-02-21 13:58:03 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected FixedThemeResolver
+2021-02-21 13:58:03 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@643b4388
+2021-02-21 13:58:03 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - Detected org.springframework.web.servlet.support.SessionFlashMapManager@7e44fcac
+2021-02-21 13:58:03 [RMI TCP Connection(3)-127.0.0.1] DEBUG o.s.w.s.DispatcherServlet                          - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-02-21 13:58:03 [RMI TCP Connection(3)-127.0.0.1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 12 ms
+2021-02-21 13:58:21 [http-nio-9090-exec-2] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator", parameters={}
+2021-02-21 13:58:22 [http-nio-9090-exec-2] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:58:45 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:58:45 [http-nio-9090-exec-3] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 13:59:07 [http-nio-9090-exec-4] DEBUG o.s.w.s.DispatcherServlet                          - POST "/person", parameters={}
+2021-02-21 13:59:08 [http-nio-9090-exec-4] DEBUG o.s.w.s.DispatcherServlet                          - Completed 422 UNPROCESSABLE_ENTITY
+2021-02-21 13:59:38 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 13:59:38 [http-nio-9090-exec-5] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 14:00:40 [http-nio-9090-exec-8] DEBUG o.s.w.s.DispatcherServlet                          - GET "/firestation?stationNumber=1", parameters={masked}
+2021-02-21 14:00:41 [http-nio-9090-exec-8] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 14:00:52 [http-nio-9090-exec-9] DEBUG o.s.w.s.DispatcherServlet                          - GET "/actuator/httptrace", parameters={}
+2021-02-21 14:00:52 [http-nio-9090-exec-9] DEBUG o.s.w.s.DispatcherServlet                          - Completed 200 OK
+2021-02-21 14:02:32 [RMI TCP Connection(15)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2021-02-21 14:02:33 [RMI TCP Connection(15)-127.0.0.1] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
