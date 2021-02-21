@@ -269,11 +269,11 @@ public class JsonDaoImplements implements JsonDao {
 		String jsonStreamChild = JsonStream.serialize(listChildren); // here we transform the list in json object
 
 		listPersons = filterAddressInPersons(address); // the list of the persons at the same address
-		
+
 		if (listPersons.isEmpty()) { // if the address does not exist
 			return null;
 		}
-		
+
 		String jsonStreamPersons = JsonStream.serialize(listPersons); // here we transform the list in json object
 
 		JsonIterator iterChild = JsonIterator.parse(jsonStreamChild);
@@ -416,7 +416,7 @@ public class JsonDaoImplements implements JsonDao {
 			childAlert.setListChildren(listChildrenAlert);
 			childAlert.setListAdult(listAdultAlert);
 			listChildAlert.add(childAlert);
-		}	
+		}
 		return listChildAlert;
 	}
 
@@ -1002,7 +1002,6 @@ public class JsonDaoImplements implements JsonDao {
 		writer.write(jsonstream);
 		writer.flush();
 		writer.close();
-
 	}
 
 	@Override
@@ -1094,7 +1093,7 @@ public class JsonDaoImplements implements JsonDao {
 
 		// if only one request parameter is used
 		if ((address != null && stationNumber == null) || (stationNumber != null && address == null)) {
-			
+
 			readJsonFile = new ReadJsonFile();
 
 			List<Firestations> listF = new ArrayList<>();

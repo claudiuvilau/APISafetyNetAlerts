@@ -72,25 +72,26 @@ public class EndPointsController {
 	@PostMapping(value = "/person")
 	public ResponseEntity<Void> addPerson(@RequestBody Persons persons) throws IOException {
 
-		LOGGER.trace("addPerson");
-		LOGGER.info("Current Request : " + ServletUriComponentsBuilder.fromCurrentRequest().build());
+		// LOGGER.trace("addPerson");
+		// LOGGER.info("Current Request : " +
+		// ServletUriComponentsBuilder.fromCurrentRequest().build());
 
 		// if persons == null the end point is bad request because @RequestBody
 		if (persons == null) {
-			LOGGER.error("Person in body is null.");
+			// LOGGER.error("Person in body is null.");
 			return ResponseEntity.noContent().build();
 		}
 
 		Persons newPerson = jsonDao.addPerson(persons);
 
 		if (newPerson == null) {
-			LOGGER.error("The person is not added.");
+			// LOGGER.error("The person is not added.");
 			return ResponseEntity.unprocessableEntity().build();
 		}
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{firstName+lastName}")
 				.buildAndExpand(newPerson.getFirstName() + newPerson.getLastName()).toUri();
-		LOGGER.info("A new person is added successful. The URL is : " + location);
+		// LOGGER.info("A new person is added successful. The URL is : " + location);
 		return ResponseEntity.created(location).build();
 	}
 
@@ -206,9 +207,13 @@ public class EndPointsController {
 	public ResponseEntity<List<Foyer>> firestationStationNumber(@RequestParam String stationNumber)
 			throws IOException, ParseException {
 
-		LOGGER.trace("@GetMapping(\"firestation\") @RequestParam String stationNumber");
+		// LOGGER.trace("@GetMapping(\"firestation\") @RequestParam String
+		// stationNumber");
+
 		if (stationNumber == null || stationNumber.length() == 0) {
-			LOGGER.warn("Station number was null !");
+
+			// LOGGER.warn("Station number was null !" + HttpStatusCodeException.class);
+
 			return ResponseEntity.noContent().build();
 		}
 
@@ -217,11 +222,14 @@ public class EndPointsController {
 
 		// if we have 0 adult 0 children
 		if (listFoyer.get(0).getDecompteAdult().equals("0") && listFoyer.get(0).getDecompteChildren().equals("0")) {
-			LOGGER.info("No children in the list !");
+
+			// LOGGER.info("No children in the list !");
+
 			return ResponseEntity.unprocessableEntity().build();
 		}
 
-		LOGGER.info(HttpStatus.OK.toString());
+		// LOGGER.info("Https Status : " + HttpStatus.OK.toString() + " - " +
+		// HttpStatusCodeException.class);
 		return new ResponseEntity<List<Foyer>>(listFoyer, HttpStatus.OK);
 	}
 
