@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication;
 import com.openclassrooms.safetynetalerts.dao.JsonDao;
 import com.openclassrooms.safetynetalerts.dao.ReadJsonFile;
 import com.openclassrooms.safetynetalerts.model.ChildAlert;
@@ -39,20 +38,18 @@ import com.openclassrooms.safetynetalerts.model.PhoneAlert;
 @RestController
 public class EndPointsController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(EndPointsController.class);
+
 	@Autowired
 	private JsonDao jsonDao;
 	private ReadJsonFile readJsonFile;
 	private List<Firestations> listFirestations = new ArrayList<>();
 	private List<Persons> listPersons = new ArrayList<>();
-	
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ApiSafetyNetAlertsApplication.class);
-	
-	
 	// Persons
 	@GetMapping(value = "Persons")
 	public List<Persons> afficherPersonnes() {
-		
+
 		List<Persons> listP = new ArrayList<>();
 		try {
 			readJsonFile = new ReadJsonFile();
@@ -60,12 +57,6 @@ public class EndPointsController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		LOGGER.trace("A TRACE Message");
-		LOGGER.debug("A DEBUG Message");
-		LOGGER.info("An INFO Message");
-		LOGGER.warn("A  Message");
-		LOGGER.error("An ERROR Message");
 		return listP;
 	}
 
@@ -81,24 +72,26 @@ public class EndPointsController {
 	@PostMapping(value = "/person")
 	public ResponseEntity<Void> addPerson(@RequestBody Persons persons) throws IOException {
 
-		LOGGER.info("Current Request : " + ServletUriComponentsBuilder.fromCurrentRequest().build());
+		// LOGGER.trace("addPerson");
+		// LOGGER.info("Current Request : " +
+		// ServletUriComponentsBuilder.fromCurrentRequest().build());
 
 		// if persons == null the end point is bad request because @RequestBody
 		if (persons == null) {
-			LOGGER.error("Person in body is null.");
+			// LOGGER.error("Person in body is null.");
 			return ResponseEntity.noContent().build();
 		}
 
 		Persons newPerson = jsonDao.addPerson(persons);
 
 		if (newPerson == null) {
-			LOGGER.error("The person is not added.");
+			// LOGGER.error("The person is not added.");
 			return ResponseEntity.unprocessableEntity().build();
 		}
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{firstName+lastName}")
 				.buildAndExpand(newPerson.getFirstName() + newPerson.getLastName()).toUri();
-		LOGGER.info("A new person is added successful. The URL is : " + location);
+		// LOGGER.info("A new person is added successful. The URL is : " + location);
 		return ResponseEntity.created(location).build();
 	}
 
@@ -111,8 +104,22 @@ public class EndPointsController {
 
 	// delete person
 	@DeleteMapping(value = "/person")
-	public void deletePerson(@RequestParam String firstName, @RequestParam String lastName) throws IOException {
-		jsonDao.deletePerson(firstName, lastName);
+	public ResponseEntity<Void> deletePerson(@RequestParam String firstName, @RequestParam String lastName)
+			throws IOException {
+
+		if (firstName.isBlank() || lastName.isBlank()) {
+			return ResponseEntity.noContent().build();
+		}
+
+		boolean del = false;
+
+		del = jsonDao.deletePerson(firstName, lastName);
+
+		if (del == false) {
+			return ResponseEntity.notFound().build();
+		}
+
+		return ResponseEntity.ok().build();
 	}
 
 	// Fire stations
@@ -169,7 +176,6 @@ public class EndPointsController {
 		return listM;
 	}
 
-	
 	// add a medical records
 	@PostMapping(value = "/medicalRecord")
 	public void addMedicalRecord(@RequestBody Medicalrecords medicalRecord) throws IOException {
@@ -212,78 +218,96 @@ public class EndPointsController {
 	}
 
 	@GetMapping("firestation")
-	public ResponseEntity<List<Foyer>> firestationStationNumber(@RequestParam String stationNumber) throws IOException, ParseException {
+	public ResponseEntity<List<Foyer>> firestationStationNumber(@RequestParam String stationNumber)
+			throws IOException, ParseException {
+
+		// LOGGER.trace("@GetMapping(\"firestation\") @RequestParam String
+		// stationNumber");
 
 		if (stationNumber == null || stationNumber.length() == 0) {
+
+			// LOGGER.warn("Station number was null !" + HttpStatusCodeException.class);
+
 			return ResponseEntity.noContent().build();
 		}
 
 		List<Foyer> listFoyer = new ArrayList<>();
 		listFoyer = jsonDao.personsOfStationAdultsAndChild(stationNumber);
-		
+
 		// if we have 0 adult 0 children
 		if (listFoyer.get(0).getDecompteAdult().equals("0") && listFoyer.get(0).getDecompteChildren().equals("0")) {
+
+			// LOGGER.info("No children in the list !");
+
 			return ResponseEntity.unprocessableEntity().build();
 		}
+
+		// LOGGER.info("Https Status : " + HttpStatus.OK.toString() + " - " +
+		// HttpStatusCodeException.class);
 		return new ResponseEntity<List<Foyer>>(listFoyer, HttpStatus.OK);
 	}
 
 	@GetMapping("childAlert")
-	public ResponseEntity<List<ChildAlert>> childAlert(@RequestParam String address) throws IOException, ParseException {
-		
+	public ResponseEntity<List<ChildAlert>> childAlert(@RequestParam String address)
+			throws IOException, ParseException {
+
 		if (address == null || address.length() == 0) {
 			return ResponseEntity.noContent().build();
 		}
-		
+
 		List<ChildAlert> listChildren = new ArrayList<>();
 		listChildren = jsonDao.childPersonsAlertAddress(address);
-		
+
 		if (listChildren == null) {
 			return ResponseEntity.notFound().build();
 		}
-		
+
 		return new ResponseEntity<List<ChildAlert>>(listChildren, HttpStatus.OK);
 
 	}
 
 	/*
+	 * @GetMapping("phoneAlert") public MappingJacksonValue
+	 * phoneAlertStationNumber(@RequestParam String firestation) throws IOException
+	 * {
+	 * 
+	 * List<PhoneAlert> listPhoneAlert = new ArrayList<>(); listPhoneAlert =
+	 * jsonDao.phoneAlertFirestation(firestation);
+	 * 
+	 * SimpleBeanPropertyFilter monFiltre =
+	 * SimpleBeanPropertyFilter.serializeAllExcept("firstName");
+	 * 
+	 * FilterProvider listDeMesFiltres = new
+	 * SimpleFilterProvider().addFilter("monFiltrePhoneAlert", monFiltre);
+	 * 
+	 * MappingJacksonValue phoneAlertStationNumberFiltres = new
+	 * MappingJacksonValue(listPhoneAlert);
+	 * 
+	 * phoneAlertStationNumberFiltres.setFilters(listDeMesFiltres);
+	 * 
+	 * return phoneAlertStationNumberFiltres; // return listPersons; }
+	 */
 	@GetMapping("phoneAlert")
-	public MappingJacksonValue phoneAlertStationNumber(@RequestParam String firestation) throws IOException {
-
-		List<PhoneAlert> listPhoneAlert = new ArrayList<>();
-		listPhoneAlert = jsonDao.phoneAlertFirestation(firestation);
-
-		SimpleBeanPropertyFilter monFiltre = SimpleBeanPropertyFilter.serializeAllExcept("firstName");
-
-		FilterProvider listDeMesFiltres = new SimpleFilterProvider().addFilter("monFiltrePhoneAlert", monFiltre);
-
-		MappingJacksonValue phoneAlertStationNumberFiltres = new MappingJacksonValue(listPhoneAlert);
-
-		phoneAlertStationNumberFiltres.setFilters(listDeMesFiltres);
-
-		return phoneAlertStationNumberFiltres;
-		// return listPersons;
-	}
-*/
-	@GetMapping("phoneAlert")
-	public ResponseEntity<List<PhoneAlert>> phoneAlertStationNumber(@RequestParam String firestation) throws IOException {
+	public ResponseEntity<List<PhoneAlert>> phoneAlertStationNumber(@RequestParam String firestation)
+			throws IOException {
 
 		if (firestation.isBlank()) {
 			return ResponseEntity.noContent().build();
 		}
-		
+
 		List<PhoneAlert> listPhoneAlert = new ArrayList<>();
 		listPhoneAlert = jsonDao.phoneAlertFirestation(firestation);
 
 		if (listPhoneAlert.get(0).getListPhones().isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
-		
+
 		return new ResponseEntity<List<PhoneAlert>>(listPhoneAlert, HttpStatus.OK);
 	}
-	
+
 	@GetMapping("fire")
-	public ResponseEntity<List<FireAddress>> fireAddress(@RequestParam String address) throws IOException, ParseException {
+	public ResponseEntity<List<FireAddress>> fireAddress(@RequestParam String address)
+			throws IOException, ParseException {
 
 		if (address == null || address.length() == 0) {
 			return ResponseEntity.noContent().build();
@@ -291,7 +315,7 @@ public class EndPointsController {
 
 		List<FireAddress> listFireAddress = new ArrayList<>();
 		listFireAddress = jsonDao.fireAddress(address);
-		
+
 		if (listFireAddress.isEmpty()) {
 			return ResponseEntity.unprocessableEntity().build();
 		}
@@ -302,14 +326,14 @@ public class EndPointsController {
 	@GetMapping("flood/station")
 	public ResponseEntity<List<PersonsFireStation>> fireAddressListFireStation(@RequestParam List<String> station)
 			throws IOException, ParseException {
-		
+
 		if (station.isEmpty()) {
 			return ResponseEntity.noContent().build();
 		}
-		
+
 		List<PersonsFireStation> listPersonsFireStation = new ArrayList<>();
 		listPersonsFireStation = jsonDao.stationListFirestation(station);
-		
+
 		if (listPersonsFireStation.isEmpty()) {
 			return ResponseEntity.unprocessableEntity().build();
 		}
@@ -319,35 +343,35 @@ public class EndPointsController {
 	@GetMapping("personInfo")
 	public ResponseEntity<List<PersonInfo>> personInfo(@RequestParam String firstName, @RequestParam String lastName)
 			throws IOException, ParseException {
-		
+
 		if (firstName.isBlank() || lastName.isBlank()) {
 			return ResponseEntity.noContent().build();
 		}
-		
+
 		List<PersonInfo> listPeronInfo = new ArrayList<>();
 		listPeronInfo = jsonDao.personInfo(firstName, lastName);
-		
+
 		if (listPeronInfo.isEmpty()) {
 			return ResponseEntity.unprocessableEntity().build();
 		}
-		
+
 		return new ResponseEntity<List<PersonInfo>>(listPeronInfo, HttpStatus.OK);
 	}
 
 	@GetMapping("communityEmail")
 	public ResponseEntity<List<CommunityEmail>> communityEmail(@RequestParam String city) throws IOException {
-		
+
 		if (city.isBlank()) {
 			return ResponseEntity.noContent().build();
 		}
-		
+
 		List<CommunityEmail> listCommunityEmail = new ArrayList<>();
 		listCommunityEmail = jsonDao.communityEmail(city);
-		
+
 		if (listCommunityEmail.get(0).getListEmails().isEmpty()) {
 			return ResponseEntity.unprocessableEntity().build();
 		}
-		
+
 		return new ResponseEntity<List<CommunityEmail>>(listCommunityEmail, HttpStatus.OK);
 	}
 

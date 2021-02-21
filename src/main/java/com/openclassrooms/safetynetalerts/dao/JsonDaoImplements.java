@@ -269,11 +269,11 @@ public class JsonDaoImplements implements JsonDao {
 		String jsonStreamChild = JsonStream.serialize(listChildren); // here we transform the list in json object
 
 		listPersons = filterAddressInPersons(address); // the list of the persons at the same address
-		
+
 		if (listPersons.isEmpty()) { // if the address does not exist
 			return null;
 		}
-		
+
 		String jsonStreamPersons = JsonStream.serialize(listPersons); // here we transform the list in json object
 
 		JsonIterator iterChild = JsonIterator.parse(jsonStreamChild);
@@ -416,7 +416,7 @@ public class JsonDaoImplements implements JsonDao {
 			childAlert.setListChildren(listChildrenAlert);
 			childAlert.setListAdult(listAdultAlert);
 			listChildAlert.add(childAlert);
-		}	
+		}
 		return listChildAlert;
 	}
 
@@ -968,7 +968,8 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public void deletePerson(String firstName, String lastName) throws IOException {
+	public boolean deletePerson(String firstName, String lastName) throws IOException {
+
 		readJsonFile = new ReadJsonFile();
 
 		List<Persons> listPersons = new ArrayList<>();
@@ -979,30 +980,29 @@ public class JsonDaoImplements implements JsonDao {
 		for (Persons element : listPersons) {
 			if ((element.getFirstName() + element.getLastName()).equals(firstNamelastName)) {
 				listPersons.remove(element);
-				break;
+				// create fire stations
+				List<Firestations> listFirestations = new ArrayList<>();
+				listFirestations = readJsonFile.readfilejsonFirestations();
+				// create medical records
+				List<Medicalrecords> listMedicalrecords = new ArrayList<>();
+				listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
+
+				CollectionsRessources collectionsRessources = new CollectionsRessources();
+				collectionsRessources.setPersons(listPersons);
+				collectionsRessources.setFirestations(listFirestations);
+				collectionsRessources.setMedicalrecords(listMedicalrecords);
+
+				String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
+																					// object
+
+				FileWriter writer = new FileWriter(readJsonFile.filepath_json);
+				writer.write(jsonstream);
+				writer.flush();
+				writer.close();
+				return true;
 			}
 		}
-
-		// create fire stations
-		List<Firestations> listFirestations = new ArrayList<>();
-		listFirestations = readJsonFile.readfilejsonFirestations();
-		// create medical records
-		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
-		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
-
-		CollectionsRessources collectionsRessources = new CollectionsRessources();
-		collectionsRessources.setPersons(listPersons);
-		collectionsRessources.setFirestations(listFirestations);
-		collectionsRessources.setMedicalrecords(listMedicalrecords);
-
-		String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
-																			// object
-
-		FileWriter writer = new FileWriter(readJsonFile.filepath_json);
-		writer.write(jsonstream);
-		writer.flush();
-		writer.close();
-
+		return false;
 	}
 
 	@Override
@@ -1094,7 +1094,7 @@ public class JsonDaoImplements implements JsonDao {
 
 		// if only one request parameter is used
 		if ((address != null && stationNumber == null) || (stationNumber != null && address == null)) {
-			
+
 			readJsonFile = new ReadJsonFile();
 
 			List<Firestations> listF = new ArrayList<>();

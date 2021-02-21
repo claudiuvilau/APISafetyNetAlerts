@@ -23,7 +23,7 @@ public class EndPointsControllerCRUDiTest {
 
 	@Autowired
 	private MockMvc mockMvc;
-	
+
 	private JsonDaoImplements jsonDaoImplements = new JsonDaoImplements();
 
 	/*
@@ -46,209 +46,165 @@ public class EndPointsControllerCRUDiTest {
 
 	@Test
 	public void testAddPerson() throws Exception {
-		String body = "{\r\n"
-				+ "        \"firstName\": \"TestFirstName\",\r\n"
-				+ "        \"lastName\": \"TestLastName\",\r\n"
-				+ "        \"address\": \"1509 Culver St\",\r\n"
-				+ "        \"city\": \"Culver\",\r\n"
-				+ "        \"zip\": \"97451\",\r\n"
-				+ "        \"phone\": \"841-874-6512\",\r\n"
-				+ "        \"email\": \"jaboyd@email.com\"\r\n"
-				+ "    }";
-		
-		
-		mockMvc.perform(post("/person").content(body).contentType(MediaType.APPLICATION_JSON)).andExpect(status().is(201));
-		mockMvc.perform(get("/person/TestFirstNameTestLastName")).andExpect(status().isOk()).andExpect(jsonPath("$[0].firstName", is("TestFirstName")));
-		
-		//delete the test made
+		String body = "{\r\n" + "        \"firstName\": \"TestFirstName\",\r\n"
+				+ "        \"lastName\": \"TestLastName\",\r\n" + "        \"address\": \"1509 Culver St\",\r\n"
+				+ "        \"city\": \"Culver\",\r\n" + "        \"zip\": \"97451\",\r\n"
+				+ "        \"phone\": \"841-874-6512\",\r\n" + "        \"email\": \"jaboyd@email.com\"\r\n" + "    }";
+
+		mockMvc.perform(post("/person").content(body).contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().is(201));
+		mockMvc.perform(get("/person/TestFirstNameTestLastName")).andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].firstName", is("TestFirstName")));
+
+		// delete the test made
 		jsonDaoImplements.deletePerson("TestFirstName", "TestLastName");
-		
+
 	}
-	
+
 	@Test
 	public void testDeletePerson() throws Exception {
-		//add person
-		String body = "{\r\n"
-				+ "        \"firstName\": \"TestFirstName\",\r\n"
-				+ "        \"lastName\": \"TestLastName\",\r\n"
-				+ "        \"address\": \"1509 Culver St\",\r\n"
-				+ "        \"city\": \"Culver\",\r\n"
-				+ "        \"zip\": \"97451\",\r\n"
-				+ "        \"phone\": \"841-874-6512\",\r\n"
-				+ "        \"email\": \"jaboyd@email.com\"\r\n"
-				+ "    }";
+		// add person
+		String body = "{\r\n" + "        \"firstName\": \"TestFirstName\",\r\n"
+				+ "        \"lastName\": \"TestLastName\",\r\n" + "        \"address\": \"1509 Culver St\",\r\n"
+				+ "        \"city\": \"Culver\",\r\n" + "        \"zip\": \"97451\",\r\n"
+				+ "        \"phone\": \"841-874-6512\",\r\n" + "        \"email\": \"jaboyd@email.com\"\r\n" + "    }";
 		mockMvc.perform(post("/person").content(body).contentType(MediaType.APPLICATION_JSON));
-		
-		mockMvc.perform(delete("/person").param("firstName", "TestFirstName").param("lastName", "TestLastName")).andExpect(status().isOk());
-		
+
+		mockMvc.perform(delete("/person").param("firstName", "TestFirstName").param("lastName", "TestLastName"))
+				.andExpect(status().isOk());
+
 		mockMvc.perform(get("/person/TestFirstNameTestLastName")).andExpect(status().isOk()).equals(null);
 	}
-	
+
 	@Test
 	public void testUpdatePerson() throws Exception {
-		String body = "{\r\n"
-				+ "        \"firstName\": \"TestFirstName\",\r\n"
-				+ "        \"lastName\": \"TestLastName\",\r\n"
-				+ "        \"address\": \"1509 Culver St\",\r\n"
-				+ "        \"city\": \"Culver\",\r\n"
-				+ "        \"zip\": \"97451\",\r\n"
-				+ "        \"phone\": \"841-874-6512\",\r\n"
-				+ "        \"email\": \"jaboyd@email.com\"\r\n"
-				+ "    }";
+		String body = "{\r\n" + "        \"firstName\": \"TestFirstName\",\r\n"
+				+ "        \"lastName\": \"TestLastName\",\r\n" + "        \"address\": \"1509 Culver St\",\r\n"
+				+ "        \"city\": \"Culver\",\r\n" + "        \"zip\": \"97451\",\r\n"
+				+ "        \"phone\": \"841-874-6512\",\r\n" + "        \"email\": \"jaboyd@email.com\"\r\n" + "    }";
 
-		String body_put = "{\r\n"
-				+ "        \"firstName\": \"TestFirstName\",\r\n"
-				+ "        \"lastName\": \"TestLastName\",\r\n"
-				+ "        \"address\": \"Test1509 Culver St\",\r\n"
-				+ "        \"city\": \"TestCulver\",\r\n"
-				+ "        \"zip\": \"Test97451\",\r\n"
-				+ "        \"phone\": \"Test841-874-6512\",\r\n"
-				+ "        \"email\": \"Testjaboyd@email.com\"\r\n"
+		String body_put = "{\r\n" + "        \"firstName\": \"TestFirstName\",\r\n"
+				+ "        \"lastName\": \"TestLastName\",\r\n" + "        \"address\": \"Test1509 Culver St\",\r\n"
+				+ "        \"city\": \"TestCulver\",\r\n" + "        \"zip\": \"Test97451\",\r\n"
+				+ "        \"phone\": \"Test841-874-6512\",\r\n" + "        \"email\": \"Testjaboyd@email.com\"\r\n"
 				+ "    }";
 
 		mockMvc.perform(post("/person").content(body).contentType(MediaType.APPLICATION_JSON));
 
-		mockMvc.perform(put("/person").content(body_put).contentType(MediaType.APPLICATION_JSON).param("firstName", "TestFirstName").param("lastName", "TestLastName")).andExpect(status().isOk());
+		mockMvc.perform(put("/person").content(body_put).contentType(MediaType.APPLICATION_JSON)
+				.param("firstName", "TestFirstName").param("lastName", "TestLastName")).andExpect(status().isOk());
 
-		mockMvc.perform(get("/person/TestFirstNameTestLastName")).andExpect(status().isOk()).andExpect(jsonPath("$[0].city", is("TestCulver")));
-		
-		//delete the test made
+		mockMvc.perform(get("/person/TestFirstNameTestLastName")).andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].city", is("TestCulver")));
+
+		// delete the test made
 		jsonDaoImplements.deletePerson("TestFirsName", "TestLastName");
 	}
-	
+
 	@Test
 	public void testAddFirestation() throws Exception {
-		String body = " {\r\n"
-				+ "        \"address\": \"Test1509 Culver St\",\r\n"
-				+ "        \"station\": \"Test99\"\r\n"
-				+ "    }";
-		
-		
-		mockMvc.perform(post("/firestation").content(body).contentType(MediaType.APPLICATION_JSON)).andExpect(status().is(200));
-		mockMvc.perform(get("/Firestations/Test99")).andExpect(status().isOk()).andExpect(jsonPath("$[0].address", is("Test1509 Culver St")));
-		
-		//delete the test made
+		String body = " {\r\n" + "        \"address\": \"Test1509 Culver St\",\r\n"
+				+ "        \"station\": \"Test99\"\r\n" + "    }";
+
+		mockMvc.perform(post("/firestation").content(body).contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().is(200));
+		mockMvc.perform(get("/Firestations/Test99")).andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].address", is("Test1509 Culver St")));
+
+		// delete the test made
 		jsonDaoImplements.deleteFirestation(null, "Test99");
-		
+
 	}
-	
+
 	@Test
 	public void testDeleteFirestation() throws Exception {
-		//add person
-		String body = " {\r\n"
-				+ "        \"address\": \"Test1509 Culver St\",\r\n"
-				+ "        \"station\": \"Test99\"\r\n"
-				+ "    }";
+		// add person
+		String body = " {\r\n" + "        \"address\": \"Test1509 Culver St\",\r\n"
+				+ "        \"station\": \"Test99\"\r\n" + "    }";
 		mockMvc.perform(post("/firestation").content(body).contentType(MediaType.APPLICATION_JSON));
-		
+
 		mockMvc.perform(delete("/firestation").param("station", "Test99")).andExpect(status().isOk());
-		
+
 		mockMvc.perform(get("/Firestations/Test99")).andExpect(status().isOk()).equals(null);
 	}
-	
+
 	@Test
 	public void testUpdatefirestation() throws Exception {
-		String body = " {\r\n"
-				+ "        \"address\": \"Test1509 Culver St\",\r\n"
-				+ "        \"station\": \"Test99\"\r\n"
-				+ "    }";
+		String body = " {\r\n" + "        \"address\": \"Test1509 Culver St\",\r\n"
+				+ "        \"station\": \"Test99\"\r\n" + "    }";
 
-		String body_put = " {\r\n"
-				+ "        \"address\": \"Test1509 Culver St\",\r\n"
-				+ "        \"station\": \"TestStation\"\r\n"
-				+ "    }";
+		String body_put = " {\r\n" + "        \"address\": \"Test1509 Culver St\",\r\n"
+				+ "        \"station\": \"TestStation\"\r\n" + "    }";
 
 		mockMvc.perform(post("/firestation").content(body).contentType(MediaType.APPLICATION_JSON));
 
-		mockMvc.perform(put("/firestation").content(body_put).contentType(MediaType.APPLICATION_JSON).param("address", "Test1509 Culver St")).andExpect(status().isOk());
+		mockMvc.perform(put("/firestation").content(body_put).contentType(MediaType.APPLICATION_JSON).param("address",
+				"Test1509 Culver St")).andExpect(status().isOk());
 
-		mockMvc.perform(get("/Firestations/TestStation")).andExpect(status().isOk()).andExpect(jsonPath("$[0].address", is("Test1509 Culver St")));
-		
-		//delete the test made
+		mockMvc.perform(get("/Firestations/TestStation")).andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].address", is("Test1509 Culver St")));
+
+		// delete the test made
 		jsonDaoImplements.deleteFirestation(null, "TestStation");
 	}
 
 	@Test
 	public void testAddMedicalrecords() throws Exception {
-		String body = "{\r\n"
-				+ "        \"firstName\": \"TestFirstName\",\r\n"
-				+ "        \"lastName\": \"TestLastName\",\r\n"
-				+ "        \"birthdate\": \"03/06/1984\",\r\n"
-				+ "        \"medications\": [\r\n"
-				+ "            \"aznol:350mg\",\r\n"
-				+ "            \"hydrapermazol:100mg\"\r\n"
-				+ "        ],\r\n"
-				+ "        \"allergies\": [\r\n"
-				+ "            \"nillacilan\"\r\n"
-				+ "        ]\r\n"
-				+ "    }";
-		
-		
-		mockMvc.perform(post("/medicalRecord").content(body).contentType(MediaType.APPLICATION_JSON)).andExpect(status().is(200));
-		mockMvc.perform(get("/medicalRecord/TestFirstNameTestLastName")).andExpect(status().isOk()).andExpect(jsonPath("$[0].firstName", is("TestFirstName")));
-		
-		//delete the test made
+		String body = "{\r\n" + "        \"firstName\": \"TestFirstName\",\r\n"
+				+ "        \"lastName\": \"TestLastName\",\r\n" + "        \"birthdate\": \"03/06/1984\",\r\n"
+				+ "        \"medications\": [\r\n" + "            \"aznol:350mg\",\r\n"
+				+ "            \"hydrapermazol:100mg\"\r\n" + "        ],\r\n" + "        \"allergies\": [\r\n"
+				+ "            \"nillacilan\"\r\n" + "        ]\r\n" + "    }";
+
+		mockMvc.perform(post("/medicalRecord").content(body).contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().is(200));
+		mockMvc.perform(get("/medicalRecord/TestFirstNameTestLastName")).andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].firstName", is("TestFirstName")));
+
+		// delete the test made
 		jsonDaoImplements.deleteMedicalRecord("TestFirstName", "TestLastName");
-		
+
 	}
-	
+
 	@Test
 	public void testDeleteMedicalrecords() throws Exception {
-		//add person
-		String body = "{\r\n"
-				+ "        \"firstName\": \"TestFirstName\",\r\n"
-				+ "        \"lastName\": \"TestLastName\",\r\n"
-				+ "        \"birthdate\": \"03/06/1984\",\r\n"
-				+ "        \"medications\": [\r\n"
-				+ "            \"aznol:350mg\",\r\n"
-				+ "            \"hydrapermazol:100mg\"\r\n"
-				+ "        ],\r\n"
-				+ "        \"allergies\": [\r\n"
-				+ "            \"nillacilan\"\r\n"
-				+ "        ]\r\n"
-				+ "    }";
+		// add person
+		String body = "{\r\n" + "        \"firstName\": \"TestFirstName\",\r\n"
+				+ "        \"lastName\": \"TestLastName\",\r\n" + "        \"birthdate\": \"03/06/1984\",\r\n"
+				+ "        \"medications\": [\r\n" + "            \"aznol:350mg\",\r\n"
+				+ "            \"hydrapermazol:100mg\"\r\n" + "        ],\r\n" + "        \"allergies\": [\r\n"
+				+ "            \"nillacilan\"\r\n" + "        ]\r\n" + "    }";
 		mockMvc.perform(post("/medicalRecord").content(body).contentType(MediaType.APPLICATION_JSON));
-		
-		mockMvc.perform(delete("/medicalRecord").param("firstName", "TestFirstName").param("lastName", "TestLastName")).andExpect(status().isOk());
-		
+
+		mockMvc.perform(delete("/medicalRecord").param("firstName", "TestFirstName").param("lastName", "TestLastName"))
+				.andExpect(status().isOk());
+
 		mockMvc.perform(get("/medicalRecord/TestFirstNameTestLastName")).andExpect(status().isOk()).equals(null);
 	}
-	
+
 	@Test
 	public void testUpdateMedicalrecords() throws Exception {
-		String body = "{\r\n"
-				+ "        \"firstName\": \"TestFirstName\",\r\n"
-				+ "        \"lastName\": \"TestLastName\",\r\n"
-				+ "        \"birthdate\": \"03/06/1984\",\r\n"
-				+ "        \"medications\": [\r\n"
-				+ "            \"aznol:350mg\",\r\n"
-				+ "            \"hydrapermazol:100mg\"\r\n"
-				+ "        ],\r\n"
-				+ "        \"allergies\": [\r\n"
-				+ "            \"nillacilan\"\r\n"
-				+ "        ]\r\n"
-				+ "    }";
+		String body = "{\r\n" + "        \"firstName\": \"TestFirstName\",\r\n"
+				+ "        \"lastName\": \"TestLastName\",\r\n" + "        \"birthdate\": \"03/06/1984\",\r\n"
+				+ "        \"medications\": [\r\n" + "            \"aznol:350mg\",\r\n"
+				+ "            \"hydrapermazol:100mg\"\r\n" + "        ],\r\n" + "        \"allergies\": [\r\n"
+				+ "            \"nillacilan\"\r\n" + "        ]\r\n" + "    }";
 
-		String body_put = "{\r\n"
-				+ "        \"firstName\": \"TestPutFirstName\",\r\n"
-				+ "        \"lastName\": \"TestPutLastName\",\r\n"
-				+ "        \"birthdate\": \"03/06/1984\",\r\n"
-				+ "        \"medications\": [\r\n"
-				+ "            \"Testaznol:350mg\",\r\n"
-				+ "            \"hydrapermazol:100mg\"\r\n"
-				+ "        ],\r\n"
-				+ "        \"allergies\": [\r\n"
-				+ "            \"nillacilan\"\r\n"
-				+ "        ]\r\n"
-				+ "    }";
+		String body_put = "{\r\n" + "        \"firstName\": \"TestPutFirstName\",\r\n"
+				+ "        \"lastName\": \"TestPutLastName\",\r\n" + "        \"birthdate\": \"03/06/1984\",\r\n"
+				+ "        \"medications\": [\r\n" + "            \"Testaznol:350mg\",\r\n"
+				+ "            \"hydrapermazol:100mg\"\r\n" + "        ],\r\n" + "        \"allergies\": [\r\n"
+				+ "            \"nillacilan\"\r\n" + "        ]\r\n" + "    }";
 
 		mockMvc.perform(post("/medicalRecord").content(body).contentType(MediaType.APPLICATION_JSON));
 
-		mockMvc.perform(put("/medicalRecord").content(body_put).contentType(MediaType.APPLICATION_JSON).param("firstName", "TestFirstName").param("lastName", "TestLastName")).andExpect(status().isOk());
+		mockMvc.perform(put("/medicalRecord").content(body_put).contentType(MediaType.APPLICATION_JSON)
+				.param("firstName", "TestFirstName").param("lastName", "TestLastName")).andExpect(status().isOk());
 
-		mockMvc.perform(get("/medicalRecord/TestFirstNameTestLastName")).andExpect(status().isOk()).andExpect(jsonPath("$[0].medications.[0]", is("Testaznol:350mg")));
-		
-		//delete the test made
+		mockMvc.perform(get("/medicalRecord/TestFirstNameTestLastName")).andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].medications.[0]", is("Testaznol:350mg")));
+
+		// delete the test made
 		jsonDaoImplements.deleteMedicalRecord("TestFirsName", "TestLastName");
 	}
 

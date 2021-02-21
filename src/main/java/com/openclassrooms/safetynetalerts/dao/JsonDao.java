@@ -129,7 +129,7 @@ public interface JsonDao {
 
 	public void updatePerson(Persons persons, String firstName, String lastName) throws IOException;
 
-	public void deletePerson(String firstName, String lastName) throws IOException;
+	public boolean deletePerson(String firstName, String lastName) throws IOException;
 
 	public List<Persons> getAPerson(String firstNamelastName) throws IOException;
 
@@ -163,7 +163,7 @@ public interface JsonDao {
 	public void updateMedicalRecord(Medicalrecords medicalRecord, String firstName, String lastName) throws IOException;
 
 	public void deleteMedicalRecord(String firstName, String lastName) throws IOException;
-	
+
 	public List<Medicalrecords> getAMedicalrecord(String firstNamelastName) throws IOException;
-	
+
 }
