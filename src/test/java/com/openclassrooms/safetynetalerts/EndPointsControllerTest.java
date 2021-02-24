@@ -3,6 +3,7 @@ package com.openclassrooms.safetynetalerts;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.openclassrooms.safetynetalerts.controller.EndPointsController;
@@ -22,6 +24,7 @@ import com.openclassrooms.safetynetalerts.model.CommunityEmail;
 import com.openclassrooms.safetynetalerts.model.FireAddress;
 import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.PersonInfo;
+import com.openclassrooms.safetynetalerts.model.Persons;
 import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
 import com.openclassrooms.safetynetalerts.model.PhoneAlert;
 
@@ -129,7 +132,7 @@ public class EndPointsControllerTest {
 	@Test
 	public void testGetPhoneAlertNoFirestation() throws Exception {
 		String no_firestation = "";
-		mockMvc.perform(get("/phoneAlert").param("firestation", no_firestation)).andExpect(status().is(204));
+		mockMvc.perform(get("/phoneAlert").param("firestation", no_firestation)).andExpect(status().is(400));
 	}
 
 	/*
@@ -169,7 +172,7 @@ public class EndPointsControllerTest {
 	public void testGetfireNoAddress() throws Exception {
 
 		String une_adresse = "";
-		mockMvc.perform(get("/fire").param("address", une_adresse)).andExpect(status().is(204));
+		mockMvc.perform(get("/fire").param("address", une_adresse)).andExpect(status().is(400));
 	}
 
 	/*
@@ -220,7 +223,7 @@ public class EndPointsControllerTest {
 		List<String> param_station = new ArrayList<>();
 		param_station.add("");
 		mockMvc.perform(get("/flood/station").param("station", param_station.get(0).toString()))
-				.andExpect(status().is(204));
+				.andExpect(status().is(400));
 	}
 
 	/*
@@ -264,7 +267,7 @@ public class EndPointsControllerTest {
 		String first_name = "";
 		String last_name = "";
 		mockMvc.perform(get("/personInfo").param("firstName", first_name).param("lastName", last_name))
-				.andExpect(status().is(204));
+				.andExpect(status().is(400));
 	}
 
 	/*
@@ -303,13 +306,13 @@ public class EndPointsControllerTest {
 	public void testGetcommunityEmailCityBlank() throws Exception {
 
 		String test_city = "";
-		mockMvc.perform(get("/communityEmail").param("city", test_city)).andExpect(status().is(204));
+		mockMvc.perform(get("/communityEmail").param("city", test_city)).andExpect(status().is(400));
 	}
 
 	@Test
 	public void testDeletePersonNoFirstNameAndNoLastName() throws Exception {
 
-		mockMvc.perform(delete("/person").param("firstName", "").param("lastName", "")).andExpect(status().is(204));
+		mockMvc.perform(delete("/person").param("firstName", "").param("lastName", "")).andExpect(status().is(400));
 	}
 
 	@Test
@@ -318,6 +321,34 @@ public class EndPointsControllerTest {
 		when(jsonDaoImplements.deletePerson("testFirstName", "testLastName")).thenReturn(false);
 		mockMvc.perform(delete("/person").param("firstName", "testFirstName").param("lastName", "testLastName"))
 				.andExpect(status().is(404));
+	}
+
+	@Test
+	public void testUpdatePersonNoFirstNameAndNoLastName() throws Exception {
+
+		String body_put = "{\r\n" + "        \"firstName\": \"TestFirstName\",\r\n"
+				+ "        \"lastName\": \"TestLastName\",\r\n" + "        \"address\": \"Test1509 Culver St\",\r\n"
+				+ "        \"city\": \"TestCulver\",\r\n" + "        \"zip\": \"Test97451\",\r\n"
+				+ "        \"phone\": \"Test841-874-6512\",\r\n" + "        \"email\": \"Testjaboyd@email.com\"\r\n"
+				+ "    }";
+
+		mockMvc.perform(put("/person").content(body_put).contentType(MediaType.APPLICATION_JSON).param("firstName", "")
+				.param("lastName", "")).andExpect(status().is(400));
+	}
+
+	@Test
+	public void testUpdatePersonNoPerson() throws Exception {
+
+		String body_put = "{\r\n" + "        \"firstName\": \"TestFirstName\",\r\n"
+				+ "        \"lastName\": \"TestLastName\",\r\n" + "        \"address\": \"Test1509 Culver St\",\r\n"
+				+ "        \"city\": \"TestCulver\",\r\n" + "        \"zip\": \"Test97451\",\r\n"
+				+ "        \"phone\": \"Test841-874-6512\",\r\n" + "        \"email\": \"Testjaboyd@email.com\"\r\n"
+				+ "    }";
+
+		Persons persons = new Persons();
+		when(jsonDaoImplements.updatePerson(persons, "testFirstName", "testLastName")).thenReturn(false);
+		mockMvc.perform(put("/person").content(body_put).contentType(MediaType.APPLICATION_JSON)
+				.param("firstName", "testFirstName").param("lastName", "testLastName")).andExpect(status().is(404));
 	}
 
 }

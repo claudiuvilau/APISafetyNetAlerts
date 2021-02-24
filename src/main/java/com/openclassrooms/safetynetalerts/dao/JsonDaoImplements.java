@@ -31,7 +31,6 @@ import com.openclassrooms.safetynetalerts.model.PersonInfo;
 import com.openclassrooms.safetynetalerts.model.Persons;
 import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
 import com.openclassrooms.safetynetalerts.model.PhoneAlert;
-import com.openclassrooms.safetynetalerts.service.JsonPathFileToWriter;
 
 @Repository
 public class JsonDaoImplements implements JsonDao {
@@ -904,11 +903,10 @@ public class JsonDaoImplements implements JsonDao {
 
 			String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
 																				// object
-			JsonPathFileToWriter jsonPathFileToWriter = new JsonPathFileToWriter();
-			FileWriter fileWriter = jsonPathFileToWriter.jsonPathFileToWriter();
-			fileWriter.write(jsonstream);
-			fileWriter.flush();
-			fileWriter.close();
+			FileWriter writer = new FileWriter(readJsonFile.filepath_json);
+			writer.write(jsonstream);
+			writer.flush();
+			writer.close();
 
 			return persons;
 		}
@@ -916,7 +914,7 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public void updatePerson(Persons persons, String firstName, String lastName) throws IOException {
+	public boolean updatePerson(Persons persons, String firstName, String lastName) throws IOException {
 
 		readJsonFile = new ReadJsonFile();
 
@@ -942,29 +940,31 @@ public class JsonDaoImplements implements JsonDao {
 				if (persons.getZip() != null) {
 					element.setZip(persons.getZip());
 				}
-				break;
+
+				// create fire stations
+				List<Firestations> listFirestations = new ArrayList<>();
+				listFirestations = readJsonFile.readfilejsonFirestations();
+				// create medical records
+				List<Medicalrecords> listMedicalrecords = new ArrayList<>();
+				listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
+
+				CollectionsRessources collectionsRessources = new CollectionsRessources();
+				collectionsRessources.setPersons(listPersons);
+				collectionsRessources.setFirestations(listFirestations);
+				collectionsRessources.setMedicalrecords(listMedicalrecords);
+
+				String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
+																					// object
+
+				FileWriter writer = new FileWriter(readJsonFile.filepath_json);
+				writer.write(jsonstream);
+				writer.flush();
+				writer.close();
+
+				return true;
 			}
 		}
-
-		// create fire stations
-		List<Firestations> listFirestations = new ArrayList<>();
-		listFirestations = readJsonFile.readfilejsonFirestations();
-		// create medical records
-		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
-		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
-
-		CollectionsRessources collectionsRessources = new CollectionsRessources();
-		collectionsRessources.setPersons(listPersons);
-		collectionsRessources.setFirestations(listFirestations);
-		collectionsRessources.setMedicalrecords(listMedicalrecords);
-
-		String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
-																			// object
-
-		FileWriter writer = new FileWriter(readJsonFile.filepath_json);
-		writer.write(jsonstream);
-		writer.flush();
-		writer.close();
+		return false;
 	}
 
 	@Override

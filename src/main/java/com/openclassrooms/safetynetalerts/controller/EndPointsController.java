@@ -6,6 +6,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +39,7 @@ import com.openclassrooms.safetynetalerts.model.PersonInfo;
 import com.openclassrooms.safetynetalerts.model.Persons;
 import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
 import com.openclassrooms.safetynetalerts.model.PhoneAlert;
+import com.openclassrooms.safetynetalerts.service.LoggerApi;
 
 @RestController
 public class EndPointsController {
@@ -87,7 +90,7 @@ public class EndPointsController {
 		// if persons == null the end point is bad request because @RequestBody
 		if (persons == null) {
 			// LOGGER.error("Person in body is null.");
-			return ResponseEntity.noContent().build();
+			return ResponseEntity.badRequest().build();
 		}
 
 		Persons newPerson = jsonDao.addPerson(persons);
@@ -105,9 +108,22 @@ public class EndPointsController {
 
 	// update person
 	@PutMapping(value = "/person")
-	public void updatePerson(@RequestBody Persons persons, @RequestParam String firstName,
+	public ResponseEntity<Void> updatePerson(@RequestBody Persons persons, @RequestParam String firstName,
 			@RequestParam String lastName) throws IOException {
-		jsonDao.updatePerson(persons, firstName, lastName);
+
+		if (firstName.isBlank() || lastName.isBlank()) {
+			return ResponseEntity.badRequest().build();
+		}
+
+		boolean update = false;
+
+		update = jsonDao.updatePerson(persons, firstName, lastName);
+
+		if (update == false) {
+			return ResponseEntity.notFound().build();
+		}
+
+		return ResponseEntity.ok().build();
 	}
 
 	// delete person
@@ -116,7 +132,7 @@ public class EndPointsController {
 			throws IOException {
 
 		if (firstName.isBlank() || lastName.isBlank()) {
-			return ResponseEntity.noContent().build();
+			return ResponseEntity.badRequest().build();
 		}
 
 		boolean del = false;
@@ -226,17 +242,16 @@ public class EndPointsController {
 	}
 
 	@GetMapping("firestation")
-	public ResponseEntity<List<Foyer>> firestationStationNumber(@RequestParam String stationNumber)
-			throws IOException, ParseException {
+	public ResponseEntity<List<Foyer>> firestationStationNumber(@RequestParam String stationNumber,
+			HttpServletRequest request) throws IOException, ParseException {
 
-		// LOGGER.trace("@GetMapping(\"firestation\") @RequestParam String
-		// stationNumber");
+		LoggerApi loggerApi = new LoggerApi();
 
 		if (stationNumber == null || stationNumber.length() == 0) {
 
-			// LOGGER.warn("Station number was null !" + HttpStatusCodeException.class);
+			LOGGER.info(loggerApi.loggerInfo(request));
 
-			return ResponseEntity.noContent().build();
+			return ResponseEntity.badRequest().build();
 		}
 
 		List<Foyer> listFoyer = new ArrayList<>();
@@ -245,13 +260,11 @@ public class EndPointsController {
 		// if we have 0 adult 0 children
 		if (listFoyer.get(0).getDecompteAdult().equals("0") && listFoyer.get(0).getDecompteChildren().equals("0")) {
 
-			// LOGGER.info("No children in the list !");
-
+			LOGGER.info(loggerApi.loggerInfo(request));
 			return ResponseEntity.unprocessableEntity().build();
 		}
 
-		// LOGGER.info("Https Status : " + HttpStatus.OK.toString() + " - " +
-		// HttpStatusCodeException.class);
+		LOGGER.info(loggerApi.loggerInfo(request));
 		return new ResponseEntity<List<Foyer>>(listFoyer, HttpStatus.OK);
 	}
 
@@ -260,7 +273,7 @@ public class EndPointsController {
 			throws IOException, ParseException {
 
 		if (address == null || address.length() == 0) {
-			return ResponseEntity.noContent().build();
+			return ResponseEntity.badRequest().build();
 		}
 
 		List<ChildAlert> listChildren = new ArrayList<>();
@@ -300,7 +313,7 @@ public class EndPointsController {
 			throws IOException {
 
 		if (firestation.isBlank()) {
-			return ResponseEntity.noContent().build();
+			return ResponseEntity.badRequest().build();
 		}
 
 		List<PhoneAlert> listPhoneAlert = new ArrayList<>();
@@ -318,7 +331,7 @@ public class EndPointsController {
 			throws IOException, ParseException {
 
 		if (address == null || address.length() == 0) {
-			return ResponseEntity.noContent().build();
+			return ResponseEntity.badRequest().build();
 		}
 
 		List<FireAddress> listFireAddress = new ArrayList<>();
@@ -336,7 +349,7 @@ public class EndPointsController {
 			throws IOException, ParseException {
 
 		if (station.isEmpty()) {
-			return ResponseEntity.noContent().build();
+			return ResponseEntity.badRequest().build();
 		}
 
 		List<PersonsFireStation> listPersonsFireStation = new ArrayList<>();
@@ -353,7 +366,7 @@ public class EndPointsController {
 			throws IOException, ParseException {
 
 		if (firstName.isBlank() || lastName.isBlank()) {
-			return ResponseEntity.noContent().build();
+			return ResponseEntity.badRequest().build();
 		}
 
 		List<PersonInfo> listPeronInfo = new ArrayList<>();
@@ -370,7 +383,7 @@ public class EndPointsController {
 	public ResponseEntity<List<CommunityEmail>> communityEmail(@RequestParam String city) throws IOException {
 
 		if (city.isBlank()) {
-			return ResponseEntity.noContent().build();
+			return ResponseEntity.badRequest().build();
 		}
 
 		List<CommunityEmail> listCommunityEmail = new ArrayList<>();

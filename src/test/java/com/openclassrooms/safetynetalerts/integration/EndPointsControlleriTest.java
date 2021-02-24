@@ -37,9 +37,11 @@ public class EndPointsControlleriTest {
 		 * 
 		 */
 		String param_station = "1";
-		mockMvc.perform(get("/firestation").param("stationNumber", param_station)).andExpect(status().isOk()).andExpect(jsonPath("$[0].listPersonsAdults.[0].firstName", is("Peter")));
-		
+		mockMvc.perform(get("/firestation").param("stationNumber", param_station)).andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].listPersonsAdults.[0].firstName", is("Peter")));
+
 	}
+
 	@Test
 	public void testPersonsOfStationAdultsAndChildNoFirestation() throws Exception {
 
@@ -54,15 +56,16 @@ public class EndPointsControlleriTest {
 		 * 
 		 */
 		String param_station = "";
-		mockMvc.perform(get("/firestation").param("stationNumber", param_station)).andExpect(status().is(204)).equals(null);
-		
+		mockMvc.perform(get("/firestation").param("stationNumber", param_station)).andExpect(status().is(400))
+				.equals(null);
+
 	}
-	
+
 	@Test
 	public void testChildPersonsAlertAddressWithChild() throws Exception {
 
 		/*
-		 *  * L'utilisateur accède à l’URL :
+		 * * L'utilisateur accède à l’URL :
 		 *
 		 * http://localhost:9090/childAlert?address=<address>
 		 * 
@@ -73,7 +76,8 @@ public class EndPointsControlleriTest {
 		 */
 
 		String param_address = "1509 Culver St";
-		mockMvc.perform(get("/childAlert").param("address", param_address)).andExpect(status().isOk()).andExpect(jsonPath("$[0].listChildren.[0].decompte", is(notNullValue())));
+		mockMvc.perform(get("/childAlert").param("address", param_address)).andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].listChildren.[0].decompte", is(notNullValue())));
 	}
 
 	@Test
@@ -89,7 +93,8 @@ public class EndPointsControlleriTest {
 		 */
 
 		String param_station = "1";
-		mockMvc.perform(get("/phoneAlert").param("firestation", param_station)).andExpect(status().isOk()).andExpect(jsonPath("$[0].listPhones", is(notNullValue())));
+		mockMvc.perform(get("/phoneAlert").param("firestation", param_station)).andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].listPhones", is(notNullValue())));
 	}
 
 	@Test
@@ -107,7 +112,8 @@ public class EndPointsControlleriTest {
 		 */
 
 		String param_address = "1509 Culver St";
-		mockMvc.perform(get("/fire").param("address", param_address)).andExpect(status().isOk()).andExpect(jsonPath("$[0].lastName", is("Boyd")));
+		mockMvc.perform(get("/fire").param("address", param_address)).andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].lastName", is("Boyd")));
 
 	}
 
@@ -130,9 +136,11 @@ public class EndPointsControlleriTest {
 		List<String> param_station = new ArrayList<>();
 		param_station.add("1");
 		param_station.add("3");
-		mockMvc.perform(get("/flood/station").param("station", param_station.get(0).toString()).param("station", param_station.get(1).toString())).andExpect(status().isOk())
-					.andExpect(jsonPath("$[0].address", containsString("644"))).andExpect(jsonPath("$[1].address", containsString("908 73rd St")))
-					.andExpect(jsonPath("$[*].address").isArray());	
+		mockMvc.perform(get("/flood/station").param("station", param_station.get(0).toString()).param("station",
+				param_station.get(1).toString())).andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].address", containsString("644")))
+				.andExpect(jsonPath("$[1].address", containsString("908 73rd St")))
+				.andExpect(jsonPath("$[*].address").isArray());
 	}
 
 	@Test
@@ -152,7 +160,8 @@ public class EndPointsControlleriTest {
 
 		String param_firstName = "John";
 		String param_lastName = "Boyd";
-		mockMvc.perform(get("/personInfo").param("firstName", param_firstName).param("lastName", param_lastName)).andExpect(status().isOk()).andExpect(jsonPath("$[0].lastName", is("Boyd")));
+		mockMvc.perform(get("/personInfo").param("firstName", param_firstName).param("lastName", param_lastName))
+				.andExpect(status().isOk()).andExpect(jsonPath("$[0].lastName", is("Boyd")));
 	}
 
 	@Test
@@ -168,9 +177,9 @@ public class EndPointsControlleriTest {
 		 */
 
 		String param_city = "Culver";
-		mockMvc.perform(get("/communityEmail").param("city", param_city)).andExpect(status().isOk()).andExpect(jsonPath("$[0].listEmails", is(notNullValue())));
+		mockMvc.perform(get("/communityEmail").param("city", param_city)).andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].listEmails", is(notNullValue())));
 
 	}
 
-	
 }
