@@ -40,7 +40,7 @@ public interface JsonDao {
 	 * décompte du nombre d’adultes (>18 ans) et du nombre d’enfants (<=18 ans)
 	 * 
 	 */
-	public List<Foyer> personsOfStationAdultsAndChild(String stationNumber) throws IOException, ParseException;
+	public List<Foyer> personsOfStationAdultsAndChild(String stationNumber);
 
 	/*
 	 * L'utilisateur accède à l’URL :

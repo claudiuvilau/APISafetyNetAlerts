@@ -63,7 +63,7 @@ public class EndPointsControllerTest {
 		// no adults non children = "0"
 		listFoyer.add(new Foyer("0", null, "0", null, null));
 		when(jsonDaoImplements.personsOfStationAdultsAndChild(station_number)).thenReturn(listFoyer);
-		mockMvc.perform(get("/firestation").param("stationNumber", station_number)).andExpect(status().is(422));
+		mockMvc.perform(get("/firestation").param("stationNumber", station_number)).andExpect(status().is(404));
 	}
 
 	/*

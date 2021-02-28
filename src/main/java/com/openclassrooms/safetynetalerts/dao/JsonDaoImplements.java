@@ -12,6 +12,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import javax.json.JsonException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.jsoniter.JsonIterator;
@@ -31,11 +35,14 @@ import com.openclassrooms.safetynetalerts.model.PersonInfo;
 import com.openclassrooms.safetynetalerts.model.Persons;
 import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
 import com.openclassrooms.safetynetalerts.model.PhoneAlert;
+import com.openclassrooms.safetynetalerts.service.LoggerApi;
 
 @Repository
 public class JsonDaoImplements implements JsonDao {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(JsonDaoImplements.class);
 	private ReadJsonFile readJsonFile;
+	private LoggerApi loggerApi;
 
 	@Override
 	public List<Firestations> filterStation(String caserne) {
@@ -97,7 +104,7 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public List<Foyer> personsOfStationAdultsAndChild(String stationNumber) throws IOException, ParseException {
+	public List<Foyer> personsOfStationAdultsAndChild(String stationNumber) {
 
 		int child_old = 18; // 18 age for the children. If the age is different you can modify the
 							// listFindOld() too
@@ -112,24 +119,44 @@ public class JsonDaoImplements implements JsonDao {
 
 		JsonIterator iter = JsonIterator.parse(jsonstream);
 		Any any = null;
-		any = iter.readAny();
+		try {
+			any = iter.readAny();
+		} catch (JsonException e) {
+			System.out.println("JsonException. Essayez de nouveau. " + e);
+		} catch (Exception e) {
+			loggerApi = new LoggerApi();
+			LOGGER.error(loggerApi.loggerErr(e));
+			return null;
+		}
 
 		JsonIterator iterator;
 		for (Any element : any) {
 			iterator = JsonIterator.parse(element.toString());
-			for (String field = iterator.readObject(); field != null; field = iterator.readObject()) {
-				switch (field) {
-				case "address":
-					if (iterator.whatIsNext() == ValueType.STRING) {
-						address = iterator.readString();
-						listPersons = filterAddressInPersons(address); // it will check the address in the Persons
-						listP.addAll(listPersons); // it will make the list of the persons = address
+			iterator = null;
+			try {
+				for (String field = iterator.readObject(); field != null; field = iterator.readObject()) {
+					switch (field) {
+					case "address":
+						if (iterator.whatIsNext() == ValueType.STRING) {
+							address = iterator.readString();
+							listPersons = filterAddressInPersons(address); // it will check the address in the Persons
+							listP.addAll(listPersons); // it will make the list of the persons = address
+						}
+						continue;
+					default:
+						iterator.skip();
 					}
-					continue;
-				default:
-					iterator.skip();
 				}
+			} catch (NullPointerException e) {
+				loggerApi = new LoggerApi();
+				LOGGER.error("test990 : " + loggerApi.loggerErr(e));
+				return null;
+			} catch (Exception e) {
+				loggerApi = new LoggerApi();
+				LOGGER.error("test999 : " + loggerApi.loggerErr(e));
+				return null;
 			}
+
 		}
 
 		// We check the birth date in the list medical records
@@ -138,7 +165,12 @@ public class JsonDaoImplements implements JsonDao {
 		Medicalrecords personsMedicalrecords = new Medicalrecords();
 		List<Children> listChildren = new ArrayList<>();
 		readJsonFile = new ReadJsonFile();
-		listM = readJsonFile.readfilejsonMedicalrecords();
+		try {
+			listM = readJsonFile.readfilejsonMedicalrecords();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String namePersons;
 		String nameMedicalrecords;
 		for (Persons element_list_persons : listP) {
@@ -153,7 +185,12 @@ public class JsonDaoImplements implements JsonDao {
 					personsMedicalrecords.setLastName(element_list_medicalrecords.getLastName());
 					personsMedicalrecords.setBirthdate(element_list_medicalrecords.getBirthdate());
 					listMedicalrecords.add(personsMedicalrecords);
-					listChildren.addAll(listFindOld(listMedicalrecords, child_old));
+					try {
+						listChildren.addAll(listFindOld(listMedicalrecords, child_old));
+					} catch (IOException | ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 		}

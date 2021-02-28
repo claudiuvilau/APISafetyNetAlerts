@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,6 +52,7 @@ public class EndPointsController {
 	private ReadJsonFile readJsonFile;
 	private List<Firestations> listFirestations = new ArrayList<>();
 	private List<Persons> listPersons = new ArrayList<>();
+	private LoggerApi loggerApi;
 
 	@Bean
 	public HttpTraceRepository htttpTraceRepository() {
@@ -243,29 +245,36 @@ public class EndPointsController {
 
 	@GetMapping("firestation")
 	public ResponseEntity<List<Foyer>> firestationStationNumber(@RequestParam String stationNumber,
-			HttpServletRequest request) throws IOException, ParseException {
+			HttpServletRequest request, HttpServletResponse response) {
 
-		LoggerApi loggerApi = new LoggerApi();
+		loggerApi = new LoggerApi();
 
 		if (stationNumber == null || stationNumber.length() == 0) {
-
-			LOGGER.info(loggerApi.loggerInfo(request));
-
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.info(loggerApi.loggerInfo(request, response));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		List<Foyer> listFoyer = new ArrayList<>();
 		listFoyer = jsonDao.personsOfStationAdultsAndChild(stationNumber);
 
-		// if we have 0 adult 0 children
-		if (listFoyer.get(0).getDecompteAdult().equals("0") && listFoyer.get(0).getDecompteChildren().equals("0")) {
+		// if we have 0 adult 0 children or list is empty
 
-			LOGGER.info(loggerApi.loggerInfo(request));
-			return ResponseEntity.unprocessableEntity().build();
+		if (listFoyer == null) {
+			response.setStatus(404);
+			LOGGER.info(loggerApi.loggerInfo(request, response));
+			return ResponseEntity.status(response.getStatus()).build();
+		} else {
+			if (listFoyer.get(0).getDecompteAdult().equals("0") && listFoyer.get(0).getDecompteChildren().equals("0")) {
+				response.setStatus(404);
+				LOGGER.info(loggerApi.loggerInfo(request, response));
+				return ResponseEntity.status(response.getStatus()).build();
+			}
 		}
 
-		LOGGER.info(loggerApi.loggerInfo(request));
-		return new ResponseEntity<List<Foyer>>(listFoyer, HttpStatus.OK);
+		response.setStatus(200);
+		LOGGER.info(loggerApi.loggerInfo(request, response));
+		return new ResponseEntity<List<Foyer>>(listFoyer, HttpStatus.valueOf(response.getStatus()));
 	}
 
 	@GetMapping("childAlert")
