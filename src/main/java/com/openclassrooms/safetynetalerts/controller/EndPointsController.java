@@ -278,21 +278,34 @@ public class EndPointsController {
 	}
 
 	@GetMapping("childAlert")
-	public ResponseEntity<List<ChildAlert>> childAlert(@RequestParam String address)
-			throws IOException, ParseException {
+	public ResponseEntity<List<ChildAlert>> childAlert(@RequestParam String address, HttpServletRequest request, HttpServletResponse response) {
 
+		loggerApi = new LoggerApi();
+		
 		if (address == null || address.length() == 0) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.info("The param does not exist " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		List<ChildAlert> listChildren = new ArrayList<>();
-		listChildren = jsonDao.childPersonsAlertAddress(address);
-
-		if (listChildren == null) {
-			return ResponseEntity.notFound().build();
+		try {
+			listChildren = jsonDao.childPersonsAlertAddress(address);
+		} catch (IOException e) {
+			LOGGER.error(loggerApi.loggerErr(e));
+		} catch (ParseException e) {
+			LOGGER.error(loggerApi.loggerErr(e));
 		}
 
-		return new ResponseEntity<List<ChildAlert>>(listChildren, HttpStatus.OK);
+		if (listChildren == null) {
+			response.setStatus(404);
+			LOGGER.info("The list is null " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response));
+			return ResponseEntity.status(response.getStatus()).build();
+		}
+
+		response.setStatus(200);
+		LOGGER.info("Response status " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response));
+		return new ResponseEntity<List<ChildAlert>>(listChildren, HttpStatus.valueOf(response.getStatus()));
 
 	}
 
