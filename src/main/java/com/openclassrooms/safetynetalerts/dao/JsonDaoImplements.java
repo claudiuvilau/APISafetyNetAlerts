@@ -37,6 +37,7 @@ import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
 import com.openclassrooms.safetynetalerts.model.PhoneAlert;
 import com.openclassrooms.safetynetalerts.service.LoggerApi;
 
+
 @Repository
 public class JsonDaoImplements implements JsonDao {
 
@@ -82,7 +83,7 @@ public class JsonDaoImplements implements JsonDao {
 				}
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.error(loggerApi.loggerErr(e));
 		}
 		return listFirestations;
 	}
@@ -106,6 +107,12 @@ public class JsonDaoImplements implements JsonDao {
 	@Override
 	public List<Foyer> personsOfStationAdultsAndChild(String stationNumber) {
 
+		loggerApi = new LoggerApi();
+		
+		if(LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug());	
+		}
+		
 		int child_old = 18; // 18 age for the children. If the age is different you can modify the
 							// listFindOld() too
 		List<Firestations> listFirestations = new ArrayList<>();
@@ -114,25 +121,31 @@ public class JsonDaoImplements implements JsonDao {
 		listFirestations = filterStation(stationNumber);
 
 		String jsonstream = JsonStream.serialize(listFirestations); // here we transform the list in json object
-
+		
 		String address = "";
 
+		if(LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The json object of the list is: " + jsonstream);
+		}
+		
 		JsonIterator iter = JsonIterator.parse(jsonstream);
-		Any any = null;
+		Any any = null;		
 		try {
 			any = iter.readAny();
 		} catch (JsonException e) {
 			System.out.println("JsonException. Essayez de nouveau. " + e);
 		} catch (Exception e) {
-			loggerApi = new LoggerApi();
 			LOGGER.error(loggerApi.loggerErr(e));
 			return null;
+		}
+
+		if(LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The any object is: " + any.toString());
 		}
 
 		JsonIterator iterator;
 		for (Any element : any) {
 			iterator = JsonIterator.parse(element.toString());
-			iterator = null;
 			try {
 				for (String field = iterator.readObject(); field != null; field = iterator.readObject()) {
 					switch (field) {
@@ -148,12 +161,10 @@ public class JsonDaoImplements implements JsonDao {
 					}
 				}
 			} catch (NullPointerException e) {
-				loggerApi = new LoggerApi();
-				LOGGER.error("test990 : " + loggerApi.loggerErr(e));
+				LOGGER.error(loggerApi.loggerErr(e));
 				return null;
 			} catch (Exception e) {
-				loggerApi = new LoggerApi();
-				LOGGER.error("test999 : " + loggerApi.loggerErr(e));
+				LOGGER.error(loggerApi.loggerErr(e));
 				return null;
 			}
 
@@ -165,14 +176,29 @@ public class JsonDaoImplements implements JsonDao {
 		Medicalrecords personsMedicalrecords = new Medicalrecords();
 		List<Children> listChildren = new ArrayList<>();
 		readJsonFile = new ReadJsonFile();
+		
+		if(LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The listMedicalrecords before the try is: " + listM);
+		}
+
 		try {
 			listM = readJsonFile.readfilejsonMedicalrecords();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			LOGGER.error(loggerApi.loggerErr(e));
+			return null;
 		}
+
+		if(LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The listMedicalrecords after the try is: " + listM);
+		}
+		
 		String namePersons;
 		String nameMedicalrecords;
+		
+		if(LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of the persons is: " + listP);
+		}
+		
 		for (Persons element_list_persons : listP) {
 			namePersons = element_list_persons.getFirstName() + element_list_persons.getLastName();
 			for (Medicalrecords element_list_medicalrecords : listM) {
@@ -188,13 +214,15 @@ public class JsonDaoImplements implements JsonDao {
 					try {
 						listChildren.addAll(listFindOld(listMedicalrecords, child_old));
 					} catch (IOException | ParseException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+						LOGGER.error(loggerApi.loggerErr(e));					}
 				}
 			}
 		}
 
+		if(LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of the children is: " + listChildren);
+		}
+		
 		Foyer foyer = new Foyer();
 		List<Foyer> listFoyer = new ArrayList<>();
 		List<Persons> listPersonsAdults = new ArrayList<>();

@@ -18,9 +18,9 @@ public class LoggerApi {
 			entetesHeaders += "\"" + nomEntete + "\": \"" + request.getHeader(nomEntete) + "\"";
 			if (entetes_headers.hasMoreElements()) {
 				entetesHeaders += ", ";
-			} else
-				entetesHeaders += "}";
+			}
 		}
+		entetesHeaders += "}";
 
 		String log_info = "\r\nRequest Method: <[" + request.getMethod() + "]>" + " " + request.getRequestURI()
 				+ "\r\nRequest URL: " + ServletUriComponentsBuilder.fromCurrentRequest().toUriString()
@@ -38,5 +38,11 @@ public class LoggerApi {
 		return log_err;
 
 	}
+	
+	public String loggerDebug() {
 
+		String log_deb = "Request URL: " + ServletUriComponentsBuilder.fromCurrentRequest().toUriString();
+
+		return log_deb;
+	}
 }

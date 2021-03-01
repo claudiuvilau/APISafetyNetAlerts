@@ -251,7 +251,7 @@ public class EndPointsController {
 
 		if (stationNumber == null || stationNumber.length() == 0) {
 			response.setStatus(400);
-			LOGGER.info(loggerApi.loggerInfo(request, response));
+			LOGGER.info("The param does not exist " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
@@ -262,18 +262,18 @@ public class EndPointsController {
 
 		if (listFoyer == null) {
 			response.setStatus(404);
-			LOGGER.info(loggerApi.loggerInfo(request, response));
+			LOGGER.info("The list is null " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response));
 			return ResponseEntity.status(response.getStatus()).build();
 		} else {
 			if (listFoyer.get(0).getDecompteAdult().equals("0") && listFoyer.get(0).getDecompteChildren().equals("0")) {
 				response.setStatus(404);
-				LOGGER.info(loggerApi.loggerInfo(request, response));
+				LOGGER.info("The list is empty. No children and no adult " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response));
 				return ResponseEntity.status(response.getStatus()).build();
 			}
 		}
 
 		response.setStatus(200);
-		LOGGER.info(loggerApi.loggerInfo(request, response));
+		LOGGER.info("Response status " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response));
 		return new ResponseEntity<List<Foyer>>(listFoyer, HttpStatus.valueOf(response.getStatus()));
 	}
 
