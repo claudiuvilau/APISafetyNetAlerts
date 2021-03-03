@@ -27,7 +27,12 @@ public class LoggerApi {
 				+ "\r\nContent Type: " + request.getContentType() + "\r\nResponse Code: " + response.getStatus()
 				+ "\r\nHeader Name: " + entetesHeaders;
 
+		if (System.getProperty("log4j.configurationFile").equals("log4j2-testConfig.xml")) {
+			log_info = "log de test";
+		}
+
 		return log_info;
+
 	}
 
 	public String loggerErr(Exception e) {
@@ -38,7 +43,7 @@ public class LoggerApi {
 		return log_err;
 
 	}
-	
+
 	public String loggerDebug() {
 
 		String log_deb = "Request URL: " + ServletUriComponentsBuilder.fromCurrentRequest().toUriString();

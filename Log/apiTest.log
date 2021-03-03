@@ -1,0 +1,432 @@
+2021-03-03 21:05:49 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest], using SpringBootContextLoader
+2021-03-03 21:05:49 [main] INFO  o.s.t.c.s.AbstractContextLoader                    - Could not detect default resource locations for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-03-03 21:05:49 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils       - Could not detect default configuration classes for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: EndPointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-03-03 21:05:49 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper        - Found @SpringBootConfiguration com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication for test class com.openclassrooms.safetynetalerts.EndPointsControllerTest
+2021-03-03 21:05:49 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-03-03 21:05:49 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@106faf11, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@70f43b45, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@26d10f2e, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@10ad20cb, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7dd712e8, org.springframework.test.context.event.EventPublishingTestExecutionListener@2c282004, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@22ee2d0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7bfc3126, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3e792ce3, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@53bc1328, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@26f143ed, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3c1e3314]
+2021-03-03 21:05:49 [main] INFO  c.o.s.EndPointsControllerTest                      - Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 7320 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-03-03 21:05:49 [main] INFO  c.o.s.EndPointsControllerTest                      - No active profile set, falling back to default profiles: default
+2021-03-03 21:05:50 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:05:51 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext           - Initializing Spring TestDispatcherServlet ''
+2021-03-03 21:05:51 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Initializing Servlet ''
+2021-03-03 21:05:51 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Completed initialization in 3 ms
+2021-03-03 21:05:51 [main] INFO  c.o.s.EndPointsControllerTest                      - Started EndPointsControllerTest in 1.763 seconds (JVM running for 3.103)
+2021-03-03 21:05:51 [main] INFO  c.o.s.c.EndPointsController                        - The list is null 404:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:05:51 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 200
+Header Name: {}
+2021-03-03 21:05:51 [main] INFO  c.o.s.c.EndPointsController                        - The list is empty. No children and no adult 404:
+Request Method: <[GET]> /firestation
+Request URL: http://localhost/firestation
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:05:51 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:12:43 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest], using SpringBootContextLoader
+2021-03-03 21:12:43 [main] INFO  o.s.t.c.s.AbstractContextLoader                    - Could not detect default resource locations for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-03-03 21:12:43 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils       - Could not detect default configuration classes for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: EndPointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-03-03 21:12:43 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper        - Found @SpringBootConfiguration com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication for test class com.openclassrooms.safetynetalerts.EndPointsControllerTest
+2021-03-03 21:12:43 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-03-03 21:12:43 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@a23a01d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4acf72b6, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7561db12, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3301500b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@24b52d3e, org.springframework.test.context.event.EventPublishingTestExecutionListener@15deb1dc, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6e9c413e, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@57a4d5ee, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5af5def9, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3a45c42a, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@36dce7ed, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@47a64f7d]
+2021-03-03 21:12:43 [main] INFO  c.o.s.EndPointsControllerTest                      - Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 13156 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-03-03 21:12:43 [main] INFO  c.o.s.EndPointsControllerTest                      - No active profile set, falling back to default profiles: default
+2021-03-03 21:12:45 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:12:45 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext           - Initializing Spring TestDispatcherServlet ''
+2021-03-03 21:12:45 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Initializing Servlet ''
+2021-03-03 21:12:45 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Completed initialization in 1 ms
+2021-03-03 21:12:45 [main] INFO  c.o.s.EndPointsControllerTest                      - Started EndPointsControllerTest in 1.752 seconds (JVM running for 3.081)
+2021-03-03 21:12:45 [main] INFO  c.o.s.c.EndPointsController                        - The list is null 404:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:12:45 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 200
+Header Name: {}
+2021-03-03 21:12:45 [main] INFO  c.o.s.EndPointsControllerTest                      - TEST999
+2021-03-03 21:12:45 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:
+Request Method: <[GET]> /firestation
+Request URL: http://localhost/firestation
+Content Type: null
+Response Code: 200
+Header Name: {}
+2021-03-03 21:12:45 [main] INFO  c.o.s.c.EndPointsController                        - The list is empty. No children and no adult 404:
+Request Method: <[GET]> /firestation
+Request URL: http://localhost/firestation
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:12:45 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:13:28 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest], using SpringBootContextLoader
+2021-03-03 21:13:28 [main] INFO  o.s.t.c.s.AbstractContextLoader                    - Could not detect default resource locations for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-03-03 21:13:28 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils       - Could not detect default configuration classes for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: EndPointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-03-03 21:13:28 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper        - Found @SpringBootConfiguration com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication for test class com.openclassrooms.safetynetalerts.EndPointsControllerTest
+2021-03-03 21:13:28 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-03-03 21:13:28 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@a23a01d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4acf72b6, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7561db12, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3301500b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@24b52d3e, org.springframework.test.context.event.EventPublishingTestExecutionListener@15deb1dc, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6e9c413e, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@57a4d5ee, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5af5def9, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3a45c42a, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@36dce7ed, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@47a64f7d]
+2021-03-03 21:13:28 [main] INFO  c.o.s.EndPointsControllerTest                      - Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 6444 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-03-03 21:13:28 [main] INFO  c.o.s.EndPointsControllerTest                      - No active profile set, falling back to default profiles: default
+2021-03-03 21:13:29 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:13:29 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext           - Initializing Spring TestDispatcherServlet ''
+2021-03-03 21:13:29 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Initializing Servlet ''
+2021-03-03 21:13:29 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Completed initialization in 1 ms
+2021-03-03 21:13:29 [main] INFO  c.o.s.EndPointsControllerTest                      - Started EndPointsControllerTest in 1.733 seconds (JVM running for 3.068)
+2021-03-03 21:13:30 [main] INFO  c.o.s.c.EndPointsController                        - The list is null 404:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:13:30 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 200
+Header Name: {}
+2021-03-03 21:13:30 [main] INFO  c.o.s.EndPointsControllerTest                      - TEST999
+2021-03-03 21:13:30 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:
+Request Method: <[GET]> /firestation
+Request URL: http://localhost/firestation
+Content Type: null
+Response Code: 200
+Header Name: {}
+2021-03-03 21:13:30 [main] INFO  c.o.s.c.EndPointsController                        - The list is empty. No children and no adult 404:
+Request Method: <[GET]> /firestation
+Request URL: http://localhost/firestation
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:13:30 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:19:29 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest], using SpringBootContextLoader
+2021-03-03 21:19:29 [main] INFO  o.s.t.c.s.AbstractContextLoader                    - Could not detect default resource locations for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-03-03 21:19:29 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils       - Could not detect default configuration classes for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: EndPointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-03-03 21:19:29 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper        - Found @SpringBootConfiguration com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication for test class com.openclassrooms.safetynetalerts.EndPointsControllerTest
+2021-03-03 21:19:29 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-03-03 21:19:29 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@a23a01d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4acf72b6, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7561db12, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3301500b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@24b52d3e, org.springframework.test.context.event.EventPublishingTestExecutionListener@15deb1dc, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6e9c413e, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@57a4d5ee, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5af5def9, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3a45c42a, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@36dce7ed, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@47a64f7d]
+2021-03-03 21:19:29 [main] INFO  c.o.s.EndPointsControllerTest                      - Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 6952 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-03-03 21:19:29 [main] INFO  c.o.s.EndPointsControllerTest                      - No active profile set, falling back to default profiles: default
+2021-03-03 21:19:30 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:19:31 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext           - Initializing Spring TestDispatcherServlet ''
+2021-03-03 21:19:31 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Initializing Servlet ''
+2021-03-03 21:19:31 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Completed initialization in 1 ms
+2021-03-03 21:19:31 [main] INFO  c.o.s.EndPointsControllerTest                      - Started EndPointsControllerTest in 1.732 seconds (JVM running for 3.149)
+2021-03-03 21:19:31 [main] INFO  c.o.s.c.EndPointsController                        - The list is null 404:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:19:31 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 200
+Header Name: {}
+2021-03-03 21:19:31 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:
+Request Method: <[GET]> /firestation
+Request URL: http://localhost/firestation
+Content Type: null
+Response Code: 200
+Header Name: {}
+2021-03-03 21:19:31 [main] INFO  c.o.s.c.EndPointsController                        - The list is empty. No children and no adult 404:
+Request Method: <[GET]> /firestation
+Request URL: http://localhost/firestation
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:19:31 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:23:06 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest], using SpringBootContextLoader
+2021-03-03 21:23:06 [main] INFO  o.s.t.c.s.AbstractContextLoader                    - Could not detect default resource locations for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-03-03 21:23:06 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils       - Could not detect default configuration classes for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: EndPointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-03-03 21:23:06 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper        - Found @SpringBootConfiguration com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication for test class com.openclassrooms.safetynetalerts.EndPointsControllerTest
+2021-03-03 21:23:06 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-03-03 21:23:06 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6e9c413e, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@57a4d5ee, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5af5def9, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3a45c42a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@36dce7ed, org.springframework.test.context.event.EventPublishingTestExecutionListener@47a64f7d, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@33d05366, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@27a0a5a2, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@7692cd34, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@33aa93c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@32c0915e, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@106faf11]
+2021-03-03 21:23:06 [main] INFO  c.o.s.EndPointsControllerTest                      - Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 24540 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-03-03 21:23:06 [main] INFO  c.o.s.EndPointsControllerTest                      - No active profile set, falling back to default profiles: default
+2021-03-03 21:23:07 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:23:08 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext           - Initializing Spring TestDispatcherServlet ''
+2021-03-03 21:23:08 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Initializing Servlet ''
+2021-03-03 21:23:08 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Completed initialization in 1 ms
+2021-03-03 21:23:08 [main] INFO  c.o.s.EndPointsControllerTest                      - Started EndPointsControllerTest in 1.456 seconds (JVM running for 3.084)
+2021-03-03 21:23:08 [main] INFO  c.o.s.c.EndPointsController                        - The list is null 404:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:23:08 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 200
+Header Name: {}
+2021-03-03 21:23:08 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:
+Request Method: <[GET]> /firestation
+Request URL: http://localhost/firestation
+Content Type: null
+Response Code: 200
+Header Name: {}
+2021-03-03 21:23:08 [main] INFO  c.o.s.c.EndPointsController                        - The list is empty. No children and no adult 404:
+Request Method: <[GET]> /firestation
+Request URL: http://localhost/firestation
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:23:08 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:24:26 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest], using SpringBootContextLoader
+2021-03-03 21:24:26 [main] INFO  o.s.t.c.s.AbstractContextLoader                    - Could not detect default resource locations for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-03-03 21:24:26 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils       - Could not detect default configuration classes for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: EndPointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-03-03 21:24:26 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper        - Found @SpringBootConfiguration com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication for test class com.openclassrooms.safetynetalerts.EndPointsControllerTest
+2021-03-03 21:24:26 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-03-03 21:24:26 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6e9c413e, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@57a4d5ee, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5af5def9, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3a45c42a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@36dce7ed, org.springframework.test.context.event.EventPublishingTestExecutionListener@47a64f7d, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@33d05366, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@27a0a5a2, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@7692cd34, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@33aa93c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@32c0915e, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@106faf11]
+2021-03-03 21:24:27 [main] INFO  c.o.s.EndPointsControllerTest                      - Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 17888 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-03-03 21:24:27 [main] INFO  c.o.s.EndPointsControllerTest                      - No active profile set, falling back to default profiles: default
+2021-03-03 21:24:28 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:24:28 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext           - Initializing Spring TestDispatcherServlet ''
+2021-03-03 21:24:28 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Initializing Servlet ''
+2021-03-03 21:24:28 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Completed initialization in 1 ms
+2021-03-03 21:24:28 [main] INFO  c.o.s.EndPointsControllerTest                      - Started EndPointsControllerTest in 1.567 seconds (JVM running for 3.258)
+2021-03-03 21:24:29 [main] INFO  c.o.s.c.EndPointsController                        - The list is null 404:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:24:29 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 200
+Header Name: {}
+2021-03-03 21:24:29 [main] INFO  c.o.s.c.EndPointsController                        - The list is empty. No children and no adult 404:
+Request Method: <[GET]> /firestation
+Request URL: http://localhost/firestation
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:24:29 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:30:07 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest], using SpringBootContextLoader
+2021-03-03 21:30:07 [main] INFO  o.s.t.c.s.AbstractContextLoader                    - Could not detect default resource locations for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-03-03 21:30:07 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils       - Could not detect default configuration classes for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: EndPointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-03-03 21:30:07 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper        - Found @SpringBootConfiguration com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication for test class com.openclassrooms.safetynetalerts.EndPointsControllerTest
+2021-03-03 21:30:07 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-03-03 21:30:07 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6e9c413e, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@57a4d5ee, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5af5def9, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3a45c42a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@36dce7ed, org.springframework.test.context.event.EventPublishingTestExecutionListener@47a64f7d, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@33d05366, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@27a0a5a2, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@7692cd34, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@33aa93c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@32c0915e, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@106faf11]
+2021-03-03 21:30:08 [main] INFO  c.o.s.EndPointsControllerTest                      - Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 22376 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-03-03 21:30:08 [main] INFO  c.o.s.EndPointsControllerTest                      - No active profile set, falling back to default profiles: default
+2021-03-03 21:30:09 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:30:09 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext           - Initializing Spring TestDispatcherServlet ''
+2021-03-03 21:30:09 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Initializing Servlet ''
+2021-03-03 21:30:09 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Completed initialization in 1 ms
+2021-03-03 21:30:09 [main] INFO  c.o.s.EndPointsControllerTest                      - Started EndPointsControllerTest in 1.447 seconds (JVM running for 3.143)
+2021-03-03 21:30:09 [main] INFO  c.o.s.c.EndPointsController                        - The list is null 404:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:30:09 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 200
+Header Name: {}
+2021-03-03 21:30:09 [main] INFO  c.o.s.c.EndPointsController                        - The list is empty. No children and no adult 404:
+Request Method: <[GET]> /firestation
+Request URL: http://localhost/firestation
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:30:09 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:32:00 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest], using SpringBootContextLoader
+2021-03-03 21:32:00 [main] INFO  o.s.t.c.s.AbstractContextLoader                    - Could not detect default resource locations for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-03-03 21:32:00 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils       - Could not detect default configuration classes for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: EndPointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-03-03 21:32:00 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper        - Found @SpringBootConfiguration com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication for test class com.openclassrooms.safetynetalerts.EndPointsControllerTest
+2021-03-03 21:32:00 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-03-03 21:32:00 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@47d93e0d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@475b7792, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@751e664e, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@160c3ec1, org.springframework.test.context.support.DirtiesContextTestExecutionListener@182b435b, org.springframework.test.context.event.EventPublishingTestExecutionListener@4d0402b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2fa7ae9, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7577b641, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3704122f, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3153ddfc, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@60afd40d, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@28a2a3e7]
+2021-03-03 21:32:01 [main] INFO  c.o.s.EndPointsControllerTest                      - Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 13484 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-03-03 21:32:01 [main] INFO  c.o.s.EndPointsControllerTest                      - No active profile set, falling back to default profiles: default
+2021-03-03 21:32:02 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:32:02 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext           - Initializing Spring TestDispatcherServlet ''
+2021-03-03 21:32:02 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Initializing Servlet ''
+2021-03-03 21:32:02 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Completed initialization in 1 ms
+2021-03-03 21:32:02 [main] INFO  c.o.s.EndPointsControllerTest                      - Started EndPointsControllerTest in 1.421 seconds (JVM running for 3.164)
+2021-03-03 21:32:02 [main] INFO  c.o.s.c.EndPointsController                        - The list is null 404:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:32:02 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 200
+Header Name: {}
+2021-03-03 21:32:02 [main] INFO  c.o.s.c.EndPointsController                        - The list is empty. No children and no adult 404:
+Request Method: <[GET]> /firestation
+Request URL: http://localhost/firestation
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:32:02 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:43:45 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest], using SpringBootContextLoader
+2021-03-03 21:43:45 [main] INFO  o.s.t.c.s.AbstractContextLoader                    - Could not detect default resource locations for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-03-03 21:43:45 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils       - Could not detect default configuration classes for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: EndPointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-03-03 21:43:45 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper        - Found @SpringBootConfiguration com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication for test class com.openclassrooms.safetynetalerts.EndPointsControllerTest
+2021-03-03 21:43:45 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-03-03 21:43:45 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3a45c42a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@36dce7ed, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@47a64f7d, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@33d05366, org.springframework.test.context.support.DirtiesContextTestExecutionListener@27a0a5a2, org.springframework.test.context.event.EventPublishingTestExecutionListener@7692cd34, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@33aa93c, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@32c0915e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@106faf11, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@70f43b45, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@26d10f2e, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@10ad20cb]
+2021-03-03 21:43:46 [main] INFO  c.o.s.EndPointsControllerTest                      - Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 21076 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-03-03 21:43:46 [main] INFO  c.o.s.EndPointsControllerTest                      - No active profile set, falling back to default profiles: default
+2021-03-03 21:43:47 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:43:47 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext           - Initializing Spring TestDispatcherServlet ''
+2021-03-03 21:43:47 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Initializing Servlet ''
+2021-03-03 21:43:47 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Completed initialization in 1 ms
+2021-03-03 21:43:47 [main] INFO  c.o.s.EndPointsControllerTest                      - Started EndPointsControllerTest in 1.507 seconds (JVM running for 3.205)
+2021-03-03 21:43:48 [main] INFO  c.o.s.c.EndPointsController                        - The list is null 404:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:43:48 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 200
+Header Name: {}
+2021-03-03 21:43:48 [main] INFO  c.o.s.c.EndPointsController                        - The list is empty. No children and no adult 404:
+Request Method: <[GET]> /firestation
+Request URL: http://localhost/firestation
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:43:48 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:45:07 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest], using SpringBootContextLoader
+2021-03-03 21:45:07 [main] INFO  o.s.t.c.s.AbstractContextLoader                    - Could not detect default resource locations for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-03-03 21:45:07 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils       - Could not detect default configuration classes for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: EndPointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-03-03 21:45:08 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper        - Found @SpringBootConfiguration com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication for test class com.openclassrooms.safetynetalerts.EndPointsControllerTest
+2021-03-03 21:45:08 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-03-03 21:45:08 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3af9aa66, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@771158fb, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@91c4a3f, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@62d0ac62, org.springframework.test.context.support.DirtiesContextTestExecutionListener@150d80c4, org.springframework.test.context.event.EventPublishingTestExecutionListener@6826c41e, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3003697, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@64d43929, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@1d269ed7, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@437ebf59, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@41c89d2f, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@410e94e]
+2021-03-03 21:45:09 [main] INFO  c.o.s.EndPointsControllerTest                      - Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 16704 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-03-03 21:45:09 [main] INFO  c.o.s.EndPointsControllerTest                      - No active profile set, falling back to default profiles: default
+2021-03-03 21:45:11 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:45:12 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext           - Initializing Spring TestDispatcherServlet ''
+2021-03-03 21:45:12 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Initializing Servlet ''
+2021-03-03 21:45:12 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Completed initialization in 3 ms
+2021-03-03 21:45:12 [main] INFO  c.o.s.EndPointsControllerTest                      - Started EndPointsControllerTest in 3.535 seconds (JVM running for 6.05)
+2021-03-03 21:45:21 [main] INFO  c.o.s.c.EndPointsController                        - The list is null 404:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:45:22 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 200
+Header Name: {}
+2021-03-03 21:45:24 [main] INFO  c.o.s.c.EndPointsController                        - The list is empty. No children and no adult 404:
+Request Method: <[GET]> /firestation
+Request URL: http://localhost/firestation
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:45:24 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:46:12 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest], using SpringBootContextLoader
+2021-03-03 21:46:12 [main] INFO  o.s.t.c.s.AbstractContextLoader                    - Could not detect default resource locations for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-03-03 21:46:12 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils       - Could not detect default configuration classes for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: EndPointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-03-03 21:46:12 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper        - Found @SpringBootConfiguration com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication for test class com.openclassrooms.safetynetalerts.EndPointsControllerTest
+2021-03-03 21:46:12 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-03-03 21:46:12 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@210f0cc1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@19542407, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6f95cd51, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@c7a977f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@55caeb35, org.springframework.test.context.event.EventPublishingTestExecutionListener@6d868997, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2c383e33, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@74a195a4, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@76304b46, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2fa3be26, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4287d447, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3af37506]
+2021-03-03 21:46:13 [main] INFO  c.o.s.EndPointsControllerTest                      - Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 22940 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-03-03 21:46:13 [main] INFO  c.o.s.EndPointsControllerTest                      - No active profile set, falling back to default profiles: default
+2021-03-03 21:46:14 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:46:14 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext           - Initializing Spring TestDispatcherServlet ''
+2021-03-03 21:46:14 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Initializing Servlet ''
+2021-03-03 21:46:14 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Completed initialization in 1 ms
+2021-03-03 21:46:14 [main] INFO  c.o.s.EndPointsControllerTest                      - Started EndPointsControllerTest in 1.872 seconds (JVM running for 4.112)
+2021-03-03 21:46:21 [main] INFO  c.o.s.c.EndPointsController                        - The list is null 404:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:46:23 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:
+Request Method: <[GET]> /childAlert
+Request URL: http://localhost/childAlert
+Content Type: null
+Response Code: 200
+Header Name: {}
+2021-03-03 21:46:26 [main] INFO  c.o.s.c.EndPointsController                        - The list is empty. No children and no adult 404:
+Request Method: <[GET]> /firestation
+Request URL: http://localhost/firestation
+Content Type: null
+Response Code: 404
+Header Name: {}
+2021-03-03 21:46:26 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:52:56 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest], using SpringBootContextLoader
+2021-03-03 21:52:56 [main] INFO  o.s.t.c.s.AbstractContextLoader                    - Could not detect default resource locations for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-03-03 21:52:56 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils       - Could not detect default configuration classes for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: EndPointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-03-03 21:52:57 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper        - Found @SpringBootConfiguration com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication for test class com.openclassrooms.safetynetalerts.EndPointsControllerTest
+2021-03-03 21:52:57 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-03-03 21:52:57 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4c9e9fb8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@9ec531, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@40147317, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@210f0cc1, org.springframework.test.context.support.DirtiesContextTestExecutionListener@19542407, org.springframework.test.context.event.EventPublishingTestExecutionListener@6f95cd51, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@c7a977f, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@55caeb35, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6d868997, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2c383e33, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@74a195a4, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@76304b46]
+2021-03-03 21:52:58 [main] INFO  c.o.s.EndPointsControllerTest                      - Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 6940 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-03-03 21:52:58 [main] INFO  c.o.s.EndPointsControllerTest                      - No active profile set, falling back to default profiles: default
+2021-03-03 21:52:59 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:52:59 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext           - Initializing Spring TestDispatcherServlet ''
+2021-03-03 21:52:59 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Initializing Servlet ''
+2021-03-03 21:52:59 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Completed initialization in 3 ms
+2021-03-03 21:52:59 [main] INFO  c.o.s.EndPointsControllerTest                      - Started EndPointsControllerTest in 1.973 seconds (JVM running for 4.192)
+2021-03-03 21:52:59 [main] INFO  c.o.s.c.EndPointsController                        - The list is null 404:log de test
+2021-03-03 21:52:59 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:log de test
+2021-03-03 21:52:59 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:log de test
+2021-03-03 21:53:00 [main] INFO  c.o.s.c.EndPointsController                        - The list is empty. No children and no adult 404:log de test
+2021-03-03 21:53:00 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:54:16 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest], using SpringBootContextLoader
+2021-03-03 21:54:16 [main] INFO  o.s.t.c.s.AbstractContextLoader                    - Could not detect default resource locations for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-03-03 21:54:16 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils       - Could not detect default configuration classes for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: EndPointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-03-03 21:54:16 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper        - Found @SpringBootConfiguration com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication for test class com.openclassrooms.safetynetalerts.EndPointsControllerTest
+2021-03-03 21:54:16 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-03-03 21:54:16 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6e9c413e, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@57a4d5ee, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5af5def9, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3a45c42a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@36dce7ed, org.springframework.test.context.event.EventPublishingTestExecutionListener@47a64f7d, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@33d05366, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@27a0a5a2, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@7692cd34, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@33aa93c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@32c0915e, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@106faf11]
+2021-03-03 21:54:17 [main] INFO  c.o.s.EndPointsControllerTest                      - Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 15464 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-03-03 21:54:17 [main] INFO  c.o.s.EndPointsControllerTest                      - No active profile set, falling back to default profiles: default
+2021-03-03 21:54:18 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-03 21:54:18 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext           - Initializing Spring TestDispatcherServlet ''
+2021-03-03 21:54:18 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Initializing Servlet ''
+2021-03-03 21:54:18 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Completed initialization in 1 ms
+2021-03-03 21:54:18 [main] INFO  c.o.s.EndPointsControllerTest                      - Started EndPointsControllerTest in 1.571 seconds (JVM running for 3.274)
+2021-03-03 21:54:18 [main] INFO  c.o.s.c.EndPointsController                        - The list is null 404:log de test
+2021-03-03 21:54:18 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:log de test
+2021-03-03 21:54:18 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:log de test
+2021-03-03 21:54:18 [main] INFO  c.o.s.c.EndPointsController                        - The list is empty. No children and no adult 404:log de test
+2021-03-03 21:54:18 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-03 22:08:51 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest], using SpringBootContextLoader
+2021-03-03 22:08:51 [main] INFO  o.s.t.c.s.AbstractContextLoader                    - Could not detect default resource locations for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-03-03 22:08:51 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils       - Could not detect default configuration classes for test class [com.openclassrooms.safetynetalerts.EndPointsControllerTest]: EndPointsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-03-03 22:08:51 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper        - Found @SpringBootConfiguration com.openclassrooms.safetynetalerts.ApiSafetyNetAlertsApplication for test class com.openclassrooms.safetynetalerts.EndPointsControllerTest
+2021-03-03 22:08:51 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-03-03 22:08:51 [main] INFO  o.s.b.t.a.w.s.WebMvcTestContextBootstrapper        - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6e9c413e, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@57a4d5ee, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5af5def9, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3a45c42a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@36dce7ed, org.springframework.test.context.event.EventPublishingTestExecutionListener@47a64f7d, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@33d05366, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@27a0a5a2, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@7692cd34, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@33aa93c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@32c0915e, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@106faf11]
+2021-03-03 22:08:51 [main] INFO  c.o.s.EndPointsControllerTest                      - Starting EndPointsControllerTest using Java 11.0.9 on DELL-Romain with PID 23912 (started by kls_k in C:\Users\kls_k\git\APISafetyNetAlerts)
+2021-03-03 22:08:51 [main] INFO  c.o.s.EndPointsControllerTest                      - No active profile set, falling back to default profiles: default
+2021-03-03 22:08:52 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-03 22:08:53 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext           - Initializing Spring TestDispatcherServlet ''
+2021-03-03 22:08:53 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Initializing Servlet ''
+2021-03-03 22:08:53 [main] INFO  o.s.t.w.s.TestDispatcherServlet                    - Completed initialization in 1 ms
+2021-03-03 22:08:53 [main] INFO  c.o.s.EndPointsControllerTest                      - Started EndPointsControllerTest in 1.478 seconds (JVM running for 3.151)
+2021-03-03 22:08:53 [main] INFO  c.o.s.c.EndPointsController                        - The list is null 404:log de test
+2021-03-03 22:08:53 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:log de test
+2021-03-03 22:08:53 [main] INFO  c.o.s.c.EndPointsController                        - Response status 200:log de test
+2021-03-03 22:08:53 [main] INFO  c.o.s.c.EndPointsController                        - The list is empty. No children and no adult 404:log de test
+2021-03-03 22:08:53 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Shutting down ExecutorService 'applicationTaskExecutor'

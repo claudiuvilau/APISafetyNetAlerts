@@ -6,13 +6,15 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -30,15 +32,27 @@ import com.openclassrooms.safetynetalerts.model.PersonInfo;
 import com.openclassrooms.safetynetalerts.model.Persons;
 import com.openclassrooms.safetynetalerts.model.PersonsFireStation;
 import com.openclassrooms.safetynetalerts.model.PhoneAlert;
+import com.openclassrooms.safetynetalerts.service.LoggerApi;
 
 @WebMvcTest(controllers = EndPointsController.class)
 public class EndPointsControllerTest {
+
+	private static Logger LOGGER = null;
 
 	@Autowired
 	private MockMvc mockMvc;
 
 	@MockBean
 	private JsonDaoImplements jsonDaoImplements;
+
+	@Mock
+	private LoggerApi loggerApi;
+
+	@BeforeAll
+	public static void setLogger() throws MalformedURLException {
+		System.setProperty("log4j.configurationFile", "log4j2-testConfig.xml");
+		LOGGER = LogManager.getLogger();
+	}
 
 	/*
 	 * L'utilisateur accède à l’URL :
@@ -55,6 +69,7 @@ public class EndPointsControllerTest {
 		List<Foyer> listFoyer = new ArrayList<>();
 		String station_number = "3";
 		listFoyer.add(new Foyer("1", null, null, null, null));
+		loggerApi = new LoggerApi();
 		when(jsonDaoImplements.personsOfStationAdultsAndChild(station_number)).thenReturn(listFoyer);
 		mockMvc.perform(get("/firestation").param("stationNumber", station_number)).andExpect(status().isOk());
 	}
