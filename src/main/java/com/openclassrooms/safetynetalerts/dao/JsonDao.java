@@ -22,7 +22,7 @@ public interface JsonDao {
 
 	public List<Firestations> findAddressInFirestations(List<?> listFireStations, String address) throws IOException;;
 
-	public List<Firestations> filterStation(String stationNumber);
+	// public List<Firestations> filterStation(String stationNumber);
 
 	public List<Persons> filterAddressInPersons(String address) throws IOException;
 
@@ -142,11 +142,11 @@ public interface JsonDao {
 	 * caserne ou d'une adresse.
 	 * 
 	 */
-	public void addFirestation(Firestations firestation) throws IOException;
+	public Firestations addFirestation(Firestations firestation) throws IOException;
 
-	public void updateFirestation(Firestations firestation, String address) throws IOException;
+	public boolean updateFirestation(Firestations firestation, String address) throws IOException;
 
-	public void deleteFirestation(String address, String stationNumber) throws IOException;
+	public boolean deleteFirestation(String address, String stationNumber) throws IOException;
 
 	/*
 	 * http://localhost:9090/medicalRecord
@@ -158,11 +158,12 @@ public interface JsonDao {
 	 * combinaison de prénom et de nom comme identificateur unique).
 	 * 
 	 */
-	public void addMedicalRecord(Medicalrecords medicalRecord) throws IOException;
+	public Medicalrecords addMedicalRecord(Medicalrecords medicalRecord) throws IOException;
 
-	public void updateMedicalRecord(Medicalrecords medicalRecord, String firstName, String lastName) throws IOException;
+	public boolean updateMedicalRecord(Medicalrecords medicalRecord, String firstName, String lastName)
+			throws IOException;
 
-	public void deleteMedicalRecord(String firstName, String lastName) throws IOException;
+	public boolean deleteMedicalRecord(String firstName, String lastName) throws IOException;
 
 	public List<Medicalrecords> getAMedicalrecord(String firstNamelastName) throws IOException;
 

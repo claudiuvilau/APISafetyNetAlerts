@@ -7,21 +7,35 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.openclassrooms.safetynetalerts.service.LoggerApi;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 public class EndPointsControlleriTest {
 
+	private static Logger LOGGER = null;
+
 	@Autowired
 	private MockMvc mockMvc;
+
+	@BeforeAll
+	public static void setLogger() throws MalformedURLException {
+		LoggerApi.setLoggerForTests();
+		LOGGER = LogManager.getLogger();
+	}
 
 	@Test
 	public void testPersonsOfStationAdultsAndChildWithFirestation() throws Exception {

@@ -3,6 +3,8 @@ package com.openclassrooms.safetynetalerts;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.openclassrooms.safetynetalerts.service.LoggerApi;
+
 //@ComponentScan(basePackages = { "com.openclassrooms.safetynetalerts.dao" })
 @SpringBootApplication
 public class ApiSafetyNetAlertsApplication {
@@ -14,7 +16,11 @@ public class ApiSafetyNetAlertsApplication {
 		// configuration the log for the API. For the test we have another definition
 		// key
 		// this definition key configure the type of the messages in LoggerApi class
-		System.setProperty("log4j.configurationFile", "log4j2.xml");
+		setLogger();
 
+	}
+
+	public static void setLogger() {
+		LoggerApi.setLogger();
 	}
 }

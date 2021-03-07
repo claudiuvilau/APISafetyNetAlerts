@@ -14,7 +14,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -45,12 +44,9 @@ public class EndPointsControllerTest {
 	@MockBean
 	private JsonDaoImplements jsonDaoImplements;
 
-	@Mock
-	private LoggerApi loggerApi;
-
 	@BeforeAll
 	public static void setLogger() throws MalformedURLException {
-		System.setProperty("log4j.configurationFile", "log4j2-testConfig.xml");
+		LoggerApi.setLoggerForTests();
 		LOGGER = LogManager.getLogger();
 	}
 
@@ -69,9 +65,11 @@ public class EndPointsControllerTest {
 		List<Foyer> listFoyer = new ArrayList<>();
 		String station_number = "3";
 		listFoyer.add(new Foyer("1", null, null, null, null));
-		loggerApi = new LoggerApi();
 		when(jsonDaoImplements.personsOfStationAdultsAndChild(station_number)).thenReturn(listFoyer);
 		mockMvc.perform(get("/firestation").param("stationNumber", station_number)).andExpect(status().isOk());
+		LOGGER.info("Fin test : Le système RETOURNE une liste des personnes (prénom, nom, adresse, numéro de\r\n"
+				+ "téléphone) couvertes par la caserne de pompiers correspondante ainsi qu’un\r\n"
+				+ "décompte du nombre d’adultes (>18 ans) et du nombre d’enfants (<=18 ans)");
 	}
 
 	@Test
@@ -82,6 +80,23 @@ public class EndPointsControllerTest {
 		listFoyer.add(new Foyer("0", null, "0", null, null));
 		when(jsonDaoImplements.personsOfStationAdultsAndChild(station_number)).thenReturn(listFoyer);
 		mockMvc.perform(get("/firestation").param("stationNumber", station_number)).andExpect(status().is(404));
+		LOGGER.info("Fin test : Le système NE retourne PAS une liste des personnes (prénom, nom, adresse, numéro de\r\n"
+				+ "téléphone) couvertes par la caserne de pompiers correspondante ainsi qu’un\r\n"
+				+ "décompte du nombre d’adultes (>18 ans) et du nombre d’enfants (<=18 ans)");
+	}
+
+	@Test
+	public void testGetNoPersonsOfStationAdultsAndChildError() throws Exception {
+		List<Foyer> listFoyer = new ArrayList<>();
+		String station_number = "3";
+		// no adults non children = "0"
+		listFoyer = null;
+		// listFoyer.add(new Foyer(null, null, null, null, null));
+		when(jsonDaoImplements.personsOfStationAdultsAndChild(station_number)).thenReturn(listFoyer);
+		mockMvc.perform(get("/firestation").param("stationNumber", station_number)).andExpect(status().is(404));
+		LOGGER.info("Fin test : Le système NE retourne PAS une liste des personnes (prénom, nom, adresse, numéro de\r\n"
+				+ "téléphone) couvertes par la caserne de pompiers correspondante ainsi qu’un\r\n"
+				+ "décompte du nombre d’adultes (>18 ans) et du nombre d’enfants (<=18 ans). La liste est NULLE !");
 	}
 
 	/*
