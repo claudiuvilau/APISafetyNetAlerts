@@ -51,10 +51,13 @@ public class EndPointsController {
 
 	@Autowired
 	private JsonDao jsonDao;
+
+	private LoggerApi loggerApi = new LoggerApi();
+
 	private ReadJsonFile readJsonFile;
+
 	private List<Firestations> listFirestations = new ArrayList<>();
 	private List<Persons> listPersons = new ArrayList<>();
-	private LoggerApi loggerApi;
 
 	@Bean
 	public HttpTraceRepository htttpTraceRepository() {
@@ -101,7 +104,7 @@ public class EndPointsController {
 			HttpServletResponse response) {
 
 		// if persons == null the end point is bad request because @RequestBody
-		if (persons.equals(null)) {
+		if (persons == null) {
 			response.setStatus(400);
 			LOGGER.error("The body person does not exist " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
@@ -117,7 +120,7 @@ public class EndPointsController {
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
-		if (newPerson.equals(null)) {
+		if (newPerson == null) {
 			response.setStatus(404);
 			LOGGER.info("The person is empty. No persons added " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
@@ -207,7 +210,7 @@ public class EndPointsController {
 	public ResponseEntity<Void> addFirestations(@RequestBody Firestations firestation, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 
-		if (firestation.equals(null)) {
+		if (firestation == null) {
 			response.setStatus(400);
 			LOGGER.error("The body does not exist " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
@@ -217,7 +220,7 @@ public class EndPointsController {
 		Firestations newFirestation = new Firestations();
 		newFirestation = jsonDao.addFirestation(firestation);
 
-		if (newFirestation.equals(null)) {
+		if (newFirestation == null) {
 			response.setStatus(404);
 
 			return ResponseEntity.status(response.getStatus()).build();
@@ -334,14 +337,14 @@ public class EndPointsController {
 	public ResponseEntity<Void> addMedicalRecord(@RequestBody Medicalrecords medicalRecord, HttpServletRequest request,
 			HttpServletResponse response) {
 
-		if (medicalRecord.equals(null)) {
+		if (medicalRecord == null) {
 			response.setStatus(400);
 			LOGGER.error("The body does not exist " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
-		Medicalrecords newMedicalRecord;
+		Medicalrecords newMedicalRecord = new Medicalrecords();
 		try {
 			newMedicalRecord = jsonDao.addMedicalRecord(medicalRecord);
 		} catch (IOException e) {
@@ -350,7 +353,7 @@ public class EndPointsController {
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
-		if (newMedicalRecord.equals(null)) {
+		if (newMedicalRecord == null) {
 			response.setStatus(404);
 			return ResponseEntity.status(response.getStatus()).build();
 		}

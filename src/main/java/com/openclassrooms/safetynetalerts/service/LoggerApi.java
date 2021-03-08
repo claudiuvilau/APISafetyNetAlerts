@@ -22,7 +22,7 @@ public class LoggerApi {
 		String log_info = "\r\nRequest Method: <[" + request.getMethod() + "]>" + " " + request.getRequestURI()
 				+ "\r\nRequest URL: " + ServletUriComponentsBuilder.fromCurrentRequest().toUriString();
 
-		if (System.getProperty("log4j.configurationFile").equals("log4j2-test.xml")) {
+		if (System.getProperty("log4j.configurationFile") == ("log4j2-test.xml")) {
 
 			log_info += " @Param/Path: " + request.getParameterMap().keySet() + "=[" + param + "]"
 					+ "\r\nResponse Code: " + response.getStatus();
@@ -51,7 +51,7 @@ public class LoggerApi {
 
 		String log_err = "";
 
-		if (System.getProperty("log4j.configurationFile").equals("log4j2-test.xml")) {
+		if (System.getProperty("log4j.configurationFile") == ("log4j2-test.xml")) {
 			log_err = "Request URL: " + ServletUriComponentsBuilder.fromCurrentRequest().toUriString()
 					+ " @Param/Path: [" + param + "]";
 		} else {
@@ -67,7 +67,7 @@ public class LoggerApi {
 
 		String log_deb = "";
 
-		if (System.getProperty("log4j.configurationFile").equals("log4j2-test.xml")) {
+		if (System.getProperty("log4j.configurationFile") == ("log4j2-test.xml")) {
 			log_deb = "Request URL: " + ServletUriComponentsBuilder.fromCurrentRequest().toUriString()
 					+ " @Param/Path: [" + param + "]";
 		} else {
