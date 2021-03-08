@@ -24,7 +24,7 @@ public class LoggerApi {
 
 		if (System.getProperty("log4j.configurationFile").equals("log4j2-test.xml")) {
 
-			log_info += " @RequestParam: " + request.getParameterMap().keySet() + "=[" + param + "]"
+			log_info += " @Param/Path: " + request.getParameterMap().keySet() + "=[" + param + "]"
 					+ "\r\nResponse Code: " + response.getStatus();
 
 		} else {
@@ -53,7 +53,7 @@ public class LoggerApi {
 
 		if (System.getProperty("log4j.configurationFile").equals("log4j2-test.xml")) {
 			log_err = "Request URL: " + ServletUriComponentsBuilder.fromCurrentRequest().toUriString()
-					+ " @RequestParam: [" + param + "]";
+					+ " @Param/Path: [" + param + "]";
 		} else {
 			log_err = "\r\nRequest URL: " + ServletUriComponentsBuilder.fromCurrentRequest().toUriString()
 					+ "\r\nException: " + e;
@@ -69,7 +69,7 @@ public class LoggerApi {
 
 		if (System.getProperty("log4j.configurationFile").equals("log4j2-test.xml")) {
 			log_deb = "Request URL: " + ServletUriComponentsBuilder.fromCurrentRequest().toUriString()
-					+ " @RequestParam: [" + param + "]";
+					+ " @Param/Path: [" + param + "]";
 		} else {
 			log_deb = "Request URL: " + ServletUriComponentsBuilder.fromCurrentRequest().toUriString();
 		}

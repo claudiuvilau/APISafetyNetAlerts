@@ -61,133 +61,169 @@ public class EndPointsController {
 		return new InMemoryHttpTraceRepository();
 	}
 
-	// Persons
-	@GetMapping(value = "Persons")
-	public List<Persons> afficherPersonnes() {
-
-		List<Persons> listP = new ArrayList<>();
-		try {
-			readJsonFile = new ReadJsonFile();
-			listP = readJsonFile.readfilejsonPersons();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return listP;
-	}
-
 	// get a person
 	@GetMapping(value = "person/{firstNamelastName}")
 	public ResponseEntity<List<Persons>> getAPerson(@PathVariable String firstNamelastName, HttpServletRequest request,
-			HttpServletResponse response) throws IOException {
+			HttpServletResponse response) {
 
 		if (firstNamelastName.isBlank()) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.error("The path does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		List<Persons> listP = new ArrayList<>();
-		listP = jsonDao.getAPerson(firstNamelastName);
+		try {
+			listP = jsonDao.getAPerson(firstNamelastName);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, firstNamelastName));
+			return ResponseEntity.status(response.getStatus()).build();
+		}
 
 		if (listP.isEmpty()) {
-			return ResponseEntity.notFound().build();
+			response.setStatus(404);
+			LOGGER.info("The list is empty. No persons with this first name and this last name " + response.getStatus()
+					+ ":" + loggerApi.loggerInfo(request, response, firstNamelastName));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
+
+		response.setStatus(200);
+		LOGGER.info("Response status " + response.getStatus() + ":"
+				+ loggerApi.loggerInfo(request, response, firstNamelastName));
 		return new ResponseEntity<List<Persons>>(listP, HttpStatus.valueOf(response.getStatus()));
 	}
 
 	// add a person
 	@PostMapping(value = "/person")
-	public ResponseEntity<Void> addPerson(@RequestBody Persons persons) throws IOException {
-
-		// LOGGER.trace("addPerson");
-		// LOGGER.info("Current Request : " +
-		// ServletUriComponentsBuilder.fromCurrentRequest().build());
+	public ResponseEntity<Void> addPerson(@RequestBody Persons persons, HttpServletRequest request,
+			HttpServletResponse response) {
 
 		// if persons == null the end point is bad request because @RequestBody
-		if (persons == null) {
-			// LOGGER.error("Person in body is null.");
-			return ResponseEntity.badRequest().build();
+		if (persons.equals(null)) {
+			response.setStatus(400);
+			LOGGER.error("The body person does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
-		Persons newPerson = jsonDao.addPerson(persons);
-
-		if (newPerson == null) {
-			// LOGGER.error("The person is not added.");
-			return ResponseEntity.notFound().build();
+		Persons newPerson;
+		try {
+			newPerson = jsonDao.addPerson(persons);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
+		if (newPerson.equals(null)) {
+			response.setStatus(404);
+			LOGGER.info("The person is empty. No persons added " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
+		}
+
+		response.setStatus(201);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{firstName+lastName}")
 				.buildAndExpand(newPerson.getFirstName() + newPerson.getLastName()).toUri();
 		LOGGER.info("A new person is added successful. The URL is : " + location);
+		LOGGER.info("Response status " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response, ""));
 		return ResponseEntity.created(location).build();
 	}
 
 	// update person
 	@PutMapping(value = "/person")
 	public ResponseEntity<Void> updatePerson(@RequestBody Persons persons, @RequestParam String firstName,
-			@RequestParam String lastName) throws IOException {
+			@RequestParam String lastName, HttpServletRequest request, HttpServletResponse response) {
 
 		if (firstName.isBlank() || lastName.isBlank()) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.error("The params does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		boolean update = false;
 
-		update = jsonDao.updatePerson(persons, firstName, lastName);
-
-		if (update == false) {
-			return ResponseEntity.notFound().build();
+		try {
+			update = jsonDao.updatePerson(persons, firstName, lastName);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
-		return ResponseEntity.ok().build();
+		if (update == false) {
+			response.setStatus(404);
+			LOGGER.info("The person is not updeted " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, firstName + " " + lastName));
+			return ResponseEntity.status(response.getStatus()).build();
+		}
+
+		response.setStatus(200);
+		LOGGER.info("Response status " + response.getStatus() + ":"
+				+ loggerApi.loggerInfo(request, response, firstName + " " + lastName));
+		return ResponseEntity.status(response.getStatus()).build();
 	}
 
 	// delete person
 	@DeleteMapping(value = "/person")
-	public ResponseEntity<Void> deletePerson(@RequestParam String firstName, @RequestParam String lastName)
-			throws IOException {
+	public ResponseEntity<Void> deletePerson(@RequestParam String firstName, @RequestParam String lastName,
+			HttpServletRequest request, HttpServletResponse response) {
 
 		if (firstName.isBlank() || lastName.isBlank()) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.error("The params does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		boolean del = false;
 
-		del = jsonDao.deletePerson(firstName, lastName);
+		try {
+			del = jsonDao.deletePerson(firstName, lastName);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+			return ResponseEntity.status(response.getStatus()).build();
+		}
 
 		if (del == false) {
-			return ResponseEntity.notFound().build();
+			response.setStatus(404);
+			LOGGER.info("The person is not deleted " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, firstName + " " + lastName));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
-		return ResponseEntity.ok().build();
-	}
-
-	// Fire stations
-	@GetMapping(value = "Firestations")
-	public List<Firestations> afficherFirestations() {
-		List<Firestations> listF = new ArrayList<>();
-		readJsonFile = new ReadJsonFile();
-		try {
-			listF = readJsonFile.readfilejsonFirestations();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return listF;
+		response.setStatus(200);
+		LOGGER.info("Response status " + response.getStatus() + ":"
+				+ loggerApi.loggerInfo(request, response, firstName + " " + lastName));
+		return ResponseEntity.status(response.getStatus()).build();
 	}
 
 	// add fire station
 	@PostMapping(value = "/firestation")
-	public ResponseEntity<Void> addFirestations(@RequestBody Firestations firestation) throws IOException {
+	public ResponseEntity<Void> addFirestations(@RequestBody Firestations firestation, HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
 
 		if (firestation.equals(null)) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.error("The body does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		Firestations newFirestation = new Firestations();
 		newFirestation = jsonDao.addFirestation(firestation);
 
 		if (newFirestation.equals(null)) {
-			return ResponseEntity.notFound().build();
+			response.setStatus(404);
+
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
+		response.setStatus(201);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{station}")
 				.buildAndExpand(newFirestation.getStation()).toUri();
 		LOGGER.info("A new fire station is added successful. The URL is : " + location);
@@ -196,90 +232,134 @@ public class EndPointsController {
 
 	// update fire station
 	@PutMapping(value = "/firestation")
-	public ResponseEntity<Void> updateFirestations(@RequestBody Firestations firestation, @RequestParam String address)
-			throws IOException {
+	public ResponseEntity<Void> updateFirestations(@RequestBody Firestations firestation, @RequestParam String address,
+			HttpServletRequest request, HttpServletResponse response) {
 
 		if (address.isBlank()) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.error("The param does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
-		boolean update_station = jsonDao.updateFirestation(firestation, address);
+		boolean update_station;
+		try {
+			update_station = jsonDao.updateFirestation(firestation, address);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, address));
+			return ResponseEntity.status(response.getStatus()).build();
+		}
 
 		if (update_station == false) {
-			return ResponseEntity.notFound().build();
+			response.setStatus(404);
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
-		return ResponseEntity.ok().build();
+		response.setStatus(200);
+		LOGGER.info("Response status " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response, address));
+		return ResponseEntity.status(response.getStatus()).build();
 	}
 
 	// delete fire station
 	@DeleteMapping(value = "/firestation")
 	public ResponseEntity<Void> deleteFirestation(@RequestParam(value = "address", required = false) String address,
-			@RequestParam(value = "stationNumber", required = false) String stationNumber) throws IOException {
+			@RequestParam(value = "stationNumber", required = false) String stationNumber, HttpServletRequest request,
+			HttpServletResponse response) {
 
 		if (address.isBlank() && stationNumber.isBlank()) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.error("The param does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		boolean del = false;
 
-		del = jsonDao.deleteFirestation(address, stationNumber);
+		try {
+			del = jsonDao.deleteFirestation(address, stationNumber);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, address + " " + stationNumber));
+			return ResponseEntity.status(response.getStatus()).build();
+		}
 
 		if (del == false) {
-			return ResponseEntity.notFound().build();
+			response.setStatus(404);
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
-		return ResponseEntity.ok().build();
-	}
+		response.setStatus(200);
+		LOGGER.info("Response status " + response.getStatus() + ":"
+				+ loggerApi.loggerInfo(request, response, address + " " + stationNumber));
 
-	// Medical records
-	@GetMapping(value = "Medicalrecords")
-	public List<Medicalrecords> afficherMedicalrecords() {
-		List<Medicalrecords> listM = new ArrayList<>();
-		readJsonFile = new ReadJsonFile();
-		try {
-			listM = readJsonFile.readfilejsonMedicalrecords();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return listM;
+		return ResponseEntity.status(response.getStatus()).build();
 	}
 
 	// get a medical record
 	@GetMapping(value = "medicalRecord/{firstNamelastName}")
 	public ResponseEntity<List<Medicalrecords>> getAMedicalRecord(@PathVariable String firstNamelastName,
-			HttpServletRequest request, HttpServletResponse response) throws IOException {
+			HttpServletRequest request, HttpServletResponse response) {
 
 		if (firstNamelastName.isBlank()) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.error("The path does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		List<Medicalrecords> listM = new ArrayList<>();
-		listM = jsonDao.getAMedicalrecord(firstNamelastName);
+		try {
+			listM = jsonDao.getAMedicalrecord(firstNamelastName);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, firstNamelastName));
+			return ResponseEntity.status(response.getStatus()).build();
+		}
 
 		if (listM.isEmpty()) {
-			return ResponseEntity.notFound().build();
+			response.setStatus(404);
+
+			return ResponseEntity.status(response.getStatus()).build();
 		}
+
+		response.setStatus(200);
+		LOGGER.info("Response status " + response.getStatus() + ":"
+				+ loggerApi.loggerInfo(request, response, firstNamelastName));
 		return new ResponseEntity<List<Medicalrecords>>(listM, HttpStatus.valueOf(response.getStatus()));
 	}
 
 	// add a medical records
 	@PostMapping(value = "/medicalRecord")
-	public ResponseEntity<Void> addMedicalRecord(@RequestBody Medicalrecords medicalRecord) throws IOException {
+	public ResponseEntity<Void> addMedicalRecord(@RequestBody Medicalrecords medicalRecord, HttpServletRequest request,
+			HttpServletResponse response) {
 
 		if (medicalRecord.equals(null)) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.error("The body does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
-		Medicalrecords newMedicalRecord = jsonDao.addMedicalRecord(medicalRecord);
+		Medicalrecords newMedicalRecord;
+		try {
+			newMedicalRecord = jsonDao.addMedicalRecord(medicalRecord);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, ""));
+			return ResponseEntity.status(response.getStatus()).build();
+		}
 
 		if (newMedicalRecord.equals(null)) {
-			return ResponseEntity.notFound().build();
+			response.setStatus(404);
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
+		response.setStatus(201);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{firstName+lastName}")
 				.buildAndExpand(newMedicalRecord.getFirstName() + newMedicalRecord.getLastName()).toUri();
-		// LOGGER.info("A new person is added successful. The URL is : " + location);
+		LOGGER.info("A new medical record is added successful. The URL is : " + location);
+		LOGGER.info("Response status " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response, ""));
 		return ResponseEntity.created(location).build();
 
 	}
@@ -287,49 +367,71 @@ public class EndPointsController {
 	// update medical records
 	@PutMapping(value = "/medicalRecord")
 	public ResponseEntity<Void> updateMedicalRecord(@RequestBody Medicalrecords medicalRecord,
-			@RequestParam String firstName, @RequestParam String lastName) throws IOException {
+			@RequestParam String firstName, @RequestParam String lastName, HttpServletRequest request,
+			HttpServletResponse response) {
 
 		if (firstName.isBlank() || lastName.isBlank()) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.error("The params does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		boolean update = false;
 
-		update = jsonDao.updateMedicalRecord(medicalRecord, firstName, lastName);
-
-		if (update == false) {
-			return ResponseEntity.notFound().build();
+		try {
+			update = jsonDao.updateMedicalRecord(medicalRecord, firstName, lastName);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
-		return ResponseEntity.ok().build();
+		if (update == false) {
+			response.setStatus(404);
+
+			return ResponseEntity.status(response.getStatus()).build();
+		}
+
+		response.setStatus(200);
+		LOGGER.info("Response status " + response.getStatus() + ":"
+				+ loggerApi.loggerInfo(request, response, firstName + " " + lastName));
+		return ResponseEntity.status(response.getStatus()).build();
 	}
 
 	// delete medical records
 	@DeleteMapping(value = "/medicalRecord")
-	public ResponseEntity<Void> deleteMedicalRecord(@RequestParam String firstName, @RequestParam String lastName)
-			throws IOException {
+	public ResponseEntity<Void> deleteMedicalRecord(@RequestParam String firstName, @RequestParam String lastName,
+			HttpServletRequest request, HttpServletResponse response) {
 
 		if (firstName.isBlank() || lastName.isBlank()) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.error("The params does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		boolean del = false;
 
-		del = jsonDao.deleteMedicalRecord(firstName, lastName);
-
-		if (del == false) {
-			return ResponseEntity.notFound().build();
+		try {
+			del = jsonDao.deleteMedicalRecord(firstName, lastName);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
-		return ResponseEntity.ok().build();
-	}
+		if (del == false) {
+			response.setStatus(404);
+			LOGGER.info("The medical record is not deleted " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, firstName + " " + lastName));
+			return ResponseEntity.status(response.getStatus()).build();
+		}
 
-	// Find all children
-	@GetMapping(value = "Children")
-	public List<Children> afficherChildren(@RequestParam int old) throws IOException, ParseException {
-		List<Children> listM = new ArrayList<>();
-		listM = jsonDao.findOld(old);
-		return listM;
+		response.setStatus(200);
+		LOGGER.info("Response status " + response.getStatus() + ":"
+				+ loggerApi.loggerInfo(request, response, firstName + " " + lastName));
+		return ResponseEntity.status(response.getStatus()).build();
 	}
 
 	// Fire stations N°
@@ -338,36 +440,34 @@ public class EndPointsController {
 			HttpServletRequest request, HttpServletResponse response) {
 
 		if (station.isBlank()) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.error("The path does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		InterfaceFilterJsons filterJsons = createFilterJsons();
 		listFirestations = filterJsons.filterStation(station);
 
 		if (listFirestations.isEmpty()) {
-			return ResponseEntity.notFound().build();
+			response.setStatus(404);
+
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
+		response.setStatus(200);
+		LOGGER.info("Response status " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response, station));
 		return new ResponseEntity<List<Firestations>>(listFirestations, HttpStatus.valueOf(response.getStatus()));
-	}
-
-	// Address
-	@GetMapping(value = "Persons/{address}")
-	public List<?> listPersonsOfAddress(@PathVariable String address) throws IOException {
-		listPersons = jsonDao.filterAddressInPersons(address);
-		return listPersons;
 	}
 
 	@GetMapping("firestation")
 	public ResponseEntity<List<Foyer>> firestationStationNumber(@RequestParam String stationNumber,
 			HttpServletRequest request, HttpServletResponse response) {
 
-		loggerApi = new LoggerApi();
-
-		if (stationNumber == null || stationNumber.length() == 0) {
+		if (stationNumber.isBlank()) {
 			response.setStatus(400);
 			LOGGER.info("The param does not exist " + response.getStatus() + ":"
-					+ loggerApi.loggerInfo(request, response, stationNumber));
+					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
@@ -384,7 +484,6 @@ public class EndPointsController {
 		} else {
 			if (listFoyer.get(0).getDecompteAdult().equals("0") && listFoyer.get(0).getDecompteChildren().equals("0")) {
 				response.setStatus(404);
-
 				LOGGER.info("The list is empty. No children and no adult " + response.getStatus() + ":"
 						+ loggerApi.loggerInfo(request, response, stationNumber));
 				return ResponseEntity.status(response.getStatus()).build();
@@ -401,12 +500,10 @@ public class EndPointsController {
 	public ResponseEntity<List<ChildAlert>> childAlert(@RequestParam String address, HttpServletRequest request,
 			HttpServletResponse response) {
 
-		loggerApi = new LoggerApi();
-
-		if (address == null || address.length() == 0) {
+		if (address.isBlank()) {
 			response.setStatus(400);
 			LOGGER.info("The param does not exist " + response.getStatus() + ":"
-					+ loggerApi.loggerInfo(request, response, address));
+					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
@@ -433,29 +530,40 @@ public class EndPointsController {
 	}
 
 	@GetMapping("phoneAlert")
-	public ResponseEntity<List<PhoneAlert>> phoneAlertStationNumber(@RequestParam String firestation)
-			throws IOException {
+	public ResponseEntity<List<PhoneAlert>> phoneAlertStationNumber(@RequestParam String firestation,
+			HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		if (firestation.isBlank()) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.error("The param does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		List<PhoneAlert> listPhoneAlert = new ArrayList<>();
 		listPhoneAlert = jsonDao.phoneAlertFirestation(firestation);
 
 		if (listPhoneAlert.get(0).getListPhones().isEmpty()) {
-			return ResponseEntity.notFound().build();
+			response.setStatus(404);
+
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
-		return new ResponseEntity<List<PhoneAlert>>(listPhoneAlert, HttpStatus.OK);
+		response.setStatus(200);
+		LOGGER.info(
+				"Response status " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response, firestation));
+		return new ResponseEntity<List<PhoneAlert>>(listPhoneAlert, HttpStatus.valueOf(response.getStatus()));
 	}
 
 	@GetMapping("fire")
-	public ResponseEntity<List<FireAddress>> fireAddress(@RequestParam String address)
-			throws IOException, ParseException {
+	public ResponseEntity<List<FireAddress>> fireAddress(@RequestParam String address, HttpServletRequest request,
+			HttpServletResponse response) throws IOException, ParseException {
 
-		if (address == null || address.length() == 0) {
-			return ResponseEntity.badRequest().build();
+		if (address.isBlank()) {
+			response.setStatus(400);
+			LOGGER.error("The param does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		List<FireAddress> listFireAddress = new ArrayList<>();
@@ -464,64 +572,168 @@ public class EndPointsController {
 		if (listFireAddress.isEmpty()) {
 			return ResponseEntity.unprocessableEntity().build();
 		}
-		return new ResponseEntity<List<FireAddress>>(listFireAddress, HttpStatus.OK);
+		response.setStatus(200);
+		LOGGER.info("Response status " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response, address));
+		return new ResponseEntity<List<FireAddress>>(listFireAddress, HttpStatus.valueOf(response.getStatus()));
 
 	}
 
 	@GetMapping("flood/station")
-	public ResponseEntity<List<PersonsFireStation>> fireAddressListFireStation(@RequestParam List<String> station)
-			throws IOException, ParseException {
+	public ResponseEntity<List<PersonsFireStation>> fireAddressListFireStation(@RequestParam List<String> station,
+			HttpServletRequest request, HttpServletResponse response) {
 
 		if (station.isEmpty()) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.error("The param does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		List<PersonsFireStation> listPersonsFireStation = new ArrayList<>();
-		listPersonsFireStation = jsonDao.stationListFirestation(station);
+		try {
+			listPersonsFireStation = jsonDao.stationListFirestation(station);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, station.toString()));
+			return ResponseEntity.status(response.getStatus()).build();
+		} catch (ParseException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, station.toString()));
+			return ResponseEntity.status(response.getStatus()).build();
+		}
 
 		if (listPersonsFireStation.isEmpty()) {
 			return ResponseEntity.unprocessableEntity().build();
 		}
-		return new ResponseEntity<List<PersonsFireStation>>(listPersonsFireStation, HttpStatus.OK);
+		response.setStatus(200);
+		LOGGER.info("Response status " + response.getStatus() + ":"
+				+ loggerApi.loggerInfo(request, response, station.toString()));
+		return new ResponseEntity<List<PersonsFireStation>>(listPersonsFireStation,
+				HttpStatus.valueOf(response.getStatus()));
 	}
 
 	@GetMapping("personInfo")
-	public ResponseEntity<List<PersonInfo>> personInfo(@RequestParam String firstName, @RequestParam String lastName)
-			throws IOException, ParseException {
+	public ResponseEntity<List<PersonInfo>> personInfo(@RequestParam String firstName, @RequestParam String lastName,
+			HttpServletRequest request, HttpServletResponse response) {
 
 		if (firstName.isBlank() || lastName.isBlank()) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.error("The param does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		List<PersonInfo> listPeronInfo = new ArrayList<>();
-		listPeronInfo = jsonDao.personInfo(firstName, lastName);
+		try {
+			listPeronInfo = jsonDao.personInfo(firstName, lastName);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+			return ResponseEntity.status(response.getStatus()).build();
+		} catch (ParseException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+			return ResponseEntity.status(response.getStatus()).build();
+		}
 
 		if (listPeronInfo.isEmpty()) {
 			return ResponseEntity.unprocessableEntity().build();
 		}
 
-		return new ResponseEntity<List<PersonInfo>>(listPeronInfo, HttpStatus.OK);
+		response.setStatus(200);
+		LOGGER.info("Response status " + response.getStatus() + ":"
+				+ loggerApi.loggerInfo(request, response, firstName + " " + lastName));
+		return new ResponseEntity<List<PersonInfo>>(listPeronInfo, HttpStatus.valueOf(response.getStatus()));
 	}
 
 	@GetMapping("communityEmail")
-	public ResponseEntity<List<CommunityEmail>> communityEmail(@RequestParam String city) throws IOException {
+	public ResponseEntity<List<CommunityEmail>> communityEmail(@RequestParam String city, HttpServletRequest request,
+			HttpServletResponse response) {
 
 		if (city.isBlank()) {
-			return ResponseEntity.badRequest().build();
+			response.setStatus(400);
+			LOGGER.error("The param does not exist " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		List<CommunityEmail> listCommunityEmail = new ArrayList<>();
-		listCommunityEmail = jsonDao.communityEmail(city);
+		try {
+			listCommunityEmail = jsonDao.communityEmail(city);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, city));
+			return ResponseEntity.status(response.getStatus()).build();
+		}
 
 		if (listCommunityEmail.get(0).getListEmails().isEmpty()) {
 			return ResponseEntity.unprocessableEntity().build();
 		}
 
-		return new ResponseEntity<List<CommunityEmail>>(listCommunityEmail, HttpStatus.OK);
+		response.setStatus(200);
+		LOGGER.info("Response status " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response, city));
+		return new ResponseEntity<List<CommunityEmail>>(listCommunityEmail, HttpStatus.valueOf(response.getStatus()));
 	}
 
 	protected InterfaceFilterJsons createFilterJsons() {
 		return new FilterJsons();
+	}
+
+	// tests au début pour voir comment je récupère des jsons du fichier
+
+	// Persons
+	@GetMapping(value = "Persons")
+	public List<Persons> afficherPersonnes() {
+
+		List<Persons> listP = new ArrayList<>();
+		try {
+			readJsonFile = new ReadJsonFile();
+			listP = readJsonFile.readfilejsonPersons();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return listP;
+	}
+
+	// Fire stations
+	@GetMapping(value = "Firestations")
+	public List<Firestations> afficherFirestations() {
+		List<Firestations> listF = new ArrayList<>();
+		readJsonFile = new ReadJsonFile();
+		try {
+			listF = readJsonFile.readfilejsonFirestations();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return listF;
+	}
+
+	// Medical records
+	@GetMapping(value = "Medicalrecords")
+	public List<Medicalrecords> afficherMedicalrecords() {
+		List<Medicalrecords> listM = new ArrayList<>();
+		readJsonFile = new ReadJsonFile();
+		try {
+			listM = readJsonFile.readfilejsonMedicalrecords();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return listM;
+	}
+
+	// Address
+	@GetMapping(value = "Persons/{address}")
+	public List<?> listPersonsOfAddress(@PathVariable String address) throws IOException {
+		listPersons = jsonDao.filterAddressInPersons(address);
+		return listPersons;
+	}
+
+	// Find all children
+	@GetMapping(value = "Children")
+	public List<Children> afficherChildren(@RequestParam int old) throws IOException, ParseException {
+		List<Children> listM = new ArrayList<>();
+		listM = jsonDao.findOld(old);
+		return listM;
 	}
 
 }
