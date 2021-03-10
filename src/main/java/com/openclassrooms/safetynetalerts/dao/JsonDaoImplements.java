@@ -3,13 +3,7 @@ package com.openclassrooms.safetynetalerts.dao;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.json.JsonException;
@@ -45,28 +39,12 @@ public class JsonDaoImplements implements JsonDao {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(JsonDaoImplements.class);
 	private ReadJsonFile readJsonFile;
-	private LoggerApi loggerApi;
-
-	@Override
-	public List<Persons> filterAddressInPersons(String address) throws IOException {
-
-		List<Persons> listP = new ArrayList<>();
-		List<Persons> listPersons = new ArrayList<>();
-		readJsonFile = new ReadJsonFile();
-		listP = readJsonFile.readfilejsonPersons(); // here we have a list of objects Persons from json
-		// file
-		String jsonstream = JsonStream.serialize(listP); // here we transform the list in json object
-
-		// We will read the json object and if we have an address == address we
-		// will make another list
-		listPersons = findAddressInPersons(jsonstream, address);
-		return listPersons;
-	}
+	private LoggerApi loggerApi = new LoggerApi();
 
 	@Override
 	public List<Foyer> personsOfStationAdultsAndChild(String stationNumber) {
 
-		loggerApi = new LoggerApi();
+		InterfaceFilterJsons filterJsons = createFilterJsons();
 
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug(loggerApi.loggerDebug(stationNumber));
@@ -78,7 +56,6 @@ public class JsonDaoImplements implements JsonDao {
 		List<Persons> listPersons = new ArrayList<>();
 		List<Persons> listP = new ArrayList<>();
 
-		InterfaceFilterJsons filterJsons = createFilterJsons();
 		listFirestations = filterJsons.filterStation(stationNumber);
 
 		String jsonstream = null;
@@ -113,6 +90,7 @@ public class JsonDaoImplements implements JsonDao {
 		}
 
 		JsonIterator iterator;
+
 		for (Any element : any) {
 			iterator = JsonIterator.parse(element.toString());
 			try {
@@ -121,7 +99,8 @@ public class JsonDaoImplements implements JsonDao {
 					case "address":
 						if (iterator.whatIsNext() == ValueType.STRING) {
 							address = iterator.readString();
-							listPersons = filterAddressInPersons(address); // it will check the address in the Persons
+							listPersons = filterJsons.filterAddressInPersons(address); // it will check the address in
+																						// the Persons
 							listP.addAll(listPersons); // it will make the list of the persons = address
 						}
 						continue;
@@ -181,7 +160,7 @@ public class JsonDaoImplements implements JsonDao {
 					personsMedicalrecords.setBirthdate(element_list_medicalrecords.getBirthdate());
 					listMedicalrecords.add(personsMedicalrecords);
 					try {
-						listChildren.addAll(listFindOld(listMedicalrecords, child_old));
+						listChildren.addAll(filterJsons.listFindOld(listMedicalrecords, child_old));
 					} catch (IOException | ParseException e) {
 						LOGGER.error(loggerApi.loggerErr(e, stationNumber));
 					}
@@ -225,76 +204,15 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public List<Persons> findAddressInPersons(String jsonStream, String address) throws IOException {
-
-		Persons persons = new Persons();
-		List<Persons> listPersons = new ArrayList<>();
-
-		JsonIterator iter = JsonIterator.parse(jsonStream);
-
-		Any any = null;
-		any = iter.readAny();
-		JsonIterator iterator;
-		for (Any element : any) {
-			iterator = JsonIterator.parse(element.toString());
-			for (String field = iterator.readObject(); field != null; field = iterator.readObject()) {
-				switch (field) {
-				case "address":
-					if (iterator.whatIsNext() == ValueType.STRING) {
-						if (iterator.readString().equals(address)) {
-							persons = JsonIterator.deserialize(element.toString(), Persons.class);
-							listPersons.add(persons);
-						}
-					}
-					continue;
-				default:
-					iterator.skip();
-				}
-			}
-		}
-		return listPersons;
-	}
-
-	@Override
-	public List<Firestations> findAddressInFirestations(List<?> listFireStations, String address) throws IOException {
-
-		String jsonstream = JsonStream.serialize(listFireStations); // here we transform the list in json object
-
-		List<Firestations> listFirestations = new ArrayList<>();
-		Firestations firestations = new Firestations();
-		JsonIterator iter = JsonIterator.parse(jsonstream);
-		Any any = null;
-		any = iter.readAny();
-		JsonIterator iterator;
-		for (Any element : any) {
-			iterator = JsonIterator.parse(element.toString());
-			for (String field = iterator.readObject(); field != null; field = iterator.readObject()) {
-				switch (field) {
-				case "address":
-					if (iterator.whatIsNext() == ValueType.STRING) {
-						if (iterator.readString().equals(address)) {
-							firestations = JsonIterator.deserialize(element.toString(), Firestations.class);
-							listFirestations.add(firestations);
-						}
-					}
-					continue;
-				default:
-					iterator.skip();
-				}
-			}
-		}
-		return listFirestations;
-	}
-
-	@Override
 	public List<ChildAlert> childPersonsAlertAddress(String address) {
 
-		loggerApi = new LoggerApi();
+		InterfaceFilterJsons filterJsons = createFilterJsons();
 
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug(loggerApi.loggerDebug(address));
 		}
 
+		readJsonFile = new ReadJsonFile();
 		int child_old = 18; // <= 18
 		int adult_old = 19; // >= 19
 		List<Persons> listPersons = new ArrayList<>();
@@ -306,7 +224,7 @@ public class JsonDaoImplements implements JsonDao {
 		List<ChildAlert> listChildAlert = new ArrayList<>();
 
 		try {
-			listChildren = findOld(child_old);
+			listChildren = filterJsons.findOld(child_old);
 		} catch (IOException e) {
 			LOGGER.error(loggerApi.loggerErr(e, address));
 			return null;
@@ -323,7 +241,7 @@ public class JsonDaoImplements implements JsonDao {
 		}
 
 		try {
-			listPersons = filterAddressInPersons(address);
+			listPersons = filterJsons.filterAddressInPersons(address);
 		} catch (IOException e) {
 			LOGGER.error(loggerApi.loggerErr(e, address));
 			return null;
@@ -459,7 +377,7 @@ public class JsonDaoImplements implements JsonDao {
 		if (!listChildrenAlert.isEmpty()) {
 			findChild = 0;
 			try {
-				listPersonsAdult.addAll(listFindOld(listPersons, adult_old));
+				listPersonsAdult.addAll(filterJsons.listFindOld(listPersons, adult_old));
 			} catch (IOException e) {
 				LOGGER.error(loggerApi.loggerErr(e, address));
 				return null;
@@ -486,12 +404,7 @@ public class JsonDaoImplements implements JsonDao {
 			// age of the adults
 			List<Medicalrecords> listMedicalrecords = new ArrayList<>();
 			List<Medicalrecords> listM;
-			try {
-				listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
-			} catch (IOException e) {
-				LOGGER.error(loggerApi.loggerErr(e, address));
-				return null;
-			}
+			listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
 
 			if (LOGGER.isDebugEnabled()) {
 				LOGGER.debug("The list Medicalrecords is: " + listMedicalrecords);
@@ -518,7 +431,7 @@ public class JsonDaoImplements implements JsonDao {
 						medicalrecords.setBirthdate(element_listMedicalrecords.getBirthdate());
 						listM.add(medicalrecords);
 						try {
-							listAdultAlert.addAll(listFindOld(listM, adult_old));
+							listAdultAlert.addAll(filterJsons.listFindOld(listM, adult_old));
 						} catch (IOException e) {
 							LOGGER.error(loggerApi.loggerErr(e, address));
 							return null;
@@ -567,102 +480,24 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public List<Children> findOld(int old) throws IOException, ParseException {
-
-		List<Children> listChild = new ArrayList<>();
-		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
-		readJsonFile = new ReadJsonFile();
-		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
-		listChild = listFindOld(listMedicalrecords, old);
-
-		return listChild;
-	}
-
-	@Override
-	public List<Children> listFindOld(List<?> list, int old) throws IOException, ParseException {
-
-		String person;
-		if (old <= 18) { // change here for the age of the children
-			person = "child";
-		} else
-			person = "adult";
-
-		List<Children> listChild = new ArrayList<>();
-		List<Children> listAdult = new ArrayList<>();
-		Children children = new Children();
-
-		String jsonstream = JsonStream.serialize(list); // here we transform the list in json object
-
-		JsonIterator iter = JsonIterator.parse(jsonstream);
-		Any any = null;
-		any = iter.readAny();
-		JsonIterator iterator;
-		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-		Calendar calendar = new GregorianCalendar();
-		LocalDate now = LocalDate.now();
-		Date date_birthday;
-		LocalDate birthdate;
-		Period periode;
-		for (Any element : any) {
-			iterator = JsonIterator.parse(element.toString());
-			for (String field = iterator.readObject(); field != null; field = iterator.readObject()) {
-				switch (field) {
-				case "birthdate":
-					if (iterator.whatIsNext() == ValueType.STRING) {
-						date_birthday = sdf.parse(iterator.readString());
-						calendar.setTime(date_birthday);
-						birthdate = LocalDate.of(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1,
-								calendar.get(Calendar.DAY_OF_MONTH));
-						periode = Period.between(birthdate, now);
-						if (person.equals("child")) {
-							if (periode.getYears() <= old) { // for the children
-								children = JsonIterator.deserialize(element.toString(), Children.class);
-								children.setOld(Integer.toString(periode.getYears()));
-								listChild.add(children);
-							}
-						}
-						if (person.equals("adult")) {
-							if (periode.getYears() >= old) { // for the adults. use = too
-								children = JsonIterator.deserialize(element.toString(), Children.class);
-								children.setOld(Integer.toString(periode.getYears()));
-								listAdult.add(children);
-							}
-						}
-					}
-					continue;
-				default:
-					iterator.skip();
-				}
-			}
-		}
-
-		// create decompte
-		int decompte;
-		if (person.equals("child")) {
-			decompte = listChild.size();
-			for (Children element_decompte : listChild) {
-				element_decompte.setDecompte(Integer.toString(decompte));
-				decompte -= 1;
-			}
-			return listChild;
-		} else {
-			decompte = listAdult.size();
-			for (Children element_decompte : listAdult) {
-				element_decompte.setDecompte(Integer.toString(decompte));
-				decompte -= 1;
-			}
-			return listAdult;
-		}
-	}
-
-	@Override
 	public List<PhoneAlert> phoneAlertFirestation(String stationNumber) throws IOException {
 
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(stationNumber));
+		}
+
+		InterfaceFilterJsons filterJsons = createFilterJsons();
+
+		List<PhoneAlert> listPhoneAlert = new ArrayList<>();
 		List<Firestations> listFirestations = new ArrayList<>();
 		List<Persons> listPersons = new ArrayList<>();
 		List<Persons> listP = new ArrayList<>();
-		InterfaceFilterJsons filterJsons = createFilterJsons();
+
 		listFirestations = filterJsons.filterStation(stationNumber);
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list fire stations is: " + listFirestations);
+		}
 
 		String jsonstream = JsonStream.serialize(listFirestations); // here we transform the list in json object
 
@@ -670,7 +505,12 @@ public class JsonDaoImplements implements JsonDao {
 
 		JsonIterator iter = JsonIterator.parse(jsonstream);
 		Any any = null;
-		any = iter.readAny();
+		try {
+			any = iter.readAny();
+		} catch (IOException e) {
+			LOGGER.error(loggerApi.loggerErr(e, stationNumber));
+			return listPhoneAlert;
+		}
 
 		JsonIterator iterator;
 		for (Any element : any) {
@@ -678,23 +518,42 @@ public class JsonDaoImplements implements JsonDao {
 			for (String field = iterator.readObject(); field != null; field = iterator.readObject()) {
 				switch (field) {
 				case "address":
-					if (iterator.whatIsNext() == ValueType.STRING) {
-						address = iterator.readString();
-						listPersons = filterAddressInPersons(address); // it will check the address in the Persons
-						listP.addAll(listPersons); // it will make the list of the persons = address
+					try {
+						if (iterator.whatIsNext() == ValueType.STRING) {
+							address = iterator.readString();
+							listPersons = filterJsons.filterAddressInPersons(address); // it will check the address in
+																						// the
+																						// Persons
+							listP.addAll(listPersons); // it will make the list of the persons = address
+						}
+					} catch (IOException e) {
+						LOGGER.error(loggerApi.loggerErr(e, stationNumber));
+						return listPhoneAlert;
 					}
 					continue;
 				default:
-					iterator.skip();
+					try {
+						iterator.skip();
+					} catch (IOException e) {
+						LOGGER.error(loggerApi.loggerErr(e, stationNumber));
+						return listPhoneAlert;
+					}
 				}
 			}
 		}
 
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of persons is: " + listP);
+		}
+
 		PhoneAlert phoneAlert = new PhoneAlert();
-		List<PhoneAlert> listPhoneAlert = new ArrayList<>();
 		List<String> listPhones = new ArrayList<>();
 		for (Persons element_listP : listP) {
 			listPhones.add(element_listP.getPhone());
+		}
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of phones before remove the duplicate is: " + listPhones);
 		}
 
 		// remove the the duplicate phones
@@ -716,17 +575,44 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public List<FireAddress> fireAddress(String address) throws IOException, ParseException {
+	public List<FireAddress> fireAddress(String address) {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(address));
+		}
+
+		InterfaceFilterJsons filterJsons = createFilterJsons();
+		List<FireAddress> listFireAddress = new ArrayList<>();
 
 		// create a list persons to address
 		List<Persons> listPersons = new ArrayList<>();
-		listPersons = filterAddressInPersons(address);
+		try {
+			listPersons = filterJsons.filterAddressInPersons(address);
+
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The list of persons to address is: " + listPersons);
+			}
+
+		} catch (IOException e) {
+			LOGGER.error(loggerApi.loggerErr(e, address));
+			return listFireAddress;
+		}
 
 		// create a list fire stations of address
 		List<Firestations> listFirestations = new ArrayList<>();
 		readJsonFile = new ReadJsonFile();
 		listFirestations = readJsonFile.readfilejsonFirestations();
-		listFirestations = findAddressInFirestations(listFirestations, address);
+		try {
+			listFirestations = filterJsons.findAddressInFirestations(listFirestations, address);
+
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The list of fire stations of address is: " + listFirestations);
+			}
+
+		} catch (IOException e) {
+			LOGGER.error(loggerApi.loggerErr(e, address));
+			return listFireAddress;
+		}
 		String no_firestation = "";
 		for (Firestations element_firestations : listFirestations) {
 			no_firestation = element_firestations.getStation();
@@ -738,23 +624,56 @@ public class JsonDaoImplements implements JsonDao {
 		readJsonFile = new ReadJsonFile();
 		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
 
-		// create a list age old children and adult because he use the methods to crate
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of medical records: " + listMedicalrecords);
+		}
+
+		// create a list age old children and adult because he use the methods to create
 		// theses lists
 		int old_children = 18;
 		int old_adult = 19;
 		List<Children> listChildren = new ArrayList<>();
-		listChildren = findOld(old_children);
+		try {
+			listChildren = filterJsons.findOld(old_children);
+
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The list of children <= " + old_children + " old is: " + listChildren);
+			}
+
+		} catch (IOException e) {
+			LOGGER.error(loggerApi.loggerErr(e, address));
+			return listFireAddress;
+		} catch (ParseException e) {
+			LOGGER.error(loggerApi.loggerErr(e, address));
+			return listFireAddress;
+		}
 		List<Children> listAdult = new ArrayList<>();
-		listAdult = findOld(old_adult);
+		try {
+			listAdult = filterJsons.findOld(old_adult);
+
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The list of adults >= " + old_adult + " old is: " + listAdult);
+			}
+
+		} catch (IOException e) {
+			LOGGER.error(loggerApi.loggerErr(e, address));
+			return listFireAddress;
+		} catch (ParseException e) {
+			LOGGER.error(loggerApi.loggerErr(e, address));
+			return listFireAddress;
+		}
 		// create only one list age
 		List<Children> listAge = new ArrayList<>();
 		listAge.addAll(listChildren);
 		listAge.addAll(listAdult);
 
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list with age (child+adult) is:  " + listAge);
+		}
+
 		// create the list fire address with first name, last name, phone and medical
 		// records
 		FireAddress fireAddress;
-		List<FireAddress> listFireAddress = new ArrayList<>();
 		String name_person;
 		String name_person_medicalrecords;
 		boolean find_medicalrecords = false;
@@ -789,6 +708,10 @@ public class JsonDaoImplements implements JsonDao {
 				find_medicalrecords = false;
 		}
 
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of fire stations with address, without age is: " + listFireAddress);
+		}
+
 		// set the age of persons
 		String name_person_age;
 		for (FireAddress element_fireaddress : listFireAddress) {
@@ -806,16 +729,26 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public List<PersonsFireStation> stationListFirestation(List<String> station) throws IOException, ParseException {
+	public List<PersonsFireStation> stationListFirestation(List<String> station) {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(station.toString()));
+		}
+
+		InterfaceFilterJsons filterJsons = createFilterJsons();
 
 		List<PersonsFireStation> listPersonsFireStation = new ArrayList<>();
 		PersonsFireStation personsFireStation;
 
-		// the lists of fire stations with the number of station
+		// the list of fire stations with the number of station
 		List<Firestations> listFirestations = new ArrayList<>();
-		InterfaceFilterJsons filterJsons = createFilterJsons();
+
 		for (int i = 0; i < station.size(); i++) {
 			listFirestations.addAll(filterJsons.filterStation(station.get(i)));
+		}
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of fire stations with the number of station is: " + listFirestations);
 		}
 
 		// create a list age old children and adult because he use the methods to crate
@@ -823,19 +756,53 @@ public class JsonDaoImplements implements JsonDao {
 		int old_children = 18;
 		int old_adult = 19;
 		List<Children> listChildren = new ArrayList<>();
-		listChildren = findOld(old_children);
+		try {
+			listChildren = filterJsons.findOld(old_children);
+
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The list of children <= " + old_children + " old is: " + listChildren);
+			}
+
+		} catch (IOException e) {
+			LOGGER.error(loggerApi.loggerErr(e, station.toString()));
+			return listPersonsFireStation;
+		} catch (ParseException e) {
+			LOGGER.error(loggerApi.loggerErr(e, station.toString()));
+			return listPersonsFireStation;
+		}
 		List<Children> listAdult = new ArrayList<>();
-		listAdult = findOld(old_adult);
+		try {
+			listAdult = filterJsons.findOld(old_adult);
+
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The list of adults >= " + old_adult + " old is: " + listAdult);
+			}
+
+		} catch (IOException e) {
+			LOGGER.error(loggerApi.loggerErr(e, station.toString()));
+			return listPersonsFireStation;
+		} catch (ParseException e) {
+			LOGGER.error(loggerApi.loggerErr(e, station.toString()));
+			return listPersonsFireStation;
+		}
 		// create only one list age
 		List<Children> listAge = new ArrayList<>();
 		listAge.addAll(listChildren);
 		listAge.addAll(listAdult);
 		String name_person_age;
 
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list with age is: " + listAge);
+		}
+
 		// create a list medical records
 		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
 		readJsonFile = new ReadJsonFile();
 		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of medical records is: " + listMedicalrecords);
+		}
 
 		// check the persons with the same address in persons = the same address in fire
 		// station
@@ -850,7 +817,17 @@ public class JsonDaoImplements implements JsonDao {
 		String name_person_medicalrecords;
 		for (Firestations element_firestation : listFirestations) {
 			listPersons = new ArrayList<>();
-			listPersons.addAll(findAddressInPersons(jsonstream, element_firestation.getAddress()));
+			try {
+				listPersons.addAll(filterJsons.findAddressInPersons(jsonstream, element_firestation.getAddress()));
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug(
+							"The list of the persons with the same address in persons = the same address in fire station is: "
+									+ listPersons);
+				}
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, station.toString()));
+				return listPersonsFireStation;
+			}
 			// create the list address list fire station with first name, last name, phone
 			// and medical
 			// records
@@ -886,6 +863,12 @@ public class JsonDaoImplements implements JsonDao {
 				} else
 					find_medicalrecords = false;
 			}
+
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The list address list fire station with first name, last name, phone is: "
+						+ listAddressListFirestation);
+			}
+
 			// set the age of persons
 			for (AddressListFirestation element_fireaddress : listAddressListFirestation) {
 				name_person = element_fireaddress.getFirstName() + element_fireaddress.getLastName();
@@ -907,20 +890,34 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public List<PersonInfo> personInfo(String firstName, String lastName) throws IOException, ParseException {
+	public List<PersonInfo> personInfo(String firstName, String lastName) {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(firstName + " " + lastName));
+		}
+
+		InterfaceFilterJsons filterJsons = createFilterJsons();
+		List<PersonInfo> listPersonInfo = new ArrayList<>();
 
 		// create a list of persons
 		List<Persons> listPersons = new ArrayList<>();
 		readJsonFile = new ReadJsonFile();
 		listPersons = readJsonFile.readfilejsonPersons();
 
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of persons: " + listPersons);
+		}
+
 		// create a list of medical records
 		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
 		readJsonFile = new ReadJsonFile();
 		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
 
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of medical records is: " + listMedicalrecords);
+		}
+
 		// the list person with only the get of the firsName and lastName
-		List<PersonInfo> listPersonInfo = new ArrayList<>();
 		PersonInfo personInfo;
 		boolean find_medicalrecords = false;
 		for (Persons element_persons : listPersons) {
@@ -949,18 +946,53 @@ public class JsonDaoImplements implements JsonDao {
 			}
 		}
 
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of persons with only the get of the firsName and lastName: " + listPersonInfo);
+		}
+
 		// create a list age old children and adult because he use the methods to crate
 		// theses lists
 		int old_children = 18;
 		int old_adult = 19;
 		List<Children> listChildren = new ArrayList<>();
-		listChildren = findOld(old_children);
+		try {
+			listChildren = filterJsons.findOld(old_children);
+
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The list of children <= " + old_children + " old is: " + listChildren);
+			}
+
+		} catch (IOException e) {
+			LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+			return listPersonInfo;
+		} catch (ParseException e) {
+			LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+			return listPersonInfo;
+		}
 		List<Children> listAdult = new ArrayList<>();
-		listAdult = findOld(old_adult);
+		try {
+			listAdult = filterJsons.findOld(old_adult);
+
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The list of adults >= " + old_adult + " old is: " + listAdult);
+			}
+
+		} catch (IOException e) {
+			LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+			return listPersonInfo;
+		} catch (ParseException e) {
+			LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+			return listPersonInfo;
+		}
 		// create only one list age
 		List<Children> listAge = new ArrayList<>();
 		listAge.addAll(listChildren);
 		listAge.addAll(listAdult);
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of age is: " + listAge);
+		}
+
 		String name_person_age;
 		// set the age of persons
 		String name_person;
@@ -979,7 +1011,11 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public List<CommunityEmail> communityEmail(String city) throws IOException {
+	public List<CommunityEmail> communityEmail(String city) {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(city));
+		}
 
 		List<CommunityEmail> listCommunityEmail = new ArrayList<>();
 
@@ -987,12 +1023,20 @@ public class JsonDaoImplements implements JsonDao {
 		readJsonFile = new ReadJsonFile();
 		listPersons = readJsonFile.readfilejsonPersons();
 
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The all persons are: " + listPersons);
+		}
+
 		CommunityEmail communityEmail;
 		List<String> listEmail = new ArrayList<>();
 		for (Persons element_persons : listPersons) {
 			if (element_persons.getCity().equals(city)) {
 				listEmail.add(element_persons.getEmail());
 			}
+		}
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of emails is created(before remove the duplicate): " + listEmail);
 		}
 
 		// remove the the duplicate email
@@ -1017,12 +1061,20 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public Persons addPerson(Persons persons) throws IOException {
+	public Persons addPerson(Persons persons) {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(persons.toString()));
+		}
 
 		readJsonFile = new ReadJsonFile();
 
 		List<Persons> listPersons = new ArrayList<>();
 		listPersons = readJsonFile.readfilejsonPersons();
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The persons are: " + listPersons);
+		}
 
 		// verify if the persons is exist in the persons if not = add
 		boolean find_persons = false;
@@ -1030,6 +1082,10 @@ public class JsonDaoImplements implements JsonDao {
 			if ((element.getFirstName() + element.getLastName())
 					.equals(persons.getFirstName() + persons.getLastName())) {
 				find_persons = true;
+
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("This person is already in the list.");
+				}
 				break;
 			}
 		}
@@ -1037,6 +1093,10 @@ public class JsonDaoImplements implements JsonDao {
 		// add the persons if find_persons is false
 		if (find_persons == false) {
 			listPersons.add(persons); // add the body
+
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The person is added: " + listPersons);
+			}
 
 			// create fire stations
 			List<Firestations> listFirestations = new ArrayList<>();
@@ -1052,23 +1112,53 @@ public class JsonDaoImplements implements JsonDao {
 
 			String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
 																				// object
-			FileWriter writer = new FileWriter(readJsonFile.filepath_json);
-			writer.write(jsonstream);
-			writer.flush();
-			writer.close();
+			FileWriter writer = null;
+			try {
+				writer = new FileWriter(readJsonFile.filepath_json);
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, persons.toString()));
+				return null;
+			}
+			try {
+				writer.write(jsonstream);
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, persons.toString()));
+			}
+			try {
+				writer.flush();
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, persons.toString()));
+			}
+			try {
+				writer.close();
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, persons.toString()));
+				return null;
+			}
 
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The new file is writed: " + jsonstream);
+			}
 			return persons;
 		}
 		return null;
 	}
 
 	@Override
-	public boolean updatePerson(Persons persons, String firstName, String lastName) throws IOException {
+	public boolean updatePerson(Persons persons, String firstName, String lastName) {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(firstName + " " + lastName));
+		}
 
 		readJsonFile = new ReadJsonFile();
 
 		List<Persons> listPersons = new ArrayList<>();
 		listPersons = readJsonFile.readfilejsonPersons();
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of all persons is: " + listPersons);
+		}
 
 		// find the person and update
 		String firstNamelastName = firstName + lastName;
@@ -1090,6 +1180,9 @@ public class JsonDaoImplements implements JsonDao {
 					element.setZip(persons.getZip());
 				}
 
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("The person is updated. This is the list updated: " + listPersons);
+				}
 				// create fire stations
 				List<Firestations> listFirestations = new ArrayList<>();
 				listFirestations = readJsonFile.readfilejsonFirestations();
@@ -1105,11 +1198,32 @@ public class JsonDaoImplements implements JsonDao {
 				String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
 																					// object
 
-				FileWriter writer = new FileWriter(readJsonFile.filepath_json);
-				writer.write(jsonstream);
-				writer.flush();
-				writer.close();
+				FileWriter writer = null;
+				try {
+					writer = new FileWriter(readJsonFile.filepath_json);
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, persons.toString()));
+				}
+				try {
+					writer.write(jsonstream);
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, persons.toString()));
+				}
+				try {
+					writer.flush();
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, persons.toString()));
+				}
+				try {
+					writer.close();
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, persons.toString()));
+					return false;
+				}
 
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("The new file is writed: " + jsonstream);
+				}
 				return true;
 			}
 		}
@@ -1117,18 +1231,31 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public boolean deletePerson(String firstName, String lastName) throws IOException {
+	public boolean deletePerson(String firstName, String lastName) {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(firstName + " " + lastName));
+		}
 
 		readJsonFile = new ReadJsonFile();
 
 		List<Persons> listPersons = new ArrayList<>();
 		listPersons = readJsonFile.readfilejsonPersons();
 
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of all persons is: " + listPersons);
+		}
+
 		// find the person and delete
 		String firstNamelastName = firstName + lastName;
 		for (Persons element : listPersons) {
 			if ((element.getFirstName() + element.getLastName()).equals(firstNamelastName)) {
 				listPersons.remove(element);
+
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("The person is deleted: " + listPersons);
+				}
+
 				// create fire stations
 				List<Firestations> listFirestations = new ArrayList<>();
 				listFirestations = readJsonFile.readfilejsonFirestations();
@@ -1144,10 +1271,32 @@ public class JsonDaoImplements implements JsonDao {
 				String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
 																					// object
 
-				FileWriter writer = new FileWriter(readJsonFile.filepath_json);
-				writer.write(jsonstream);
-				writer.flush();
-				writer.close();
+				FileWriter writer = null;
+				try {
+					writer = new FileWriter(readJsonFile.filepath_json);
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+				}
+				try {
+					writer.write(jsonstream);
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+				}
+				try {
+					writer.flush();
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+				}
+				try {
+					writer.close();
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+					return false;
+				}
+
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("The new file is writed: " + jsonstream);
+				}
 				return true;
 			}
 		}
@@ -1155,13 +1304,20 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public Firestations addFirestation(Firestations firestation) throws IOException {
+	public Firestations addFirestation(Firestations firestation) {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(firestation.toString()));
+		}
 
 		readJsonFile = new ReadJsonFile();
 
 		List<Firestations> listFirestations = new ArrayList<>();
 		listFirestations = readJsonFile.readfilejsonFirestations();
 
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of all fire stations is: " + listFirestations);
+		}
 		// verify if the fire station exist in the fires stations if not = add
 		boolean find_firestation = false;
 		for (Firestations element : listFirestations) {
@@ -1190,11 +1346,32 @@ public class JsonDaoImplements implements JsonDao {
 			String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
 																				// object
 
-			FileWriter writer = new FileWriter(readJsonFile.filepath_json);
-			writer.write(jsonstream);
-			writer.flush();
-			writer.close();
+			FileWriter writer = null;
+			try {
+				writer = new FileWriter(readJsonFile.filepath_json);
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, firestation.toString()));
+			}
+			try {
+				writer.write(jsonstream);
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, firestation.toString()));
+			}
+			try {
+				writer.flush();
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, firestation.toString()));
+			}
+			try {
+				writer.close();
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, firestation.toString()));
+				return null;
+			}
 
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The new file is writed: " + jsonstream);
+			}
 			return firestation;
 		}
 
@@ -1202,12 +1379,20 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public boolean updateFirestation(Firestations firestation, String address) throws IOException {
+	public boolean updateFirestation(Firestations firestation, String address) {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(address));
+		}
 
 		readJsonFile = new ReadJsonFile();
 
 		List<Firestations> listFirestations = new ArrayList<>();
 		listFirestations = readJsonFile.readfilejsonFirestations();
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of all fire stations is: " + listFirestations);
+		}
 
 		// find the fire station and update
 		for (Firestations element : listFirestations) {
@@ -1215,6 +1400,11 @@ public class JsonDaoImplements implements JsonDao {
 				if (firestation.getStation() != null) {
 					element.setStation(firestation.getStation());
 				}
+
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("The fire station is updated. This is the list updated: " + listFirestations);
+				}
+
 				// break;
 
 				// create persons
@@ -1232,20 +1422,44 @@ public class JsonDaoImplements implements JsonDao {
 				String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
 																					// object
 
-				FileWriter writer = new FileWriter(readJsonFile.filepath_json);
-				writer.write(jsonstream);
-				writer.flush();
-				writer.close();
+				FileWriter writer = null;
+				try {
+					writer = new FileWriter(readJsonFile.filepath_json);
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, address));
+				}
+				try {
+					writer.write(jsonstream);
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, address));
+				}
+				try {
+					writer.flush();
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, address));
+				}
+				try {
+					writer.close();
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, address));
+					return false;
+				}
 
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("The new file is writed: " + jsonstream);
+				}
 				return true;
 			}
 		}
-
 		return false;
 	}
 
 	@Override
-	public boolean deleteFirestation(String address, String stationNumber) throws IOException {
+	public boolean deleteFirestation(String address, String stationNumber) {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(stationNumber));
+		}
 
 		// if only one request parameter is used
 		if ((!address.isBlank() && stationNumber.isBlank()) || (!stationNumber.isBlank() && address.isBlank())) {
@@ -1256,6 +1470,10 @@ public class JsonDaoImplements implements JsonDao {
 			List<Firestations> listFirestations = new ArrayList<>();
 			Firestations firestations;
 			listF = readJsonFile.readfilejsonFirestations();
+
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The list of all fire stations is: " + listF);
+			}
 
 			// if there are address in URI
 			if (!address.isBlank() && stationNumber.isBlank()) {
@@ -1280,6 +1498,10 @@ public class JsonDaoImplements implements JsonDao {
 				}
 			}
 
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The fire station is deleted: " + listFirestations);
+			}
+
 			// create persons
 			List<Persons> listPersons = new ArrayList<>();
 			listPersons = readJsonFile.readfilejsonPersons();
@@ -1295,24 +1517,51 @@ public class JsonDaoImplements implements JsonDao {
 			String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
 																				// object
 
-			FileWriter writer = new FileWriter(readJsonFile.filepath_json);
-			writer.write(jsonstream);
-			writer.flush();
-			writer.close();
+			FileWriter writer = null;
+			try {
+				writer = new FileWriter(readJsonFile.filepath_json);
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, address + " " + stationNumber));
+			}
+			try {
+				writer.write(jsonstream);
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, address + " " + stationNumber));
+			}
+			try {
+				writer.flush();
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, address + " " + stationNumber));
+			}
+			try {
+				writer.close();
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, address + " " + stationNumber));
+				return false;
+			}
 
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The new file is writed: " + jsonstream);
+			}
 			return true;
 		}
-
 		return false;
 	}
 
 	@Override
-	public Medicalrecords addMedicalRecord(Medicalrecords medicalRecord) throws IOException {
+	public Medicalrecords addMedicalRecord(Medicalrecords medicalRecord) {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(medicalRecord.toString()));
+		}
 
 		readJsonFile = new ReadJsonFile();
 		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
 		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
 
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of all medical records is: " + listMedicalrecords);
+		}
 		// verify if the persons is exist in the medical records if not = add
 		boolean find_persons = false;
 		for (Medicalrecords element : listMedicalrecords) {
@@ -1342,11 +1591,32 @@ public class JsonDaoImplements implements JsonDao {
 			String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
 																				// object
 
-			FileWriter writer = new FileWriter(readJsonFile.filepath_json);
-			writer.write(jsonstream);
-			writer.flush();
-			writer.close();
+			FileWriter writer = null;
+			try {
+				writer = new FileWriter(readJsonFile.filepath_json);
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, medicalRecord.toString()));
+			}
+			try {
+				writer.write(jsonstream);
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, medicalRecord.toString()));
+			}
+			try {
+				writer.flush();
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, medicalRecord.toString()));
+			}
+			try {
+				writer.close();
+			} catch (IOException e) {
+				LOGGER.error(loggerApi.loggerErr(e, medicalRecord.toString()));
+				return null;
+			}
 
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("The new file is writed: " + jsonstream);
+			}
 			return medicalRecord;
 		}
 
@@ -1354,12 +1624,20 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public boolean updateMedicalRecord(Medicalrecords medicalRecord, String firstName, String lastName)
-			throws IOException {
+	public boolean updateMedicalRecord(Medicalrecords medicalRecord, String firstName, String lastName) {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(firstName + " " + lastName));
+		}
+
 		readJsonFile = new ReadJsonFile();
 
 		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
 		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The list of all medical records is: " + listMedicalrecords);
+		}
 
 		// find the person and update
 		String firstNamelastName = firstName + lastName;
@@ -1374,6 +1652,11 @@ public class JsonDaoImplements implements JsonDao {
 				if (medicalRecord.getMedications() != null) {
 					element.setMedications(medicalRecord.getMedications());
 				}
+
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("The medical record is updated. This is the list updated: " + listMedicalrecords);
+				}
+
 				// break;
 
 				// create persons
@@ -1391,11 +1674,32 @@ public class JsonDaoImplements implements JsonDao {
 				String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
 																					// object
 
-				FileWriter writer = new FileWriter(readJsonFile.filepath_json);
-				writer.write(jsonstream);
-				writer.flush();
-				writer.close();
+				FileWriter writer = null;
+				try {
+					writer = new FileWriter(readJsonFile.filepath_json);
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+				}
+				try {
+					writer.write(jsonstream);
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+				}
+				try {
+					writer.flush();
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+				}
+				try {
+					writer.close();
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+					return false;
+				}
 
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("The new file is writed: " + jsonstream);
+				}
 				return true;
 
 			}
@@ -1405,18 +1709,36 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public boolean deleteMedicalRecord(String firstName, String lastName) throws IOException {
+	public boolean deleteMedicalRecord(String firstName, String lastName) {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(firstName + " " + lastName));
+		}
+
 		readJsonFile = new ReadJsonFile();
 
 		List<Medicalrecords> listMedicalrecords = new ArrayList<>();
 		listMedicalrecords = readJsonFile.readfilejsonMedicalrecords();
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The all medical records are: " + listMedicalrecords);
+		}
 
 		// find the person and delete
 		String firstNamelastName = firstName + lastName;
 		for (Medicalrecords element : listMedicalrecords) {
 			if ((element.getFirstName() + element.getLastName()).equals(firstNamelastName)) {
 				listMedicalrecords.remove(element);
+
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("The medical record is deleted: " + listMedicalrecords);
+				}
+
 				// break;
+
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("The medical record is deleted: " + listMedicalrecords);
+				}
 
 				// create persons
 				List<Persons> listPersons = new ArrayList<>();
@@ -1433,10 +1755,32 @@ public class JsonDaoImplements implements JsonDao {
 				String jsonstream = JsonStream.serialize(collectionsRessources); // here we transform the list in json
 																					// object
 
-				FileWriter writer = new FileWriter(readJsonFile.filepath_json);
-				writer.write(jsonstream);
-				writer.flush();
-				writer.close();
+				FileWriter writer = null;
+				try {
+					writer = new FileWriter(readJsonFile.filepath_json);
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+				}
+				try {
+					writer.write(jsonstream);
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+				}
+				try {
+					writer.flush();
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+				}
+				try {
+					writer.close();
+				} catch (IOException e) {
+					LOGGER.error(loggerApi.loggerErr(e, firstName + " " + lastName));
+					return false;
+				}
+
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("The new file is writed: " + jsonstream);
+				}
 
 				return true;
 			}
@@ -1446,11 +1790,20 @@ public class JsonDaoImplements implements JsonDao {
 	}
 
 	@Override
-	public List<Persons> getAPerson(String firstNamelastName) throws IOException {
+	public List<Persons> getAPerson(String firstNamelastName) {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(firstNamelastName));
+		}
+
 		List<Persons> listP = new ArrayList<>();
 		List<Persons> listPersons = new ArrayList<>();
 		readJsonFile = new ReadJsonFile();
 		listP = readJsonFile.readfilejsonPersons(); // here we have a list of objects Persons from json
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The all persons are: " + listP);
+		}
 		for (Persons element : listP) {
 			if ((element.getFirstName() + element.getLastName()).equals(firstNamelastName)) {
 				listPersons.add(element);
@@ -1461,10 +1814,20 @@ public class JsonDaoImplements implements JsonDao {
 
 	@Override
 	public List<Medicalrecords> getAMedicalrecord(String firstNamelastName) throws IOException {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(loggerApi.loggerDebug(firstNamelastName));
+		}
+
 		List<Medicalrecords> listM = new ArrayList<>();
 		List<Medicalrecords> listMedicalreords = new ArrayList<>();
 		readJsonFile = new ReadJsonFile();
 		listM = readJsonFile.readfilejsonMedicalrecords(); // here we have a list of objects Medicalrecords from json
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("The all medical records are: " + listM);
+		}
+
 		for (Medicalrecords element : listM) {
 			if ((element.getFirstName() + element.getLastName()).equals(firstNamelastName)) {
 				listMedicalreords.add(element);

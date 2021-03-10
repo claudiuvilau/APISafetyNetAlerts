@@ -71,7 +71,7 @@ public class EndPointsController {
 
 		if (firstNamelastName.isBlank()) {
 			response.setStatus(400);
-			LOGGER.error("The path does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The path does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -87,8 +87,8 @@ public class EndPointsController {
 
 		if (listP.isEmpty()) {
 			response.setStatus(404);
-			LOGGER.info("The list is empty. No persons with this first name and this last name " + response.getStatus()
-					+ ":" + loggerApi.loggerInfo(request, response, firstNamelastName));
+			LOGGER.info("The list is empty. No persons with this first name and this last name. Response status "
+					+ response.getStatus() + ":" + loggerApi.loggerInfo(request, response, firstNamelastName));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
@@ -106,7 +106,7 @@ public class EndPointsController {
 		// if persons == null the end point is bad request because @RequestBody
 		if (persons == null) {
 			response.setStatus(400);
-			LOGGER.error("The body person does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The body person does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -122,7 +122,7 @@ public class EndPointsController {
 
 		if (newPerson == null) {
 			response.setStatus(404);
-			LOGGER.info("The person is empty. No persons added " + response.getStatus() + ":"
+			LOGGER.info("The person is empty. No persons added. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -142,7 +142,7 @@ public class EndPointsController {
 
 		if (firstName.isBlank() || lastName.isBlank()) {
 			response.setStatus(400);
-			LOGGER.error("The params does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The params does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -159,7 +159,7 @@ public class EndPointsController {
 
 		if (update == false) {
 			response.setStatus(404);
-			LOGGER.info("The person is not updeted " + response.getStatus() + ":"
+			LOGGER.info("The person is not updeted. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, firstName + " " + lastName));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -177,7 +177,7 @@ public class EndPointsController {
 
 		if (firstName.isBlank() || lastName.isBlank()) {
 			response.setStatus(400);
-			LOGGER.error("The params does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The params does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -194,7 +194,7 @@ public class EndPointsController {
 
 		if (del == false) {
 			response.setStatus(404);
-			LOGGER.info("The person is not deleted " + response.getStatus() + ":"
+			LOGGER.info("The person is not deleted. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, firstName + " " + lastName));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -208,21 +208,27 @@ public class EndPointsController {
 	// add fire station
 	@PostMapping(value = "/firestation")
 	public ResponseEntity<Void> addFirestations(@RequestBody Firestations firestation, HttpServletRequest request,
-			HttpServletResponse response) throws IOException {
+			HttpServletResponse response) {
 
 		if (firestation == null) {
 			response.setStatus(400);
-			LOGGER.error("The body does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The body does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		Firestations newFirestation = new Firestations();
-		newFirestation = jsonDao.addFirestation(firestation);
+		try {
+			newFirestation = jsonDao.addFirestation(firestation);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, ""));
+		}
 
 		if (newFirestation == null) {
 			response.setStatus(404);
-
+			LOGGER.info("No new fire station was added. Response status " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
@@ -230,6 +236,7 @@ public class EndPointsController {
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{station}")
 				.buildAndExpand(newFirestation.getStation()).toUri();
 		LOGGER.info("A new fire station is added successful. The URL is : " + location);
+		LOGGER.info("Response status " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response, ""));
 		return ResponseEntity.created(location).build();
 	}
 
@@ -240,7 +247,7 @@ public class EndPointsController {
 
 		if (address.isBlank()) {
 			response.setStatus(400);
-			LOGGER.error("The param does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The param does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -256,6 +263,8 @@ public class EndPointsController {
 
 		if (update_station == false) {
 			response.setStatus(404);
+			LOGGER.info("The fire station was not updated. Response status " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, address));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
@@ -272,7 +281,7 @@ public class EndPointsController {
 
 		if (address.isBlank() && stationNumber.isBlank()) {
 			response.setStatus(400);
-			LOGGER.error("The param does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The param does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -289,13 +298,14 @@ public class EndPointsController {
 
 		if (del == false) {
 			response.setStatus(404);
+			LOGGER.info("The fire station was not deleted. Response status " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, address + " " + stationNumber));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		response.setStatus(200);
 		LOGGER.info("Response status " + response.getStatus() + ":"
 				+ loggerApi.loggerInfo(request, response, address + " " + stationNumber));
-
 		return ResponseEntity.status(response.getStatus()).build();
 	}
 
@@ -306,7 +316,7 @@ public class EndPointsController {
 
 		if (firstNamelastName.isBlank()) {
 			response.setStatus(400);
-			LOGGER.error("The path does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The path does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -322,7 +332,8 @@ public class EndPointsController {
 
 		if (listM.isEmpty()) {
 			response.setStatus(404);
-
+			LOGGER.info("No medical record. Response status " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, firstNamelastName));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
@@ -339,7 +350,7 @@ public class EndPointsController {
 
 		if (medicalRecord == null) {
 			response.setStatus(400);
-			LOGGER.error("The body does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The body does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -355,6 +366,8 @@ public class EndPointsController {
 
 		if (newMedicalRecord == null) {
 			response.setStatus(404);
+			LOGGER.info("The medical record was not added. Response status " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
@@ -375,7 +388,7 @@ public class EndPointsController {
 
 		if (firstName.isBlank() || lastName.isBlank()) {
 			response.setStatus(400);
-			LOGGER.error("The params does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The params does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -392,7 +405,8 @@ public class EndPointsController {
 
 		if (update == false) {
 			response.setStatus(404);
-
+			LOGGER.info("The medical record was not updated. Response status " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, firstName + " " + lastName));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
@@ -409,7 +423,7 @@ public class EndPointsController {
 
 		if (firstName.isBlank() || lastName.isBlank()) {
 			response.setStatus(400);
-			LOGGER.error("The params does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The params does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -426,7 +440,7 @@ public class EndPointsController {
 
 		if (del == false) {
 			response.setStatus(404);
-			LOGGER.info("The medical record is not deleted " + response.getStatus() + ":"
+			LOGGER.info("The medical record is not deleted. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, firstName + " " + lastName));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -444,7 +458,7 @@ public class EndPointsController {
 
 		if (station.isBlank()) {
 			response.setStatus(400);
-			LOGGER.error("The path does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The path does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -454,7 +468,8 @@ public class EndPointsController {
 
 		if (listFirestations.isEmpty()) {
 			response.setStatus(404);
-
+			LOGGER.info("The list is empty. No fire stations. Response status " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, station));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
@@ -469,7 +484,7 @@ public class EndPointsController {
 
 		if (stationNumber.isBlank()) {
 			response.setStatus(400);
-			LOGGER.info("The param does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The param does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -481,13 +496,13 @@ public class EndPointsController {
 
 		if (listFoyer == null) {
 			response.setStatus(404);
-			LOGGER.info("The list is null " + response.getStatus() + ":"
+			LOGGER.error("The list is null. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, stationNumber));
 			return ResponseEntity.status(response.getStatus()).build();
 		} else {
 			if (listFoyer.get(0).getDecompteAdult().equals("0") && listFoyer.get(0).getDecompteChildren().equals("0")) {
 				response.setStatus(404);
-				LOGGER.info("The list is empty. No children and no adult " + response.getStatus() + ":"
+				LOGGER.info("The list is empty. No children and no adult. Response status " + response.getStatus() + ":"
 						+ loggerApi.loggerInfo(request, response, stationNumber));
 				return ResponseEntity.status(response.getStatus()).build();
 			}
@@ -505,7 +520,7 @@ public class EndPointsController {
 
 		if (address.isBlank()) {
 			response.setStatus(400);
-			LOGGER.info("The param does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The param does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -514,14 +529,18 @@ public class EndPointsController {
 		try {
 			listChildren = jsonDao.childPersonsAlertAddress(address);
 		} catch (IOException e) {
+			response.setStatus(404);
 			LOGGER.error(loggerApi.loggerErr(e, address));
+			return ResponseEntity.status(response.getStatus()).build();
 		} catch (ParseException e) {
+			response.setStatus(404);
 			LOGGER.error(loggerApi.loggerErr(e, address));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		if (listChildren == null) {
 			response.setStatus(404);
-			LOGGER.info("The list is null " + response.getStatus() + ":"
+			LOGGER.info("The list is null. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, address));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -534,21 +553,28 @@ public class EndPointsController {
 
 	@GetMapping("phoneAlert")
 	public ResponseEntity<List<PhoneAlert>> phoneAlertStationNumber(@RequestParam String firestation,
-			HttpServletRequest request, HttpServletResponse response) throws IOException {
+			HttpServletRequest request, HttpServletResponse response) {
 
 		if (firestation.isBlank()) {
 			response.setStatus(400);
-			LOGGER.error("The param does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The param does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		List<PhoneAlert> listPhoneAlert = new ArrayList<>();
-		listPhoneAlert = jsonDao.phoneAlertFirestation(firestation);
+		try {
+			listPhoneAlert = jsonDao.phoneAlertFirestation(firestation);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, firestation));
+			return ResponseEntity.status(response.getStatus()).build();
+		}
 
 		if (listPhoneAlert.get(0).getListPhones().isEmpty()) {
 			response.setStatus(404);
-
+			LOGGER.info("No phone for the alerts. Response status " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, firestation));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
@@ -560,20 +586,33 @@ public class EndPointsController {
 
 	@GetMapping("fire")
 	public ResponseEntity<List<FireAddress>> fireAddress(@RequestParam String address, HttpServletRequest request,
-			HttpServletResponse response) throws IOException, ParseException {
+			HttpServletResponse response) {
 
 		if (address.isBlank()) {
 			response.setStatus(400);
-			LOGGER.error("The param does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The param does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		List<FireAddress> listFireAddress = new ArrayList<>();
-		listFireAddress = jsonDao.fireAddress(address);
+		try {
+			listFireAddress = jsonDao.fireAddress(address);
+		} catch (IOException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, address));
+			return ResponseEntity.status(response.getStatus()).build();
+		} catch (ParseException e) {
+			response.setStatus(404);
+			LOGGER.error(loggerApi.loggerErr(e, address));
+			return ResponseEntity.status(response.getStatus()).build();
+		}
 
 		if (listFireAddress.isEmpty()) {
-			return ResponseEntity.unprocessableEntity().build();
+			response.setStatus(404);
+			LOGGER.info("No fire station for this address. Response status " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, address));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 		response.setStatus(200);
 		LOGGER.info("Response status " + response.getStatus() + ":" + loggerApi.loggerInfo(request, response, address));
@@ -587,7 +626,7 @@ public class EndPointsController {
 
 		if (station.isEmpty()) {
 			response.setStatus(400);
-			LOGGER.error("The param does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The param does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -606,7 +645,10 @@ public class EndPointsController {
 		}
 
 		if (listPersonsFireStation.isEmpty()) {
-			return ResponseEntity.unprocessableEntity().build();
+			response.setStatus(404);
+			LOGGER.info("No person in theses fire stations. Response status " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, station.toString()));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 		response.setStatus(200);
 		LOGGER.info("Response status " + response.getStatus() + ":"
@@ -621,7 +663,7 @@ public class EndPointsController {
 
 		if (firstName.isBlank() || lastName.isBlank()) {
 			response.setStatus(400);
-			LOGGER.error("The param does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The param does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -640,7 +682,10 @@ public class EndPointsController {
 		}
 
 		if (listPeronInfo.isEmpty()) {
-			return ResponseEntity.unprocessableEntity().build();
+			response.setStatus(404);
+			LOGGER.info("No person with this name. Response status " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, firstName + " " + lastName));
+			return ResponseEntity.status(response.getStatus()).build();
 		}
 
 		response.setStatus(200);
@@ -655,7 +700,7 @@ public class EndPointsController {
 
 		if (city.isBlank()) {
 			response.setStatus(400);
-			LOGGER.error("The param does not exist " + response.getStatus() + ":"
+			LOGGER.warn("The param does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
 			return ResponseEntity.status(response.getStatus()).build();
 		}
@@ -670,7 +715,11 @@ public class EndPointsController {
 		}
 
 		if (listCommunityEmail.get(0).getListEmails().isEmpty()) {
-			return ResponseEntity.unprocessableEntity().build();
+			response.setStatus(404);
+			LOGGER.info("No emails for this city. Response status " + response.getStatus() + ":"
+					+ loggerApi.loggerInfo(request, response, city));
+			return ResponseEntity.status(response.getStatus()).build();
+
 		}
 
 		response.setStatus(200);
@@ -689,12 +738,8 @@ public class EndPointsController {
 	public List<Persons> afficherPersonnes() {
 
 		List<Persons> listP = new ArrayList<>();
-		try {
-			readJsonFile = new ReadJsonFile();
-			listP = readJsonFile.readfilejsonPersons();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		readJsonFile = new ReadJsonFile();
+		listP = readJsonFile.readfilejsonPersons();
 		return listP;
 	}
 
@@ -703,11 +748,7 @@ public class EndPointsController {
 	public List<Firestations> afficherFirestations() {
 		List<Firestations> listF = new ArrayList<>();
 		readJsonFile = new ReadJsonFile();
-		try {
-			listF = readJsonFile.readfilejsonFirestations();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		listF = readJsonFile.readfilejsonFirestations();
 		return listF;
 	}
 
@@ -716,26 +757,24 @@ public class EndPointsController {
 	public List<Medicalrecords> afficherMedicalrecords() {
 		List<Medicalrecords> listM = new ArrayList<>();
 		readJsonFile = new ReadJsonFile();
-		try {
-			listM = readJsonFile.readfilejsonMedicalrecords();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		listM = readJsonFile.readfilejsonMedicalrecords();
 		return listM;
 	}
 
 	// Address
 	@GetMapping(value = "Persons/{address}")
 	public List<?> listPersonsOfAddress(@PathVariable String address) throws IOException {
-		listPersons = jsonDao.filterAddressInPersons(address);
+		InterfaceFilterJsons filterJsons = new FilterJsons();
+		listPersons = filterJsons.filterAddressInPersons(address);
 		return listPersons;
 	}
 
 	// Find all children
 	@GetMapping(value = "Children")
 	public List<Children> afficherChildren(@RequestParam int old) throws IOException, ParseException {
+		InterfaceFilterJsons filterJsons = new FilterJsons();
 		List<Children> listM = new ArrayList<>();
-		listM = jsonDao.findOld(old);
+		listM = filterJsons.findOld(old);
 		return listM;
 	}
 

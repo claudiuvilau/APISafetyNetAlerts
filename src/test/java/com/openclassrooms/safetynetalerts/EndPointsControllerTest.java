@@ -187,7 +187,7 @@ public class EndPointsControllerTest {
 		String une_adresse = "TestUneAdresse";
 		// if listFireAddress is Empty
 		when(jsonDaoImplements.fireAddress(une_adresse)).thenReturn(listFireAddress);
-		mockMvc.perform(get("/fire").param("address", une_adresse)).andExpect(status().is(422));
+		mockMvc.perform(get("/fire").param("address", une_adresse)).andExpect(status().is(404));
 	}
 
 	@Test
@@ -247,7 +247,7 @@ public class EndPointsControllerTest {
 		param_station.add("3");
 		when(jsonDaoImplements.stationListFirestation(param_station)).thenReturn(listPersonsFireStation);
 		mockMvc.perform(get("/flood/station").param("station", param_station.get(0).toString()).param("station",
-				param_station.get(1).toString())).andExpect(status().is(422));
+				param_station.get(1).toString())).andExpect(status().is(404));
 	}
 
 	@Test
@@ -291,7 +291,7 @@ public class EndPointsControllerTest {
 		List<PersonInfo> listPeronInfo = new ArrayList<>();
 		when(jsonDaoImplements.personInfo(first_name, last_name)).thenReturn(listPeronInfo);
 		mockMvc.perform(get("/personInfo").param("firstName", first_name).param("lastName", last_name))
-				.andExpect(status().is(422));
+				.andExpect(status().is(404));
 	}
 
 	@Test
@@ -332,7 +332,7 @@ public class EndPointsControllerTest {
 		listCommunityEmail.add(new CommunityEmail(listEmail));
 		String test_city = "TestCity";
 		when(jsonDaoImplements.communityEmail(test_city)).thenReturn(listCommunityEmail);
-		mockMvc.perform(get("/communityEmail").param("city", test_city)).andExpect(status().is(422));
+		mockMvc.perform(get("/communityEmail").param("city", test_city)).andExpect(status().is(404));
 	}
 
 	@Test
