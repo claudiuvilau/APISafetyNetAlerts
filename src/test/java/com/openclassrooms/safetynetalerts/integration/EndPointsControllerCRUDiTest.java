@@ -134,6 +134,26 @@ public class EndPointsControllerCRUDiTest {
 	}
 
 	@Test
+	public void testDeleteFirestationAddressNoBlankANDstationNumberIsBlank() throws Exception {
+
+		String station_blank = "";
+		String address_no_blank = "Test1509 Culver St";
+
+		// add person
+		// station added
+		String station_added = "Test99";
+		String body = " {\r\n" + "        \"address\": \"" + address_no_blank + "\",\r\n" + "        \"station\": \""
+				+ station_added + "\"\r\n" + "    }";
+		mockMvc.perform(post("/firestation").content(body).contentType(MediaType.APPLICATION_JSON));
+
+		mockMvc.perform(delete("/firestation").param("stationNumber", station_blank).param("address", address_no_blank))
+				.andExpect(status().isOk());
+
+		mockMvc.perform(get("/Firestations/{station}", station_added)).andExpect(status().isNotFound());
+
+	}
+
+	@Test
 	public void testUpdatefirestation() throws Exception {
 
 		String test_station_udated = "TestStation";
@@ -156,6 +176,21 @@ public class EndPointsControllerCRUDiTest {
 		jsonDaoImplements.deleteFirestation("", test_station_udated);
 		// verify if it is deleted
 		mockMvc.perform(get("/Firestations/{station}", test_station_udated)).andExpect(status().isNotFound());
+
+	}
+
+	@Test
+	public void testUpdatefirestationNoAddress() throws Exception {
+
+		String test_station_udated = "TestStation";
+		String test_adresse_update = "Test1509 Culver St";
+		String test_no_adresse = "";
+
+		String body_put = " {\r\n" + "        \"address\": \"" + test_adresse_update + "\",\r\n"
+				+ "        \"station\": \"" + test_station_udated + "\"\r\n" + "    }";
+
+		mockMvc.perform(put("/firestation").content(body_put).contentType(MediaType.APPLICATION_JSON).param("address",
+				test_no_adresse)).andExpect(status().is(400));
 
 	}
 

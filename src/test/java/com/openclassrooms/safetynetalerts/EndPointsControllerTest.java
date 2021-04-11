@@ -3,6 +3,7 @@ package com.openclassrooms.safetynetalerts;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -26,6 +27,7 @@ import com.openclassrooms.safetynetalerts.model.AddressListFirestation;
 import com.openclassrooms.safetynetalerts.model.ChildAlert;
 import com.openclassrooms.safetynetalerts.model.CommunityEmail;
 import com.openclassrooms.safetynetalerts.model.FireAddress;
+import com.openclassrooms.safetynetalerts.model.Firestations;
 import com.openclassrooms.safetynetalerts.model.Foyer;
 import com.openclassrooms.safetynetalerts.model.PersonInfo;
 import com.openclassrooms.safetynetalerts.model.Persons;
@@ -382,6 +384,182 @@ public class EndPointsControllerTest {
 		when(jsonDaoImplements.updatePerson(persons, "testFirstName", "testLastName")).thenReturn(false);
 		mockMvc.perform(put("/person").content(body_put).contentType(MediaType.APPLICATION_JSON)
 				.param("firstName", "testFirstName").param("lastName", "testLastName")).andExpect(status().is(404));
+	}
+
+	@Test
+	public void testlistFirestationsNumberStationNumberBlank() throws Exception {
+		String station_number = " ";
+		mockMvc.perform(get("/Firestations/" + station_number)).andExpect(status().is(400));
+		LOGGER.info("Fin test : vous avez mis un espace au lieu d'un numéro de caserne.");
+	}
+
+	@Test
+	public void testdeleteFirestationNoAddressNoStationNumber() throws Exception {
+		String station_number = "";
+		String address = "";
+		mockMvc.perform(delete("/firestation").param("address", address).param("stationNumber", station_number))
+				.andExpect(status().is(400));
+		LOGGER.info("Fin test : vous n'avez pas saisi ni adresse ni numéro de caserne.");
+	}
+
+	@Test
+	public void testdeleteFirestationNotDeleted() throws Exception {
+		String station_number = "1";
+		String address = "TestAddress";
+		when(jsonDaoImplements.deleteFirestation(address, station_number)).thenReturn(false);
+		mockMvc.perform(delete("/firestation").param("address", address).param("stationNumber", station_number))
+				.andExpect(status().is(404));
+		LOGGER.info("Fin test : la caserne n'a pas été supprimée.");
+	}
+
+	@Test
+	public void testupdateFirestationsNoUpdate() throws Exception {
+		Firestations firestation = new Firestations();
+		String address = "TestAddress";
+		String station_added = "1";
+
+		String body = " {\r\n" + "\"address\": \"" + address + "\",\r\n" + "\"station\": \"" + station_added + "\"\r\n"
+				+ "}";
+
+		when(jsonDaoImplements.updateFirestation(firestation, address)).thenReturn(false);
+		mockMvc.perform(
+				put("/firestation").content(body).contentType(MediaType.APPLICATION_JSON).param("address", address))
+				.andExpect(status().is(404));
+		LOGGER.info("Fin test : la caserne n'a pas été supprimée.");
+	}
+
+	@Test
+	public void testdeleteMedicalRecordNoFirstName() throws Exception {
+		String firstName = "";
+		String lastName = "Test";
+		mockMvc.perform(delete("/medicalRecord").param("firstName", firstName).param("lastName", lastName))
+				.andExpect(status().is(400));
+		LOGGER.info("Fin test : vous n'avez pas saisi le prénom.");
+	}
+
+	@Test
+	public void testdeleteMedicalRecordNoLastName() throws Exception {
+		String firstName = "Test";
+		String lastName = "";
+		mockMvc.perform(delete("/medicalRecord").param("firstName", firstName).param("lastName", lastName))
+				.andExpect(status().is(400));
+		LOGGER.info("Fin test : vous n'avez pas saisi le nom.");
+	}
+
+	@Test
+	public void testdeleteMedicalRecordNoDeleted() throws Exception {
+		String firstName = "Test";
+		String lastName = "Test";
+		when(jsonDaoImplements.deleteMedicalRecord(firstName, lastName)).thenReturn(false);
+		mockMvc.perform(delete("/medicalRecord").param("firstName", firstName).param("lastName", lastName))
+				.andExpect(status().is(404));
+		LOGGER.info("Fin test : vous n'avez pas saisi le nom.");
+	}
+
+	@Test
+	public void testupdateMedicalRecordNotUpdated() throws Exception {
+		String first_name_test = "TestFirstName";
+		String last_name_test = "TestLastName";
+
+		String body_put = "{\r\n" + "\"firstName\": \"TestPutFirstName\",\r\n"
+				+ "\"lastName\": \"TestPutLastName\",\r\n" + "\"birthdate\": \"03/06/1984\",\r\n"
+				+ "\"medications\": [\r\n" + "\"Testaznol:350mg\",\r\n" + "\"hydrapermazol:100mg\"\r\n" + "],\r\n"
+				+ "\"allergies\": [\r\n" + "\"nillacilan\"\r\n" + "]\r\n" + "}";
+
+		when(jsonDaoImplements.updateMedicalRecord(null, first_name_test, last_name_test)).thenReturn(false);
+		mockMvc.perform(put("/medicalRecord").content(body_put).contentType(MediaType.APPLICATION_JSON)
+				.param("firstName", first_name_test).param("lastName", last_name_test)).andExpect(status().is(404));
+		LOGGER.info("Fin test : le medical records n'a pas été mis à jour.");
+	}
+
+	@Test
+	public void testUpdateMedicalrecordsNoName() throws Exception {
+
+		String first_name_test = "";
+		String last_name_test = "";
+
+		String body_put = "{\r\n" + "\"firstName\": \"TestPutFirstName\",\r\n"
+				+ "\"lastName\": \"TestPutLastName\",\r\n" + "\"birthdate\": \"03/06/1984\",\r\n"
+				+ "\"medications\": [\r\n" + "\"Testaznol:350mg\",\r\n" + "\"hydrapermazol:100mg\"\r\n" + "],\r\n"
+				+ "\"allergies\": [\r\n" + "\"nillacilan\"\r\n" + "]\r\n" + "}";
+
+		mockMvc.perform(put("/medicalRecord").content(body_put).contentType(MediaType.APPLICATION_JSON)
+				.param("firstName", first_name_test).param("lastName", last_name_test)).andExpect(status().is(400));
+
+	}
+
+	@Test
+	public void testAddMedicalrecordsNoAdded() throws Exception {
+
+		String first_name_test = "TestFirstName";
+		String last_name_test = "TestLastName";
+
+		String body = "{\r\n" + "\"firstName\": \"" + first_name_test + "\",\r\n" + "\"lastName\": \"" + last_name_test
+				+ "\",\r\n" + "\"birthdate\": \"03/06/1984\",\r\n" + "\"medications\": [\r\n" + "\"aznol:350mg\",\r\n"
+				+ "\"hydrapermazol:100mg\"\r\n" + "],\r\n" + "\"allergies\": [\r\n" + "\"nillacilan\"\r\n" + "]\r\n"
+				+ "}";
+
+		when(jsonDaoImplements.addMedicalRecord(null)).thenReturn(null);
+		mockMvc.perform(post("/medicalRecord").content(body).contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().is(404));
+	}
+
+	@Test
+	public void testgetAPerson() throws Exception {
+		String firstNamelastName = " ";
+		mockMvc.perform(get("/person/" + firstNamelastName)).andExpect(status().is(400));
+		LOGGER.info("Fin test : vous avez mis un espace au lieu du nom + prénom de la personne.");
+	}
+
+	@Test
+	public void testAddPersonNoAdded() throws Exception {
+
+		String first_name_test = "TestFirstName";
+		String last_name_test = "TestLastName";
+		String body = "{\r\n" + "\"firstName\": \"" + first_name_test + "\",\r\n" + "\"lastName\": \"" + last_name_test
+				+ "\",\r\n" + "\"address\": \"1509 Culver St\",\r\n" + "\"city\": \"Culver\",\r\n"
+				+ "\"zip\": \"97451\",\r\n" + "\"phone\": \"841-874-6512\",\r\n" + "\"email\": \"jaboyd@email.com\"\r\n"
+				+ "}";
+
+		when(jsonDaoImplements.addPerson(null)).thenReturn(null);
+		mockMvc.perform(post("/person").content(body).contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().is(404));
+	}
+
+	@Test
+	public void testAddFirestationNoAdded() throws Exception {
+
+		// station added
+		String station_added = "Test99";
+		String adresse_added = "Test1509 Culver St";
+		String body = " {\r\n" + "\"address\": \"" + adresse_added + "\",\r\n" + "\"station\": \"" + station_added
+				+ "\"\r\n" + "}";
+
+		when(jsonDaoImplements.addFirestation(null)).thenReturn(null);
+		mockMvc.perform(post("/firestation").content(body).contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().is(404));
+	}
+
+	@Test
+	public void testgetAMedicalRecordNoFirstNameNoLastName() throws Exception {
+
+		String first_name_test = " ";
+		String last_name_test = " ";
+
+		mockMvc.perform(get("/medicalRecord/{firstNamelastName}", first_name_test + last_name_test))
+				.andExpect(status().is(400));
+		LOGGER.info("Fin test : vous avez mis un espace au lieu du nom + prénom de la personne.");
+
+	}
+
+	@Test
+	public void testchildAlertNoAddress() throws Exception {
+
+		String param_address = " ";
+
+		mockMvc.perform(get("/childAlert").param("address", param_address)).andExpect(status().is(400));
+
+		LOGGER.info("Fin test : vous avez mis un espace au lieu de l'adresse.");
 	}
 
 }

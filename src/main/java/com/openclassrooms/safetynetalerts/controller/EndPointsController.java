@@ -103,14 +103,6 @@ public class EndPointsController {
 	public ResponseEntity<Void> addPerson(@RequestBody Persons persons, HttpServletRequest request,
 			HttpServletResponse response) {
 
-		// if persons == null the end point is bad request because @RequestBody
-		if (persons == null) {
-			response.setStatus(400);
-			LOGGER.warn("The body person does not exist. Response status " + response.getStatus() + ":"
-					+ loggerApi.loggerInfo(request, response, ""));
-			return ResponseEntity.status(response.getStatus()).build();
-		}
-
 		Persons newPerson;
 		try {
 			newPerson = jsonDao.addPerson(persons);
@@ -209,13 +201,6 @@ public class EndPointsController {
 	@PostMapping(value = "/firestation")
 	public ResponseEntity<Void> addFirestations(@RequestBody Firestations firestation, HttpServletRequest request,
 			HttpServletResponse response) {
-
-		if (firestation == null) {
-			response.setStatus(400);
-			LOGGER.warn("The body does not exist. Response status " + response.getStatus() + ":"
-					+ loggerApi.loggerInfo(request, response, ""));
-			return ResponseEntity.status(response.getStatus()).build();
-		}
 
 		Firestations newFirestation = new Firestations();
 		try {
@@ -348,13 +333,6 @@ public class EndPointsController {
 	public ResponseEntity<Void> addMedicalRecord(@RequestBody Medicalrecords medicalRecord, HttpServletRequest request,
 			HttpServletResponse response) {
 
-		if (medicalRecord == null) {
-			response.setStatus(400);
-			LOGGER.warn("The body does not exist. Response status " + response.getStatus() + ":"
-					+ loggerApi.loggerInfo(request, response, ""));
-			return ResponseEntity.status(response.getStatus()).build();
-		}
-
 		Medicalrecords newMedicalRecord = new Medicalrecords();
 		try {
 			newMedicalRecord = jsonDao.addMedicalRecord(medicalRecord);
@@ -421,7 +399,7 @@ public class EndPointsController {
 	public ResponseEntity<Void> deleteMedicalRecord(@RequestParam String firstName, @RequestParam String lastName,
 			HttpServletRequest request, HttpServletResponse response) {
 
-		if (firstName.isBlank() || lastName.isBlank()) {
+		if (firstName.isEmpty() || lastName.isEmpty()) {
 			response.setStatus(400);
 			LOGGER.warn("The params does not exist. Response status " + response.getStatus() + ":"
 					+ loggerApi.loggerInfo(request, response, ""));
