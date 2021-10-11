@@ -1,5 +1,6 @@
 package com.openclassrooms.safetynetalerts.controller;
 
+
 import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
