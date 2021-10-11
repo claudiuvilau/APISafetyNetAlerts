@@ -1,16 +1,7 @@
 package com.openclassrooms.safetynetalerts.model;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
+//@JsonFilter("monFiltrePhoneAlert")
 public class Persons {
-
 	private String firstName;
 	private String lastName;
 	private String address;
@@ -25,6 +16,7 @@ public class Persons {
 
 	public Persons(String firstName, String lastName, String address, String city, String zip, String phone,
 			String email) {
+		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
@@ -32,23 +24,6 @@ public class Persons {
 		this.zip = zip;
 		this.phone = phone;
 		this.email = email;
-	}
-
-	public JSONArray personsJson() {
-		JSONObject jsonO = new JSONObject();
-		JSONParser jsonP = new JSONParser();
-		JSONArray jsonA = new JSONArray();
-		try {
-			jsonO = (JSONObject) jsonP.parse(new FileReader("data/dbJSON.json"));
-			jsonA = (JSONArray) jsonO.get("persons");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return jsonA;
 	}
 
 	public String getFirstName() {
@@ -110,8 +85,10 @@ public class Persons {
 
 	@Override
 	public String toString() {
-		return "Persons [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city=" + city
-				+ ", zip=" + zip + ", phone=" + phone + ", email=" + email + "]";
+		return "Persons{" + "firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", address='"
+				+ address + '\'' + ", city='" + city + '\'' + ", zip='" + zip + '\'' + ", phone='" + phone + '\''
+				+ ", email='" + email + '\'' + "}";
+
 	}
 
 }
